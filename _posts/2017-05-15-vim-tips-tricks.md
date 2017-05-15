@@ -7,7 +7,7 @@ Vim Tips & Tricks
 =================
 
 As a long time Vim user here are some cool tips n' tricks worth sharing with
-the Vim at large.
+the Vim community at large.
 
 One time normal mode command whilst in insert mode
 --------------------------------------------------
@@ -25,6 +25,19 @@ Control-o zz
 
 Expression register in insert mode
 ----------------------------------
+
+Set global replacement as a default
+-----------------------------------
+{% highlight viml %}
+set gdefault
+{% endhighlight %}
+
+Substitute in a visual block
+----------------------------
+{% highlight viml %}
+'<,'>s/\%Vfoo/bar/c
+{% endhighlight %}
+
 
 Complete a line with *Control-x Control-l*
 ------------------------------------------
@@ -69,13 +82,6 @@ Smarter *j* and *k* navigation
 {% highlight viml %}
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
-{% endhighlight %}
-
-Set global replacement as a default
------------------------------------
-
-{% highlight viml %}
-set gdefault
 {% endhighlight %}
 
 Set *infercase*

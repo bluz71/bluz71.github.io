@@ -1,11 +1,17 @@
 ---
-title: My first Blog Post
+title: My Blog
 layout: default
 ---
 
 My Blog
 =======
 
-*bluz71* is now Blogging.
+I now have a blog. Expect some *musings*.
 
-[Instructions](https://github.com/barryclark/jekyll-now)
+Hosting
+-------
+[Github Pages](https://pages.github.com/).
+
+Theme
+-----
+[Cayman](https://pages-themes.github.io/cayman/).

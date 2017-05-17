@@ -6,18 +6,18 @@ layout: default
 Vim Tips & Tricks
 =================
 
-As a long time Vim user here are some cool tips n' tricks I've picked up along
-the journey that a worth sharing with the Vim community at large.
+As a long time Vim user, here are some cool *tips n' tricks* I've picked up
+along the journey that are worth sharing with the Vim community at large.
 
 Set *relativenumber*
 --------------------
-All Vim users, by default, should set enable relative line numbering. This
-makes it easy to find out how many lines up or down you have to jump to get
-to where you want to go.
+Vim users should enable relative line numbering. This setting makes it easy to
+figure out how many lines up or down you have to jump to get to where you want
+to go.
 
-{% highlight viml %}
+```viml
 set relativenumber
-{% endhighlight %}
+```
 
 Note, for files with very long lines then **relativenumber** will negatively
 scroll performance. I suggest having a quick toggle to disable
@@ -57,9 +57,9 @@ Set global replacement as a default
 -----------------------------------
 Force Vim to always do global substitutions.
 
-{% highlight viml %}
+```viml
 set gdefault
-{% endhighlight %}
+```
 
 This removes the need to tack on **g** to the end of *substitute* commands.
 Once *gdefault* is set the following will be a global (within line) substitute
@@ -109,9 +109,9 @@ Control-x Control-l
 ```
 
 The above is a little difficult to type, I prefer to use the following mapping:
-{% highlight viml %}
+```viml
 inoremap <C-l> <C-x><C-l>
-{% endhighlight %}
+```
 
 One only need type *Control-l* whilst in insert mode to complete the current
 line by repeating an existing line.
@@ -184,10 +184,10 @@ dictionary words. This is useful when writing text.
 
 Simply enable the spell option and append kspell to the complete options:
 
-{% highlight viml %}
+```viml
 set spell
 set complete+=kspell
-{% endhighlight %}
+```
 
 Since I am not always editing text I prefer to toggle the above settings *on*
 and *off* when I desire. In my *vimrc* I have a Spelling function hooked up to
@@ -206,10 +206,10 @@ reason to upgrade!
 
 Set the following options to wrap long lines with indentation:
 
-{% highlight viml %}
+```viml
 set breakindent
 set showbreak=\\\\\
-{% endhighlight %}
+```
 
 Smarter *j* and *k* navigation 
 ------------------------------
@@ -222,10 +222,10 @@ preceded with a count, useful when **relativenumber** is in effect, then we
 The following mapping achieves both aims, display line movements unless
 preceded by a count:
 
-{% highlight viml %}
+```viml
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
-{% endhighlight %}
+```
 
 Set *infercase*
 ---------------
@@ -233,16 +233,16 @@ Most folks set *ignorecase* when searching. However that option does not play
 nicely with completion which will then ignore casing. Set the **infercase**
 option for smarter completions that will be case aware:
 
-{% highlight viml %}
+```viml
 set infercase
-{% endhighlight %}
+```
 
 Improve performance for files with long lines
 ---------------------------------------------
-{% highlight viml %}
+```viml
 set synmaxcol=200
 set norelativenumber
-{% endhighlight %}
+```
 
 Enable wildmenu and wildmode
 ----------------------------
@@ -250,10 +250,10 @@ The wildmenu makes setting Vim options or opening new files via **:e** a
 breeze via tab expansion.
 
 I recommend these options.
-{% highlight viml %}
+```viml
 set wildmenu
 set wildmode=full
-{% endhighlight %}
+```
 
 Once set you can then quickly tab complete an option *set* via:
 ```
@@ -272,9 +272,9 @@ By default the **.** repeat operator does not work over visual selections.
 Set this mapping in your *vimrc* file to enable a simple form of dot repetition
 over visual line selections.
 
-{% highlight viml %}
+```viml
 xnoremap . :norm.<CR>
-{% endhighlight %}
+```
 
 It is recommended only simple operations that start from the beginning of a
 line by dot repeated. For example **ct=** (change up until =) or **5dw**
@@ -289,9 +289,9 @@ on a visual selection.
 I use the *qq* command to record a macro into the *q register*. I then setup
 the following **Q** mapping:
 
-{% highlight viml %}
+```viml
 xnoremap Q :'<,'>:normal @q<CR>
-{% endhighlight %}
+```
 
 Typing **Q** with a visual selection in effect will execute the *q* macro over
 just the selected lines.
@@ -302,6 +302,6 @@ Vim by default has **D** to delete till the end of line and **C** to change
 till the end of line. For some reason it does not have yank till the end of
 line. Enable this mapping to set **Y** to do that particular form of yanking:
 
-{% highlight viml %}
+```viml
 noremap Y y$
-{% endhighlight %}
+```

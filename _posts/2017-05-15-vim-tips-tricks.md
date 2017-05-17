@@ -19,10 +19,6 @@ to go.
 set relativenumber
 ```
 
-Note, for files with very long lines then **relativenumber** will negatively
-scroll performance. I suggest having a quick toggle to disable
-**relativenumber** when required.
-
 One time normal mode command whilst in insert mode
 --------------------------------------------------
 Whilst in insert mode you can quickly execute a single normal operation via:
@@ -39,8 +35,7 @@ Control-o zz
 
 Expression register in insert mode
 ----------------------------------
-Use the expression register, whilst in insert mode, to enter in simple math
-values.
+Use the expression register, whilst in insert mode, to edit-in in math values.
 
 ```
 Control-r= <<math expression>>
@@ -62,19 +57,18 @@ set gdefault
 ```
 
 This removes the need to tack on **g** to the end of *substitute* commands.
-Once *gdefault* is set the following will be a global (within line) substitute
-command:
+Once *gdefault* is set the following will be a global substitute command:
 
 ```
 :%s/old/new
 ```
 
-All the following substitute examples will assume **gdefault** has been set.
+All the following substitute examples will assume *gdefault* has been set.
 
 Substitute in a visual block
 ----------------------------
-Do the following to substitute *old* with *new* within a rectangular visual
-block only (that is a **Control-v** style visual selection):
+Do the following to substitute *old* with *new* only within a rectangular
+visual block, that being a **Control-v** style visual selection:
 
 ```
 :'<,'>s/\%Vold/new
@@ -98,11 +92,10 @@ Then execute a counting substitute:
 Note, this particular form of *substitute* will **not** actually substitute
 anything, it will instead just print out the number of matches.
 
-
 Complete a line with *Control-x Control-l*
 ------------------------------------------
-Sometimes in insert mode you wish to repeat an existing full line, *omni line
-completion* will achieve the task:
+Sometimes in insert mode you may wish to repeat an existing full line; *omni
+line completion* is up to the task:
 
 ```
 Control-x Control-l
@@ -122,7 +115,7 @@ Simply enter **gv** to reselect the last visual selection.
 
 Launch browser with *gx* command
 ------------------------------
-Launch a browser windows by visually selecting a URL and entering **gx**.
+Launch a browser window by visually selecting a URL and entering **gx**.
 
 Sort a visual selection
 -----------------------
@@ -140,7 +133,7 @@ Other system commands such as **uniq** can be used similarly.
 
 Delete all lines containing pattern
 -----------------------------------
-Use the **global** command with the *delete* option to remove all lines that
+Use the *global* command with the *delete* option to remove all lines that
 contain the desired pattern.
 
 ```
@@ -149,7 +142,7 @@ contain the desired pattern.
 
 Delete all lines not containing pattern
 ---------------------------------------
-Use the **vglobal** command to achieve the opposite effect, that is to delete
+Use the *vglobal* command to achieve the opposite effect, that is to delete
 all lines **not** containing the pattern:
 
 
@@ -161,16 +154,18 @@ Vim as a *sed* replacement
 --------------------------
 A Vim script file can be used as a *poor man's* **sed** replacement.
 
-Create a file with the desired operation. For example this file, *do.vim* will
-substitute *new* for *old*:
+Create a file with the desired operations. For example this file, *do.vim*,
+will substitute *new* for *old*:
 
 ```
 :%s/old/new
 :wq
 ```
 
-Then use the *-es* option of Vim to execute the Vim script. This example will
-carry out the above do script over all Ruby files in the current directory tree:
+Then use the **-es** option of Vim to execute the Vim script. 
+
+This example will execute the above do script over all Ruby files in the
+current directory tree:
 
 ```
 vim -es $(find . -name '*.rb') < do.vim
@@ -182,7 +177,7 @@ Completion for spellings
 Vim completion, *Control-n* and *Control-p*, can be used to complete using
 dictionary words. This is useful when writing text.
 
-Simply enable the spell option and append kspell to the complete options:
+Simply enable the spell option and append *kspell* to the complete options:
 
 ```viml
 set spell
@@ -190,18 +185,18 @@ set complete+=kspell
 ```
 
 Since I am not always editing text I prefer to toggle the above settings *on*
-and *off* when I desire. In my *vimrc* I have a Spelling function hooked up to
+and *off* when I desire. In my *vimrc* I have a **Spelling** function hooked up to
 the **F5** function key as seen in my
-[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc)
+[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
 
 
 Better wrapping with *breakindent*
 ----------------------------------
 The relatively new **breakindent** indent option is the *best* way to wrap long
-code lines. Long lines will wrap *with* an indentation thus preserving the
-indented look of code.
+code lines. When set long lines will wrap *with* a indentation thus preserving
+the clean indented look of code.
 
-Note a very modern version of Vim (and Neovim) will be required. All the more
+Note, a very modern version of Vim (and Neovim) will be required. All the more
 reason to upgrade!
 
 Set the following options to wrap long lines with indentation:
@@ -213,11 +208,12 @@ set showbreak=\\\\\
 
 Smarter *j* and *k* navigation 
 ------------------------------
-When any form of wrapping is in effect (I recommend **breakindent** as noted
-above) then it is more natural to convert the **j** and **k** movements from
-strict linewise movements to onscreen display linewise movements. However when
-preceded with a count, useful when **relativenumber** is in effect, then we
-*want* to go back to strict linewise movement.
+When any form of wrapping is in effect, I recommend *breakindent* as noted
+above, then it is natural to convert the **j** and **k** movement commands from
+strict linewise movements to onscreen display line movements via the **gj** and
+**gk** commands. However when preceded with a count, useful when
+*relativenumber* is in effect, then we *want* to go back to strict linewise
+movements.
 
 The following mapping achieves both aims, display line movements unless
 preceded by a count:
@@ -230,8 +226,8 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 Set *infercase*
 ---------------
 Most folks set *ignorecase* when searching. However that option does not play
-nicely with completion which will then ignore casing. Set the **infercase**
-option for smarter completions that will be case aware:
+nicely with completion which will then completely ignore casing. Set the
+**infercase** option for smarter completions that will be case aware:
 
 ```viml
 set infercase
@@ -239,10 +235,16 @@ set infercase
 
 Improve performance for files with long lines
 ---------------------------------------------
+Very long lines will cause performance problems with Vim. *The* main culprit
+for this performance issue is the syntax highlighter. I recommend only syntax
+highlighting the first 200 characters of each line.
+
 ```viml
 set synmaxcol=200
-set norelativenumber
 ```
+The *relativenumber* settings can also cause problems with files with long
+lines. I suggest having a quick toggle to disable *relativenumber* when
+required.
 
 Enable wildmenu and wildmode
 ----------------------------
@@ -255,7 +257,7 @@ set wildmenu
 set wildmode=full
 ```
 
-Once set you can then quickly tab complete an option *set* via:
+For example, once set you can then quickly tab complete an option *set* via:
 ```
 :set auto<<TAB>>
 ```
@@ -267,7 +269,7 @@ enter or leave directories.
 
 Make dot work over visual line selections
 -----------------------------------------
-By default the **.** repeat operator does not work over visual selections.
+By default the **.** repeat operator does not work on visual selections.
 
 Set this mapping in your *vimrc* file to enable a simple form of dot repetition
 over visual line selections.
@@ -276,15 +278,15 @@ over visual line selections.
 xnoremap . :norm.<CR>
 ```
 
-It is recommended only simple operations that start from the beginning of a
-line by dot repeated. For example **ct=** (change up until =) or **5dw**
+It is recommended that simple operations that start from the beginning of a
+line be dot repeated. For example **ct=** (change up until =) or **5dw**
 (delete the first five words of the line) are good candidates for visual dot
 repetition.
 
 Execuate a macro over visual line selections
 --------------------------------------------
 Somewhat related to the previous tip is having the ability to run a macro only
-on a visual selection.
+on a visual line selection.
 
 I use the *qq* command to record a macro into the *q register*. I then setup
 the following **Q** mapping:
@@ -293,14 +295,15 @@ the following **Q** mapping:
 xnoremap Q :'<,'>:normal @q<CR>
 ```
 
-Typing **Q** with a visual selection in effect will execute the *q* macro over
-just the selected lines.
+Typing **Q** with a visual line selection in effect will execute the *q* macro
+over just the selected lines.
 
 Make *Y* should behave like *D* and *C*
 ----------------------------------------
-Vim by default has **D** to delete till the end of line and **C** to change
-till the end of line. For some reason it does not have yank till the end of
-line. Enable this mapping to set **Y** to do that particular form of yanking:
+Vim by default provides **D** to delete till the end of line and **C** to
+change till the end of line. For some reason it does not provide yank till the
+end of line by default. Enable this mapping to set **Y** to do that particular
+form of yanking:
 
 ```viml
 noremap Y y$

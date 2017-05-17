@@ -9,8 +9,8 @@ Technology
 
 Hosting
 -------
-[Github Pages](https://pages.github.com/).
+[Github Pages](https://pages.github.com/)
 
 Theme
 -----
-[Cayman](https://pages-themes.github.io/cayman/).
+[Cayman](https://pages-themes.github.io/cayman/)

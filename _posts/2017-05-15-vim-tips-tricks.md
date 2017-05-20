@@ -1,6 +1,7 @@
 ---
 title: Vim Tips & Tricks
 layout: default
+comments: true
 ---
 
 Vim Tips & Tricks

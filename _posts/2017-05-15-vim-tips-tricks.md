@@ -6,7 +6,6 @@ comments: true
 
 Vim Tips & Tricks
 =================
-
 As a long-term Vim user myself, here are some of my favourite *tips n' tricks*
 that I have picked up along the way. 
 

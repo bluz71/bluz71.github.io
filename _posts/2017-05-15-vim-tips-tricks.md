@@ -7,8 +7,12 @@ comments: true
 Vim Tips & Tricks
 =================
 
-As a long time Vim user, here are some cool *tips n' tricks* I've picked up
-along the journey that are worth sharing with the Vim community at large.
+As a long-term Vim user myself, here are some of my favourite *tips n' tricks*
+that I have picked up along the way. 
+
+By no means is this an exclusive list, many of these *tips* all well known to
+the Vim community at large. However, even the most seasoned of Vim users can
+still learn a *trick* or two from posts like this.
 
 Set *relativenumber*
 --------------------
@@ -36,7 +40,8 @@ Control-o zz
 
 Expression register in insert mode
 ----------------------------------
-Use the expression register, whilst in insert mode, to edit-in in math values.
+Use the expression register, whilst in insert mode, to edit-in simple math
+values.
 
 ```
 Control-r= <<math expression>>
@@ -165,7 +170,7 @@ will substitute *new* for *old*:
 
 Then use the **-es** option of Vim to execute the Vim script. 
 
-This example will execute the above do script over all Ruby files in the
+This example will execute the above *do.vim* script over all Ruby files in the
 current directory tree:
 
 ```
@@ -175,8 +180,8 @@ vim -es $(find . -name '*.rb') < do.vim
 
 Completion for spellings
 ------------------------
-Vim completion, *Control-n* and *Control-p*, can be used to complete using
-dictionary words. This is useful when writing text.
+Vim insert mode completion, via *Control-n* and *Control-p*, can be used to
+complete using dictionary words. This is useful when writing text.
 
 Simply enable the spell option and append *kspell* to the complete options:
 
@@ -194,8 +199,8 @@ the **F5** function key as seen in my
 Better wrapping with *breakindent*
 ----------------------------------
 The relatively new **breakindent** indent option is the *best* way to wrap long
-code lines. When set long lines will wrap *with* a indentation thus preserving
-the clean indented look of code.
+code lines. When set, long lines will wrap *with* an indentation thus
+preserving the clean indented look of code.
 
 Note, a very modern version of Vim (and Neovim) will be required. All the more
 reason to upgrade!
@@ -250,7 +255,7 @@ required.
 Enable wildmenu and wildmode
 ----------------------------
 The wildmenu makes setting Vim options or opening new files via **:e** a
-breeze via tab expansion.
+breeze with *TAB* expansion.
 
 I recommend these options.
 ```viml
@@ -258,7 +263,7 @@ set wildmenu
 set wildmode=full
 ```
 
-For example, once set you can then quickly tab complete an option *set* via:
+For example, once set you can quickly tab complete an option *set* as so:
 ```
 :set auto<<TAB>>
 ```
@@ -279,15 +284,15 @@ over visual line selections.
 xnoremap . :norm.<CR>
 ```
 
-It is recommended that simple operations that start from the beginning of a
-line be dot repeated. For example **ct=** (change up until =) or **5dw**
+It is recommended that only simple operations that start from the beginning of
+a line be dot repeated. For example **ct=** (change up until =) or **5dw**
 (delete the first five words of the line) are good candidates for visual dot
 repetition.
 
 Execuate a macro over visual line selections
 --------------------------------------------
 Somewhat related to the previous tip is having the ability to run a macro only
-on a visual line selection.
+over a visual line selection.
 
 I use the *qq* command to record a macro into the *q register*. I then setup
 the following **Q** mapping:
@@ -303,8 +308,8 @@ Make *Y* should behave like *D* and *C*
 ----------------------------------------
 Vim by default provides **D** to delete till the end of line and **C** to
 change till the end of line. For some reason it does not provide yank till the
-end of line by default. Enable this mapping to set **Y** to do that particular
-form of yanking:
+end of line. Enable this mapping to set **Y** to do that particular form of
+yanking:
 
 ```viml
 noremap Y y$

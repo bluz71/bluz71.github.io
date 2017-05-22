@@ -1,7 +1,7 @@
 ---
-title: Some Vim mappings, with few tmux ones as well
+title: A few Vim & tmux mappings
 layout: default
 ---
 
-Some Vim mappings, with few tmux ones as well
-=============================================
+A few Vim & tmux mappings
+=========================

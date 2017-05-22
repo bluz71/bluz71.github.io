@@ -97,6 +97,45 @@ Then execute a counting substitute:
 Note, this particular form of *substitute* will **not** actually substitute
 anything, it will instead just print out the number of matches.
 
+Project wide refactoring using *cfdo*
+-------------------------------------
+Historically it has been difficult to carry out multi-file substitutions in
+Vim. Many possibilities existed, some involving *argo*, others involving
+**sed**, but all were convoluted and none were elegant.
+
+The new *cfdo* command is ideal for substituting, or refactoring in programmer
+speak, across multiple files. The *cfdo* command allows a normal mode command
+to be invoked on the files in the *quickfix* list.
+
+Note, *cfdo* is only available in relatively recent versions of Vim or Neovim.
+Please upgrade to Vim 8 or the newest version of Neovim.
+
+To carry out a *cfdo* refactor one must first populate the *quickfix* list with
+a candidate set of files containing the *term* wanting to be refactored.
+
+Using *vimgrep*:
+```
+:vimgrep oldterm **
+```
+
+Or using the excellent *Silver Searcher* plugin:
+```
+:Ag oldterm
+```
+
+From there one simply executes the desired substitution over the list of files
+in the *quickfix* list.
+
+Using standard Vim substitution:
+```
+:cfdo %s/oldterm/newterm/ | update
+```
+
+Or using Tim Pope's superb case-smart *Abolish* plugin:
+```
+:cfdo %S/oldterm/newterm/ | update
+```
+
 Complete a line with *Control-x Control-l*
 ------------------------------------------
 Sometimes in insert mode you may wish to repeat an existing full line; *omni

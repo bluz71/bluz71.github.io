@@ -219,25 +219,114 @@ which is very nice when test-driven-design.
 Tim Pope Plugins
 ================
 
-A special mention should given to Tim Pope who has crafted some of Vim's most
-useful plugins.
+A special mention should given to [Tim Pope](https://github.com/tpope) who has
+crafted some of Vim's most useful plugins.
 
 Abolish
 -------
 ```viml
+Plug 'tpope/vim-abolish'
 ```
+
+The [abolish](https://github.com/tpope/vim-abolish) plugin is really a couple
+plugins in one, those being: a smart spell corrector, a smart substituter and
+programmer naming coercer. I primarily use the first two.
+
+The *abolish* plugin can be set to automatically correct text as you type it. A
+example use is correcting *seperate* into *separate* and *delimeter* into
+*delimiter*. It can do this no matter the case and even with pluralization. One
+sets up these corrections in their own *~/.vim/after/plugin/abolish.vim* file.
+
+Here are my *abolish* corrections:
+```
+Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
+Abolish {,in}consistant{,ly}                         {}consistent{}
+Abolish lan{gauge,gue,guege,guegae,ague,agueg}       language
+Abolish delimeter{,s}                                delimiter{}
+Abolish {,non}existan{ce,t}                          {}existen{}
+Abolish d{e,i}screp{e,a}nc{y,ies}                    d{i}screp{a}nc{}
+Abolish {,un}nec{ce,ces,e}sar{y,ily}                 {}nec{es}sar{}
+Abolish persistan{ce,t,tly}                          persisten{}
+Abolish {,ir}releven{ce,cy,t,tly}                    {}relevan{}
+Abolish cal{a,e}nder{,s}						     cal{e}ndar{}
+Abolish reproducable                                 reproducible
+Abolish retreive                                     retrieve
+Abolish compeletly                                   completely
+```
+
+The abolish plugin can also carry smart substitutions. What is a *smart
+substitution*? Such a substitution would intelligently change *old* to *new*
+and *Old* to *New* and *OLD* to *NEW* in one command. The *abolish* *substitute*
+command does just that and more. 
+
+An example *abolish* substitute:
+```
+:%S/facilit{y,ies}/building{,s}/
+```
+
+This plugin does more than I have documented here, please refer to the
+[documentation](https://github.com/tpope/vim-abolish).
 
 Commentry
 ---------
 ```viml
+Plug 'tpope/vim-commentary'
 ```
+
+The [vim-commentary](https://github.com/tpope/vim-commentary) plugin is a
+simple language agnostic comment plugin. I use it with a visual line selection
+to comment out or uncomment out a block of code with the **gc** command the
+plugin provides.
+
+No need to remember what the comment characters are for a certain language, is
+it **//** or **#** or **"**, just **gc** it.
 
 Endwise
 -------
 ```viml
+Plug 'tpope/vim-endwise'
 ```
+
+The [vim-endwise](https://github.com/tpope/vim-endwise) plugin is automatically
+insert **end** to code blocks for languages such as Ruby, Elixir and Crystal.
 
 Surround
 --------
 ```viml
+Plug 'tpope/vim-surround'
 ```
+
+The [vim-surround](https://github.com/tpope/vim-surround) allows one to add, change or 
+delete *surrounding pairss*.
+
+What is a *surrounding pair*? It may be the quote characters or **<div>**
+tags.
+
+To delete a *surrounding pair* use **d**. Here are some examples, the first
+example will delete double quotes, the second will delete a tag (like *<div>*)
+and the third will delete _*_ :
+```
+ds"
+dst
+ds*
+```
+
+To change a *surrounding pair* use **c**. Note, you must provide the *old* and
+*new* surround:
+```
+cs'"
+cs*<div>
+```
+
+To add a *surround pair* one can visually select the candidate text and enter
+*S* followed by the *surround* character(s) of choice.
+
+It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
+single *Control-S* followed by the *surround* character(s). Use a double
+*Control-S-S* to spread the surround over multiple lines. Note, in both cases
+the cursor will be inserted *between* the *surrounding pair*. The double
+*Control-S-S* is especially useful for inserting curly braces in
+C/C++/Java/JavaScript type languages. 
+
+This plugin is harder to explain than it is to use, however once you *get it*
+you cant' imagine life without it.

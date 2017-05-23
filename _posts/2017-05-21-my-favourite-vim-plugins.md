@@ -8,7 +8,7 @@ My Favourite Vim Plugins
 ========================
 
 Vim gains much functionality through the inclusion of *plugins*. This post
-contains a curated set of my favourite Vim *plugins*.
+contains a curated set of my favourite Vim plugins.
 
 Note, the full set of plugins and mappings I use are available in my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
@@ -24,10 +24,10 @@ is which plugin manager to use. There are many to choose from:
 
 Each will do the job, but for *simplicity* and *performance* the
 [vim-plug](https://github.com/junegunn/vim-plug) plugin manager is hard to
-beat. It is was I recommend.
+beat. It is what I recommend.
 
-Note, if you are a *Vundle* user, like I was, transfering over to *vim-plug* is
-simple, just follow
+Note, if you are a *Vundle* user, like I was, transferring over to *vim-plug*
+is simple, just follow
 [this](https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers)
 advice.
 
@@ -101,7 +101,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 I consider the [supertab](https://github.com/ervandew/supertab) plugin to be an
 essential plugin. This plugin allows one to simply use the **TAB** character to
-carry out completion whilst in insert mode. The plugin itself determines the
+carry out completion whilst in *insert* mode. The plugin itself determines the
 appropriate type of completion, be it *text*, *omni* or *file* completion.
 
 clever-f
@@ -116,11 +116,11 @@ The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes **f**,
 **F**, **t** and **T** movements more informative and convenient.
 
 The more informative part is achieved by *clever-f* highlighting all the
-matches for the movement.
+matches for the chosen movement.
 
-The more convenient part is achieved by simly using the **f** and **F**
+The more convenient part is achieved by simply using the **f** and **F**
 characters to navigate forward and backward through the matches unlike Vim's
-inconvienent and hard to remembers default of **;** and **,** repeats. In my
+inconvenient and hard to remembers default of **;** and **,** repeats. In my
 case I map the **leader** key to **,** and I map **;** as a duplicate of **:**,
 hence those repeat characters are not available.
 
@@ -174,9 +174,9 @@ let g:NERDTreeUpdateOnCursorHold = 0
 ```
 
 The [NERDTree Git Plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) adds
-**git** status indicators in the *NERDTree* file-tree window.
+**git** status indicators in the *NERDTree* window.
 
-The visual information provided by this plugin is surprisingly useful.
+The visual information provided by this plugin is genuinely useful.
 
 Ag
 --
@@ -212,9 +212,9 @@ interface to various back-end testing frameworks. This plugin allows one to
 agnostically run tests for different languages and their associated testing
 frameworks.
 
-Note, Neovim inbuilt terminal is extremely well integrated with *vim-test*. The
-above *has neovim* configuration will run tests in a split terminal window
-which is very nice when test-driven-design.
+Note, Neovim's inbuilt terminal is extremely well integrated with *vim-test*.
+The above *has neovim* configuration will run tests in a split terminal window
+unlike Vim which will shell-out to the system.
 
 Tim Pope Plugins
 ================
@@ -229,11 +229,16 @@ Plug 'tpope/vim-abolish'
 ```
 
 The [abolish](https://github.com/tpope/vim-abolish) plugin is really a couple
-plugins in one, those being: a smart spell corrector, a smart substituter and
-programmer naming coercer. I primarily use the first two.
+plugins in one, those being: 
 
-The *abolish* plugin can be set to automatically correct text as you type it. A
-example use is correcting *seperate* into *separate* and *delimeter* into
+* a smart spell corrector
+* a smart substituter
+* a name coercer.
+
+I primarily use the first two.
+
+The *abolish* plugin can be set to automatically correct text as you type it.
+An example use is correcting *seperate* into *separate* and *delimeter* into
 *delimiter*. It can do this no matter the case and even with pluralization. One
 sets up these corrections in their own *~/.vim/after/plugin/abolish.vim* file.
 
@@ -248,7 +253,7 @@ Abolish d{e,i}screp{e,a}nc{y,ies}                    d{i}screp{a}nc{}
 Abolish {,un}nec{ce,ces,e}sar{y,ily}                 {}nec{es}sar{}
 Abolish persistan{ce,t,tly}                          persisten{}
 Abolish {,ir}releven{ce,cy,t,tly}                    {}relevan{}
-Abolish cal{a,e}nder{,s}						     cal{e}ndar{}
+Abolish cal{a,e}nder{,s}                             cal{e}ndar{}
 Abolish reproducable                                 reproducible
 Abolish retreive                                     retrieve
 Abolish compeletly                                   completely
@@ -265,7 +270,7 @@ An example *abolish* substitute:
 ```
 
 This plugin does more than I have documented here, please refer to the
-[documentation](https://github.com/tpope/vim-abolish).
+[abolish documentation](https://github.com/tpope/vim-abolish).
 
 Commentry
 ---------
@@ -287,8 +292,9 @@ Endwise
 Plug 'tpope/vim-endwise'
 ```
 
-The [vim-endwise](https://github.com/tpope/vim-endwise) plugin is automatically
-insert **end** to code blocks for languages such as Ruby, Elixir and Crystal.
+The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
+automatically insert **end** to code blocks for languages such as: Ruby, Elixir
+and Crystal.
 
 Surround
 --------
@@ -297,14 +303,14 @@ Plug 'tpope/vim-surround'
 ```
 
 The [vim-surround](https://github.com/tpope/vim-surround) allows one to add, change or 
-delete *surrounding pairss*.
+delete *surrounding pairs*.
 
 What is a *surrounding pair*? It may be the quote characters or **<div>**
-tags.
+tags or anything else that surrounds some text.
 
 To delete a *surrounding pair* use **d**. Here are some examples, the first
-example will delete double quotes, the second will delete a tag (like *<div>*)
-and the third will delete _*_ :
+example will delete the double quotes, the second will delete a tag (like
+*<div>*) and the third will delete _*_ :
 ```
 ds"
 dst
@@ -319,14 +325,14 @@ cs*<div>
 ```
 
 To add a *surround pair* one can visually select the candidate text and enter
-*S* followed by the *surround* character(s) of choice.
+**S** followed by the *surround* character(s) of choice.
 
 It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
-single *Control-S* followed by the *surround* character(s). Use a double
+single *Control-S* followed by the surround character(s). Use a double
 *Control-S-S* to spread the surround over multiple lines. Note, in both cases
 the cursor will be inserted *between* the *surrounding pair*. The double
 *Control-S-S* is especially useful for inserting curly braces in
 C/C++/Java/JavaScript type languages. 
 
-This plugin is harder to explain than it is to use, however once you *get it*
-you cant' imagine life without it.
+Note, this plugin is harder to explain than it is to use, however once you *get
+it* you can't imagine life without it.

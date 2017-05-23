@@ -13,6 +13,9 @@ By no means is this an exclusive list, many of these *tips* all well known to
 the Vim community at large. However, even the most seasoned of Vim users can
 still learn a *trick* or two from posts like this.
 
+Note, quite a few of these *tips n' tricks* are baked into my 
+[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
+
 Set *relativenumber*
 --------------------
 Vim users should enable relative line numbering. This setting makes it easy to
@@ -327,8 +330,8 @@ a line be dot repeated. For example **ct=** (change up until =) or **5dw**
 (delete the first five words of the line) are good candidates for visual dot
 repetition.
 
-Execuate a macro over visual line selections
---------------------------------------------
+Execute a macro over visual line selections
+-------------------------------------------
 Somewhat related to the previous tip is having the ability to run a macro only
 over a visual line selection.
 
@@ -352,3 +355,29 @@ yanking:
 ```viml
 noremap Y y$
 ```
+
+Autosave and autoread
+-----------------------
+Add the following snippet to your *vimrc* to enable functional autosave and
+autoread behaviour in Vim:
+
+```viml
+set autoread
+
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
+```
+
+Autosave will automatically save to disk the currently edited buffer upon
+leaving *insert* mode as well as after a text edit has occurred.
+
+Autoread will automatically update an open buffer if it has been changed
+outside the current edit session, usually by an external program.
+
+Most folks have fast SSDs these days, hence the burden of autosave is
+negligible. In return one will vary rarely need to manually trigger an
+explicit save, which will be a benefit if one context switches often, for
+example a web developer switching between an edit window and a test browser.

@@ -178,21 +178,27 @@ The [NERDTree Git Plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) adds
 
 The visual information provided by this plugin is genuinely useful.
 
-Ag
---
+vim-grepper
+-----------
 ```viml
-Plug 'rking/ag.vim'
-let g:ag_mapping_message = 0
-let g:ag_highlight = 1
+Plug 'mhinz/vim-grepper'
+let g:grepper = {}
+runtime autoload/grepper.vim
+let g:grepper.highlight = 1
+let g:grepper.jump = 1
+noremap <leader>a :GrepperAg<Space>
 ```
 
-The [Ag](https://github.com/rking/ag.vim) plugin is a simple Vim interface to
-the [Silver Searcher](https://github.com/ggreer/the_silver_searcher) search
-tool. Search matches will populate Vim's *quickfix* list allowing easy
-navigation through the hits.
+The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
+interface to various text search utilities including my favourite, the [Silver
+Searcher](https://github.com/ggreer/the_silver_searcher) search
+utility.
 
-Note, the *Ag* plugin is deprecated, but remains fully functional. For now,
-ignore the warnings at the [Github](https://github.com/rking/ag.vim) repo.
+Upon execution *vim-grepper* search matches will populate Vim's *quickfix* list
+allowing easy navigation through the hits. Note, when run on a modern version
+of Vim or Neovim the search will be executed asynchronously.
+
+I have a simple mapping `<leader>a` to invoke *vim-grepper*'s *Ag* search.
 
 vim-test
 --------

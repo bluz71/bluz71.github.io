@@ -102,13 +102,13 @@ anything, it will instead just print out the number of matches.
 
 Project wide refactoring using *cfdo*
 -------------------------------------
-Historically it has been difficult to carry out multi-file substitutions in
-Vim. Many possibilities existed, some involving *argo*, others involving
-**sed**, but all were convoluted and none were elegant.
+Historically it has been awkward to carry out multi-file substitutions in
+Vim. Many possibilities exist, some involving *argo*, others involving
+**sed**, but all are convoluted and none are elegant.
 
 The new *cfdo* command is ideal for substituting, or refactoring in programmer
-speak, across multiple files. The *cfdo* command allows a normal mode command
-to be invoked on the files in the *quickfix* list.
+speak, across multiple files. The *cfdo* command allows a normal mode command,
+such as a substitute, to be invoked only on the files in the *quickfix* list.
 
 Note, *cfdo* is only available in relatively recent versions of Vim or Neovim.
 Please upgrade to Vim 8 or the newest version of Neovim.
@@ -121,9 +121,9 @@ Using *vimgrep*:
 :vimgrep oldterm **
 ```
 
-Or using the excellent *Silver Searcher* plugin:
+Or using the excellent *Silver Searcher* utility via the *vim-grepper* plugin:
 ```
-:Ag oldterm
+:GrepperAg oldterm
 ```
 
 From there one simply executes the desired substitution over the list of files

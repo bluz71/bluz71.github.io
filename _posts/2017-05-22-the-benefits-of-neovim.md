@@ -162,6 +162,67 @@ of the terminal flash simply looks and feels better.
 
 *Control-q* mapping
 -------------------
+I have a *Control-q* mapping to safely quit my Vim session:
+```viml
+noremap <C-q> :confirm qall<CR>
+```
+
+In terminal Vim this mapping does not work, one needs to launch Vim via ```stty
+-ixon && vim```. This prevents the terminal from freezing/unfreezing with the
+*Control-s/Constrol-q* key combinations.
+
+However, in Neovim, one does not need to do anything special.
+*Control-s/Constrol-q* mappings are available for use however you choose.
 
 *Alt* based mappings
 --------------------
+Somewhat related to the above, I assume, *Alt* based mapping work as one would
+expect in Neovim.
+
+For example, the following mapping to create a tab via *Alt-t*, works in Neovim
+but not in terminal Vim:
+```viml
+noremap <silent> <A-t> :$tabnew<CR>
+```
+
+It is possible to configure the above *Alt-t* mapping in terminal Vim, but it
+involves coding in the specific terminal sequence such as:
+```viml
+noremap t :$tabnew<CR>
+```
+
+This is not as nice nor as intuitive.
+
+Architectural Neovim benefits
+=============================
+The above list of Neovim enhancements are small cherries. The bigger Neovim
+benefits are occurring unders the covers and in the community, those being:
+
+- Massively cleaned up and modernized code base. See
+  [this](https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/) post
+  for details. Note, this includes a comprehensive test suite providing
+  confidence to the Neovim development community to expand, enhance and
+  refactor with confidence.
+
+- A fully fledged development community that can survive the comings and goings
+  of key developers. The initial Neovim lead,  Thiago de Arruda, did in fact
+  depart yet Neovim has continued on just fine. Can Vim survive if Bram
+  Moolenaar is no longer around?
+
+- Remote API functionality, CLIENT-SERVER provides a road where Neovim can be a true
+  component. The Neovim component theoritically could exists in an
+  [Atom](https://atom.io) or
+  [Thunderbid[(https://www.mozilla.org/en-US/thunderbird) sessions.
+  QT ELECTRON
+
+- Lua and Luajit
+
+- Asynchronous
+
+What I miss
+===========
+- Encrytion
+
+What I want to see
+===================
+- I am quite interested to see the [NyaoVim](https://github.com/rhysd/NyaoVim)

@@ -234,6 +234,8 @@ community, those being:
   [This](https://www.reddit.com/r/neovim/comments/58nrwv/neovim_api_comparison_with_vim_channels/)
   thread explains the two approaches.
 
+  [Vim async thoughts](https://twitter.com/fatih/status/793414447113048064)
+
 Personal Wishlist
 =================
 If I was king here is what I would want:

@@ -1,23 +1,26 @@
 ---
 title: The Benefits of Neovim
 layout: default
+comments: true
 ---
 
 The Benefits of Neovim
 ======================
-[Neovim](https://neovim.io/) is a recent fork of the [Vim](http://www.vim.org/)
-text editor. Started in 2014, Neovim bills itself as *literally the future of
-Vim*.
+[Neovim](https://neovim.io) bills itself as *literally the future of Vim*. This
+post will delve into Neovim to see if it lives up to that billing.
 
-A question I often see asked in various Vim places is *why Neovim, what does it
+Firstly, for those that haven't been following, Neovim is a modern fork of the
+[Vim](http://www.vim.org/) text editor that was started in 2014. 
+If you *why Neovim, what does it
 have to offer, I am completely happy with Vim?*
 
-This post will try and explain the benefits, as I see it, with Neovim.
-Currently the user visible benefits are small, but in the longer term the
-benefits should be substantial.
+This post will try and explain the advantages, as I see them, with Neovim. It
+may also help explain why Neovim even exists at all. I do feel sorry sometimes
+for the Neovim leads who often need to answer *why Neovim, Vim is perfect
+right?*
 
-Note however, this should post not be interpreted as any slight on Vim; far
-from it, I still use it daily myself.
+Do note however, this should post not be interpreted as any slight on Vim; far
+from it, I still use Vim daily myself.
 
 Lastly, I am assuming the reader is already a Vim user with an functional setup
 already.
@@ -195,34 +198,77 @@ This is not as nice nor as intuitive.
 
 Architectural Neovim benefits
 =============================
-The above list of Neovim enhancements are small cherries. The bigger Neovim
-benefits are occurring unders the covers and in the community, those being:
+In the grand scheme the above list really are incremental improvements. The
+bigger Neovim benefits right now are occurring unders the covers and in the
+community, those being:
 
 - Massively cleaned up and modernized code base. See
   [this](https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/) post
-  for details. Note, this includes a comprehensive test suite providing
+  for details. Note, this cleanup includes a comprehensive test suite providing
   confidence to the Neovim development community to expand, enhance and
   refactor with confidence.
 
 - A fully fledged development community that can survive the comings and goings
   of key developers. The initial Neovim lead,  Thiago de Arruda, did in fact
-  depart yet Neovim has continued on just fine. Can Vim survive if Bram
-  Moolenaar is no longer around?
+  depart Neovim yet the project has continued on just fine. Can Vim survive if
+  Bram Moolenaar is no longer around, who will maintain the legacy code in the
+  long term?
 
-- Remote API functionality, CLIENT-SERVER provides a road where Neovim can be a true
-  component. The Neovim component theoritically could exists in an
+- Neovim's remote API functionality provides a pathway where Neovim can be a true
+  component. This Neovim component theoretically could exist in an
   [Atom](https://atom.io) or
-  [Thunderbid[(https://www.mozilla.org/en-US/thunderbird) sessions.
-  QT ELECTRON
+  [Thunderbid](https://www.mozilla.org/en-US/thunderbird) session. This same
+  *client/server* API has lead to the development of a host of Neovim
+  [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui).
 
-- Lua and Luajit
+- Integration of [Lua](https://www.lua.org/) interpreter into the runtime to
+  run alongside the Vimscript. Lua is a far nicer language than VimL and with
+  [LuaJIT](http://luajit.org) it is a language that should run orders of
+  magnitude faster as well. This should allows Neovim plugin authors far
+  greater scope to offer complex functionality with great performance.
 
-- Asynchronous
+- Asynchronous support is now less of a differentiator between Neovim and Vim
+  than it used to be. The relatively new Vim 8 includes JSON based asynchronous
+  support whilst Neovim has long had a
+  [MessagePack](https://github.com/msgpack-rpc/msgpack-rpc) asynchronous API.
+  [This](https://www.reddit.com/r/neovim/comments/58nrwv/neovim_api_comparison_with_vim_channels/)
+  thread explains the two approaches.
 
-What I miss
-===========
-- Encrytion
+Personal Wishlist
+=================
+If I was king here is what I would want:
 
-What I want to see
-===================
-- I am quite interested to see the [NyaoVim](https://github.com/rhysd/NyaoVim)
+- Encryption support somewhat similar to Vim's
+  [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
+  out all direct encryption support. I understand why they did that, and I am
+  not asking they ask they directly add encryption handling back into the core
+  editor. However, it should be possible to seamlessly delegate to an external
+  encryption provider similar to how Neovim delegates to an external clipboard
+  provider. Such an encryption provider could be [GPG](https://gnupg.org/).
+  Something like the [vim-gnupg](https://github.com/jamessan/vim-gnupg), but
+  built-in is what I would like.
+
+- Indent guide markers. Both Sublime and Atom editors provide guide markers, in
+  Vim one can achieve a similar result using the
+  [indentLine](https://github.com/Yggdroot/indentLine) plugin. However, this
+  plugin is quirky and its performance at times is problematic. My hope would
+  be guide markers would be built into the core editor similar to how
+  ```colorcolumn``` is built directly into Vim.
+
+- AST language aware syntax highlighters, whether that be in the core or as
+  plugins. Currently highlighting is regular expression based, historically
+  this has been good enough and like will remain good enough it does have it's
+  issues. On slower machines, especially when ```relativenumber``` is enabled
+  this regular expression based highlighting can lead to performance
+  [issues](https://github.com/vim/vim/issues/282), but even worse more than
+  that, the syntax highlighting can often get tricked out. I am sure every Vim
+  user has experienced that.
+  [This](https://github.com/neovim/neovim/issues/719) issue is pertinent.
+
+Summary
+=======
+Is *Neovim is the future of Vim*? I say an emphatic **yes**.
+
+The cleaned up codebase, the development community, the architectural changes
+mean that Neovim will innovate at a faster rate than Vim. Every Vim user should
+want Neovim to survive and thrive, it is the future of Vim.

@@ -10,7 +10,7 @@ The Benefits of Neovim
 post will delve into Neovim to see if it lives up to that billing.
 
 Firstly, for those that haven't been following, Neovim is a modern fork of the
-[Vim](http://www.vim.org/) text editor that was started in 2014. 
+[Vim](http://www.vim.org/) text editor that was started in 2014.
 If you *why Neovim, what does it
 have to offer, I am completely happy with Vim?*
 

@@ -18,12 +18,18 @@ Note, quite a few of these *tips n' tricks* are baked into my
 
 Set *relativenumber*
 --------------------
-Vim users should enable relative line numbering. This setting makes it easy to
-figure out how many lines up or down you have to jump to get to where you want
-to go.
+I encourage Vim users to enable relative line numbering. This setting makes it
+easy to figure out how many lines up or down you have to jump to get to where
+you want to go in normal mode.
+
+I also prefer to disable relative line numbering when in insert mode since
+jumping up or down is something I will not be doing when in this mode.
 
 ```viml
 set relativenumber
+
+autocmd InsertEnter * setlocal norelativenumber
+autocmd InsertLeave * setlocal relativenumber
 ```
 
 One time normal mode command whilst in insert mode

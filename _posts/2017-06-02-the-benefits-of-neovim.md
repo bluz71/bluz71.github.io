@@ -31,11 +31,11 @@ Neovim does require some pre-configuration.
 
 vimrc
 -----
-Firstly, I find having one configuration that works for both Vim and Neovim
+Firstly, I find having *one* configuration that works for both Vim and Neovim
 extremely useful. Hence, my combined configuration still lives in the
-traditional ```~/.vimrc``` file.
+traditional `~/.vimrc` file.
 
-To connect Neovim to the ```~/.vimrc``` create a ```~/.config/nvim/init.vim```
+To connect Neovim to the `~/.vimrc` create a `~/.config/nvim/init.vim`
 file with the following content:
 
 ```viml
@@ -48,7 +48,7 @@ specific code:
 
 ```viml
 if has("nvim")
-  " Neovim specific  
+  " Neovim specific
 else
   " Traditional Vim
 endif
@@ -65,8 +65,8 @@ support.
 Basically that means making sure the following utilities is installed on your
 platform:
 
-- ```pbcopy/pbpaste``` on *macOS*, this is usually provided by default
-- ```xclip``` or ```xsel``` on Linux, install it via your default package
+- `pbcopy/pbpaste` on *macOS*, this is usually provided by default
+- `xclip` or `xsel` on Linux, install it via your default package
   manager if not installed by default.
 
 Current user-visible Neovim benefits
@@ -88,7 +88,7 @@ Basically that means the cursor shape will differ depending on mode:
 
 This works in *iTerm2* (on Mac) and *xterm* (on Linux). Best of all the cursor
 shape change will only effect the Neovim edit session unlike Vim's crude
-```t_SI/t_EI``` based cursor shape change functionality which will bleed into
+`t_SI/t_EI` based cursor shape change functionality which will bleed into
 all panes and windows of a *tmux* session.
 
 *Whitespace* highlight group
@@ -96,23 +96,23 @@ all panes and windows of a *tmux* session.
 Another small, but extremely useful, enhancement is the
 [Whitespace](https://github.com/neovim/neovim/pull/6367) highlight group.
 
-Vim provides only a single highlight group ```SpecialKey``` that is used to
+Vim provides only a single highlight group `SpecialKey` that is used to
 visibly highlight special characters such as *space*, *tab* and *return*
 characters (among others). 
 
 I like seeing leading whitespaces as I type them in a low contrast color.
-However, when I want to see trailing *returns*, done by toggling the ```list```
+However, when I want to see trailing *returns*, done by toggling the `list`
 option I like to use a high contrast color. In Vim this is a challenge since it
 only provides a single highlight group for both contexts.
 
-My own [moonfly](https://github.com/bluz71/vim-moonfly-colors) *colorscheme* is
-```Whitespace``` aware.
+My own [mooly](https://github.com/bluz71/vim-moonfly-colors) *colorscheme* is
+`Whitespace` aware.
 
 Substitution previews via *inccommand*
 --------------------------------------
 Neovim provides live substitution previews.
 
-To enable, add the following to your ```vimrc```:
+To enable, add the following to your `vimrc`:
 ```viml
 if has("nvim")
     set inccommand=nosplit
@@ -126,8 +126,8 @@ window. This feature is best highlighted in this video:
 
 Inbuilt terminal
 ----------------
-Neovim provides a fully fledged terminal, invoked via ```:terminal``` (or
-```:te``` shorthand).
+Neovim provides a fully fledged terminal, invoked via `:terminal` (or
+`:te` shorthand).
 
 This provides a *tmux-lite* alternative for those not wanting or needing a full
 *tmux* setup.
@@ -153,8 +153,8 @@ seen next to each other. This greatly enhances the code, test, fix cycle.
 
 *silent make*
 -------------
-In Vim invoking an external ```make``` tool such as ```eslint``` will result in
-a visible screen flash even when ```silent``` is specified. This results due to
+In Vim invoking an external `make` tool such as `eslint` will result in
+a visible screen flash even when `silent` is specified. This results due to
 Vim context switching to the terminal to invoke the tool and then switching
 back to Vim with the results.
 
@@ -170,8 +170,8 @@ I have a *Control-q* mapping to safely quit my Vim session:
 noremap <C-q> :confirm qall<CR>
 ```
 
-In terminal Vim this mapping does not work, one needs to launch Vim via ```stty
--ixon && vim```. This prevents the terminal from freezing/unfreezing with the
+In terminal Vim this mapping does not work, one needs to launch Vim via `stty
+-ixon && vim`. This prevents the terminal from freezing/unfreezing with the
 *Control-s/Constrol-q* key combinations.
 
 However, in Neovim, one does not need to do anything special.
@@ -255,12 +255,12 @@ If I was king here is what I would want:
   [indentLine](https://github.com/Yggdroot/indentLine) plugin. However, this
   plugin is quirky and its performance at times is problematic. My hope would
   be guide markers would be built into the core editor similar to how
-  ```colorcolumn``` is built directly into Vim.
+  `colorcolumn` is built directly into Vim.
 
 - AST language aware syntax highlighters, whether that be in the core or as
   plugins. Currently highlighting is regular expression based, historically
   this has been good enough and like will remain good enough it does have it's
-  issues. On slower machines, especially when ```relativenumber``` is enabled
+  issues. On slower machines, especially when `relativenumber` is enabled
   this regular expression based highlighting can lead to performance
   [issues](https://github.com/vim/vim/issues/282), but even worse more than
   that, the syntax highlighting can often get tricked out. I am sure every Vim

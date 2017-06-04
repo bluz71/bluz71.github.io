@@ -17,7 +17,7 @@ and above Vim. It may also help explain why Neovim even exists at all. I do
 feel sorry sometimes for the Neovim leads who constantly need to answer *why
 does Neovim exist, Vim is perfect right?*
 
-Note however, this should post not be interpreted as any slight on Vim; far
+Note however, this post should not be interpreted as any slight on Vim; far
 from it, I still use Vim daily myself. Neovim would not exist without Vim,
 every Vim user should be eternally grateful to Bram Moolenaar.
 
@@ -42,8 +42,8 @@ set runtimepath+=~/.vim,~/.vim/after
 source ~/.vimrc
 ```
 
-Inside the *vimrc* file one uses the following `if` conditional for Neovim
-specific code:
+Inside a *vimrc* file use the following `if` conditional for Neovim specific
+code:
 
 ```viml
 if has("nvim")
@@ -53,8 +53,8 @@ else
 endif
 ```
 
-Use my [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc) as an
-example of a combined configuration.
+[My vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc) is an example
+of a combined configuration.
 
 Cut n' paste
 ------------
@@ -71,8 +71,8 @@ platform:
 Current user-visible Neovim benefits
 ====================================
 This is the list of small, but still worthwhile, user-visible enhancements
-that Neovim currently provides over and above Vim. This enhancements are
-pertinent to Vim 8 and Neovim 0.2 as of May 2017.
+that Neovim currently provides in addition to what Vim offers. These
+enhancements are pertinent to Vim 8 and Neovim 0.2 as of May 2017.
 
 Note, I am only listing the enhancements that I appreciate, a full list of
 Neovim differences is listed
@@ -115,7 +115,7 @@ Substitution previews via *inccommand*
 --------------------------------------
 Neovim provides live substitution previews.
 
-To enable, add the following to your *vimrc*:
+To enable, add the following to your *vimrc:*
 ```viml
 if has("nvim")
     set inccommand=nosplit
@@ -140,15 +140,14 @@ As an ongoing *tmux* user myself the Neovim terminal is still useful for:
 - easy text copying out of the terminal and into an edit session
 - running tests in a split terminal
 
-Copy large amounts of text from a tmux window into a Vim session can be fiddly.
-The inbuilt Neovim terminal however makes this operation a breeze via
+Copying large amounts of text from a tmux window into a Vim session can be
+fiddly.  The inbuilt Neovim terminal however makes this operation a breeze via
 traditional Vim visual selection and yanking.
 
 The [vim-test](https://github.com/janko-m/vim-test) plugin provides direct
-Neovim terminal support when running tests (for example Rails RSpec tests). 
-
-In Vim, when invoking a test through the *vim-test* plugin, the edit session
-will context switch back to the host terminal and run the test. Hence, it is not
+Neovim terminal support when running tests (for example Rails RSpec tests). In
+Vim, when invoking a test through the *vim-test* plugin, the edit session will
+context switch back to the host terminal and run the test. Hence, it is not
 possible to simultaneously view the test code and invoked test result. On the
 other hand in Neovim such a test will be invoked in a split terminal window
 below the current edit edit window hence both test code and test result are
@@ -227,7 +226,7 @@ in the community at large, those benefits being:
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
   alongside Vimscript. Lua is a far nicer language than VimScript and with
   [LuaJIT](http://luajit.org) it is a language that should run orders of
-  magnitude faster as well. This should allows Neovim plugin authors
+  magnitude faster as well. This should allow Neovim plugin authors
   greater scope to offer complex functionality with far great performance.
 
 - Asynchronous support is now less of a differentiator between Neovim and Vim
@@ -261,7 +260,7 @@ Neovim:
 - Indent guide markers. Both Sublime and Atom editors provide guide markers, in
   Vim one can achieve a similar result using the
   [indentLine](https://github.com/Yggdroot/indentLine) plugin which leverages
-  Vim `conceal` feature. However, that plugin is quirky and its performance at
+  Vim's `conceal` feature. However, that plugin is quirky and its performance at
   times is problematic. My hope would be to have *performant* guide markers
   directly in the editor similar to how `colorcolumn` is available directly
   in Vim. Yes, this is visual sugar, but so are `relativenumber` and
@@ -270,14 +269,14 @@ Neovim:
 - Some AST-based language syntax highlighters, whether that be in
   the core distribution or available as separate plugins. Currently
   highlighting is regular expression based, historically this has been good
-  enough and likely will remain good enough, but this approach does have it's
-  issues. On slower machines, especially when `relativenumber` is enabled this
+  enough and likely will remain good enough, but this approach does have its
+  issues. On slower machines, especially when `relativenumber` is enabled, this
   regular expression based highlighting can lead to serious performance
   [issues](https://github.com/vim/vim/issues/282), but even worse more than
   that, the syntax highlighting can often get tricked out. To be honest, the
   latter happens a little more often than I would like.  Surely we can do
   better than *regex* highlighting for some modern languages?
-  [This](https://github.com/neovim/neovim/issues/719) Neovim issue does give
+  [This](https://github.com/neovim/neovim/issues/719) Neovim thread does give
   hope that the fundamentals are now available in Neovim to make this happen.
 
 Summary

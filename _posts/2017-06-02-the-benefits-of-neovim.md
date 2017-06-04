@@ -279,6 +279,18 @@ Neovim:
   [This](https://github.com/neovim/neovim/issues/719) Neovim thread does give
   hope that the fundamentals are now available in Neovim to make this happen.
 
+- Lastly, I would really like for Vim, or Neovim if need be, to cache syntax
+  highlight results when it can. Currently when `relativenumber` is enabled any
+  type of scroll event will cause a full redraw for all visible lines which in
+  turn results in every line having its syntax re-evaluated even though no text
+  has actually changed; this **is** redundant work. For languages like Ruby,
+  with its over 200 *regex* rules, this does result in visible performance
+  problems when scrolling as noted by these issues:
+  [vim #282](https://github.com/vim/vim/issues/282) and
+  [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically I
+  would like [this feature](https://github.com/vim/vim/issues/1735)
+  implemented.
+
 Summary
 =======
 Is *Neovim is the future of Vim*? I say an emphatic **yes**.

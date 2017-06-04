@@ -5,3 +5,6 @@ layout: default
 
 A few Vim & tmux mappings
 =========================
+
+; as :
+------

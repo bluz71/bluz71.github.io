@@ -37,6 +37,7 @@ vim-moonfly-colors
 ------------------
 ```viml
 Plug 'bluz71/vim-moonfly-colors'
+let g:moonflyCursorLineNr = 1
 ```
 
 Some self advertising, I have written my own Vim **colorscheme** named
@@ -44,7 +45,7 @@ Some self advertising, I have written my own Vim **colorscheme** named
 
 The *moonfly* colorscheme is yet another dark theme, but unlike all other dark
 themes this one is **my** dark theme. That means it has been tuned to my
-particular tastes.  Whether those tastes match up with other people's tastes
+particular tastes.  Whether those tastes match up with other peoples tastes
 will be in the eye of the beholder.
 
 vim-moonfly-statusline
@@ -85,7 +86,7 @@ let g:indentLine_setConceal = 0
 The [indentLine](https://github.com/Yggdroot/indentLine) plugin is used to
 display indentation guide markers. This is a simple, but extremely useful,
 visual aid. In my opinion it is a feature that Vim itself should provide but
-does not.
+currently does not.
 
 The two *let* options documented **should** be set for maximum performance.
 The default settings for the *indentLine* plugin **will** have a negative
@@ -101,7 +102,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 I consider the [supertab](https://github.com/ervandew/supertab) plugin to be an
 essential plugin. This plugin allows one to simply use the **TAB** character to
-carry out completion whilst in *insert* mode. The plugin itself determines the
+carry out completions whilst in *insert* mode. The plugin itself determines the
 appropriate type of completion, be it *text*, *omni* or *file* completion.
 
 clever-f
@@ -112,16 +113,16 @@ let g:clever_f_across_no_line = 1
 let g:clever_f_timeout_ms = 3000
 ```
 
-The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes **f**,
-**F**, **t** and **T** movements more informative and convenient.
+The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
+`F`, `t` and `T` movements more informative and convenient.
 
 The more informative part is achieved by *clever-f* highlighting all the
 matches for the chosen movement.
 
-The more convenient part is achieved by simply using the **f** and **F**
+The more convenient part is achieved by simply using the `f` and `F`
 characters to navigate forward and backward through the matches unlike Vim's
-inconvenient and hard to remembers default of **;** and **,** repeats. In my
-case I map the **leader** key to **,** and I map **;** as a duplicate of **:**,
+inconvenient and hard to remembers default of `;` and `,` repeats. In my
+case I map the **leader** key to `,` and I map `;` as a duplicate of `:`,
 hence those repeat characters are not available.
 
 CtrlP
@@ -220,14 +221,15 @@ agnostically run tests for different languages and their associated testing
 frameworks.
 
 Note, Neovim's inbuilt terminal is extremely well integrated with *vim-test*.
-The above *has neovim* configuration will run tests in a split terminal window
+The above `has neovim` configuration will run tests in a split terminal window
 unlike Vim which will shell-out to the system.
 
 Tim Pope Plugins
 ================
 
 A special mention should given to [Tim Pope](https://github.com/tpope) who has
-crafted some of Vim's most useful plugins.
+crafted some of Vim's most useful plugins. He deserves a place in the Vim hall
+of fame alongside Bram Moolenaar himself.
 
 Abolish
 -------
@@ -287,11 +289,11 @@ Plug 'tpope/vim-commentary'
 
 The [vim-commentary](https://github.com/tpope/vim-commentary) plugin is a
 simple language agnostic comment plugin. I use it with a visual line selection
-to comment out or uncomment out a block of code with the **gc** command the
+to comment out or uncomment out a block of code with the `gc` command the
 plugin provides.
 
 No need to remember what the comment characters are for a certain language, is
-it **//** or **#** or **"**, just **gc** it.
+it **//** or **#** or **"**, just `gc` it.
 
 Endwise
 -------
@@ -335,11 +337,11 @@ To add a *surround pair* one can visually select the candidate text and enter
 **S** followed by the *surround* character(s) of choice.
 
 It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
-single *Control-S* followed by the surround character(s). Use a double
-*Control-S-S* to spread the surround over multiple lines. Note, in both cases
+single `Control-S` followed by the surround character(s). Use a double
+`Control-S-S` to spread the surround over multiple lines. Note, in both cases
 the cursor will be inserted *between* the *surrounding pair*. The double
-*Control-S-S* is especially useful for inserting curly braces in
-C/C++/Java/JavaScript type languages. 
+`Control-S-S` is especially useful for inserting curly braces in
+*C/C++/Java/JavaScript* type languages. 
 
 Note, this plugin is harder to explain than it is to use, however once you *get
 it* you can't imagine life without it.

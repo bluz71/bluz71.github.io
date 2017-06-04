@@ -164,7 +164,8 @@ Simply enter `gv` to reselect the last visual selection.
 
 Launch browser with *gx* command
 ------------------------------
-Launch a browser window by visually selecting a URL and entering `gx`.
+Launch a browser window by moving the cursor, in normal mode, into a URL text
+and simply enter the `gx` command.
 
 Sort a visual selection
 -----------------------

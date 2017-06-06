@@ -167,20 +167,6 @@ Launch browser with *gx* command
 Launch a browser window by moving the cursor, in normal mode, into a URL text
 and simply enter the `gx` command.
 
-Sort a visual selection
------------------------
-Sorting a visual selection selection simply involves piping out to the system's
-**sort** command.
-
-Visually select a set of lines and then enter the command:
-```
-:'<,'>!sort
-```
-
-The selection will be sorted and reinserted into the visual selection. 
-
-Other system commands such as **uniq** can be used similarly.
-
 Delete all lines containing pattern
 -----------------------------------
 Use the *global* command with the *delete* option to remove all lines that

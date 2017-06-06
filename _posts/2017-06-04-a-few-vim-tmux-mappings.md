@@ -8,3 +8,6 @@ A few Vim & tmux mappings
 
 ; as :
 ------
+
+~/.vim/ftplugin/ruby.vim ~/.vim/ftplugin/elixir.vim
+---------------------------------------------------

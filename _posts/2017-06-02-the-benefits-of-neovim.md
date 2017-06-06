@@ -239,10 +239,33 @@ in the community at large, those benefits being:
   noted, that Vim 8's approach did have some initial
   [issues](https://twitter.com/fatih/status/793414447113048064).
 
-Personal Wishlist
-=================
-Here is my personal list of enhancements that I wish would someday come to
-Neovim:
+Personal Wishlist for the Future
+================================
+Here is my list of enhancements that I wish would someday come to Neovim, or
+Vim:
+
+- My first, and most important, item would be greatly improved scroll
+  performance when `relativenumber` is in effect. Currently when
+  `relativenumber` is enabled any type of scroll event will cause a full redraw
+  for all visible lines which in turn results in every line having its syntax
+  re-evaluated even though no text has actually changed; this **is** redundant
+  work. For languages like Ruby, with its over 200 *regex* rules, this does
+  result in visible performance problems when scrolling as noted by these
+  issues: [vim #282](https://github.com/vim/vim/issues/282) and
+  [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically
+  I would like [this feature](https://github.com/vim/vim/issues/1735)
+  implemented.
+
+- Integrated [Language Server Protocol](http://langserver.org/) support. LSP
+  provides high performance editor-agnostic support for: code completion,
+  hovered tooltips, jump-to-definition and code refactoring as explained in
+  [this](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol)
+  Microsoft blog post. Language servers already exist for many
+  [languages](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations).
+  A language-client implementation for Neovim is available as a
+  [plugin](https://github.com/autozimu/LanguageClient-neovim), but in the
+  longer term, once LSP and its clients and servers stabilize, it would seem
+  desirable to integrate this directly in core Neovim.
 
 - Encryption support functionally similar to Vim's existing
   [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
@@ -277,19 +300,9 @@ Neovim:
   latter happens a little more often than I would like.  Surely we can do
   better than *regex* highlighting for some modern languages?
   [This](https://github.com/neovim/neovim/issues/719) Neovim thread does give
-  hope that the fundamentals are now available in Neovim to make this happen.
-
-- Lastly, I would really like for Vim, or Neovim if need be, to cache syntax
-  highlight results when it can. Currently when `relativenumber` is enabled any
-  type of scroll event will cause a full redraw for all visible lines which in
-  turn results in every line having its syntax re-evaluated even though no text
-  has actually changed; this **is** redundant work. For languages like Ruby,
-  with its over 200 *regex* rules, this does result in visible performance
-  problems when scrolling as noted by these issues:
-  [vim #282](https://github.com/vim/vim/issues/282) and
-  [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically I
-  would like [this feature](https://github.com/vim/vim/issues/1735)
-  implemented.
+  hope that the fundamentals are now available in Neovim to make this happen. I
+  also wonder if Language Server Protocol (LSP), as mentioned above, can be
+  leveraged for syntax highlighting?
 
 Summary
 =======

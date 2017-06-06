@@ -84,7 +84,7 @@ visual block, that being a `Control-v` style visual selection:
 
 Count the number of pattern matches
 -----------------------------------
-Use the *substitute* command to count the number of matches for a particular
+Use the `substitute` command to count the number of matches for a particular
 pattern.
 
 First, execute a search:
@@ -100,7 +100,35 @@ Then execute a counting substitute:
 Note, this particular form of *substitute* will **not** actually substitute
 anything, it will instead just print out the number of matches.
 
-Project wide refactoring using *cfdo*
+Sorting
+-------
+Use the `sort` command to sort a selection, say a visual selection:
+
+```viml
+:'<,'>sort
+```
+
+By default lines starting with *0-9* will be sorted before *A-Z* followed
+lastly by lines starting with *a-z*.
+
+Use the `i` option to ignore case when sorting, more often than not you want to
+do this:
+```viml
+:'<,'>sort i
+```
+
+Use a `!` to reverse the sort:
+```viml
+:'<,'>sort! i
+```
+
+Lastly the `u` option can be used to remove duplicates much like the **uniq**
+system command:
+```viml
+:'<,'>sort u
+```
+
+Project wide substitution using *cfdo*
 -------------------------------------
 Historically it has been awkward to carry out multi-file substitutions in
 Vim. Many possibilities exist, some involving `argo`, others involving
@@ -113,8 +141,8 @@ such as a substitute, to be invoked only on the files in the *quickfix* list.
 Note, `cfdo` is only available in relatively recent versions of Vim or Neovim.
 Please upgrade to Vim 8 or the newest version of Neovim.
 
-To carry out a `cfdo` refactor one must first populate the *quickfix* list with
-a candidate set of files containing the *term* wanting to be refactored.
+To carry out a `cfdo` substitute one must first populate the *quickfix* list
+with a candidate set of files containing the *term* wanting to be refactored.
 
 Using *vimgrep*:
 ```
@@ -124,7 +152,7 @@ Using *vimgrep*:
 Or using the excellent [ripgrep](https://github.com/BurntSushi/ripgrep)
 utility via the [vim-grepper](https://github.com/mhinz/vim-grepper) plugin:
 ```
-:GrepperRg oldterm
+:GrepperRg -i oldterm
 ```
 
 From there one simply executes the desired substitution over the list of files

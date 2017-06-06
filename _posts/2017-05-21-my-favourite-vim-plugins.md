@@ -37,7 +37,6 @@ vim-moonfly-colors
 ------------------
 ```viml
 Plug 'bluz71/vim-moonfly-colors'
-let g:moonflyCursorLineNr = 1
 ```
 
 Some self advertising, I have written my own Vim **colorscheme** named
@@ -129,7 +128,7 @@ CtrlP
 -----
 ```viml
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window_reversed = 0
 ```
@@ -137,10 +136,9 @@ let g:ctrlp_match_window_reversed = 0
 The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is another essential plugin.
 It is a fuzzy file finder.
 
-I highly recommend installing the [Silver
-Searcher](https://github.com/ggreer/the_silver_searcher) and configuring
-*CtrlP* to use it and to not cache results. The *Silver Searcher* is an
-extremely performant search utility and it mates very well with *CtrlP*.
+I highly recommend installing [ripgrep](https://github.com/BurntSushi/ripgrep)
+and configuring *CtrlP* to use it and to not cache results. *ripgrep* is an
+extremely performant modern search utility and it mates very well with *CtrlP*.
 
 NERDTree
 --------
@@ -188,19 +186,20 @@ runtime autoload/grepper.vim
 let g:grepper.highlight = 1
 let g:grepper.jump = 1
 let g:grepper.stop = 500
-noremap <leader>a :GrepperAg<Space>
+noremap <leader>gr :GrepperRg<Space>
 ```
 
 The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
-interface to various text search utilities including my favourite, the [Silver
-Searcher](https://github.com/ggreer/the_silver_searcher) search
-utility.
+interface to various text search utilities including my favourite, the
+[ripgrep](https://github.com/BurntSushi/ripgrep) search utility.
 
 Upon execution *vim-grepper* search matches will populate Vim's *quickfix* list
 allowing easy navigation through the hits. Note, when run on a modern version
-of Vim or Neovim the search will be executed asynchronously.
+of Vim or Neovim the search will be executed asynchronously. I also limit
+search matches to a max of 500 matches since I want speedy results and also
+because I never usually have that many hits.
 
-I have a simple mapping `<leader>a` to invoke *vim-grepper*'s *Ag* search.
+I have a simple mapping `<leader>gr` to invoke *vim-grepper*'s *ripgrep* search.
 
 vim-test
 --------

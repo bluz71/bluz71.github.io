@@ -121,10 +121,10 @@ Using *vimgrep*:
 :vimgrep oldterm **
 ```
 
-Or using the excellent *Silver Searcher* utility via the
-[vim-grepper](https://github.com/mhinz/vim-grepper) plugin:
+Or using the excellent [ripgrep](https://github.com/BurntSushi/ripgrep)
+utility via the [vim-grepper](https://github.com/mhinz/vim-grepper) plugin:
 ```
-:GrepperAg oldterm
+:GrepperRg oldterm
 ```
 
 From there one simply executes the desired substitution over the list of files

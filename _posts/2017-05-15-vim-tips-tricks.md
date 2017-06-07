@@ -373,6 +373,17 @@ yanking:
 noremap Y y$
 ```
 
+Automatically equalize splits when Vim is resized
+-------------------------------------------------
+It is an annoyance to have to manually equalize Vim splits that have been
+munged by some type of resize event, for example zooming in and out a *tmux*
+pane.
+
+The following `autocmd` will take of split equalization for you:
+```
+autocmd VimResized * wincmd =
+```
+
 Autosave and autoread
 -----------------------
 Add the following snippet to your *vimrc* to enable functional autosave and

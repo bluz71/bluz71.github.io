@@ -131,6 +131,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_switch_buffer = 'e'
 ```
 
 The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is another essential plugin.

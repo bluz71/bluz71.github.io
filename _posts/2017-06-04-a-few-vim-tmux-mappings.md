@@ -19,11 +19,39 @@ benefits:
 [vim + tmux: A Perfect Match](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match),
 and [Benefits of using tmux](https://blog.bugsnag.com/benefits-of-using-tmux)
 
+Note, the following mappings are back in my
+[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc) and
+[tmux.conf](https://github.com/bluz71/dotfiles/blob/master/tmux.conf) files.
+
 *tmux* prefix
 -------------
+*tmux* operations are usually invoked using a `<prefix>` plus `<command>` key
+combination.
+
+The default *tmux* prefix is `<Ctrl-b>`. That is an awkward combination to type
+with one hand, hence many folks change it to `<Ctrl-a>`. In my case I find
+`<Ctrl-w>` even nicer to type with my left hand.
+
+In *~/.tmux.conf*:
+```conf
+unbind-key C-b
+set -g prefix C-w
+```
 
 *Vim* leader
 ------------
+The *Vim* leader is a user definable prefix key that can be used a prefix for
+custom mappings. Think of it as being similar to `<Alt>` or `<Ctrl>` based
+mappings.
+
+The default Vim leader key is `\``, much like the *tmux* default prefix
+key, is an awkward key. The two most common choices replacements are `<Space>`
+and `,`.
+
+I like comma, in *~/.vimrc*:
+```viml
+let mapleader = ","
+```
 
 Use *Vim* bindings in *tmux*
 ----------------------------
@@ -115,6 +143,10 @@ bind-key -n M-9 select-window -t 9
 
 Navigate between *Vim* tab pages
 --------------------------------
+```viml
+noremap <A-n> gt
+noremap <A-p> gT
+```
 
 *Vim* splits
 ------------
@@ -126,6 +158,18 @@ noremap <leader>q :close<CR>
 
 Duplicate semicolon to colon
 ----------------------------
+Command mode in *Vim* is entered by typing `:`, this necessarily involves
+holding the **shift** key. A simple and handy shortcut is to map `;` to `:` as
+follows:
+
+```viml
+noremap ; :
+```
+
+This will mean losing the `;` repeat of the last `f`, `t`, `F` or `T` commands.
+In my case that is not an issue since I use the
+[clever-f](https://github.com/rhysd/clever-f.vim) plugin which provides `f` and
+`F` as repeat operators among other benefits.
 
 Center next *Vim* search match
 ------------------------------

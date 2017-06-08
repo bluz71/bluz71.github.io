@@ -2,6 +2,7 @@
 title: The Benefits of Neovim
 layout: default
 comments: true
+published: false
 ---
 
 The Benefits of Neovim

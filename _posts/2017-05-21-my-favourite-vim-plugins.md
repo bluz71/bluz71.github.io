@@ -184,7 +184,6 @@ vim-grepper
 Plug 'mhinz/vim-grepper'
 let g:grepper = {}
 runtime autoload/grepper.vim
-let g:grepper.highlight = 1
 let g:grepper.jump = 1
 let g:grepper.stop = 500
 noremap <leader>gr :GrepperRg<Space>

@@ -334,8 +334,8 @@ Surround
 Plug 'tpope/vim-surround'
 ```
 
-The [vim-surround](https://github.com/tpope/vim-surround) allows one to add, change or 
-delete *surrounding pairs*.
+The [vim-surround](https://github.com/tpope/vim-surround) allows one to add,
+change or delete *surrounding pairs*.
 
 What is a *surrounding pair*? It may be the quote characters or **<div>**
 tags or anything else that surrounds some text.

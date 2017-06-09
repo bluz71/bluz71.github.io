@@ -100,7 +100,6 @@ stuff    = [1, 2, 3];
 
 indentLine
 ----------
-
 ```viml
 Plug 'Yggdroot/indentLine'
 let g:indentLine_faster = 1

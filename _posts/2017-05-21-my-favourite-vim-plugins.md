@@ -73,6 +73,31 @@ The
 [vim-visual-star-search](https://github.com/nelstrom/vim-visual-star-search)
 plugin allows __*__ and **#** searches to occur on the current visual selection.
 
+vim-lion
+--------
+```viml
+Plug 'tommcdo/vim-lion'
+let g:lion_squeeze_spaces = 1
+```
+
+The [vim-lion](https://github.com/tommcdo/vim-lion) plugin is used to align
+text around a chosen character. I find it easiest to select a visual region and
+then invoke `gl<character>` to re-align text.
+
+For example, `gl=` will convert this:
+```ruby
+i = 5;
+username = 'tommcdo';
+stuff = [1, 2, 3];
+```
+
+into this:
+```ruby
+i        = 5;
+username = 'tommcdo';
+stuff    = [1, 2, 3];
+```
+
 indentLine
 ----------
 

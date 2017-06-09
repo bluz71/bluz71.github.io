@@ -229,9 +229,9 @@ vim-test
 --------
 ```viml
 Plug 'janko-m/vim-test'
-noremap <silent> <leader>ts :TestNearest<CR>
+noremap <silent> <leader>T :TestNearest<CR>
 noremap <silent> <leader>tf :TestFile<CR>
-noremap <silent> <leader>ta :TestSuite<CR>
+noremap <silent> <leader>ts :TestSuite<CR>
 noremap <silent> <leader>tl :TestLast<CR>
 if has("nvim")
     let test#strategy = "neovim"

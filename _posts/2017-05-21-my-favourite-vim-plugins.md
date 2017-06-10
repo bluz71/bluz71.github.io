@@ -98,6 +98,32 @@ username = 'tommcdo';
 stuff    = [1, 2, 3];
 ```
 
+vim-indent-object
+-----------------
+```viml
+Plug 'michaeljsmith/vim-indent-object'
+```
+
+Vim's text object allow easy selection and operation on regions of text.
+
+Common text object operations include:
+
+- `ciw` - change inside *word*
+- `vat` - visually selection around *tag*
+- `di"` - delete inside double *quotes*
+
+The [vim-indent-object](https://github.com/michaeljsmith/vim-indent-object)
+adds another text object, this one based on the indentation of the current
+cursor line. This new text object is invoked by either `i` or `I`. Some
+examples:
+
+- `vii` - visually select *inside* code block using current indentation
+- `vaI` - visually select *around* code block using current indentation AND
+    include trailing line (for example the `end` delimiter in Ruby)
+
+The `i` based text object is very handy since it is language agnostic, it works
+just as well for Python code as it does for JavaScript code.
+
 indentLine
 ----------
 ```viml

@@ -220,7 +220,7 @@ Vim as a *sed* replacement
 A Vim script file can be used as a *poor man's* **sed** replacement.
 
 Create a file with the desired operations. For example this file, *do.vim*,
-will substitute *new* for *old*:
+will substitute *new* for *old:*
 
 ```
 :%s/old/new
@@ -257,8 +257,8 @@ the **F5** function key as seen in my
 
 Better wrapping with *breakindent*
 ----------------------------------
-The relatively new `breakindent` indent option is the *best* way to wrap long
-code lines. When set, long lines will wrap *with* an indentation thus
+The relatively new `breakindent` indent option is an *excellent* way to wrap
+long code lines. When set, long lines will wrap *with* an indentation thus
 preserving the clean indented look of code.
 
 Note, a very modern version of Vim, and Neovim, will be required. All the more
@@ -291,7 +291,7 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 Set *infercase*
 ---------------
 Most folks set `ignorecase` when searching. However that option does not play
-nicely with completion which will then completely ignore casing. Set the
+nicely with completion which will then completely ignore case. Set the
 `infercase` option for smarter completions that will be case aware:
 
 ```viml
@@ -300,9 +300,9 @@ set infercase
 
 Improve performance for files with long lines
 ---------------------------------------------
-Very long lines will cause performance problems with Vim. *The* main culprit
-for this performance issue is the syntax highlighter. I recommend only syntax
-highlighting the first 200 characters of each line.
+Very long lines will cause performance problems with Vim. One of *the* main
+culprits for this performance issue is the syntax highlighter. I recommend only
+syntax highlighting the first 200 characters of each line.
 
 ```viml
 set synmaxcol=200
@@ -322,7 +322,7 @@ set wildmenu
 set wildmode=full
 ```
 
-For example, once set you can quickly tab complete an option *set* via:
+For example, once set you can quickly tab complete an option via:
 ```
 :set auto<<TAB>>
 ```
@@ -363,17 +363,6 @@ xnoremap Q :'<,'>:normal @q<CR>
 Typing `Q` with a visual line selection in effect will execute the `q` macro
 over just the selected lines.
 
-Make *Y* should behave like *D* and *C*
-----------------------------------------
-Vim by default provides `D` to delete till the end of line and `C` to
-change till the end of line. For some reason it does not provide yank till the
-end of line. Enable this mapping to set `Y` to do that particular form of
-yanking:
-
-```viml
-noremap Y y$
-```
-
 Automatically equalize splits when Vim is resized
 -------------------------------------------------
 It is an annoyance to have to manually equalize Vim splits that have been
@@ -407,6 +396,6 @@ Autoread will automatically update an open buffer if it has been changed
 outside the current edit session, usually by an external program.
 
 Most folks have fast SSDs these days, hence the burden of autosave is
-negligible. In return one will vary rarely need to manually trigger an
-explicit save, which will be of benefit if one context switches often, for
-example a web developer switching between an edit window and a test browser.
+negligible. In return one will rarely need to manually trigger an explicit
+save, which will be of benefit if one context switches often, for example a web
+developer switching between an edit window and a test browser.

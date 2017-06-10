@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  
+
   {% include head.html %}
 
   <body>
     {% include page-header.html %}
 
     <section class="main-content">
-      
+      <p class="meta"><small>{{ page.date | date: "Posted: %d %B %Y" }}</small></p>
+
       {{ content }}
 
       {% include disqus.html %}

@@ -8,13 +8,13 @@ published: false
 The Treats of Neovim
 ====================
 [Neovim](https://neovim.io) bills itself as *literally the future of Vim*. This
-post will delve into Neovim to see what it has to offer.
+post will delve into Neovim to see *some* of what it has to offer.
 
-Firstly, for those that haven't been following, Neovim is a recent fork of the
-[Vim](http://www.vim.org/) text editor that began in 2014.
-
-This post will try and explain the highlights, as I see them, with Neovim. It
+This post will try and explain the treats, as I see them, with Neovim. It
 may also help explain why Neovim even exists at all.
+
+Note, for those that haven't been following, Neovim is a recent fork of the
+[Vim](http://www.vim.org/) text editor that began in 2014.
 
 Setup
 =====
@@ -26,20 +26,20 @@ Firstly, I find having *one* configuration that works for both Vim and Neovim
 extremely useful. Hence, my combined configuration still lives in the
 traditional *~/.vimrc* file.
 
-To connect Neovim to the *~/.vimrc* create a *~/.config/nvim/init.vim*
-file with the following content:
+To connect Neovim to *~/.vimrc* create a *~/.config/nvim/init.vim* file with
+the following content:
 
 ```viml
 set runtimepath+=~/.vim,~/.vim/after
 source ~/.vimrc
 ```
 
-Inside a *vimrc* file use the following `if` conditional for any Neovim
+Inside a *vimrc* file use the following `if` style conditional for any Neovim
 specific code:
 
 ```viml
 if has("nvim")
-  " Neovim specific
+  " Neovim
 else
   " Traditional Vim
 endif
@@ -62,12 +62,11 @@ platform:
 
 User-visible Neovim benefits
 ============================
-This is the list of small, but still worthwhile, user-visible enhancements
-that Neovim currently provides in addition to what Vim offers. These
-enhancements are pertinent to Vim 8 and Neovim 0.2 as of May 2017.
+This is a list of small, but still worthwhile, user-visible enhancements
+that Neovim provides that I appreciate. These enhancements are pertinent to
+Vim 8 and Neovim 0.2 as of June 2017.
 
-Note, I am only listing the enhancements that I appreciate, a full list of
-Neovim differences is listed
+Note, a full list of Neovim differences is listed
 [here](https://neovim.io/doc/user/vim_diff.html#nvim-features).
 
 Cursor shape changing
@@ -80,10 +79,10 @@ Basically that means the cursor shape will differ depending on mode:
 - An I-beam in *insert* mode
 - An underscore in *replace* mode
 
-This works in *iTerm2* (on Mac) and *xterm* (on Linux). Best of all the cursor
-shape change will only effect the Neovim edit session unlike Vim's crude
-`t_SI/t_EI` based cursor shape change functionality which will bleed into
-all panes and windows of a *tmux* session.
+This works in *iTerm2* (on macOS) and *xterm* (on Linux). Best of all the
+cursor shape change will only effect the Neovim edit session unlike Vim's crude
+`t_SI/t_EI` based cursor shape change functionality which will bleed into all
+panes and windows of a *tmux* session.
 
 *Whitespace* highlight group
 ----------------------------
@@ -120,8 +119,8 @@ window. This feature is best highlighted in this video:
 
 Inbuilt terminal
 ----------------
-Neovim provides a fully fledged terminal, invoked via `:terminal` (or the
-`:te` shorthand).
+Neovim provides a fully fledged *builtin* terminal, invoked via `:terminal` (or
+the `:te` shorthand).
 
 This provides a *tmux-lite* alternative for those not wanting or needing a full
 *tmux* setup.
@@ -171,7 +170,7 @@ However, in Neovim, one does not need to do anything special.
 
 *Alt* based mappings
 --------------------
-Somewhat related to the above, I assume, `Alt` based mapping work as one would
+Somewhat related to the above I assume, `Alt` based mapping work as one would
 expect in Neovim.
 
 For example, the following mapping to create a new tab page, via `Alt-t`, works
@@ -181,9 +180,9 @@ in Neovim but not in terminal Vim:
 noremap <silent> <A-t> :$tabnew<CR>
 ```
 
-It is possible to configure the above `Alt-t` mapping in terminal Vim, but it
+Note, It is possible to configure an `Alt-t` mapping in terminal Vim, but it
 involves coding in the specific terminal sequence which is not as nice nor as
-intuitive.
+intuitive as Neovim's approach.
 
 Broader Neovim benefits
 =======================
@@ -228,8 +227,8 @@ covers and in the community at large, those benefits being:
 
 Personal Wishlist for the Future
 ================================
-Here is my list of enhancements that I wish would someday come to Neovim, or
-Vim:
+Here is my list of enhancements that I wish would someday come to Neovim,
+and/or Vim:
 
 - My first, and most important, item would be greatly improved scroll
   performance when `relativenumber` is in effect. Currently when
@@ -254,7 +253,7 @@ Vim:
   longer term, once LSP and its clients and servers stabilize, it would seem
   desirable to integrate this directly in core Neovim.
 
-- Encryption support functionally similar to Vim's existing
+- Encryption support behaviourally similar to Vim's existing
   [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
   out all direct encryption support a while
   [ago](https://github.com/neovim/neovim/issues/694). I understand why they did
@@ -293,6 +292,8 @@ Vim:
 
 Summary
 =======
-Is *Neovim is the future of Vim*? I say it *can* be a part of the future.
+Is *Neovim is the future of Vim*? I say it *can* indeed be a part of the
+future.
 
-Every Vim user should want Neovim to survive and more than that *thrive*.
+Every Vim user should want Neovim to survive and more than that **thrive**. All
+Vim users would benefit, whether they use Neovim today or they don't.

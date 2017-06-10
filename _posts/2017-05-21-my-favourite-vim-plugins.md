@@ -45,7 +45,7 @@ Some self advertising, I have written my own Vim **colorscheme** named
 
 The *moonfly* colorscheme is yet another dark theme, but unlike all other dark
 themes this one is **my** dark theme. That means it has been tuned to my
-particular tastes.  Whether those tastes match up with other peoples tastes
+particular tastes.  Whether those tastes match up with anyone else's taste
 will be in the eye of the beholder.
 
 vim-moonfly-statusline
@@ -171,9 +171,9 @@ matches for the chosen movement.
 
 The more convenient part is achieved by simply using the `f` and `F`
 characters to navigate forward and backward through the matches unlike Vim's
-inconvenient and hard to remembers default of `;` and `,` repeats. In my
-case I map the **leader** key to `,` and I map `;` as a duplicate of `:`,
-hence those repeat characters are not available.
+inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
+**leader** key to `,` and I map `;` as a duplicate of `:`, hence those repeat
+characters are not available.
 
 CtrlP
 -----
@@ -189,8 +189,8 @@ The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is another essential plugin.
 It is a fuzzy file finder.
 
 I highly recommend installing [ripgrep](https://github.com/BurntSushi/ripgrep)
-and configuring *CtrlP* to use it and to not cache results. *ripgrep* is an
-extremely performant modern search utility and it mates very well with *CtrlP*.
+and configuring *CtrlP* to use it and to not cache results. *ripgrep* is a
+highly performant modern search utility and it mates very well with *CtrlP*.
 
 NERDTree
 --------
@@ -201,7 +201,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Most Vim folk are aware or use
 [NERDTree](https://github.com/scrooloose/nerdtree). Not much explanation is
 needed, *NERDTree* is a simple file explorer that open up on the left-hand side
-of a Vim session.
+of a Vim workspace.
 
 One inconvenience is that *NERDTree*, by default, will not refresh itself when
 one enters the file-tree window. This can be overcome with the following
@@ -270,9 +270,9 @@ interface to various back-end testing frameworks. This plugin allows one to
 agnostically run tests for different languages and their associated testing
 frameworks.
 
-Note, Neovim's inbuilt terminal is extremely well integrated with *vim-test*.
-The above `has neovim` configuration will run tests in a split terminal window
-unlike Vim which will shell-out to the system.
+Note, Neovim's inbuilt terminal is well integrated with *vim-test*. The above
+`has neovim` configuration will run tests in a split terminal window unlike Vim
+which will shell-out.
 
 Tim Pope Plugins
 ================
@@ -339,7 +339,7 @@ Plug 'tpope/vim-commentary'
 
 The [vim-commentary](https://github.com/tpope/vim-commentary) plugin is a
 simple language agnostic comment plugin. I use it with a visual line selection
-to comment out or uncomment out a block of code with the `gc` command the
+to comment out or uncomment out a block of code with the `gc` operation the
 plugin provides.
 
 No need to remember what the comment characters are for a certain language, is
@@ -352,8 +352,8 @@ Plug 'tpope/vim-endwise'
 ```
 
 The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
-automatically insert **end** to code blocks for languages such as: Ruby, Elixir
-and Crystal.
+automatically insert **end**, in insert mode, to code blocks for languages such
+as: Ruby, Elixir and Crystal.
 
 Surround
 --------

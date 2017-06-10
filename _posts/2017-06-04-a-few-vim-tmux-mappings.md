@@ -12,8 +12,8 @@ post will list some of *my* most used mappings and why I find them useful. This
 post is **not** be about convincing anyone to change *their* mappings, rather
 the intention is to simply provide yet another resouce of possibilities.
 
-Note, both *Vim* and *tmux* mappings will be intermingled in this post since I
-use both as a unified whole.
+Note, both *Vim* and *tmux* mappings will somewhat be intermingled in this post
+since I use both as a unified whole.
 
 I will let others explain the benefits of *tmux* and *Vim* together:
 [vim + tmux: A Perfect Match](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match),
@@ -29,7 +29,7 @@ Note, the following mappings are backed into my
 combination.
 
 The default *tmux* prefix is `Ctrl-b`. That is an awkward combination to type
-with one hand, hence many folks change it to `Ctrl-a`. In my case I find
+with one hand, hence many folk change it to `Ctrl-a`. In my case I find
 `Ctrl-w` even nicer to type with just my left hand.
 
 In *~/.tmux.conf:*
@@ -127,7 +127,7 @@ terminal window. From a usability perspective we want to use the same mappings
 to navigate between *splits* and *panes*.
 
 The above configuration provides `Ctrl-h` (left), `Ctrl-j` (down), `Ctrl-k`
-(up), and `Ctrl-l` (right) seamless navigation between *Vim* splits *tmux*
+(up), and `Ctrl-l` (right) seamless navigation between *Vim* splits and *tmux*
 panes.
 
 The [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
@@ -172,11 +172,11 @@ bind-key -n M-8 select-window -t 8
 bind-key -n M-9 select-window -t 9
 ```
 
-*tmux* windows are the effectively numbered tabs which are usually navigated by
+*tmux* windows are the numbered tabs which are usually navigated by
 `<prefix>-<number>`. However I find using a `<prefix>` based mapping a bit
 cumbersome if I want to quickly flick between windows.
 
-Instead I prefer to use `<Alt>-<number>` to quickly get to the window I want.
+Instead I prefer to use `Alt-<number>` to quickly get to the window I want.
 
 Navigate between *Vim* tab pages
 --------------------------------
@@ -197,7 +197,7 @@ noremap <A-%> 5gt
 This provides `Alt-n`/`Alt-p` to navigate the next and previous tabs and
 `Alt-Shift-1`/`Alt-Shift-2`/`...` to switch to a specific numbered tab. I use
 the [vim-taboo](https://github.com/gcmt/taboo.vim) plugin to obtain numbered
-tabs rather than *Vim's* default tab naming convention.
+tabs rather than live with *Vim's* default tab naming convention.
 
 *Vim* splits
 ------------
@@ -248,7 +248,18 @@ The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin, with the
 [ripgrep](https://github.com/BurntSushi/ripgrep) search utility, is a favourite
 of mine when I want to do project wide searching. *vim-grepper* will populate
 the *quickfix* list. The above mappings, `Alt-Up` and `Alt-Down`, navigate the
-next and previous search matches whilst also centering the match.
+next and previous search matches while also centering the match.
+
+Make *Y* should behave like *D* and *C*
+----------------------------------------
+```viml
+noremap Y y$
+```
+
+Vim by default provides `D` to delete till the end of line and `C` to
+change till the end of line. For some reason it does not provide yank till the
+end of line. Enable this mapping to set `Y` to do that particular form of
+yanking.
 
 Fold code in Vim
 ----------------
@@ -257,18 +268,10 @@ set foldmethod=indent
 nnoremap <leader><Space> za
 ```
 
-There are a few choices available when choosing a Vim fold method. I just to
+There are multiple choices available when choosing a Vim fold method. I like to
 use `indent` since it is simple and performant. `<leader><Space>` simply
-toggles the desired fold.
+toggles the current fold.
 
-
-Quit *Vim* and confirm saves
-----------------------------
-```viml
-noremap <C-q> :confirm qall<CR>
-```
-
-Use `Ctrl-q` to exit *Vim* with confirmation.
 
 Replay a *Vim* macro
 --------------------
@@ -277,7 +280,7 @@ nnoremap Q @q
 xnoremap Q :'<,'>:normal @q<CR>
 ```
 
-Simply record a macro using `qq` and replay that macro using `Q`.
+Record a macro using `qq` and replay that macro using `Q`.
 
 Equalize *Vim* splits
 ---------------------
@@ -286,6 +289,17 @@ noremap <leader>= <C-w>=
 ```
 
 The above mapping equalizes the splits of the current *Vim* workspace.
+
+Zoom a *Vim* split
+------------------
+```viml
+noremap <silent> <leader>z :tab split<CR>
+```
+
+This mapping is handy, it zooms a split into its own full tab page. This is
+useful when the current workspace has been divided multiple times making edits
+to any single split difficult due to a lack of space. In that case simply
+*zoom* the split.
 
 Navigate MVC web framework code
 -------------------------------
@@ -309,17 +323,5 @@ These mappings use the [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin to
 navigate the Model/View/Controller (MVC) code of a
 [Ruby on Rails](http://rubyonrails.org/) or
 [Elixir Phoenix](http://www.phoenixframework.org/) application using mostly
-the same mappings. The above mappings can also easily be extended for other
+the same mappings. The above mappings can easily be extended for other
 frameworks.
-
-
-Zoom a *Vim* split
-------------------
-```viml
-noremap <silent> <leader>z :tab split<CR>
-```
-
-This mapping is handy, it zooms a split into its own full tab page. This is
-useful when the current workspace has been divided multiple times making edits
-to any single split difficult due to lack of space. In that case simply *zoom*
-that split.

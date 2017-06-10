@@ -2,6 +2,7 @@
 title: Vim Tips & Tricks
 layout: default
 comments: true
+published: true
 ---
 
 Vim Tips & Tricks

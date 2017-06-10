@@ -1,29 +1,20 @@
 ---
-title: The Benefits of Neovim
+title: The Treats of Neovim
 layout: default
 comments: true
 published: false
 ---
 
-The Benefits of Neovim
-======================
+The Treats of Neovim
+====================
 [Neovim](https://neovim.io) bills itself as *literally the future of Vim*. This
-post will delve into Neovim to see if it lives up to that billing.
+post will delve into Neovim to see what it has to offer.
 
-Firstly, for those that haven't been following, Neovim is a modern fork of the
+Firstly, for those that haven't been following, Neovim is a recent fork of the
 [Vim](http://www.vim.org/) text editor that began in 2014.
 
-This post will try and explain the advantages, as I see them, with Neovim over
-and above Vim. It may also help explain why Neovim even exists at all. I do
-feel sorry sometimes for the Neovim leads who constantly need to answer *why
-does Neovim exist, Vim is perfect right?*
-
-Note however, this post should not be interpreted as any slight on Vim; far
-from it, I still use Vim daily myself. Neovim would not exist without Vim,
-every Vim user should be eternally grateful to Bram Moolenaar.
-
-Lastly, I am assuming the reader is already a Vim user with a functional
-configuration.
+This post will try and explain the highlights, as I see them, with Neovim. It
+may also help explain why Neovim even exists at all.
 
 Setup
 =====
@@ -43,8 +34,8 @@ set runtimepath+=~/.vim,~/.vim/after
 source ~/.vimrc
 ```
 
-Inside a *vimrc* file use the following `if` conditional for Neovim specific
-code:
+Inside a *vimrc* file use the following `if` conditional for any Neovim
+specific code:
 
 ```viml
 if has("nvim")
@@ -69,8 +60,8 @@ platform:
 - `xclip` or `xsel` on Linux, install it via your default package
   manager if not installed by default
 
-Current user-visible Neovim benefits
-====================================
+User-visible Neovim benefits
+============================
 This is the list of small, but still worthwhile, user-visible enhancements
 that Neovim currently provides in addition to what Vim offers. These
 enhancements are pertinent to Vim 8 and Neovim 0.2 as of May 2017.
@@ -81,8 +72,8 @@ Neovim differences is listed
 
 Cursor shape changing
 ---------------------
-This feature is the one I appreciate most; Neovim provides terminal cursor
-shape changing out-of-the-box, no configuration needed.
+Neovim provides terminal cursor shape changing out-of-the-box, no configuration
+needed.
 
 Basically that means the cursor shape will differ depending on mode:
 - A box in *normal* mode
@@ -96,7 +87,7 @@ all panes and windows of a *tmux* session.
 
 *Whitespace* highlight group
 ----------------------------
-Another small, but extremely useful, enhancement is the
+Another small, but useful, enhancement is the
 [Whitespace](https://github.com/neovim/neovim/pull/6367) highlight group.
 
 Vim provides only a single highlight group `SpecialKey` that is used to
@@ -106,8 +97,7 @@ characters (among others).
 I like seeing leading whitespaces as I type them in a low contrast color.
 However, when I want to see trailing *returns*, done by toggling the `list`
 option I like to use a high contrast color. In Vim this is a challenge since it
-only provides a single highlight group for both contexts. Neovim's `Whitespace`
-highlight group solves that issue beautifully.
+only provides a single highlight group for both contexts.
 
 Note, my own [moonfly](https://github.com/bluz71/vim-moonfly-colors)
 *colorscheme* is `Whitespace` aware.
@@ -145,7 +135,7 @@ Copying large amounts of text from a tmux window into a Vim session can be
 fiddly.  The inbuilt Neovim terminal however makes this operation a breeze via
 traditional Vim visual selection and yanking.
 
-The [vim-test](https://github.com/janko-m/vim-test) plugin provides direct
+The [vim-test](https://github.com/janko-m/vim-test) plugin also provides direct
 Neovim terminal support when running tests (for example Rails RSpec tests). In
 Vim, when invoking a test through the *vim-test* plugin, the edit session will
 context switch back to the host terminal and run the test. Hence, it is not
@@ -162,8 +152,7 @@ Vim context switching to the terminal to invoke the tool and then switching
 back to Vim with the results.
 
 Neovim has no such flashing since it invokes such system commands in the
-background and uses pipes to connect results back to the edit session. The lack
-of the terminal flash simply looks and feels better.
+background and uses pipes to connect results back to the edit session.
 
 
 *Control-q* mapping
@@ -182,53 +171,48 @@ However, in Neovim, one does not need to do anything special.
 
 *Alt* based mappings
 --------------------
-Somewhat related to the above, I assume, *Alt* based mapping work as one would
+Somewhat related to the above, I assume, `Alt` based mapping work as one would
 expect in Neovim.
 
-For example, the following mapping to create a new tab page, via *Alt-t*, works
+For example, the following mapping to create a new tab page, via `Alt-t`, works
 in Neovim but not in terminal Vim:
 
 ```viml
 noremap <silent> <A-t> :$tabnew<CR>
 ```
 
-It is possible to configure the above *Alt-t* mapping in terminal Vim, but it
+It is possible to configure the above `Alt-t` mapping in terminal Vim, but it
 involves coding in the specific terminal sequence which is not as nice nor as
 intuitive.
 
-Architectural Neovim benefits
-=============================
+Broader Neovim benefits
+=======================
 In the grand scheme the above list of enhancements all minor in nature. The
-more substantive Neovim benefits right now are occurring under the covers and
-in the community at large, those benefits being:
+more substantive Neovim benefits right now are mostly occurring under the
+covers and in the community at large, those benefits being:
 
-- Massively cleaned up and modernized code base. See
+- Refactored and modernized code base. See
   [this](https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/) post
-  for details. Note, this cleanup includes a comprehensive test suite providing
-  confidence to the Neovim development community to expand, enhance and
-  refactor with confidence.
+  for details.
 
-- A fully fledged development community that can survive the comings and goings
-  of key developers. The initial Neovim lead,  Thiago de Arruda, did in fact
-  depart Neovim yet the project has continued on just fine. Can Vim survive if
-  Bram Moolenaar is no longer around, who will maintain the legacy code in the
-  long term?
+- A development community that can survive the comings and goings of key
+  developers. The initial Neovim lead,  Thiago de Arruda, did in fact depart
+  Neovim yet the project has continued on just fine.
 
-- Neovim's remote API functionality provides a pathway where Neovim can be a true
-  component in another application. This Neovim component theoretically could
-  exist in an [Atom](https://atom.io) or
+- Neovim's remote API functionality provides a pathway where Neovim can be a
+  true component in another application. This Neovim component could exist in
+  an [Atom](https://atom.io) or
   [Thunderbird](https://www.mozilla.org/en-US/thunderbird) session. This same
   *client/server* API has also lead to the development of some very interesting
-  Neovim [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui).
-  The [NyaoVim](https://github.com/rhysd/NyaoVim) project looks particularly
-  interesting.
+  Neovim [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui)
+  such as [NyaoVim](https://github.com/rhysd/NyaoVim).
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
-  alongside Vimscript. Lua is a far nicer language than VimScript and with
+  alongside Vimscript. Lua is a nicer language than VimScript and with
   [LuaJIT](http://luajit.org) it is a language that should run orders of
   magnitude faster as well. This should allow Neovim plugin authors
-  greater scope to offer complex functionality with far great performance.
+  greater scope to offer complex functionality with excellent performance.
 
 - Asynchronous support is now less of a differentiator between Neovim and Vim
   than it used to be. The relatively new Vim 8 includes JSON based asynchronous
@@ -236,9 +220,11 @@ in the community at large, those benefits being:
   [MessagePack](https://github.com/msgpack-rpc/msgpack-rpc) based asynchronous
   API.
   [This](https://www.reddit.com/r/neovim/comments/58nrwv/neovim_api_comparison_with_vim_channels/)
-  thread explains the approaches the two projects have used. It should be
-  noted, that Vim 8's approach did have some initial
-  [issues](https://twitter.com/fatih/status/793414447113048064).
+  thread explains the approaches the two projects have used.
+
+- Mutually beneficial competitive tension between Vim and Neovim benefits both
+  projects. It certainly appears that Neovim's asynchronous support spurred the
+  development of Vim 8's equivalent.
 
 Personal Wishlist for the Future
 ================================
@@ -249,17 +235,17 @@ Vim:
   performance when `relativenumber` is in effect. Currently when
   `relativenumber` is enabled any type of scroll event will cause a full redraw
   for all visible lines which in turn results in every line having its syntax
-  re-evaluated even though no text has actually changed; this **is** redundant
-  work. For languages like Ruby, with its over 200 *regex* rules, this does
-  result in visible performance problems when scrolling as noted by these
-  issues: [vim #282](https://github.com/vim/vim/issues/282) and
+  re-evaluated even though no text has actually changed. For languages like
+  Ruby, with its over 200 *regex* rules, this does result in visible
+  performance problems when scrolling as noted by these issues:
+  [vim #282](https://github.com/vim/vim/issues/282) and
   [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically
   I would like [this feature](https://github.com/vim/vim/issues/1735)
   implemented.
 
 - Integrated [Language Server Protocol](http://langserver.org/) support. LSP
-  provides high performance editor-agnostic support for: code completion,
-  hovered tooltips, jump-to-definition and code refactoring as explained in
+  provides high performance editor-agnostic: code completion, hovered tooltips,
+  jump-to-definition and code refactoring as explained in
   [this](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol)
   Microsoft blog post. Language servers already exist for many
   [languages](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations).
@@ -290,16 +276,16 @@ Vim:
   in Vim. Yes, this is visual sugar, but so are `relativenumber` and
   `colorcolumn`, some sugar is nice.
 
-- Some AST-based language syntax highlighters, whether that be in
-  the core distribution or available as separate plugins. Currently
-  highlighting is regular expression based, historically this has been good
-  enough and likely will remain good enough, but this approach does have its
-  issues. On slower machines, especially when `relativenumber` is enabled, this
-  regular expression based highlighting can lead to serious performance
-  [issues](https://github.com/vim/vim/issues/282), but even worse more than
-  that, the syntax highlighting can often get tricked out. To be honest, the
-  latter happens a little more often than I would like.  Surely we can do
-  better than *regex* highlighting for some modern languages?
+- AST-based language syntax highlighters, whether that be in the core
+  distribution or available as separate plugins, for certain languages.
+  Currently highlighting is regular expression based, historically this has
+  been good enough and likely will remain good enough, but this approach does
+  have its issues. On slower machines, especially when `relativenumber` is
+  enabled, this regular expression based highlighting can lead to serious
+  performance [issues](https://github.com/vim/vim/issues/282), but even worse
+  more than that, the syntax highlighting can often get tricked out. To be
+  honest, the latter happens a little more often than I would like.  Surely we
+  can do better than *regex* highlighting for some modern languages?
   [This](https://github.com/neovim/neovim/issues/719) Neovim thread does give
   hope that the fundamentals are now available in Neovim to make this happen. I
   also wonder if Language Server Protocol (LSP), as mentioned above, can be
@@ -307,9 +293,6 @@ Vim:
 
 Summary
 =======
-Is *Neovim is the future of Vim*? I say an emphatic **yes**.
+Is *Neovim is the future of Vim*? I say it *can* be a part of the future.
 
-The cleaned up codebase, the development community, the architectural changes
-all mean that Neovim will innovate at a faster rate than Vim. Every Vim user
-should want Neovim to survive and more than that *thrive*, I believe it is the
-future of Vim.
+Every Vim user should want Neovim to survive and more than that *thrive*.

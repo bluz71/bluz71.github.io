@@ -250,6 +250,18 @@ of mine when I want to do project wide searching. *vim-grepper* will populate
 the *quickfix* list. The above mappings, `Alt-Up` and `Alt-Down`, navigate the
 next and previous search matches whilst also centering the match.
 
+Fold code in Vim
+----------------
+```viml
+set foldmethod=indent
+nnoremap <leader><Space> za
+```
+
+There are a few choices available when choosing a Vim fold method. I just to
+use `indent` since it is simple and performant. `<leader><Space>` simply
+toggles the desired fold.
+
+
 Quit *Vim* and confirm saves
 ----------------------------
 ```viml

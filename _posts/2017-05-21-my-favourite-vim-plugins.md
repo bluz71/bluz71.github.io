@@ -252,6 +252,20 @@ because I never usually have that many hits.
 
 I have a simple mapping `<leader>gr` to invoke *vim-grepper*'s *ripgrep* search.
 
+vim-polyglot
+------------
+```viml
+Plug 'sheerun/vim-polyglot'
+```
+
+The [vim-polyglot](https://github.com/sheerun/vim-polyglot) plugin is a
+**comprehensive** language pack collection for Vim. This plugin consolidates
+all the best standalone language plugins, such as
+[vim-ruby](https://github.com/vim-ruby/vim-ruby) and
+[vim-go](https://github.com/fatih/vim-go), into one master-plugin. And best
+of all this plugin will configure all language scripts to only load when
+required.
+
 vim-test
 --------
 ```viml

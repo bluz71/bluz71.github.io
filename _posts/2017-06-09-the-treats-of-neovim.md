@@ -7,6 +7,7 @@ published: false
 
 The Treats of Neovim
 ====================
+
 [Neovim](https://neovim.io) bills itself as *literally the future of Vim*. This
 post will delve into Neovim to see *some* of what it has to offer.
 
@@ -18,10 +19,12 @@ Note, for those that haven't been following, Neovim is a recent fork of the
 
 Setup
 =====
+
 Neovim does require some pre-configuration.
 
 vimrc
 -----
+
 Firstly, I find having *one* configuration that works for both Vim and Neovim
 extremely useful. Hence, my combined configuration still lives in the
 traditional *~/.vimrc* file.
@@ -50,6 +53,7 @@ of a combined configuration.
 
 Cut n' paste
 ------------
+
 Neovim requires an external clipboard provider for functional *cut n' paste*
 support.
 
@@ -62,6 +66,7 @@ platform:
 
 User-visible Neovim benefits
 ============================
+
 This is a list of small, but still worthwhile, user-visible enhancements
 that Neovim provides that I appreciate. These enhancements are pertinent to
 Vim 8 and Neovim 0.2 as of June 2017.
@@ -71,10 +76,12 @@ Note, a full list of Neovim differences is listed
 
 Cursor shape changing
 ---------------------
+
 Neovim provides terminal cursor shape changing out-of-the-box, no configuration
 needed.
 
 Basically that means the cursor shape will differ depending on mode:
+
 - A box in *normal* mode
 - An I-beam in *insert* mode
 - An underscore in *replace* mode
@@ -86,12 +93,13 @@ panes and windows of a *tmux* session.
 
 *Whitespace* highlight group
 ----------------------------
+
 Another small, but useful, enhancement is the
 [Whitespace](https://github.com/neovim/neovim/pull/6367) highlight group.
 
 Vim provides only a single highlight group `SpecialKey` that is used to
 visibly highlight special characters such as *space*, *tab* and *return*
-characters (among others). 
+characters (among others).
 
 I like seeing leading whitespaces as I type them in a low contrast color.
 However, when I want to see trailing *returns*, done by toggling the `list`
@@ -103,9 +111,11 @@ Note, my own [moonfly](https://github.com/bluz71/vim-moonfly-colors)
 
 Substitution previews via *inccommand*
 --------------------------------------
+
 Neovim provides live substitution previews.
 
 To enable, add the following to your *vimrc:*
+
 ```viml
 if has("nvim")
     set inccommand=nosplit
@@ -119,6 +129,7 @@ window. This feature is best highlighted in this video:
 
 Inbuilt terminal
 ----------------
+
 Neovim provides a fully fledged *builtin* terminal, invoked via `:terminal` (or
 the `:te` shorthand).
 
@@ -145,6 +156,7 @@ seen next to each other. This greatly enhances the code, test, fix cycle.
 
 *silent make*
 -------------
+
 In Vim invoking an external `make` tool such as `eslint` will result in
 a visible screen flash even when `silent` is specified. This results due to
 Vim context switching to the terminal to invoke the tool and then switching
@@ -153,10 +165,11 @@ back to Vim with the results.
 Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
-
 *Control-q* mapping
 -------------------
+
 I have a *Control-q* mapping to safely quit my Vim session:
+
 ```viml
 noremap <C-q> :confirm qall<CR>
 ```
@@ -170,6 +183,7 @@ However, in Neovim, one does not need to do anything special.
 
 *Alt* based mappings
 --------------------
+
 Somewhat related to the above I assume, `Alt` based mapping work as one would
 expect in Neovim.
 
@@ -186,6 +200,7 @@ intuitive as Neovim's approach.
 
 Broader Neovim benefits
 =======================
+
 In the grand scheme the above list of enhancements all minor in nature. The
 more substantive Neovim benefits right now are mostly occurring under the
 covers and in the community at large, those benefits being:
@@ -227,6 +242,7 @@ covers and in the community at large, those benefits being:
 
 Personal Wishlist for the Future
 ================================
+
 Here is my list of enhancements that I wish would someday come to Neovim,
 and/or Vim:
 
@@ -292,6 +308,7 @@ and/or Vim:
 
 Summary
 =======
+
 Is *Neovim is the future of Vim*? I say it *can* indeed be a part of the
 future.
 

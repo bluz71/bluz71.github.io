@@ -7,24 +7,27 @@ published: false
 
 A few Vim & tmux mappings
 =========================
-Power *Vim* usage involves configuring mappings, oftimes many of them. This
-post will list some of *my* most used mappings and why I find them useful. This
-post is **not** be about convincing anyone to change *their* mappings, rather
-the intention is to simply provide yet another resouce of possibilities.
 
-Note, both *Vim* and *tmux* mappings will somewhat be intermingled in this post
-since I use both as a unified whole.
+Power *Vim* usage involves configuring mappings, oftimes many of them. This
+post will list some of *my* most used mappings and why I find them useful.
+Note, this post is **not** be about convincing anyone to change *their*
+mappings, rather the intention is to simply provide yet another resouce of
+possibilities.
+
+Both *Vim* and *tmux* mappings will somewhat be intermingled in this post since
+I use both as a unified whole.
 
 I will let others explain the benefits of *tmux* and *Vim* together:
 [vim + tmux: A Perfect Match](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match),
 and [Benefits of using tmux](https://blog.bugsnag.com/benefits-of-using-tmux)
 
-Note, the following mappings are backed into my
+The mappings discussed in this post are backed into my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc) and
 [tmux.conf](https://github.com/bluz71/dotfiles/blob/master/tmux.conf) files.
 
 *tmux* prefix
 -------------
+
 *tmux* operations are usually invoked with a `<prefix>` plus `<command>` key
 combination.
 
@@ -33,6 +36,7 @@ with one hand, hence many folk change it to `Ctrl-a`. In my case I find
 `Ctrl-w` even nicer to type with just my left hand.
 
 In *~/.tmux.conf:*
+
 ```sh
 unbind-key C-b
 set -g prefix C-w
@@ -40,6 +44,7 @@ set -g prefix C-w
 
 *Vim* leader
 ------------
+
 The *Vim* leader is a user definable key that can be used as a prefix for
 custom mappings. Think of it as being similar to `Alt` or `Ctrl`,  but in
 addition to those modifiers.
@@ -49,13 +54,16 @@ prefix, is an awkward key. The two most common replacements are `Space` and
 `,`.
 
 I like comma, in *~/.vimrc:*
+
 ```viml
 let mapleader = ","
 ```
 
 Use *vi* bindings in *tmux*
 ----------------------------
+
 In *~/.tmux.conf:*
+
 ```sh
 setw -g mode-keys vi
 unbind-key [
@@ -77,10 +85,11 @@ When using *Vim* with *tmux* it makes sense to configure *vi* style bindings.
 The above configuration allows for *Vim* style visual selection and yanking
 when in *tmux* copy mode.
 
-
 Nicer *tmux* pane splitting
 ---------------------------
+
 In *~/.tmux.conf:*
+
 ```sh
 unbind-key %
 bind-key | split-window -h
@@ -94,7 +103,9 @@ the type of pane that will be created.
 
 Seamlessly navigate *Vim* splits and *tmux* panes
 -------------------------------------------------
+
 In *~/.vimrc:*
+
 ```viml
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -111,8 +122,8 @@ if &term == 'screen-256color'
 endif
 ```
 
-
 In *~/.tmux.conf:*
+
 ```sh
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
@@ -136,15 +147,20 @@ your preferred *Vim* plugin manager.
 
 Create a *tmux* window
 ----------------------
+
 In *~/.tmux.conf:*
+
 ```sh
 bind-key -n M-w new-window
 ```
+
 `Alt-w` creates a new *tmux* window.
 
 Create a *Vim* tab page
 -----------------------
+
 In *~/.vimrc:*
+
 ```viml
 noremap <silent> <A-t> :$tabnew<CR>
 ```
@@ -159,7 +175,9 @@ simpler mappings.
 
 Navigate between *tmux* windows
 -------------------------------
+
 In *~/.tmux.conf:*
+
 ```sh
 bind-key -n M-1 select-window -t 1
 bind-key -n M-2 select-window -t 2
@@ -180,7 +198,9 @@ Instead I prefer to use `Alt-<number>` to quickly get to the window I want.
 
 Navigate between *Vim* tab pages
 --------------------------------
+
 In *~/.vimrc:*
+
 ```viml
 Plug 'gcmt/taboo.vim'
 let g:taboo_tab_format = " tab:%N%m "
@@ -201,6 +221,7 @@ tabs rather than live with *Vim's* default tab naming convention.
 
 *Vim* splits
 ------------
+
 ```sh
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
@@ -212,6 +233,7 @@ create and close splits is a must.
 
 Enter *Vim* command mode
 ------------------------
+
 Command mode in *Vim* is entered by typing `:`, this necessarily involves
 holding the **shift** key. A simple and handy shortcut is to map `;` to `:` as
 follows to avoid the **shift** key altogether:
@@ -227,6 +249,7 @@ In my case that is a non-issue since I use the
 
 Center next *Vim* search match
 ------------------------------
+
 ```sh
 noremap n nzz
 noremap N Nzz
@@ -239,6 +262,7 @@ center of the screen.
 
 Navigate *quickfix* list and center matches
 -------------------------------------------
+
 ```sh
 noremap <silent> <A-Up> :cp<CR>zz
 noremap <silent> <A-Down> :cn<CR>zz
@@ -252,6 +276,7 @@ next and previous search matches while also centering the match.
 
 Make *Y* should behave like *D* and *C*
 ----------------------------------------
+
 ```viml
 noremap Y y$
 ```
@@ -263,6 +288,7 @@ yanking.
 
 Fold code in Vim
 ----------------
+
 ```viml
 set foldmethod=indent
 nnoremap <leader><Space> za
@@ -272,9 +298,9 @@ There are multiple choices available when choosing a Vim fold method. I like to
 use `indent` since it is simple and performant. `<leader><Space>` simply
 toggles the current fold.
 
-
 Replay a *Vim* macro
 --------------------
+
 ```viml
 nnoremap Q @q
 xnoremap Q :'<,'>:normal @q<CR>
@@ -284,6 +310,7 @@ Record a macro using `qq` and replay that macro using `Q`.
 
 Equalize *Vim* splits
 ---------------------
+
 ```viml
 noremap <leader>= <C-w>=
 ```
@@ -292,6 +319,7 @@ The above mapping equalizes the splits of the current *Vim* workspace.
 
 Zoom a *Vim* split
 ------------------
+
 ```viml
 noremap <silent> <leader>z :tab split<CR>
 ```
@@ -303,6 +331,7 @@ to any single split difficult due to a lack of space. In that case simply
 
 Navigate MVC web framework code
 -------------------------------
+
 ```viml
 if filereadable('config/environment.rb') && isdirectory('app')
     " This looks like a Rails layout.

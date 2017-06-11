@@ -16,6 +16,7 @@ Note, the full set of plugins and mappings I use are available in my
 
 vim-plug
 --------
+
 The first decision a Vim user, looking to enter the plugin world, must decide
 is which plugin manager to use. There are many to choose from:
 [Vundle](https://github.com/VundleVim/Vundle.vim),
@@ -36,6 +37,7 @@ All snippets for the remainder of this post will use *vim-plug* notation.
 
 vim-moonfly-colors
 ------------------
+
 ```viml
 Plug 'bluz71/vim-moonfly-colors'
 ```
@@ -50,6 +52,7 @@ will be in the eye of the beholder.
 
 vim-moonfly-statusline
 ----------------------
+
 ```viml
 Plug 'bluz71/vim-moonfly-statusline'
 ```
@@ -66,6 +69,7 @@ which mode you are in: normal, insert, replace or visual modes.
 
 visual-star-search
 ------------------
+
 ```viml
 Plug 'nelstrom/vim-visual-star-search'
 ```
@@ -76,6 +80,7 @@ plugin allows __*__ and **#** searches to occur on the current visual selection.
 
 vim-lion
 --------
+
 ```viml
 Plug 'tommcdo/vim-lion'
 let g:lion_squeeze_spaces = 1
@@ -86,6 +91,7 @@ text around a chosen character. I find it easiest to select a visual region and
 then invoke `gl<character>` to re-align text.
 
 For example, `gl=` will convert this:
+
 ```ruby
 i = 5;
 username = 'tommcdo';
@@ -93,6 +99,7 @@ stuff = [1, 2, 3];
 ```
 
 into this:
+
 ```ruby
 i        = 5;
 username = 'tommcdo';
@@ -101,6 +108,7 @@ stuff    = [1, 2, 3];
 
 vim-indent-object
 -----------------
+
 ```viml
 Plug 'michaeljsmith/vim-indent-object'
 ```
@@ -127,6 +135,7 @@ just as well for Python code as it does for JavaScript code.
 
 indentLine
 ----------
+
 ```viml
 Plug 'Yggdroot/indentLine'
 let g:indentLine_faster = 1
@@ -144,6 +153,7 @@ impact on Vim scroll performance.
 
 supertab
 --------
+
 ```viml
 Plug 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
@@ -157,6 +167,7 @@ appropriate type of completion, be it *text*, *omni* or *file* completion.
 
 clever-f
 --------
+
 ```viml
 Plug 'rhysd/clever-f.vim'
 let g:clever_f_across_no_line = 1
@@ -177,6 +188,7 @@ characters are not available.
 
 CtrlP
 -----
+
 ```viml
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
@@ -194,6 +206,7 @@ highly performant modern search utility and it mates very well with *CtrlP*.
 
 NERDTree
 --------
+
 ```viml
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 ```
@@ -219,6 +232,7 @@ autocmd BufEnter * call NERDTreeRefresh()
 
 NERDTree Git Plugin
 -------------------
+
 ```viml
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeUpdateOnCursorHold = 0
@@ -231,6 +245,7 @@ The visual information provided by this plugin is genuinely useful.
 
 vim-grepper
 -----------
+
 ```viml
 Plug 'mhinz/vim-grepper'
 let g:grepper = {}
@@ -254,6 +269,7 @@ I have a simple mapping `<leader>gr` to invoke *vim-grepper*'s *ripgrep* search.
 
 vim-polyglot
 ------------
+
 ```viml
 Plug 'sheerun/vim-polyglot'
 ```
@@ -266,8 +282,38 @@ all the best standalone language plugins, such as
 of all this plugin will configure all language scripts to only load when
 required.
 
+neomake
+-------
+
+```viml
+Plug 'neomake/neomake'
+let g:neomake_open_list = 1
+let g:neomake_error_sign = {'text': '●'}
+let g:neomake_warning_sign = {'text': '●'}
+let g:neomake_info_sign = {'text': '●'}
+let g:neomake_message_sign = {'text': '●'}
+noremap <silent> <leader>m :Neomake<CR>
+```
+
+The [neomake](https://github.com/neomake/neomake) plugin is primarily used to
+asynchronously run language linters, or compilers, within modern versions of
+Vim. I personally consider this an **essential** plugin for developers.
+
+Neomake ships with configurations for most common languages, such as JavaScript
+and Ruby to name a couple, hence very little configuration is required within
+Vim. However, the tools that *Neomake* uses, such as *eslint* or *rubocop*,
+will need to be installed on the host.
+
+I like to use a mapping, `<leader>m`, to invoke Neomake when I desire, others
+however prefer to hook into to the file save event as follows:
+
+```viml
+autocmd! BufWritePost * Neomake
+```
+
 vim-test
 --------
+
 ```viml
 Plug 'janko-m/vim-test'
 noremap <silent> <leader>T :TestNearest<CR>
@@ -297,16 +343,17 @@ of fame alongside Bram Moolenaar himself.
 
 Abolish
 -------
+
 ```viml
 Plug 'tpope/vim-abolish'
 ```
 
 The [abolish](https://github.com/tpope/vim-abolish) plugin is really a couple
-plugins in one, those being: 
+plugins in one, those being:
 
-* a smart spell corrector
-* a smart substituter
-* a name coercer.
+- a smart spell corrector
+- a smart substituter
+- a name coercer.
 
 I primarily use the first two.
 
@@ -316,6 +363,7 @@ An example use is correcting *seperate* into *separate* and *delimeter* into
 sets up these corrections in their own *~/.vim/after/plugin/abolish.vim* file.
 
 Here are my *abolish* corrections:
+
 ```
 Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
 Abolish {,in}consistant{,ly}                         {}consistent{}
@@ -335,9 +383,10 @@ Abolish compeletly                                   completely
 The abolish plugin can also carry smart substitutions. What is a *smart
 substitution*? Such a substitution would intelligently change *old* to *new*
 and *Old* to *New* and *OLD* to *NEW* in one command. The *abolish* *substitute*
-command does just that and more. 
+command does just that and more.
 
 An example *abolish* substitute:
+
 ```
 :%S/facilit{y,ies}/building{,s}/
 ```
@@ -347,6 +396,7 @@ This plugin does more than I have documented here, please refer to the
 
 Commentry
 ---------
+
 ```viml
 Plug 'tpope/vim-commentary'
 ```
@@ -361,6 +411,7 @@ it **//** or **#** or **"**, just `gc` it.
 
 Endwise
 -------
+
 ```viml
 Plug 'tpope/vim-endwise'
 ```
@@ -371,6 +422,7 @@ as: Ruby, Elixir and Crystal.
 
 Surround
 --------
+
 ```viml
 Plug 'tpope/vim-surround'
 ```
@@ -384,6 +436,7 @@ tags or anything else that surrounds some text.
 To delete a *surrounding pair* use **d**. Here are some examples, the first
 example will delete the double quotes, the second will delete a tag (like
 *<div>*) and the third will delete _*_ :
+
 ```
 ds"
 dst
@@ -392,6 +445,7 @@ ds*
 
 To change a *surrounding pair* use **c**. Note, you must provide the *old* and
 *new* surround:
+
 ```
 cs'"
 cs*<div>
@@ -405,7 +459,7 @@ single `Control-S` followed by the surround character(s). Use a double
 `Control-S-S` to spread the surround over multiple lines. Note, in both cases
 the cursor will be inserted *between* the *surrounding pair*. The double
 `Control-S-S` is especially useful for inserting curly braces in
-*C/C++/Java/JavaScript* type languages. 
+*C/C++/Java/JavaScript* type languages.
 
 Note, this plugin is harder to explain than it is to use, however once you *get
 it* you can't imagine life without it.

@@ -15,7 +15,7 @@ Note, by no means is this an exclusive list, many of these *tips* will be well
 known to the Vim community at large. However, even the most seasoned of Vim
 users can sometimes learn a *trick* or two from posts like this.
 
-Note, quite a few of these *tips n' tricks* are baked into my
+Quite a few of these *tips n' tricks* are baked into my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
 
 Set *relativenumber*
@@ -163,7 +163,7 @@ Please upgrade to Vim 8 or the newest version of Neovim.
 To carry out a `cfdo` substitute one must first populate the *quickfix* list
 with a candidate set of files containing the *term* wanting to be refactored.
 
-Using *vimgrep*:
+Using *vimgrep:*
 
 ```
 :vimgrep oldterm **
@@ -279,8 +279,8 @@ set complete+=kspell
 ```
 
 Since I am not always editing text I prefer to toggle the above settings *on*
-and *off* when I desire. In my *vimrc* I have a **Spelling** function hooked up to
-the **F5** function key as seen in my
+and *off* when I desire. I have a **Spelling** function hooked up to the **F5**
+function key as seen in my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
 
 Better wrapping with *breakindent*
@@ -345,9 +345,9 @@ lines. I suggest having a quick toggle to disable `relativenumber` when
 required.
 
 Enable *wildmenu* and *wildmode*
-----------------------------
+--------------------------------
 
-The `wildmenu` setting makes Vim options, or opening new files via `:e`, a
+The `wildmenu` option makes setting an option, or opening new files via `:e`, a
 breeze with **TAB** expansion.
 
 I recommend these options.

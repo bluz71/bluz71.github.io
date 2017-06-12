@@ -243,19 +243,17 @@ covers and in the community at large, those benefits being:
 Personal Wishlist for the Future
 ================================
 
-Here is my list of enhancements that I wish would someday come to Neovim,
-and/or Vim:
+Here is a list of features that I wish someday Neovim, or Vim, will provide:
 
-- My first, and most important, item would be greatly improved scroll
-  performance when `relativenumber` is in effect. Currently when
-  `relativenumber` is enabled any type of scroll event will cause a full redraw
-  for all visible lines which in turn results in every line having its syntax
-  re-evaluated even though no text has actually changed. For languages like
-  Ruby, with its over 200 *regex* rules, this does result in visible
-  performance problems when scrolling as noted by these issues:
-  [vim #282](https://github.com/vim/vim/issues/282) and
-  [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically
-  I would like [this feature](https://github.com/vim/vim/issues/1735)
+- My first item would be greatly improved scroll performance when
+  `relativenumber` is in effect. Currently when `relativenumber` is enabled any
+  type of scroll event will cause a full redraw for all visible lines which in
+  turn results in every line having its syntax re-evaluated even though no text
+  has actually changed. For languages like Ruby, with its over 200 *regex*
+  rules, this does result in visible performance problems when scrolling as
+  noted by these issues: [vim #282](https://github.com/vim/vim/issues/282) and
+  [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically I
+  would like [this feature](https://github.com/vim/vim/issues/1735)
   implemented.
 
 - Integrated [Language Server Protocol](http://langserver.org/) support. LSP
@@ -266,8 +264,8 @@ and/or Vim:
   [languages](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations).
   A language-client implementation for Neovim is available as a
   [plugin](https://github.com/autozimu/LanguageClient-neovim), but in the
-  longer term, once LSP and its clients and servers stabilize, it would seem
-  desirable to integrate this directly in core Neovim.
+  longer term, once LSP and its clients and servers mature, it would seem
+  desirable to integrate the LSP client directly in core Neovim.
 
 - Encryption support behaviourally similar to Vim's existing
   [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
@@ -279,32 +277,26 @@ and/or Vim:
   delegates to an external clipboard provider. Such an encryption provider
   could be [GPG](https://gnupg.org/).  Something like the
   [vim-gnupg](https://github.com/jamessan/vim-gnupg) plugin, but built into
-  Neovim is what I would like. I use Vim's `blowfish2` feature everyday, and I
+  Neovim, is what I would like. I use Vim's `blowfish2` feature everyday, and I
   miss having something similar in Neovim.
 
-- Indent guide markers. Both Sublime and Atom editors provide guide markers, in
-  Vim one can achieve a similar result using the
+- Built-in indent guide markers. Both Sublime and Atom editors, among others,
+  provide guide markers. In Vim one can achieve a similar result using the
   [indentLine](https://github.com/Yggdroot/indentLine) plugin which leverages
-  Vim's `conceal` feature. However, that plugin is quirky and its performance at
-  times is problematic. My hope would be to have *performant* guide markers
-  directly in the editor similar to how `colorcolumn` is available directly
-  in Vim. Yes, this is visual sugar, but so are `relativenumber` and
-  `colorcolumn`, some sugar is nice.
+  Vim's `conceal` feature. However, that plugin can be quirky and its
+  performance at times is problematic. My hope would be to have *performant*
+  guide markers directly in the editor similar to how `colorcolumn` is
+  available directly in Vim. Yes, this is visual sugar, but so are
+  `relativenumber` and `colorcolumn`, some sugar is nice.
 
-- AST-based language syntax highlighters, whether that be in the core
-  distribution or available as separate plugins, for certain languages.
-  Currently highlighting is regular expression based, historically this has
-  been good enough and likely will remain good enough, but this approach does
-  have its issues. On slower machines, especially when `relativenumber` is
-  enabled, this regular expression based highlighting can lead to serious
-  performance [issues](https://github.com/vim/vim/issues/282), but even worse
-  more than that, the syntax highlighting can often get tricked out. To be
-  honest, the latter happens a little more often than I would like.  Surely we
-  can do better than *regex* highlighting for some modern languages?
-  [This](https://github.com/neovim/neovim/issues/719) Neovim thread does give
-  hope that the fundamentals are now available in Neovim to make this happen. I
-  also wonder if Language Server Protocol (LSP), as mentioned above, can be
-  leveraged for syntax highlighting?
+- AST-aware syntax highlighters, whether that be in the core
+  distribution or more likely as separate plugins. Currently most Vim syntax
+  highlighting is regular expression based, historically this has been good
+  enough and likely will remain good enough, but this approach does have its
+  issues, the main one being that this style of syntax highlighting can get
+  tricked out. The [Chromatica](https://github.com/arakashic/chromatica.nvim)
+  and [tigris](https://github.com/billyvg/tigris.nvim) plugins are hopefully
+  paving a way forward for a new generation of AST-aware syntax highlighters.
 
 Summary
 =======

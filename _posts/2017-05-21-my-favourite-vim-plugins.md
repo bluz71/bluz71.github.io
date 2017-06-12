@@ -209,16 +209,19 @@ NERDTree
 
 ```viml
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
 ```
 
-Most Vim folk are aware or use
+Most Vim users are aware of
 [NERDTree](https://github.com/scrooloose/nerdtree). Not much explanation is
 needed, *NERDTree* is a simple file explorer that open up on the left-hand side
-of a Vim workspace.
+of a Vim workspace. I use `<leader>n` to toggle *NERDTree* whilst also
+equalizing all existing splits.
 
 One inconvenience is that *NERDTree*, by default, will not refresh itself when
-one enters the file-tree window. This can be overcome with the following
-*vimrc* snippet:
+one enters the file-tree window. For instance, it won't display new files not
+created within *NERDTree* unless a manual *refresh* is executed. This can be
+overcome with the following *vimrc* snippet:
 
 ```viml
 function! NERDTreeRefresh()

@@ -282,22 +282,18 @@ all the best standalone language plugins, such as
 of all this plugin will configure all language scripts to only load when
 required.
 
-neomake
+Neomake
 -------
 
 ```viml
 Plug 'neomake/neomake'
 let g:neomake_open_list = 1
-let g:neomake_error_sign = {'text': '●'}
-let g:neomake_warning_sign = {'text': '●'}
-let g:neomake_info_sign = {'text': '●'}
-let g:neomake_message_sign = {'text': '●'}
 noremap <silent> <leader>m :Neomake<CR>
 ```
 
-The [neomake](https://github.com/neomake/neomake) plugin is primarily used to
+The [Neomake](https://github.com/neomake/neomake) plugin is used to
 asynchronously run language linters, or compilers, within modern versions of
-Vim. I personally consider this an **essential** plugin for developers.
+Vim.
 
 Neomake ships with configurations for most common languages, such as JavaScript
 and Ruby to name a couple, hence very little configuration is required within
@@ -310,6 +306,12 @@ however prefer to hook into to the file save event as follows:
 ```viml
 autocmd! BufWritePost * Neomake
 ```
+
+Neomake is not the only asynchronous linting solution for Vim, an alternative
+is [ALE](https://github.com/w0rp/ale) which will live lint unlike Neomake.
+
+Developers should integrate linting into their development flow, either one of
+these two modern plugins should satisfy that need.
 
 vim-test
 --------

@@ -337,7 +337,7 @@ frameworks.
 
 Note, Neovim's inbuilt terminal is well integrated with *vim-test*. The above
 `has neovim` configuration will run tests in a split terminal window unlike Vim
-which will shell-out.
+which will shell-out by default.
 
 Tim Pope Plugins
 ================

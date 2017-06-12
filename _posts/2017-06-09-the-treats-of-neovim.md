@@ -145,14 +145,15 @@ Copying large amounts of text from a tmux window into a Vim session can be
 fiddly.  The inbuilt Neovim terminal however makes this operation a breeze via
 traditional Vim visual selection and yanking.
 
-The [vim-test](https://github.com/janko-m/vim-test) plugin also provides direct
-Neovim terminal support when running tests (for example Rails RSpec tests). In
-Vim, when invoking a test through the *vim-test* plugin, the edit session will
-context switch back to the host terminal and run the test. Hence, it is not
-possible to simultaneously view the test code and invoked test result. On the
-other hand in Neovim such a test will be invoked in a split terminal window
-below the current edit edit window hence both test code and test result are
-seen next to each other. This greatly enhances the code, test, fix cycle.
+The [vim-test](https://github.com/janko-m/vim-test) plugin provides direct
+Neovim terminal support when running tests. In Vim, by default, when invoking a
+test through the *vim-test* plugin, the edit session will context switch back
+to the host terminal and run the test. In that case it is not possible to
+simultaneously view the test code and invoked test result unless one uses
+something like [vimux](https://github.com/benmills/vimux). On the other hand in
+Neovim such a test will be invoked in a split-below terminal window, hence both
+test code and test result are seen next to each other. This greatly enhances
+the code, test, fix cycle.
 
 *silent make*
 -------------

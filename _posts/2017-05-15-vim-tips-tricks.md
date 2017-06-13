@@ -252,8 +252,8 @@ Create a file with the desired operations. For example this file, *do.vim*,
 will substitute *new* for *old:*
 
 ```
-:%s/old/new
-:wq
+%s/old/new
+wq
 ```
 
 Then use the **-es** option of Vim to execute the Vim script.
@@ -317,6 +317,18 @@ preceded by a count:
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 ```
+
+**EDIT**: In the comments *p1xelHer0* suggested this enhancement:
+
+```viml
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+```
+
+Similar to the first version except this version will automatically save
+movements larger than 5 lines to the *jumplist*. Use `Ctrl-o`/`Ctrl-i` to
+navigate backwards and forwards through the *jumplist*. Yes, a nice
+enhancement, thanks *p1xelHer0*.
 
 Set *infercase*
 ---------------

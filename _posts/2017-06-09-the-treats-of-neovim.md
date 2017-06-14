@@ -224,10 +224,15 @@ covers and in the community at large, those benefits being:
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
-  alongside Vimscript. Lua is a nicer language than VimScript and with
+  alongside Vimscript. Lua is a more capable language than Vimscript and with
   [LuaJIT](http://luajit.org) it is a language that should run orders of
-  magnitude faster as well. This should allow Neovim plugin authors
-  greater scope to offer complex functionality with excellent performance.
+  magnitude faster as well. This will allow Neovim plugin authors greater scope
+  to carry out complex compute-heavy functionality combined **with** good
+  performance. Going forward
+  [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type plugins would
+  have less
+  [need](https://github.com/Valloric/YouCompleteMe#why-isnt-ycm-just-written-in-plain-vimscript-ffs)
+  to be written in Python.
 
 - Asynchronous support is now less of a differentiator between Neovim and Vim
   than it used to be. The relatively new Vim 8 includes JSON based asynchronous
@@ -241,8 +246,8 @@ covers and in the community at large, those benefits being:
   projects. It certainly appears that Neovim's asynchronous support spurred the
   development of Vim 8's equivalent.
 
-Personal Wishlist for the Future
-================================
+Personal Wishlist for Future Vims
+=================================
 
 Here is a list of features that I wish someday Neovim, or Vim, will provide:
 

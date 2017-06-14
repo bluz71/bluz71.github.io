@@ -260,6 +260,20 @@ the `n` (next) or `N` (previous) match. Much less of a need to search for the
 cursor on the screen; the next match, more often than not, will be in the
 center of the screen.
 
+Change word under cursor and dot repeat
+---------------------------------------
+
+```sh
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
+```
+
+The relatively new `gn` command allows for easy operation on the *next* match
+of a completed search. These `<leader>x` and `<leader>X` mappings make use of
+`gn` to provide easy *word-under-cursor* changing, aka in-file refactoring. Best
+of all simply use `...` to repeat that change in the direction chosen instead of
+`n.n.n.` as has usually been in Vim when doing such type of changes.
+
 Navigate *quickfix* list and center matches
 -------------------------------------------
 

@@ -114,6 +114,12 @@ Then execute a counting substitute:
 Note, this particular form of *substitute* will **not** actually substitute
 anything, it will instead just print out the number of matches.
 
+**UPDATE**: In the comments *Smylers* suggested this even more compact variant:
+
+```
+:%~n
+```
+
 Sorting
 -------
 
@@ -318,7 +324,7 @@ nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 ```
 
-**EDIT**: In the comments *p1xelHer0* suggested this enhancement:
+**UPDATE**: In the comments *p1xelHer0* suggested this enhancement:
 
 ```viml
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'

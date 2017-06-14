@@ -1,17 +1,20 @@
 ---
-title: My Favourite Vim Plugins
+title: Vim Plugins I Like
 layout: default
 comments: true
 published: false
 ---
 
-My Favourite Vim Plugins
-========================
+Vim Plugins I Like
+==================
 
 Vim gains much functionality through the inclusion of *plugins*. This post
-contains a curated set of my favourite Vim plugins.
+contains a curated set of my most favoured plugins. Note, most of these plugins
+are *the usual suspects*, hence don't expect major revelations. I also fully
+acknowledge that there are very many useful plugins out there, I encourage Vim
+users to explore, test and discuss.
 
-Note, the full set of plugins and mappings I use are available in my
+The full set of plugins and mappings I use are available in my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
 
 vim-plug

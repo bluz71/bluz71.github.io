@@ -8,11 +8,13 @@ published: false
 Vim Plugins I Like
 ==================
 
-Vim gains much functionality through the inclusion of *plugins*. This post
-contains a curated set of my most favoured plugins. Note, most of these plugins
-are *the usual suspects*, hence don't expect major revelations. I also fully
-acknowledge that there are very many useful plugins out there, I encourage Vim
-users to explore, test and discuss.
+Vim gains much functionality through the inclusion of *plugins*.
+
+This post contains a curated set of my most favoured plugins. Note, many of
+these plugins are *the usual suspects*, hence don't expect any revelations. I
+also fully acknowledge that there are many useful Vim plugins beyond those
+discussed here, hence, I encourage Vim users to explore, test and discuss those
+they appreciate.
 
 The full set of plugins and mappings I use are available in my
 [vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
@@ -28,8 +30,8 @@ is which plugin manager to use. There are many to choose from:
 [Dein](https://github.com/Shougo/dein.vim) to name but a few.
 
 Each will do the job, but for *simplicity* and *performance* the
-[vim-plug](https://github.com/junegunn/vim-plug) plugin manager is hard to
-beat. It is what I recommend.
+[vim-plug](https://github.com/junegunn/vim-plug) plugin manager is the one I
+like most.
 
 Note, if you are a *Vundle* user, like I was, transferring over to *vim-plug*
 is simple, just follow
@@ -109,6 +111,10 @@ username = 'tommcdo';
 stuff    = [1, 2, 3];
 ```
 
+The [vim-easy-align](https://github.com/junegunn/vim-easy-align) and
+[tabular](https://github.com/godlygeek/tabular) plugins also align text with
+more functionality than *vim-lion* but with slightly higher complexity.
+
 vim-indent-object
 -----------------
 
@@ -146,13 +152,13 @@ let g:indentLine_setConceal = 0
 ```
 
 The [indentLine](https://github.com/Yggdroot/indentLine) plugin is used to
-display indentation guide markers. This is a simple, but extremely useful,
-visual aid. In my opinion it is a feature that Vim itself should provide but
-currently does not.
+display indentation guide markers, as seen in *Sublime* and *Atom* editors.
+This is a simple, yet useful, visual aid. I do hope one day Vim itself may
+provide this feature.
 
-The two *let* options documented **should** be set for maximum performance.
-The default settings for the *indentLine* plugin **will** have a negative
-impact on Vim scroll performance.
+The two *let* options documented **should** be set for maximum performance. The
+default settings for the *indentLine* plugin **will** have a negative impact on
+Vim scroll performance.
 
 supertab
 --------
@@ -163,10 +169,10 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 ```
 
-I consider the [supertab](https://github.com/ervandew/supertab) plugin to be an
-essential plugin. This plugin allows one to simply use the **TAB** character to
-carry out completions whilst in *insert* mode. The plugin itself determines the
-appropriate type of completion, be it *text*, *omni* or *file* completion.
+I [supertab](https://github.com/ervandew/supertab) plugin allows one to simply
+use the **TAB** character to carry out completions whilst in *insert* mode. The
+plugin itself determines the appropriate type of completion, be it *text*,
+*omni* or *file* completion.
 
 clever-f
 --------
@@ -200,12 +206,41 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_switch_buffer = 'e'
 ```
 
-The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is another essential plugin.
-It is a fuzzy file finder.
+The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) is a fuzzy file finder.
 
 I highly recommend installing [ripgrep](https://github.com/BurntSushi/ripgrep)
-and configuring *CtrlP* to use it and to not cache results. *ripgrep* is a
+and configuring *CtrlP* to use it and to **not** cache results. *ripgrep* is a
 highly performant modern search utility and it mates very well with *CtrlP*.
+
+Also, here are some handy mappings for [Ruby on Rails](http://rubyonrails.org/)
+or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:
+
+```viml
+if filereadable('config/environment.rb') && isdirectory('app')
+    " This looks like a Rails app.
+    nnoremap <leader>cc :CtrlP app/controllers<CR>
+    nnoremap <leader>cm :CtrlP app/models<CR>
+    nnoremap <leader>ch :CtrlP app/helpers<CR>
+    nnoremap <leader>cv :CtrlP app/views<CR>
+    nnoremap <leader>cs :CtrlP spec<CR>
+elseif filereadable('config/prod.exs') && isdirectory('web')
+    " This looks like an Elixir/Phoenix app.
+    nnoremap <leader>cc :CtrlP web/controllers<CR>
+    nnoremap <leader>cm :CtrlP web/models<CR>
+    nnoremap <leader>cv :CtrlP web/views<CR>
+    nnoremap <leader>cp :CtrlP web/templates<CR>
+    nnoremap <leader>ct :CtrlP test<CR>
+endif
+```
+
+These mappings, which can also easily be extended for other frameworks, provide
+quick and direct access to *model/view/controller* files in their appropriate
+directories.
+
+Lastly, quite a few Vim users are now using
+[fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
+needs instead of *CtrlP*. Personally I've not played with it since *CtrlP* with
+*ripgrep* works perfectly fine for me.
 
 NERDTree
 --------
@@ -247,7 +282,7 @@ let g:NERDTreeUpdateOnCursorHold = 0
 The [NERDTree Git Plugin](https://github.com/Xuyuanp/nerdtree-git-plugin) adds
 **git** status indicators in the *NERDTree* window.
 
-The visual information provided by this plugin is genuinely useful.
+I find the visual information provided by this plugin to be genuinely useful.
 
 vim-grepper
 -----------
@@ -324,7 +359,7 @@ vim-test
 
 ```viml
 Plug 'janko-m/vim-test'
-noremap <silent> <leader>T :TestNearest<CR>
+noremap <silent> <leader>T  :TestNearest<CR>
 noremap <silent> <leader>tf :TestFile<CR>
 noremap <silent> <leader>ts :TestSuite<CR>
 noremap <silent> <leader>tl :TestLast<CR>
@@ -471,3 +506,74 @@ the cursor will be inserted *between* the *surrounding pair*. The double
 
 Note, this plugin is harder to explain than it is to use, however once you *get
 it* you can't imagine life without it.
+
+Projectionist
+-------------
+
+Configuration for Elixir/Phoenix:
+
+```viml
+Plug 'tpope/vim-projectionist'
+let g:projectionist_heuristics = {
+      \  "config/prod.exs": {
+      \    "web/controllers/*_controller.ex": {
+      \      "type": "controller",
+      \      "alternate": "test/controllers/{}_controller_test.exs",
+      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}Controller do\n  use {project|basename|camelcase|capitalize}.Web, :controller\nend"
+      \    },
+      \    "web/models/*.ex": {
+      \      "type": "model",
+      \      "alternate": "test/models/{}_test.exs",
+      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize} do\n  use {project|basename|camelcase|capitalize}.Web, :model\nend"
+      \    },
+      \    "web/views/*_view.ex": {
+      \      "type": "view",
+      \      "alternate": "test/views/{}_view_test.exs",
+      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}View do\n  use {project|basename|camelcase|capitalize}.Web, :view\nend"
+      \    },
+      \    "web/templates/*.html.eex": {
+      \      "type": "template",
+      \      "alternate": "web/views/{dirname|basename}_view.ex"
+      \    },
+      \    "web/channels/*_channel.ex": {
+      \      "type": "channel",
+      \      "alternate": "test/channels/{}_channel_test.exs"
+      \    },
+      \    "test/*_test.exs": {
+      \      "type": "test",
+      \      "alternate": "web/{}.ex",
+      \    }
+      \  }
+      \}
+noremap <leader>ec :Econtroller<Space>
+noremap <leader>em :Emodel<Space>
+noremap <leader>ev :Eview<Space>
+noremap <leader>eh :Ehelper<Space>
+noremap <leader>ep :Etemplate<Space>
+noremap <leader>el :Echannel<Space>
+noremap <leader>es :Espec<Space>
+noremap <leader>et :Etest<Space>
+noremap <leader>A  :A<CR>
+```
+
+The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin
+provides infrastructure to navigate around projects. This plugin is effectively
+the core of the [vim-rails](https://github.com/tpope/vim-rails) plugin
+extracted into a standalone plugin. Note, Rails developers should still use
+*vim-rails* in preference to *vim-projectionist*, think of it as a
+pre-configured *vim-projectionist* with a little bit of added sugar on top;
+however *vim-rails* and *vim-projectionist* can happily live side by side.
+
+Listed above is an **example** configuration to navigate
+[Elixir/Phoenix](http://www.phoenixframework.org/) applications. For example,
+`<leader>ec TAB` will list all available controllers allowing a developer to
+quickly go to the controller they wish. The `<leader>A` mapping provides quick
+switching to an alternate file, which will usually be the associated test suite
+for the current file.
+
+Configurating *vim-projectionist* for other frameworks like
+[react](https://facebook.github.io/react/) or [Ember](https://www.emberjs.com/)
+should not be too difficult.
+
+Setting up this plugin does require a little bit of upfront work, but once
+done, and then used, you will appreciate the capabilities this plugin provides.

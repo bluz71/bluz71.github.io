@@ -220,8 +220,8 @@ if filereadable('config/environment.rb') && isdirectory('app')
     " This looks like a Rails app.
     nnoremap <leader>cc :CtrlP app/controllers<CR>
     nnoremap <leader>cm :CtrlP app/models<CR>
-    nnoremap <leader>ch :CtrlP app/helpers<CR>
     nnoremap <leader>cv :CtrlP app/views<CR>
+    nnoremap <leader>ch :CtrlP app/helpers<CR>
     nnoremap <leader>cs :CtrlP spec<CR>
 elseif filereadable('config/prod.exs') && isdirectory('web')
     " This looks like an Elixir/Phoenix app.
@@ -519,25 +519,18 @@ let g:projectionist_heuristics = {
       \    "web/controllers/*_controller.ex": {
       \      "type": "controller",
       \      "alternate": "test/controllers/{}_controller_test.exs",
-      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}Controller do\n  use {project|basename|camelcase|capitalize}.Web, :controller\nend"
       \    },
       \    "web/models/*.ex": {
       \      "type": "model",
       \      "alternate": "test/models/{}_test.exs",
-      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize} do\n  use {project|basename|camelcase|capitalize}.Web, :model\nend"
       \    },
       \    "web/views/*_view.ex": {
       \      "type": "view",
       \      "alternate": "test/views/{}_view_test.exs",
-      \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}View do\n  use {project|basename|camelcase|capitalize}.Web, :view\nend"
       \    },
       \    "web/templates/*.html.eex": {
       \      "type": "template",
       \      "alternate": "web/views/{dirname|basename}_view.ex"
-      \    },
-      \    "web/channels/*_channel.ex": {
-      \      "type": "channel",
-      \      "alternate": "test/channels/{}_channel_test.exs"
       \    },
       \    "test/*_test.exs": {
       \      "type": "test",
@@ -548,19 +541,16 @@ let g:projectionist_heuristics = {
 noremap <leader>ec :Econtroller<Space>
 noremap <leader>em :Emodel<Space>
 noremap <leader>ev :Eview<Space>
-noremap <leader>eh :Ehelper<Space>
 noremap <leader>ep :Etemplate<Space>
-noremap <leader>el :Echannel<Space>
-noremap <leader>es :Espec<Space>
 noremap <leader>et :Etest<Space>
 noremap <leader>A  :A<CR>
 ```
 
-The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin
-provides infrastructure to navigate around projects. This plugin is effectively
-the core of the [vim-rails](https://github.com/tpope/vim-rails) plugin
-extracted into a standalone plugin. Note, Rails developers should still use
-*vim-rails* in preference to *vim-projectionist*, think of it as a
+The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin,
+primarily, provides infrastructure to navigate around projects. This plugin is
+effectively the core of the [vim-rails](https://github.com/tpope/vim-rails)
+plugin extracted into a standalone plugin. Note, Rails developers should still
+use *vim-rails* in preference to *vim-projectionist*, think of it as a
 pre-configured *vim-projectionist* with a little bit of added sugar on top;
 however *vim-rails* and *vim-projectionist* can happily live side by side.
 

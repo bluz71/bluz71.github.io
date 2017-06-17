@@ -171,8 +171,8 @@ The two *let* options documented **should** be set for maximum performance. The
 default settings for the *indentLine* plugin **will** have a negative impact on
 Vim scroll performance.
 
-supertab
---------
+supertab (may be replaced with VimCompletesMe)
+----------------------------------------------
 
 ```viml
 Plug 'ervandew/supertab'
@@ -180,10 +180,14 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 ```
 
+REWRITE!!
+
 I [supertab](https://github.com/ervandew/supertab) plugin allows one to simply
 use the **TAB** character to carry out completions whilst in *insert* mode. The
 plugin itself determines the appropriate type of completion, be it *text*,
 *omni* or *file* completion.
+
+TODO: [VimCompletesMe](https://github.com/ajh17/VimCompletesMe)
 
 clever-f
 --------
@@ -462,6 +466,11 @@ plugin provides.
 
 No need to remember what the comment characters are for a certain language, is
 it **//** or **#** or **"**, just `gc` it.
+
+Fugitive
+--------
+
+TODO
 
 Endwise
 -------

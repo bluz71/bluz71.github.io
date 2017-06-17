@@ -115,6 +115,17 @@ The [vim-easy-align](https://github.com/junegunn/vim-easy-align) and
 [tabular](https://github.com/godlygeek/tabular) plugins also align text with
 more functionality than *vim-lion* but with slightly higher complexity.
 
+targets.vim
+-----------
+
+TODO
+
+[Targets.vim](https://github.com/wellle/targets.vim)
+
+Comment about seeking!!
+
+https://github.com/wellle/targets.vim/pull/153
+
 vim-indent-object
 -----------------
 
@@ -509,6 +520,8 @@ it* you can't imagine life without it.
 
 Projectionist
 -------------
+
+TODO: Clean this up!!!
 
 Configuration for Elixir/Phoenix:
 

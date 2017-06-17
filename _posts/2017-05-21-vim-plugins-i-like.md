@@ -187,6 +187,8 @@ use the **TAB** character to carry out completions whilst in *insert* mode. The
 plugin itself determines the appropriate type of completion, be it *text*,
 *omni* or *file* completion.
 
+Not a fan of YouCompleteMe, external dependencies or auto-popups.
+
 TODO: [VimCompletesMe](https://github.com/ajh17/VimCompletesMe)
 
 clever-f

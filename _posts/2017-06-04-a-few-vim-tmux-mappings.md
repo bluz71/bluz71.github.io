@@ -59,6 +59,11 @@ I like comma, in *~/.vimrc:*
 let mapleader = ","
 ```
 
+*Vim* localleader
+-----------------
+
+XXX - Document localleader
+
 Use *vi* bindings in *tmux*
 ----------------------------
 

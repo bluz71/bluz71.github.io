@@ -166,6 +166,11 @@ back to Vim with the results.
 Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
+NEOMAKE!!!
+
+AUTO_COMPLETE RAILS METHODS, Neovim works, Vim does not
+-------------------------------------------------------
+
 *Control-q* mapping
 -------------------
 

@@ -676,3 +676,29 @@ Note, Rails developers should still use *vim-rails* in preference to
 *vim-projectionist*, think of *vim-rails* as a pre-configured
 *vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
 and *vim-projectionist* do happily live side by side.
+
+Unimpaired
+----------
+
+The [vim-unimpaired](https://github.com/tpope/vim-unimpaired) plugin provides a
+set of mappings for many operations that have natural pairings. A pairing may
+be: up and down, or forward and backward, set or unset or above and below.
+
+Of the mappings provided by this plugin these are the mappings I use most
+often:
+
+- `[q` / `]q` - navigate up and down through the **q**uickfix list, for instance
+through *vim-grepper* results
+
+- `[l` / `]l` - navigate up and down through the **l**ocation list, for instance
+through *neomake* results
+
+- `[a` / `]a` - navigate backward and forward through the file list
+
+- `[<Space>` / `]<Space>` - add a blank line above or below the current line
+
+The full set of mappings is documented
+[here](https://github.com/tpope/vim-unimpaired/blob/master/doc/unimpaired.txt).
+
+The *vim-unimpaired* plugin negates the need to provide your own custom set of
+mappings for these types of operation.

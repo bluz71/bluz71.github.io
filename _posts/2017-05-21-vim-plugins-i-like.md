@@ -242,24 +242,25 @@ or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:
 ```viml
 if filereadable('config/environment.rb') && isdirectory('app')
     " This looks like a Rails app.
-    nnoremap <leader>cc :CtrlP app/controllers<CR>
-    nnoremap <leader>ch :CtrlP app/helpers<CR>
-    nnoremap <leader>cm :CtrlP app/models<CR>
-    nnoremap <leader>cs :CtrlP spec<CR>
-    nnoremap <leader>cv :CtrlP app/views<CR>
-elseif filereadable('config/prod.exs') && isdirectory('web')
+    noremap <localleader>ec :CtrlP app/controllers<CR>
+    noremap <localleader>eh :CtrlP app/helpers<CR>
+    noremap <localleader>em :CtrlP app/models<CR>
+    noremap <localleader>es :CtrlP spec<CR>
+    noremap <localleader>eT :CtrlP test<CR>
+    noremap <localleader>ev :CtrlP app/views<CR>
+elseif filereadable('web/router.ex')
     " This looks like an Elixir/Phoenix app.
-    nnoremap <leader>cc :CtrlP web/controllers<CR>
-    nnoremap <leader>cm :CtrlP web/models<CR>
-    nnoremap <leader>cT :CtrlP test<CR>
-    nnoremap <leader>ct :CtrlP web/templates<CR>
-    nnoremap <leader>cv :CtrlP web/views<CR>
+    noremap <localleader>ec :CtrlP web/controllers<CR>
+    noremap <localleader>em :CtrlP web/models<CR>
+    noremap <localleader>eT :CtrlP test<CR>
+    noremap <localleader>et :CtrlP web/templates<CR>
+    noremap <localleader>ev :CtrlP web/views<CR>
 endif
 ```
 
 Those mappings, which can also easily be extended for other frameworks, provide
-quick and direct access to *model/view/controller* files in their appropriate
-directories.
+quick and direct access to *model/view/controller* files (among others) in
+their appropriate directories.
 
 Lastly, be aware that quite a few Vim users are now using
 [fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
@@ -272,13 +273,17 @@ NERDTree
 ```viml
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
+noremap <silent> <leader>f :NERDTreeFind<CR> <C-w>=
 ```
 
 Most Vim users are aware of
 [NERDTree](https://github.com/scrooloose/nerdtree). Not much explanation is
 needed, *NERDTree* is a simple file explorer that open up on the left-hand side
-of a Vim workspace. I use `<leader>n` to toggle *NERDTree* whilst also
-equalizing all existing splits.
+of a Vim workspace.
+
+I use `<leader>n` to toggle *NERDTree* whilst also equalizing all existing
+splits. I also have a `<leader>f` mapping to open NERDTree and reveal the
+current buffer in the file tree.
 
 One inconvenience is that *NERDTree*, by default, will not refresh itself when
 one enters the file-tree window. For instance, it won't display new files not
@@ -309,6 +314,19 @@ The [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin) plugin adds
 I find the visual information provided by this plugin to be genuinely useful. I
 recommend all NERDTree users, who manage code via Git repositories, to give
 this plugin a try.
+
+vinegar
+-------
+
+```viml
+Plug 'tpope/vim-vinegar'
+```
+
+The [vim-vinegar](https://github.com/tpope/vim-vinegar) plugin extends the
+current file browser with some handy functionality. The most useful of which is
+`-` which opens the file browser in the active split using the current buffer's
+working directory as a starting point, this is handy to navigate to sibling
+files.
 
 supertab
 --------
@@ -688,10 +706,10 @@ Of the mappings provided by this plugin these are the mappings I use most
 often:
 
 - `[q` / `]q` - navigate up and down through the **q**uickfix list, for instance
-through *vim-grepper* results
+  through *vim-grepper* results
 
 - `[l` / `]l` - navigate up and down through the **l**ocation list, for instance
-through *neomake* results
+  through *neomake* results
 
 - `[a` / `]a` - navigate backward and forward through the file list
 

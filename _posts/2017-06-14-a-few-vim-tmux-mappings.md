@@ -2,20 +2,19 @@
 title: A few Vim & tmux mappings
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 A few Vim & tmux mappings
 =========================
 
-Power *Vim* usage involves configuring mappings, oftimes many of them. This
-post will list some of *my* most used mappings and why I find them useful.
-Note, this post is **not** be about convincing anyone to change *their*
-mappings, rather the intention is to simply provide yet another resouce of
-possibilities.
+Power *Vim* usage involves mappings, usually many of them. This post will list
+some of *my* most used mappings. Note, this post is **not** intended to be
+about convincing anyone to change *their* mappings, rather the intention is to
+simply provide yet another resource of possibilities.
 
 Both *Vim* and *tmux* mappings will somewhat be intermingled in this post since
-I use both as a unified whole.
+I often use both as a unified whole.
 
 I will let others explain the benefits of *tmux* and *Vim* together:
 [vim + tmux: A Perfect Match](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match),
@@ -45,15 +44,15 @@ set -g prefix C-w
 *Vim* leader
 ------------
 
-The *Vim* leader is a user definable key that can be used as a prefix for
-custom mappings. Think of it as being similar to `Alt` or `Ctrl`,  but in
-addition to those modifiers.
+The *Vim* leader is a user definable key that is used as a prefix for custom
+mappings. Think of it as being similar to `Alt` or `Ctrl`,  but in addition to
+those modifiers.
 
-The default Vim leader key is backslash which, much like the *tmux* default
-prefix, is an awkward key. The two most common replacements are `Space` and
-`,`.
+The default *Vim* leader key is backslash which, much like the *tmux* default
+prefix, I find to be an awkward key. The two most common replacements are
+`Space` and `,`.
 
-I like comma, in *~/.vimrc:*
+I like comma as my leader key, in *~/.vimrc:*
 
 ```viml
 let mapleader = ","
@@ -62,7 +61,16 @@ let mapleader = ","
 *Vim* localleader
 -----------------
 
-XXX - Document localleader
+The *Vim* local leader is intended to be similar to the leader key except
+specific to local buffers. However, in reality *localleader* can be used just
+like *leader*. I tend to favor *leader* for primary mappings (common), whilst I
+use *localleader* for secondary mappings (less common).
+
+I like space as my *localleader* key, in *~/.vimrc:*
+
+```viml
+let maplocalleader = " "
+```
 
 Use *vi* bindings in *tmux*
 ----------------------------
@@ -86,12 +94,12 @@ if-shell 'case "`uname`" in *Linux*) true;; *) false;; esac' \
 
 The above configuration is compatible with *tmux* version 2.4 and above.
 
-When using *Vim* with *tmux* it makes sense to configure *vi* style bindings.
-The above configuration allows for *Vim* style visual selection and yanking
-when in *tmux* copy mode.
+When using *Vim* with *tmux* it makes sense to configure *vi* style bindings in
+*tmux*. The above configuration allows for *Vim* style visual selection and
+yanking when in *tmux* copy mode.
 
-Nicer *tmux* pane splitting
----------------------------
+*tmux* pane splitting
+---------------------
 
 In *~/.tmux.conf:*
 
@@ -103,8 +111,22 @@ bind-key - split-window -v
 ```
 
 Nice pane creation in *tmux*, use `<prefix>-|` to create a vertical pane and
-`<prefix>--` to create a horizontal plane. The direction of the line indicates
+`<prefix>--` to create a horizontal pane. The direction of the line indicates
 the type of pane that will be created.
+
+*Vim* splitting
+---------------
+
+In *~/.vimrc:*
+
+```viml
+nnoremap <silent> <leader>s :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>q :close<CR>
+```
+
+Simple split creation in *Vim*: use `<leader>s` to create a horizontal split,
+`<leader>v` to create a vertical split and `<leader>q` to close a split.
 
 Seamlessly navigate *Vim* splits and *tmux* panes
 -------------------------------------------------
@@ -138,13 +160,12 @@ bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
 bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
 ```
 
-*Vim* splits divide up a workspace, and similarly *tmux* panes divide up a
-terminal window. From a usability perspective we want to use the same mappings
-to navigate between *splits* and *panes*.
+*Vim* splits divide up a workspace, similarly *tmux* panes divide up a terminal
+window. From a usability perspective we want to use the same mappings to
+navigate between *splits* and *panes*.
 
 The above configuration provides `Ctrl-h` (left), `Ctrl-j` (down), `Ctrl-k`
-(up), and `Ctrl-l` (right) seamless navigation between *Vim* splits and *tmux*
-panes.
+(up), and `Ctrl-l` (right) navigation between *Vim* splits and *tmux* panes.
 
 The [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 plugin is a key requirement for these mappings to function. Please install with
@@ -159,7 +180,7 @@ In *~/.tmux.conf:*
 bind-key -n M-w new-window
 ```
 
-`Alt-w` creates a new *tmux* window.
+`Alt-w` creates a new *tmux* window (aka a new tab).
 
 Create a *Vim* tab page
 -----------------------
@@ -167,16 +188,10 @@ Create a *Vim* tab page
 In *~/.vimrc:*
 
 ```viml
-noremap <silent> <A-t> :$tabnew<CR>
+nnoremap <silent> <leader>t :$tabnew<CR>
 ```
 
-`Alt-t` creates a new *Vim* tab page.
-
-Note, the above mapping works with GUI Vims, like *MacVim* and *gVim*, and also
-*Neovim*, but will not work with terminal *Vim*. If using terminal *Vim* please
-replace `<A-t>` with the actual key-sequence which involves entering insert
-mode, then typing `Ctrl-v` followed by `Alt-t`. One more reason to use Neovim,
-simpler mappings.
+`<leader>t` creates a new *Vim* tab page.
 
 Navigate between *tmux* windows
 -------------------------------
@@ -195,8 +210,8 @@ bind-key -n M-8 select-window -t 8
 bind-key -n M-9 select-window -t 9
 ```
 
-*tmux* windows are the numbered tabs which are usually navigated by
-`<prefix>-<number>`. However I find using a `<prefix>` based mapping a bit
+*tmux* windows are numbered tabs which are usually navigated to by
+`<prefix>-<number>`. However, I find using a `<prefix>` based mapping a bit
 cumbersome if I want to quickly flick between windows.
 
 Instead I prefer to use `Alt-<number>` to quickly get to the window I want.
@@ -210,44 +225,30 @@ In *~/.vimrc:*
 Plug 'gcmt/taboo.vim'
 let g:taboo_tab_format = " tab:%N%m "
 
-noremap <A-n> gt
-noremap <A-p> gT
-noremap <A-!> 1gt
-noremap <A-@> 2gt
-noremap <A-#> 3gt
-noremap <A-$> 4gt
-noremap <A-%> 5gt
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
 ```
 
-This provides `Alt-n`/`Alt-p` to navigate the next and previous tabs and
-`Alt-Shift-1`/`Alt-Shift-2`/`...` to switch to a specific numbered tab. I use
-the [vim-taboo](https://github.com/gcmt/taboo.vim) plugin to obtain numbered
-tabs rather than live with *Vim's* default tab naming convention.
-
-*Vim* splits
-------------
-
-```sh
-noremap <leader>s :split<CR>
-noremap <leader>v :vsplit<CR>
-noremap <leader>q :close<CR>
-```
-
-Vim splits are central to the editing experience, having simple mappings to
-create and close splits is a must.
+These mapping provide `<leader>1`/`<leader>2`/`...` navigation to switch to a
+specific numbered tab. I use the [vim-taboo](https://github.com/gcmt/taboo.vim)
+plugin to display numbered tabs rather than use *Vim's* default tab naming
+convention.
 
 Enter *Vim* command mode
 ------------------------
 
 Command mode in *Vim* is entered by typing `:`, this necessarily involves
-holding the **shift** key. A simple and handy shortcut is to map `;` to `:` as
-follows to avoid the **shift** key altogether:
+holding the **Shift** key. A simple and handy shortcut is to map `;` to `:` as
+follows to avoid the **Shift** key altogether:
 
-```sh
+```viml
 noremap ; :
 ```
 
-This will mean losing the `;` repeat of the last `f`, `t`, `F` or `T` command.
+This will mean losing the `;` repeat for the last `f`, `t`, `F` or `T` command.
 In my case that is a non-issue since I use the
 [clever-f](https://github.com/rhysd/clever-f.vim) plugin which provides `f` and
 `F` as repeat operators among other benefits.
@@ -255,7 +256,7 @@ In my case that is a non-issue since I use the
 Center next *Vim* search match
 ------------------------------
 
-```sh
+```viml
 noremap n nzz
 noremap N Nzz
 ```
@@ -268,33 +269,19 @@ center of the screen.
 Change word under cursor and dot repeat
 ---------------------------------------
 
-```sh
+```viml
 nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
 ```
 
 The relatively new `gn` command allows for easy operation on the *next* match
 of a completed search. These `<leader>x` and `<leader>X` mappings make use of
-`gn` to provide easy *word-under-cursor* changing, aka in-file refactoring. Best
-of all simply use `...` to repeat that change in the direction chosen instead of
-`n.n.n.` as has usually been in Vim when doing such type of changes.
+`gn` to provide easy *word-under-cursor* changing, aka in-file refactoring.
+Best of all simply use `.` (dot) to repeat that change for the next match
+instead of `n.` as has usually been necessary in Vim when doing such changes.
 
-Navigate *quickfix* list and center matches
--------------------------------------------
-
-```sh
-noremap <silent> <A-Up> :cp<CR>zz
-noremap <silent> <A-Down> :cn<CR>zz
-```
-
-The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin, with the
-[ripgrep](https://github.com/BurntSushi/ripgrep) search utility, is a favourite
-of mine when I want to do project wide searching. *vim-grepper* will populate
-the *quickfix* list. The above mappings, `Alt-Up` and `Alt-Down`, navigate the
-next and previous search matches while also centering the match.
-
-Make *Y* should behave like *D* and *C*
-----------------------------------------
+*Y* should behave like *D* and *C*
+----------------------------------
 
 ```viml
 noremap Y y$
@@ -314,18 +301,8 @@ nnoremap <leader><Space> za
 ```
 
 There are multiple choices available when choosing a Vim fold method. I like to
-use `indent` since it is simple and performant. `<leader><Space>` simply
-toggles the current fold.
-
-Replay a *Vim* macro
---------------------
-
-```viml
-nnoremap Q @q
-xnoremap Q :'<,'>:normal @q<CR>
-```
-
-Record a macro using `qq` and replay that macro using `Q`.
+use `indent` since it is simple and performant. `<leader><Space>` toggles a
+fold based on the indent level of the current cursor line.
 
 Equalize *Vim* splits
 ---------------------
@@ -343,33 +320,28 @@ Zoom a *Vim* split
 noremap <silent> <leader>z :tab split<CR>
 ```
 
-This mapping is handy, it zooms a split into its own full tab page. This is
+This handy mapping zooms a split into its own full tab page. This is
 useful when the current workspace has been divided multiple times making edits
 to any single split difficult due to a lack of space. In that case simply
 *zoom* the split.
 
-Navigate MVC web framework code
+Recompute syntax highlighting
 -------------------------------
 
 ```viml
-if filereadable('config/environment.rb') && isdirectory('app')
-    " This looks like a Rails layout.
-    nnoremap <leader>ec :CtrlP app/controllers<CR>
-    nnoremap <leader>eh :CtrlP app/helpers<CR>
-    nnoremap <leader>em :CtrlP app/models<CR>
-    nnoremap <leader>ev :CtrlP app/views<CR>
-elseif filereadable('config/config.exs') && isdirectory('web')
-    " This looks like an Elixir Phoenix layout.
-    nnoremap <leader>ec :CtrlP web/controllers<CR>
-    nnoremap <leader>em :CtrlP web/models<CR>
-    nnoremap <leader>et :CtrlP web/templates<CR>
-    nnoremap <leader>ev :CtrlP web/views<CR>
-endif
+nnoremap <silent> <localleader>s :syntax sync fromstart<CR>
+
+autocmd FileType markdown syntax sync fromstart
 ```
 
-These mappings use the [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin to
-navigate the Model/View/Controller (MVC) code of a
-[Ruby on Rails](http://rubyonrails.org/) or
-[Elixir Phoenix](http://www.phoenixframework.org/) application using mostly
-the same mappings. The above mappings can easily be extended for other
-frameworks.
+This mapping is used to force a full syntax recompute for the current buffer.
+By default, syntax highlighting is calculated only for the visible set of lines
+and a variable amount of lines surrounding that visible set. However, sometimes
+when large navigation jumps are done the syntax highlighting can get jumbled
+up. The mapping above, `<localleader>s` in my case, will `syntax sync` the
+complete buffer, this will fix syntax highlight errors.
+
+Separately, the above `autocmd` is used to always force a full file syntax
+computation when opening *Markdown* files. In my experience *Markdown* files
+are just about the likeliest to have their syntax broken by large navigation
+jumps.

@@ -256,6 +256,10 @@ Personal Wishlist for Future Vims
 
 Here is a list of features that I wish someday Neovim, or Vim, will provide:
 
+XXX
+- FIX BROKEN "visual block" pasting: https://github.com/neovim/neovim/issues/1822
+XXX
+
 - My first item would be greatly improved scroll performance when
   `relativenumber` is in effect. Currently when `relativenumber` is enabled any
   type of scroll event will cause a full redraw for all visible lines which in

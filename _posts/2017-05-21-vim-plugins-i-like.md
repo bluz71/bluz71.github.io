@@ -324,10 +324,10 @@ Plug 'tpope/vim-vinegar'
 ```
 
 The [vim-vinegar](https://github.com/tpope/vim-vinegar) plugin extends the
-current file browser with some handy functionality. The most useful of which is
-`-` which opens the file browser in the active split using the current buffer's
-working directory as a starting point, this is handy to navigate to sibling
-files.
+Netrw file browser with some handy functionality. The most useful of which is
+the `-` operation which opens the file browser in the active split using the
+current buffer's working directory as a starting point, this is handy to
+navigate to sibling files. Note, continue to use `-` to navigate up the tree.
 
 supertab
 --------

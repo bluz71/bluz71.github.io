@@ -198,6 +198,20 @@ Or using Tim Pope's superb case-smart
 :cfdo %S/oldterm/newterm/ | update
 ```
 
+Change word under cursor and dot repeat
+---------------------------------------
+
+```viml
+nnoremap c* *Ncgn
+nnoremap c# #NcgN
+```
+
+The relatively new `gn` command allows for easy operation on the *next* match
+of a completed search. These `c*` and `c#` mappings make use of `gn` to provide
+easy *word-under-cursor* changing, aka in-file refactoring. Best of all simply
+use `.` (dot) to repeat that change for the next match instead of `n.` as has
+usually been necessary in Vim when doing such changes.
+
 Complete a line with *Control-x Control-l*
 ------------------------------------------
 
@@ -458,3 +472,25 @@ With these `autocmds` in effect one will rarely need to manually trigger an
 explicit save, which will be of benefit if one context switches often, for
 example a web developer switching between an edit terminal window and a test
 browser.
+
+Recompute syntax highlighting
+-------------------------------
+
+```viml
+nnoremap <silent> <leader>s :syntax sync fromstart<CR>
+
+autocmd FileType markdown syntax sync fromstart
+```
+
+This mapping is used to force a full syntax recompute for the current buffer.
+By default, syntax highlighting is calculated only for the visible set of lines
+and a variable amount of lines surrounding that visible set. However, sometimes
+when large navigation jumps are done the syntax highlighting can get jumbled
+up. The mapping above, `<leader>s` in my case, will `syntax sync` the
+complete buffer, this will fix any syntax highlight errors caused by large
+jumps.
+
+Separately, the above `autocmd` is used to always force a full file syntax
+computation when opening *Markdown* files. In my experience *Markdown* files
+are just about the likeliest to have their syntax broken by large navigation
+jumps.

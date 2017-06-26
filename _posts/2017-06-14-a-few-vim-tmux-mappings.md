@@ -266,20 +266,6 @@ the `n` (next) or `N` (previous) match. Much less of a need to search for the
 cursor on the screen; the next match, more often than not, will be in the
 center of the screen.
 
-Change word under cursor and dot repeat
----------------------------------------
-
-```viml
-nnoremap <leader>x *``cgn
-nnoremap <leader>X #``cgN
-```
-
-The relatively new `gn` command allows for easy operation on the *next* match
-of a completed search. These `<leader>x` and `<leader>X` mappings make use of
-`gn` to provide easy *word-under-cursor* changing, aka in-file refactoring.
-Best of all simply use `.` (dot) to repeat that change for the next match
-instead of `n.` as has usually been necessary in Vim when doing such changes.
-
 *Y* should behave like *D* and *C*
 ----------------------------------
 
@@ -324,24 +310,3 @@ This handy mapping zooms a split into its own full tab page. This is
 useful when the current workspace has been divided multiple times making edits
 to any single split difficult due to a lack of space. In that case simply
 *zoom* the split.
-
-Recompute syntax highlighting
--------------------------------
-
-```viml
-nnoremap <silent> <localleader>s :syntax sync fromstart<CR>
-
-autocmd FileType markdown syntax sync fromstart
-```
-
-This mapping is used to force a full syntax recompute for the current buffer.
-By default, syntax highlighting is calculated only for the visible set of lines
-and a variable amount of lines surrounding that visible set. However, sometimes
-when large navigation jumps are done the syntax highlighting can get jumbled
-up. The mapping above, `<localleader>s` in my case, will `syntax sync` the
-complete buffer, this will fix syntax highlight errors.
-
-Separately, the above `autocmd` is used to always force a full file syntax
-computation when opening *Markdown* files. In my experience *Markdown* files
-are just about the likeliest to have their syntax broken by large navigation
-jumps.

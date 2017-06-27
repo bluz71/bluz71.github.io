@@ -64,8 +64,8 @@ platform:
 - `xclip` or `xsel` on Linux, install it via your default package
   manager if not installed by default
 
-User-visible Neovim benefits
-============================
+User-visible Neovim benefits (small-scale)
+==========================================
 
 This is a list of small, but still worthwhile, user-visible enhancements
 that Neovim provides that I appreciate. These enhancements are pertinent to
@@ -159,17 +159,27 @@ the code, test, fix cycle.
 -------------
 
 In Vim invoking an external `make` tool such as `eslint` will result in
-a visible screen flash even when `silent` is specified. This results due to
+a visible screen flash even when `silent` is specified. This is due to
 Vim context switching to the terminal to invoke the tool and then switching
 back to Vim with the results.
 
 Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
-NEOMAKE!!!
+Note, plugins such as [Neomake](https://github.com/neomake/neomake) and
+[ALE](https://github.com/w0rp/ale) render `make` and `errorformat` somewhat
+moot.
 
-AUTO_COMPLETE RAILS METHODS, Neovim works, Vim does not
--------------------------------------------------------
+Working Ruby on Rails autocomplete
+----------------------------------
+
+The [vim-ruby](https://github.com/vim-ruby) plugin provides omni-completion for
+Ruby on Rails code when `let g:rubycomplete_rails = 1` is set. When set Rails
+code omni-completes successfully Neovim and for unknown reasons does not work,
+for me, in Vim 8.
+
+I have an existing [issue](https://github.com/vim-ruby/vim-ruby/issues/349) on
+in the *vim-ruby* issue tracker.
 
 *Control-q* mapping
 -------------------
@@ -204,8 +214,8 @@ Note, It is possible to configure an `Alt-t` mapping in terminal Vim, but it
 involves coding in the specific terminal sequence which is not as nice nor as
 intuitive as Neovim's approach.
 
-Broader Neovim benefits
-=======================
+Broader Neovim benefits (large-scale)
+=====================================
 
 In the grand scheme the above list of enhancements all minor in nature. The
 more substantive Neovim benefits right now are mostly occurring under the
@@ -216,8 +226,8 @@ covers and in the community at large, those benefits being:
   for details.
 
 - A development community that can survive the comings and goings of key
-  developers. The initial Neovim lead,  Thiago de Arruda, did in fact depart
-  Neovim yet the project has continued on just fine.
+  developers. The initial Neovim lead, Thiago de Arruda, did in fact depart
+  the Neovim project yet Neovim has continued on just fine.
 
 - Neovim's remote API functionality provides a pathway where Neovim can be a
   true component in another application. This Neovim component could exist in
@@ -229,15 +239,15 @@ covers and in the community at large, those benefits being:
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
-  alongside Vimscript. Lua is a more capable language than Vimscript and with
+  alongside Vimscript. Lua is a far capable language than Vimscript and with
   [LuaJIT](http://luajit.org) it is a language that should run orders of
   magnitude faster as well. This will allow Neovim plugin authors greater scope
-  to carry out complex compute-heavy functionality combined **with** good
-  performance. Going forward
+  to carry out compute-heavy functionality combined **with** good performance.
+  Going forward
   [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type plugins would
   have less
   [need](https://github.com/Valloric/YouCompleteMe#why-isnt-ycm-just-written-in-plain-vimscript-ffs)
-  to be written in Python.
+  to be written in Python (or similar).
 
 - Asynchronous support is now less of a differentiator between Neovim and Vim
   than it used to be. The relatively new Vim 8 includes JSON based asynchronous
@@ -251,22 +261,40 @@ covers and in the community at large, those benefits being:
   projects. It certainly appears that Neovim's asynchronous support spurred the
   development of Vim 8's equivalent.
 
-Personal Wishlist for Future Vims
-=================================
+Wish list (small-scale)
+======================
 
-Here is a list of features that I wish someday Neovim, or Vim, will provide:
+- Visual block pasting is currently
+  [broken](https://github.com/neovim/neovim/issues/1822) in Neovim when
+  `clipboard=unnamed` is set; pastes will incorrectly occur below rather than
+  to the side of the cursor. I hope this issue is fixed, when encountered it is
+  very annoying.
 
-XXX
-- FIX BROKEN "visual block" pasting: https://github.com/neovim/neovim/issues/1822
-XXX
+- Encryption support behaviourally similar to Vim's existing
+  [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
+  out all direct encryption support a while
+  [ago](https://github.com/neovim/neovim/issues/694). I understand why they did
+  that, and I am not asking that encryption code back be put back into the core
+  editor. However, it should be possible to seamlessly delegate to an external
+  encryption provider, similar to how Neovim currently delegates to an external
+  clipboard provider. Such an encryption provider could be
+  [GPG](https://gnupg.org/).  Something like the
+  [vim-gnupg](https://github.com/jamessan/vim-gnupg) plugin, but built into
+  Neovim, is what I would like. I still use Vim's `blowfish2` feature, in
+  preference to *vim-gnupg* since I'm not sure of the long-term viability of
+  that plugin.
 
-- My first item would be greatly improved scroll performance when
-  `relativenumber` is in effect. Currently when `relativenumber` is enabled any
+Wish list (large-scale)
+=======================
+
+- Improved scroll performance when `relativenumber` is enabled. This effects
+  both Vim **and** Neovim. Currently when `relativenumber` is enabled any
   type of scroll event will cause a full redraw for all visible lines which in
   turn results in every line having its syntax re-evaluated even though no text
-  has actually changed. For languages like Ruby, with its over 200 *regex*
-  rules, this does result in visible performance problems when scrolling as
-  noted by these issues: [vim #282](https://github.com/vim/vim/issues/282) and
+  has actually changed (only line numbers have changed). For languages like
+  Ruby, with its over 200 *regex* rules, this does result in visible
+  performance problems when scrolling as noted by these issues:
+  [vim #282](https://github.com/vim/vim/issues/282) and
   [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically I
   would like [this feature](https://github.com/vim/vim/issues/1735)
   implemented.
@@ -282,42 +310,11 @@ XXX
   longer term, once LSP and its clients and servers mature, it would seem
   desirable to integrate the LSP client directly in core Neovim.
 
-- Encryption support behaviourally similar to Vim's existing
-  [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
-  out all direct encryption support a while
-  [ago](https://github.com/neovim/neovim/issues/694). I understand why they did
-  that, and I am not asking they ask they directly add encryption code back
-  into the core editor. However, it should be possible to seamlessly delegate
-  to an external encryption provider, similar to how Neovim currently
-  delegates to an external clipboard provider. Such an encryption provider
-  could be [GPG](https://gnupg.org/).  Something like the
-  [vim-gnupg](https://github.com/jamessan/vim-gnupg) plugin, but built into
-  Neovim, is what I would like. I use Vim's `blowfish2` feature everyday, and I
-  miss having something similar in Neovim.
-
-- Built-in indent guide markers. Both Sublime and Atom editors, among others,
-  provide guide markers. In Vim one can achieve a similar result using the
-  [indentLine](https://github.com/Yggdroot/indentLine) plugin which leverages
-  Vim's `conceal` feature. However, that plugin can be quirky and its
-  performance at times is problematic. My hope would be to have *performant*
-  guide markers directly in the editor similar to how `colorcolumn` is
-  available directly in Vim. Yes, this is visual sugar, but so are
-  `relativenumber` and `colorcolumn`, some sugar is nice.
-
-- AST-aware syntax highlighters, whether that be in the core
-  distribution or more likely as separate plugins. Currently most Vim syntax
-  highlighting is regular expression based, historically this has been good
-  enough and likely will remain good enough, but this approach does have its
-  issues, the main one being that this style of syntax highlighting can get
-  tricked out. The [Chromatica](https://github.com/arakashic/chromatica.nvim)
-  and [tigris](https://github.com/billyvg/tigris.nvim) plugins are hopefully
-  paving a way forward for a new generation of AST-aware syntax highlighters.
-
 Summary
 =======
 
 Is *Neovim is the future of Vim*? I say it *can* indeed be a part of the
-future.
+future. As of mid-2017 both the Vim and Neovim projects appear healthy.
 
-Every Vim user should want Neovim to survive and more than that **thrive**. All
-Vim users would benefit, whether they use Neovim today or they don't.
+Every Vim user should want Neovim to continue and more than that **thrive**.
+All Vim users would benefit, whether they use Neovim today or they don't.

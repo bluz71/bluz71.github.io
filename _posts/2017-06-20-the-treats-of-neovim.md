@@ -8,14 +8,17 @@ published: false
 The Treats of Neovim
 ====================
 
-[Neovim](https://neovim.io) bills itself as *literally the future of Vim*. This
-post will delve into Neovim to see *some* of what it has to offer.
+[Neovim](https://neovim.io) bills itself as *literally the future of Vim*. A
+bold claim indeed.
 
-This post will try and explain the treats, as I see them, with Neovim. It
-may also help explain why Neovim even exists at all.
+For those that haven't been following, Neovim is a modern fork of the
+[Vim](http://www.vim.org) text editor that began in 2014. The
+[Neovim charter](https://neovim.io/charter) outlines the vision of the project
+quite succinctly.
 
-Note, for those that haven't been following, Neovim is a recent fork of the
-[Vim](http://www.vim.org/) text editor that began in 2014.
+I have been using *Neovim* for a little while now and I decided it would be
+worthwhile to write a post listing the treats and pains and hopes, as I see
+them, with Neovim.
 
 Setup
 =====
@@ -26,7 +29,7 @@ vimrc
 -----
 
 Firstly, I find having *one* configuration that works for both Vim and Neovim
-extremely useful. Hence, my combined configuration still lives in the
+extremely beneficial. Hence, my combined configuration still lives in the
 traditional *~/.vimrc* file.
 
 To connect Neovim to *~/.vimrc* create a *~/.config/nvim/init.vim* file with
@@ -38,7 +41,7 @@ source ~/.vimrc
 ```
 
 Inside a *vimrc* file use the following `if` style conditional for any Neovim
-specific code:
+specific statements:
 
 ```viml
 if has("nvim")
@@ -54,24 +57,30 @@ of a combined configuration.
 Cut n' paste
 ------------
 
-Neovim requires an external clipboard provider for functional *cut n' paste*
-support.
+Neovim requires an external clipboard provider for functional *cut n' paste.*
 
-Basically that means making sure the following utilities are installed on your
-platform:
+That means making sure the following utilities are installed on your:
 
 - `pbcopy/pbpaste` on *macOS*, this is usually provided by default
-- `xclip` or `xsel` on Linux, install it via your default package
+- `xclip` or `xsel` on Linux, install either with your system package
   manager if not installed by default
 
-User-visible Neovim benefits (small-scale)
-==========================================
+Compatibility
+-------------
 
-This is a list of small, but still worthwhile, user-visible enhancements
-that Neovim provides that I appreciate. These enhancements are pertinent to
-Vim 8 and Neovim 0.2 as of June 2017.
+Once setup as such Neovim and Vim will be quite interchangeable. In my
+experience, 3rd-party plugin compatibility is excellent and for the most part
+users will rarely be able to tell the difference between both editors. So why
+even bother with Neovim at all? Read on and find out.
 
-Note, a full list of Neovim differences is listed
+Minor Neovim benefits (user-visible)
+====================================
+
+This is a list of the small, but worthwhile, user-visible enhancements that
+Neovim currently provides. These enhancements are pertinent to Vim 8 and Neovim
+0.2 as of June 2017.
+
+Note, a full list of Neovim feature differences to Vim is listed
 [here](https://neovim.io/doc/user/vim_diff.html#nvim-features).
 
 Cursor shape changing
@@ -87,9 +96,9 @@ Basically that means the cursor shape will differ depending on mode:
 - An underscore in *replace* mode
 
 This works in *iTerm2* (on macOS) and *xterm* (on Linux). Best of all the
-cursor shape change will only effect the Neovim edit session unlike Vim's crude
-`t_SI/t_EI` based cursor shape change functionality which will bleed into all
-panes and windows of a *tmux* session.
+cursor shape change will only effect the current Neovim edit session unlike
+Vim's crude `t_SI/t_EI` based cursor shape change functionality which will
+bleed into all panes and windows of a *tmux* session.
 
 *Whitespace* highlight group
 ----------------------------
@@ -104,10 +113,11 @@ characters (among others).
 I like seeing leading whitespaces as I type them in a low contrast color.
 However, when I want to see trailing *returns*, done by toggling the `list`
 option I like to use a high contrast color. In Vim this is a challenge since it
-only provides a single highlight group for both contexts.
+only provides a single highlight group for both contexts. Neovim provides two
+highlight groups to solve this dilema.
 
 Note, my own [moonfly](https://github.com/bluz71/vim-moonfly-colors)
-*colorscheme* is `Whitespace` aware.
+*colorscheme* is *Neovim* `Whitespace` aware.
 
 Substitution previews via *inccommand*
 --------------------------------------
@@ -122,7 +132,7 @@ if has("nvim")
 endif
 ```
 
-As you type a substitution the results will be immediately updated in the edit
+As you type a substitution the results will immediately be visible in the edit
 window. This feature is best highlighted in this video:
 
 [Neovim incremental substitution](http://www.youtube.com/watch?v=sA3z6gsqOuw)
@@ -130,8 +140,8 @@ window. This feature is best highlighted in this video:
 Inbuilt terminal
 ----------------
 
-Neovim provides a fully fledged *builtin* terminal, invoked via `:terminal` (or
-the `:te` shorthand).
+Neovim provides a fully fledged built-in terminal, invoked by the `:terminal`
+command (or the `:te` shorthand).
 
 This provides a *tmux-lite* alternative for those not wanting or needing a full
 *tmux* setup.
@@ -158,7 +168,7 @@ the code, test, fix cycle.
 *silent make*
 -------------
 
-In Vim invoking an external `make` tool such as `eslint` will result in
+In Vim invoking an external `makeprg` tool such as **eslint** will result in
 a visible screen flash even when `silent` is specified. This is due to
 Vim context switching to the terminal to invoke the tool and then switching
 back to Vim with the results.
@@ -166,17 +176,18 @@ back to Vim with the results.
 Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
-Note, plugins such as [Neomake](https://github.com/neomake/neomake) and
-[ALE](https://github.com/w0rp/ale) render `make` and `errorformat` somewhat
-moot.
+Note however, plugins such as [Neomake](https://github.com/neomake/neomake) and
+[ALE](https://github.com/w0rp/ale) render this `makeprg` and
+`errorformat`-based tool launching somewhat moot these days.
 
 Working Ruby on Rails autocomplete
 ----------------------------------
 
 The [vim-ruby](https://github.com/vim-ruby) plugin provides omni-completion for
-Ruby on Rails code when `let g:rubycomplete_rails = 1` is set. When set Rails
-code omni-completes successfully Neovim and for unknown reasons does not work,
-for me, in Vim 8.
+Ruby on Rails code when `let g:rubycomplete_rails = 1` is set.
+
+When set accordingly Rails code omni-completes successfully when using Neovim,
+but for unknown reasons does not work, at least for me, when using Vim 8.
 
 I have an existing [issue](https://github.com/vim-ruby/vim-ruby/issues/349) on
 in the *vim-ruby* issue tracker.
@@ -190,12 +201,13 @@ I have a *Control-q* mapping to safely quit my Vim session:
 noremap <C-q> :confirm qall<CR>
 ```
 
-In terminal Vim this mapping does not work, one needs to launch Vim via `stty
+In terminal Vim this mapping does not work unless one launches Vim via `stty
 -ixon && vim`. This prevents the terminal from freezing/unfreezing with the
 *Control-s/Constrol-q* key combinations.
 
-However, in Neovim, one does not need to do anything special.
-*Control-s/Constrol-q* mappings are available for use however you see fit.
+However, in Neovim, it is not necessary to do anything special.
+*Control-s/Constrol-q* mappings are available for use however you see fit, no
+special `stty` magic is needed.
 
 *Alt* based mappings
 --------------------
@@ -211,15 +223,15 @@ noremap <silent> <A-t> :$tabnew<CR>
 ```
 
 Note, It is possible to configure an `Alt-t` mapping in terminal Vim, but it
-involves coding in the specific terminal sequence which is not as nice nor as
+involves coding in the specific terminal sequence, this is not as nice nor as
 intuitive as Neovim's approach.
 
-Broader Neovim benefits (large-scale)
-=====================================
+Major Neovim benefits (behind-the-scenes)
+=========================================
 
-In the grand scheme the above list of enhancements all minor in nature. The
-more substantive Neovim benefits right now are mostly occurring under the
-covers and in the community at large, those benefits being:
+In the grand scheme the above list of enhancements all, mostly, minor in
+nature. The more substantive Neovim benefits right now are mostly occurring
+under the covers and in the community at large, some of those benefits being:
 
 - Refactored and modernized code base. See
   [this](https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/) post
@@ -227,7 +239,9 @@ covers and in the community at large, those benefits being:
 
 - A development community that can survive the comings and goings of key
   developers. The initial Neovim lead, Thiago de Arruda, did in fact depart
-  the Neovim project yet Neovim has continued on just fine.
+  the Neovim project yet Neovim has continued on just fine. Would Vim's ongoing
+  development survive if Bram Moolenaar, Vim's creator and on-going
+  maintainer, was no longer available?
 
 - Neovim's remote API functionality provides a pathway where Neovim can be a
   true component in another application. This Neovim component could exist in
@@ -239,19 +253,19 @@ covers and in the community at large, those benefits being:
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
-  alongside Vimscript. Lua is a far capable language than Vimscript and with
+  alongside Vimscript. Lua is a nicer language than Vimscript and with
   [LuaJIT](http://luajit.org) it is a language that should run orders of
-  magnitude faster as well. This will allow Neovim plugin authors greater scope
-  to carry out compute-heavy functionality combined **with** good performance.
-  Going forward
-  [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type plugins would
-  have less
+  magnitude faster as well. This will allow Neovim plugin authors scope
+  to carry out compute-heavy functionality **with** good performance
+  without resorting to external processes written in other languages. Going
+  forward [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type
+  plugins would have less
   [need](https://github.com/Valloric/YouCompleteMe#why-isnt-ycm-just-written-in-plain-vimscript-ffs)
   to be written in Python (or similar).
 
 - Asynchronous support is now less of a differentiator between Neovim and Vim
-  than it used to be. The relatively new Vim 8 includes JSON based asynchronous
-  support whilst Neovim has long had a
+  than it used to be. Vim 8 includes JSON based asynchronous support whilst
+  Neovim has long had a
   [MessagePack](https://github.com/msgpack-rpc/msgpack-rpc) based asynchronous
   API.
   [This](https://www.reddit.com/r/neovim/comments/58nrwv/neovim_api_comparison_with_vim_channels/)
@@ -261,7 +275,7 @@ covers and in the community at large, those benefits being:
   projects. It certainly appears that Neovim's asynchronous support spurred the
   development of Vim 8's equivalent.
 
-Wish list (small-scale)
+Minor wish list items
 ======================
 
 - Visual block pasting is currently
@@ -274,18 +288,18 @@ Wish list (small-scale)
   [blowfish2](http://vim.wikia.com/wiki/Encryption) feature.  Neovim stripped
   out all direct encryption support a while
   [ago](https://github.com/neovim/neovim/issues/694). I understand why they did
-  that, and I am not asking that encryption code back be put back into the core
-  editor. However, it should be possible to seamlessly delegate to an external
+  that, and I am not asking that encryption code be put back into the core
+  editor. However, it seems possible to seamlessly delegate to an external
   encryption provider, similar to how Neovim currently delegates to an external
   clipboard provider. Such an encryption provider could be
-  [GPG](https://gnupg.org/).  Something like the
+  [GPG](https://gnupg.org/). Something like the
   [vim-gnupg](https://github.com/jamessan/vim-gnupg) plugin, but built into
   Neovim, is what I would like. I still use Vim's `blowfish2` feature, in
   preference to *vim-gnupg* since I'm not sure of the long-term viability of
   that plugin.
 
-Wish list (large-scale)
-=======================
+Major wish list items
+=====================
 
 - Improved scroll performance when `relativenumber` is enabled. This effects
   both Vim **and** Neovim. Currently when `relativenumber` is enabled any
@@ -296,7 +310,7 @@ Wish list (large-scale)
   performance problems when scrolling as noted by these issues:
   [vim #282](https://github.com/vim/vim/issues/282) and
   [vim-ruby #243](https://github.com/vim-ruby/vim-ruby/issues/243). Basically I
-  would like [this feature](https://github.com/vim/vim/issues/1735)
+  would like [this feature request](https://github.com/vim/vim/issues/1735)
   implemented.
 
 - Integrated [Language Server Protocol](http://langserver.org/) support. LSP

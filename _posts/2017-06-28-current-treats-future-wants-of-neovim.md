@@ -2,7 +2,7 @@
 title: Current treats & future wants of Neovim
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Current treats & future wants of Neovim

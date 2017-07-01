@@ -125,7 +125,7 @@ nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>q :close<CR>
 ```
 
-Simple split creation in *Vim*: use `<leader>s` to create a horizontal split,
+Simple split windows in *Vim*: use `<leader>s` to create a horizontal split,
 `<leader>v` to create a vertical split and `<leader>q` to close a split.
 
 Seamlessly navigate *Vim* splits and *tmux* panes

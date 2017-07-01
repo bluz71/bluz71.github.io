@@ -16,9 +16,8 @@ For those that haven't been following, Neovim is a modern fork of the
 [Neovim charter](https://neovim.io/charter) outlines the vision of the project
 quite succinctly.
 
-Having used *Neovim* for a little while now and I decided it would be
-worthwhile to write a post listing the treats, pains and wants, as I see them,
-with Neovim.
+Having used *Neovim* for a little while now I decided it would be worthwhile to
+write a post listing the treats, pains and wants, as I see them, with Neovim.
 
 Note, the features of Neovim discussed below pertain to Neovim version 0.2 as
 against Vim 8 circa June 2017.
@@ -123,7 +122,7 @@ I like seeing leading whitespaces as I type them in a low contrast color.
 However, when I want to see trailing *returns*, done by toggling the `list`
 option, I like to use a high contrast color. In Vim this is a challenge since
 it only provides a single highlight group for both contexts. Neovim provides
-two highlight groups to solve this dilema.
+two highlight groups to solve this dilemma.
 
 Note, my own [moonfly](https://github.com/bluz71/vim-moonfly-colors)
 *colorscheme* is *Neovim* `Whitespace` aware.
@@ -157,7 +156,7 @@ back to Vim with the results.
 Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
-Note however, modern plugins such as
+Note however, modern async-linting plugins such as
 [Neomake](https://github.com/neomake/neomake) and
 [ALE](https://github.com/w0rp/ale) render this `makeprg`/ `errorformat`-based
 tool launching somewhat moot these days.
@@ -253,7 +252,7 @@ greatly enhances the code, test, fix cycle.
 It is also my understanding that the Neovim terminal is scriptable; thus far I
 haven't toyed with that capability. However, I do look forward to Drew Neil's
 upcoming book [Modern
-Vim](http://vimcasts.org/blog/2017/05/working-title-modern-vim) which will
+Vim](http://vimcasts.org/blog/2017/05/working-title-modern-vim) book which will
 cover that capability (and others).
 
 Working Ruby on Rails autocomplete
@@ -262,11 +261,11 @@ Working Ruby on Rails autocomplete
 The [vim-ruby](https://github.com/vim-ruby) plugin provides omni-completion for
 Ruby on Rails code when `let g:rubycomplete_rails = 1` is set.
 
-When set accordingly Rails code omni-completes successfully when using Neovim,
+When set accordingly, Rails code omni-completes successfully when using Neovim
 but for unknown reasons does not work, at least for me, when using Vim 8.
 
 I have an existing [issue](https://github.com/vim-ruby/vim-ruby/issues/349) on
-in the *vim-ruby* issue tracker in regards to this Vim failure.
+in the *vim-ruby* issue tracker in regards to that Vim failure.
 
 Major Neovim features
 =====================
@@ -372,8 +371,8 @@ Language Server Protocol (LSP)
 ------------------------------
 
 Integrated [Language Server Protocol](http://langserver.org/) support. LSP
-provides high performance editor-agnostic: code completion, hovered tooltips,
-jump-to-definition and code refactoring as explained in
+supposedly provides high performance editor-agnostic: code completion, hovered
+tooltips, jump-to-definition and code refactoring as explained in
 [this](https://code.visualstudio.com/blogs/2016/06/27/common-language-protocol)
 Microsoft blog post. Language servers already exist for many
 [languages](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations).

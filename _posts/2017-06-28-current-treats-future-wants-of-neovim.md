@@ -47,7 +47,8 @@ To connect Neovim to *~/.vimrc* create a *~/.config/nvim/init.vim* file with
 the following content:
 
 ```viml
-set runtimepath+=~/.vim,~/.vim/after
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
 source ~/.vimrc
 ```
 

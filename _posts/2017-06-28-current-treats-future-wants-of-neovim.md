@@ -104,10 +104,17 @@ Basically that means the cursor shape will differ depending on mode:
 - An I-beam in *insert* mode
 - An underscore in *replace* mode
 
-This works in *iTerm2* (on macOS) and *xterm* (on Linux). Best of all the
-cursor shape change will only effect the current Neovim edit session unlike
+This works in *iTerm2* (on macOS) and *gnome-terminal* (on Linux). Best of all
+the cursor shape change will only effect the current Neovim edit session unlike
 Vim's crude `t_SI/t_EI` based cursor shape change functionality which will
 bleed into all panes and windows of a *tmux* session.
+
+**UPDATE**: Cursor shaping work for *xterm* requires the following setting in
+your *vimrc:*
+
+```
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+```
 
 *Whitespace* highlight group
 ----------------------------
@@ -256,6 +263,9 @@ upcoming book [Modern
 Vim](http://vimcasts.org/blog/2017/05/working-title-modern-vim) book which will
 cover that capability (and others).
 
+**UPDATE (July 2017)**: It appears the *Vim* is getting its own
+[terminal](https://groups.google.com/forum/#!topic/vim_dev/Q9gUWGCeTXM).
+
 Working Ruby on Rails autocomplete
 ----------------------------------
 
@@ -381,6 +391,9 @@ A language-client implementation for Neovim is available as a
 [plugin](https://github.com/autozimu/LanguageClient-neovim), but in the longer
 term, once LSP and its clients and servers mature, it would seem desirable to
 integrate the LSP client directly in core Neovim.
+
+**UPDATE (July 2017)**: Neovim LSP support is already a
+[work in progress](https://github.com/neovim/neovim/pull/6856).
 
 Summary
 =======

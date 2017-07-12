@@ -3,5 +3,6 @@ gemspec
 
 gem 'jekyll'
 gem 'jekyll-paginate'
+gem 'jekyll-feed'
 gem 'kramdown'
 gem 'pygments.rb'

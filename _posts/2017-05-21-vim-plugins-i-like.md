@@ -329,6 +329,17 @@ the `-` operation which opens the file browser in the active split using the
 current buffer's working directory as a starting point, this is handy to
 navigate to sibling files. Note, continue to use `-` to navigate up the tree.
 
+eunuch
+------
+
+```viml
+Plug 'tpope/vim-eunuch'
+```
+
+The [vim-eunuch](https://github.com/tpope/vim-eunuch) plugin provides access to
+common Unix commands. The most useful commands I find are: `:Mkdir` to make a
+new directory and `:Move %<TAB>` to rename the current buffer file.
+
 supertab
 --------
 
@@ -583,54 +594,6 @@ The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
 automatically insert **end**, in insert mode, to code blocks for languages such
 as: Ruby, Elixir and Crystal.
 
-Surround
---------
-
-```viml
-Plug 'tpope/vim-surround'
-```
-
-The [vim-surround](https://github.com/tpope/vim-surround) plugin allows one to
-add, change or delete *surrounding pairs*.
-
-What is a *surrounding pair*? It may be the quote characters or **<div>**
-tags or anything else that surrounds some text.
-
-To delete a *surrounding pair* use **d**. Here are some examples, the first
-example will delete double quotes, the second will delete a tag (like *<div>*)
-and the third will delete _*_ :
-
-```
-ds"
-dst
-ds*
-```
-
-To change a *surrounding pair* use **c**. Note, you must provide the *old* and
-*new* surround:
-
-```
-cs'"
-cs*<div>
-```
-
-To add a *surround pair* one can visually select the candidate text and enter
-**S** followed by the *surround* character(s) of choice.
-
-It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
-single `Ctrl-S` followed by the surround character(s) to create a surround on
-the current line. Use a double `Ctrl-S-S` to spread the surround over multiple
-lines. Note, in both cases the cursor will be inserted *between* the
-*surrounding pair*. The double `Ctrl-S-S` is especially useful for inserting
-curly braces in *C/C++/Java/JavaScript* type languages.
-
-Note, terminal Vim users need to make sure flow-control is disable otherwise
-the above `Ctrl-S` will lock your terminal. I recommend starting Vim this way
-to avoid that issue, `stty -ixon && vim`.
-
-This plugin is a little harder to explain than it is to use, however once you
-*get it* you can't imagine life without it.
-
 Projectionist
 -------------
 
@@ -695,6 +658,72 @@ Note, Rails developers should still use *vim-rails* in preference to
 *vim-projectionist*, think of *vim-rails* as a pre-configured
 *vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
 and *vim-projectionist* do happily live side by side.
+
+Ragtag
+------
+
+```viml
+Plug 'tpope/vim-endwise'
+```
+
+The [vim-ragtag](https://github.com/tpope/vim-ragtag) plugins provides a set of
+helpers for TAG-based languages such as HTML, XML and JSX.
+
+These are the *ragtag* helpers I find most handy whilst in *insert* mode:
+
+- `<CTRL-x>/` close the previous open tag
+- `<CTRL-x><Space>` convert the current word into open and close tags
+- `<CTRL-x><Enter>` same as above except split the tag over multiple lines
+- `<CTRL-x>_` add `<% %>` template tag
+- `<CTRL-x>+` add `<%= %>` templage tag
+
+Surround
+--------
+
+```viml
+Plug 'tpope/vim-surround'
+```
+
+The [vim-surround](https://github.com/tpope/vim-surround) plugin allows one to
+add, change or delete *surrounding pairs*.
+
+What is a *surrounding pair*? It may be the quote characters or **<div>**
+tags or anything else that surrounds some text.
+
+To delete a *surrounding pair* use **d**. Here are some examples, the first
+example will delete double quotes, the second will delete a tag (like *<div>*)
+and the third will delete _*_ :
+
+```
+ds"
+dst
+ds*
+```
+
+To change a *surrounding pair* use **c**. Note, you must provide the *old* and
+*new* surround:
+
+```
+cs'"
+cs*<div>
+```
+
+To add a *surround pair* one can visually select the candidate text and enter
+**S** followed by the *surround* character(s) of choice.
+
+It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
+single `Ctrl-S` followed by the surround character(s) to create a surround on
+the current line. Use a double `Ctrl-S-S` to spread the surround over multiple
+lines. Note, in both cases the cursor will be inserted *between* the
+*surrounding pair*. The double `Ctrl-S-S` is especially useful for inserting
+curly braces in *C/C++/Java/JavaScript* type languages.
+
+Note, terminal Vim users need to make sure flow-control is disable otherwise
+the above `Ctrl-S` will lock your terminal. I recommend starting Vim this way
+to avoid that issue, `stty -ixon && vim`.
+
+This plugin is a little harder to explain than it is to use, however once you
+*get it* you can't imagine life without it.
 
 Unimpaired
 ----------

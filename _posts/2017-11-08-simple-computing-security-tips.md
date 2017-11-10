@@ -31,10 +31,14 @@ and fixed. [Unpatched flaws](https://www.networkworld.com/article/2926010/securi
 are a real danger.
 
 Modern software such as computer operating systems, browsers and apps by and
-large automatically update themselves nowadays. Please, never turn off these
-automatic updates. Please be proactive in searching for and applying these
-updates. Replace old software that does not automatically update with a modern
-equivalent that does automatically update, an example would be a PDF reader.
+large automatically update themselves, or will notify you when updates are
+available. If you are a Linux user please select a distribution with
+long-term-support, I recommend [Linux Mint](https://linuxmint.com).
+
+Please, never turn off automatic updates. Please be proactive in searching for
+and applying these updates. Replace old software that does not automatically
+update with a modern equivalent that does automatically update, an example
+would be a PDF reader.
 
 Hardware, such as routers or NASs, on the other hand usually do not update
 themselves. It is equally important, if not more so, that these devices are
@@ -152,8 +156,8 @@ Your should
 
 If you see a USB stick on the ground, simply leave it there and walk on.
 
-Public Wi-Fi, Be Cautious
-=========================
+Public Wi-Fi, Be Very Cautious
+==============================
 
 Using free public Wi-Fi can be
 [very dangerous](https://www.goldenfrog.com/blog/the-dangers-of-public-wi-fi).
@@ -172,9 +176,10 @@ a mobile phone is not difficult these days.
 If your data bandwidth is limited, and you simply **must** use public Wi-Fi, then
 it strongly recommended that you only use such Wi-Fi in combination with a
 [strong VPN](http://www.techradar.com/news/public-wi-fi-and-why-you-need-a-vpn).
-I recommend a trusted non-logging VPN provider such as:
+I recommend a trusted commercial non-logging VPN provider such as:
 [ProtonVPN](https://protonvpn.com), [BolehVPN](https://www.bolehvpn.net) or
-[IVPN](https://www.ivpn.net).
+[IVPN](https://www.ivpn.net). If you do not wish to pay for a VPN service then
+simply use ProtonVPN free VPN service.
 
 Disk Encryption
 ===============
@@ -194,33 +199,83 @@ Computers are so fast these days that it makes sense to enable disk encryption
 on all computers and devices.
 
 * Windows users are encrouraged to upgrade to the *Pro* edition and then enable
-[Bitlocker](https://en.wikipedia.org/wiki/BitLocker) full disk encryption. The
-cost upgrade to *Pro* is unfortunate, but it is a small price to pay for piece
-of mind and security.
+  [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) full disk encryption. The
+  cost upgrade to *Pro* is unfortunate, but it is a small price to pay for piece
+  of mind and security.
 
 * Mac ships with [FileVault](https://en.wikipedia.org/wiki/FileVault) disk
-encryption. However, it is not enabled by default, hence you must enable it in
-*Security & Privacy* settings.
+  encryption. However, it is not enabled by default, hence you must enable it
+  in *Security & Privacy* settings.
 
 * Linux distributions provide [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
-disk encryption. Please enable full disk encryption at installation time.
+  disk encryption. Please enable full disk encryption at installation time.
 
 * iPhones and iPads, which both use the iOS operation, encrypt all data by
-default. Please also set a strong PIN code.
+  default. Please also set a strong PIN code.
 
 * Modern Android phones encrypt by default whilst most older Android phones do
-not. Old Android phones are insecure, hence it is recommened to upgrade to a
-modern Android device such as a Google Pixel phone. Please also set a strong
-PIN code.
+  not. Old Android phones are insecure, hence it is recommened to upgrade to a
+  modern Android device such as a Google Pixel phone. Please also set a strong
+  PIN code.
 
-* NAS, TODO
+* Modern NASs, such as QNAP and Synology devices, also provide encryption
+  capabilities. If a NAS is used to store confidential information, such as
+  financial details or family photos, then it is recommended to setup encrypted
+  shares. Just be aware you will need to log into the management interface to
+  unlock a share each time it is rebooted or restarted; a very minor
+  inconvenience.
 
-Lock Down Your Network
-======================
+Browser Recommendations
+=======================
 
-Router password.
-Enable firewall.
-Use strong WiFi
+For all platforms, apart from iPhones and iPads, I recommend the Google Chrome
+browser for its enhanced security. From sandboxing, to hardened builds, to
+auto-updates, to multi-platform support, Chrome is hard to beat. For iPhones
+and iPads stick with the default Safari browser.
+
+Chrome security can be strengthened by the addition of these three excellent
+extensions:
+
+* [HTTPS Everywhere](https://www.eff.org/https-everywhere) is an extension that
+  will force the usage of encryption wherever possible. Certain web sites offer
+  both plain-text and encrypted connections but will default to plain-text,
+  these connections can be evesdropped. This extension will force the secure
+  connection in such circumstances.
+
+* [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+  is a content filtering extension most well known for blocking ads, but it
+  also blocks content from sites known to host malware (malicious software).
+
+* [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
+  is an extension that learns to block trackers as you browse the web. It will
+  increase the privacy and security of your session.
+
+Secure Your Router and Wi-Fi
+============================
+
+Weak router and Wi-Fi configuration is a common source of network insecurity,
+it can allow hackers from the other side of the world, or wardrivers sitting
+outside your house into your home network.
+
+Configuring a rourter can be daunting for those not experienced in technology.
+Modern routers are slightly less obtuse than they used to be. Again, don't be
+afraid to call in help, better that than living with an insecure router.
+
+These simple rules will greatly increase the security of your router:
+
+* Change the default administror password of your router. This should be done
+  **immediately**. As per-usual choose a very strong password.
+
+* Please make sure that your router's Firewall is enabled (sometimes noted as
+  SPI). With most modern routers this will be enabled by default.
+
+* When setting up Wi-Fi please active strong encryption, that means
+  configuring *WPA2 Personal* (sometimes noted as *WPA2-PSK*) only.
+
+* Select a unique Wi-Fi identifier (SSID), do not use a default identifier.
+
+* Lastly, choose an **extremely strong** Wi-Fi password, at least thirty
+  characters long is desired.
 
 Back it Up
 ==========
@@ -238,6 +293,7 @@ Smartphone
 
 Windows
 =======
+
 Stop using old versions of Windows
 Don't like most A/V
 Use MalwareBytes
@@ -247,4 +303,5 @@ Mac
 
 Linux
 =====
+
 rkhunter

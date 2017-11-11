@@ -337,11 +337,12 @@ product which is more than enough anti-virus for most people.
 
 Instead of investing in an anti-virus product I instead recommend using
 [Malwarebytes](https://www.malwarebytes.com) anti-malware software. A free
-version is available that will need to be run manually from time to time, and
-there is also a commercial version that will offer real-time protection.
+version, for personal home use, is available that will need to be run manually
+from time to time, and there is also a paid version that will offer real-time
+protection.
 
-Windows Defender and Malwarebytes compliment each other perfectly and best of
-all they are available for free.
+Windows Defender and Malwarebytes compliment each other perfectly and provide
+all the anti-virus protection a person would need.
 
 Backups
 =======
@@ -409,8 +410,7 @@ necessary, and it should not be too difficult if you follow these rules:
 * Use the Chrome browser with HTTPS Everywhere, uBlock Origin and Privacy
   Badger
 
-* Windows Defender and Malwarebytes (both free) are all the Windows anti-virus
-  you need
+* Windows Defender and Malwarebytes are all the Windows anti-virus you need
 
 * Backup your data
 

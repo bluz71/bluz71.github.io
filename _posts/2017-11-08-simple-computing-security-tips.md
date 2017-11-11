@@ -27,31 +27,44 @@ Keep Up To Date
 
 **The** most important rule to enhance your digital security is to keep all
 software and devices up to date. Security flaws are constantly being discovered
-and fixed. [Unpatched flaws](https://www.networkworld.com/article/2926010/security0/the-unrelenting-danger-of-unpatched-computers.html)
-are a real danger.
+and fixed,
+[unpatched flaws](https://www.networkworld.com/article/2926010/security0/the-unrelenting-danger-of-unpatched-computers.html)
+are a real danger. Running
+[end of life software](https://www.spiceworks.com/it-articles/end-of-life-software-dangers/)
+is also very dangerous.
 
 Modern software such as computer operating systems, browsers and apps by and
 large automatically update themselves, or will notify you when updates are
-available. If you are a Linux user please select a distribution with
-long-term-support, I recommend [Linux Mint](https://linuxmint.com).
+available.
 
 Please, never turn off automatic updates. Please be proactive in searching for
 and applying these updates. Replace old software that does not automatically
 update with a modern equivalent that does automatically update, an example
-would be a PDF reader.
+would be an old PDF reader.
 
-Hardware, such as routers or NASs, on the other hand usually do not update
-themselves. It is equally important, if not more so, that these devices are
-updated occasionally; a good rule is to update seasonally. Don't be afraid to
-call in help if you are not able to update router or NAS firmware yourself.
+* Windows users should upgrade to the latest version, which is Windows 10 at
+  the time of this post. Please **stop** using Windows 7, Vista and XP.
 
-Modern iPhones and iPads automatically update, which is excellent.
+* Mac major release upgrades are free, hence there is no reason not to upgrade to
+  the latest release, at the time of this post that would be High Sierra.
+  Monthly security updates will be provided by Apple, please apply them
+  immediately when prompted.
 
-Android on the other hand is a mess; old phones will not receive updates, even
-Android phones that are only a couple years old will likely not receive
-security updates either. Your best bet with Android is to stick with Google
-Pixel phones, these will receive security updates directly from Google itself
-and will do so for multiple years.
+* Linux users should select a distribution that provides long term support and
+  prompt security updates, I recommend [Linux Mint](https://linuxmint.com).
+
+* Hardware, such as routers or NASs usually do not update themselves. It is
+  equally important, if not more so, that these devices are updated
+  occasionally; a good rule is to update seasonally. Don't be afraid to call in
+  help if you are not able to update router or NAS firmware yourself.
+
+* Modern iPhones and iPads automatically update, which is excellent.
+
+* Android security updates are a mess; old phones do not receive updates, even
+  Android phones that are only a couple years old are prone to not receive
+  security updates either. Your best bet with Android is to stick with modern
+  Google Pixel phones, these will receive security updates directly from Google
+  itself and will do so for multiple years.
 
 Passwords
 =========
@@ -64,8 +77,8 @@ A six character password can be cracked in seconds on a modern password
 cracking machine. Seven character passwords are also weak, same for eight and
 nine character passwords.
 
-Please watch [this video](https://www.youtube.com/watch?v=yzGzB-yYKcc) between
-Edward Snowden and John Oliver explaining the importance of passwords.
+Please watch [this exchange](https://www.youtube.com/watch?v=yzGzB-yYKcc)
+between Edward Snowden and John Oliver explaining the importance of passwords.
 
 My recommendation, passwords should be at least thirteen characters, preferably
 much more. Use phrases to gain complexity, for instance
@@ -97,10 +110,9 @@ password is needed let KeePassXC generate one for you. With experience using a
 password manager will become second nature whilst at the same time it will
 **greatly** improve your digital security.
 
-Smartphone PINs
-===============
-
-TODO
+With smartphones I recommend PIN codes that are at least eight digits long.
+Also configure fingerprint unlock (Touch ID on iPhones), if available, for fast
+unlock, long PINs will then not be that painful .
 
 Phishing Scams
 ==============
@@ -175,7 +187,7 @@ a mobile phone is not difficult these days.
 
 If your data bandwidth is limited, and you simply **must** use public Wi-Fi, then
 it strongly recommended that you only use such Wi-Fi in combination with a
-[strong VPN](http://www.techradar.com/news/public-wi-fi-and-why-you-need-a-vpn).
+[strong virtual private network (VPN)](http://www.techradar.com/news/public-wi-fi-and-why-you-need-a-vpn).
 I recommend a trusted commercial non-logging VPN provider such as:
 [ProtonVPN](https://protonvpn.com), [BolehVPN](https://www.bolehvpn.net) or
 [IVPN](https://www.ivpn.net). If you do not wish to pay for a VPN service then
@@ -225,6 +237,70 @@ on all computers and devices.
   unlock a share each time it is rebooted or restarted; a very minor
   inconvenience.
 
+Enable Firewalls
+================
+
+A computer [firewall](https://en.wikipedia.org/wiki/Firewall_(computing))
+establishes a barrier between an inside network (your home network) and an
+outside network (the internet). Firewalls are used to prevent unauthorised
+access to a network, such as your home network.
+
+* Modern versions of Windows ship with and enable a firewall by default.
+
+* Mac ships with a firewall, but does not enable it by default. Please enable
+  the firewall in *Security & Privacy* settings.
+
+* Linux Mint does not enable a firewall by default. Please install and enable
+  the Uncomplicated Firewall (UFW):
+
+  ```
+  sudo apt install gufw
+  sudo ufw enable
+  ```
+
+* Please make sure that your router's Firewall is enabled, sometimes it will be
+  marked as *Stateful Packet Inspection* (SPI). Most modern routers will enable
+  their firewall.
+
+Secure Your Router and Wi-Fi
+============================
+
+Weak router and Wi-Fi configuration is a common source of network insecurity,
+it can allow hackers from the other side of the world, or wardrivers sitting
+outside your house into your home network.
+
+Configuring a rourter can be daunting for those not experienced in technology.
+Modern routers are slightly less obtuse than they used to be. Again, don't be
+afraid to call in help, better that than living with an insecure router.
+
+These simple rules will greatly increase the security of your router:
+
+* Change the default administror password of your router. This should be done
+  **immediately**. As per-usual choose a very strong password.
+
+* When setting up Wi-Fi please active strong encryption, that means
+  configuring *WPA2 Personal* only, sometimes it will be marked as *WPA2-PSK*.
+
+* Select a unique Wi-Fi identifier (SSID), do not use a default identifier.
+
+* Please choose an **extremely strong** Wi-Fi password, at least thirty
+  characters long is desired.
+
+* If your router provides guest Wi-Fi capability then please setup a separate
+  secure guest network for all your smartphones. This segmented network
+  architecture will protect your home network from any vulnerabilities
+  contained in your older smartphones.
+
+Install Reputable Software from Trusted Sources
+=============================================
+
+Be very cautious when installing software, apps or browser plugins. There is a
+lot of malicious software on the internet posing as useful utility software.
+Only install reputable software and apps from official sources, prefer
+installation from app stores such as the Apple App Store of Google Play store.
+
+Please do **NOT** install dubious software such as key generators.
+
 Browser Recommendations
 =======================
 
@@ -248,60 +324,94 @@ extensions:
 
 * [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
   is an extension that learns to block trackers as you browse the web. It will
-  increase the privacy and security of your session.
+  increase the privacy and security of your browwing session.
 
-Secure Your Router and Wi-Fi
-============================
 
-Weak router and Wi-Fi configuration is a common source of network insecurity,
-it can allow hackers from the other side of the world, or wardrivers sitting
-outside your house into your home network.
+Windows Anti-Virus
+==================
 
-Configuring a rourter can be daunting for those not experienced in technology.
-Modern routers are slightly less obtuse than they used to be. Again, don't be
-afraid to call in help, better that than living with an insecure router.
+Back in the day running third-party Windows anti-virus was a necessity. These
+days moderns versions of Windows ship with their own
+[Defender](https://www.microsoft.com/en-us/windows/comprehensive-security)
+product which is more than enough anti-virus for most people.
 
-These simple rules will greatly increase the security of your router:
+Instead of investing in an anti-virus product I instead recommend using
+[Malwarebytes](https://www.malwarebytes.com) anti-malware software. A free
+version is available that will need to be run manually from time to time, and
+there is also a commercial version that will offer real-time protection.
 
-* Change the default administror password of your router. This should be done
-  **immediately**. As per-usual choose a very strong password.
+Windows Defender and Malwarebytes compliment each other perfectly and best of
+all they are available for free.
 
-* Please make sure that your router's Firewall is enabled (sometimes noted as
-  SPI). With most modern routers this will be enabled by default.
-
-* When setting up Wi-Fi please active strong encryption, that means
-  configuring *WPA2 Personal* (sometimes noted as *WPA2-PSK*) only.
-
-* Select a unique Wi-Fi identifier (SSID), do not use a default identifier.
-
-* Lastly, choose an **extremely strong** Wi-Fi password, at least thirty
-  characters long is desired.
-
-Back it Up
-==========
-
-Offsite and Apricorn drive
-
-Install Only from Trusted Sources
-=================================
-
-Chrome Browser
-==============
-
-Smartphone
-==========
-
-Windows
+Backups
 =======
 
-Stop using old versions of Windows
-Don't like most A/V
-Use MalwareBytes
+Backups are critical in case you experience either: a computer failure, a major
+security incident that deletes your data, or security incidents that locks you
+out of your data. [Ransomware](https://en.wikipedia.org/wiki/Ransomware) is an
+example of such an attack, Ransomware will encrypt and lock your data
+permanently unless you pay a ransom to unlock your data. Note, paying a ransom
+will rarely gain you access to your data; please never pay Ransomware.
 
-Mac
-===
+Backups came in two major flavours, local or online. The former usually entails
+USB drives, the latter will be internet based.
 
-Linux
-=====
+My preferred software for local backups:
 
-rkhunter
+* [Genie Timeline](https://www.genie9.com/home/Genie_Timeline_Home/overview.aspx)
+  is user-friendly backup software for Windows users.
+
+* [Time Machine](https://en.wikipedia.org/wiki/Time_Machine_(macOS)) is
+  simple and automatic backup software provided by default with Apple Macs.
+
+* [Deja Dup](https://launchpad.net/deja-dup) is a simple backup utility for
+  Linux systems.
+
+When using these local backup software **please** enable their encryption
+support. You don't want your backups in clear text in case your lose your
+backup drive.
+
+For online backup, that being backups that target the internet, I recommend the
+[SpiderOak](https://spideroak.com/one) One service.
+
+Please make sure that backups are running with regularity, at least once a
+week.
+
+Whichever approach you take please have a backup strategy, any strategy will
+do, since there will come a day where either your computer dies or you are a
+victim of attack. At that point you will be extremely grateful that you had a
+backup to restore from. Backups are your digital insurance, just as you insure
+your home and contents, so you should backup your data.
+
+Summary
+=======
+
+Just as it takes a little effort to secure your physical assets, it also takes a
+little effort to secure your digital assets. But in this day it really is
+necessary, and it should not be too difficult if you follow these rules:
+
+* Keep your devices and software up-to-date
+
+* Use strong unique passwords everywhere
+
+* Don't fall victim to Phishing, Social Engineering, or Malicious USB-stick scams
+
+* Don't use public Wi-Fi, if you must then only use it with a VPN
+
+* Always enable disk encryption where available
+
+* Enable firewalls
+
+* Secure your Router and Wi-Fi
+
+* Only install reputable software from trusted sources
+
+* Use the Chrome browser with HTTPS Everywhere, uBlock Origin and Privacy
+  Badger
+
+* Windows Defender and Malwarebytes (both free) are all the Windows anti-virus
+  you need
+
+* Backup your data
+
+Stay stafe and happy computing.

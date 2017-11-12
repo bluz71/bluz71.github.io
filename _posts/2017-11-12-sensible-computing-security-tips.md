@@ -106,7 +106,7 @@ These, compatible, password managers store your passwords in an encrypted
 database protected by a master password. Please choose a very strong master
 password. Also, when using a locally installed password manager, such as
 KeePassXC, please keep a copy of the encrypted database, usually
-`Passwords.kdbx`, safely stored offsite, I recommend a CD-R stored in a safety
+`Passwords.kdbx`, safely stored offsite, I recommend a CD-R in a safety
 deposit box.
 
 I suggest storing all your accounts and passwords in KeePassXC; when a new
@@ -155,7 +155,7 @@ conversation.
 
 The most common form of computer-related social engineering are unsolicited
 phone calls from persons claiming to represent an entity, say a bank or
-telecommunications provider, that then request your personal details to solve
+telecommunications provider, who then request your personal details to solve
 an issue of sorts. These cold calls are never real, all they are after are your
 credentials for nefarious purposes, usually to steal money.
 
@@ -169,10 +169,10 @@ If you receive such a call, please hang up immediately.
 Malicious USB Sticks
 ====================
 
-A confidence trick used by certain hackers is the dropping of malicious USB
-sticks in public places ready for unsuspecting folk to pick them up, take them
-home, and insert them into their computer. Such malicious USB sticks, once
-inserted, can compromise your home network.
+A trick used by certain cybercriminals is the dropping of malicious USB sticks
+in public places ready for unsuspecting folk to pick them up, take them home,
+and insert them into their computer. Such malicious USB sticks, once inserted,
+will compromise your home network.
 
 Your should
 [never trust a found USB stick](https://threatpost.com/never-trust-a-found-usb-drive-black-hat-demo-shows-why/119653/).
@@ -186,7 +186,7 @@ Using free public Wi-Fi can be
 [very dangerous](https://www.goldenfrog.com/blog/the-dangers-of-public-wi-fi).
 Free Wi-Fi opens you up
 to: [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)
-attacks,
+attack,
 [snooping & sniffing](https://security.stackexchange.com/questions/52980/sniffing-snooping-spoofing)
 , and
 [malicious hotspot](https://www.howtogeek.com/178696/why-using-a-public-wi-fi-network-can-be-dangerous-even-when-accessing-encrypted-websites/)
@@ -194,7 +194,7 @@ attack.
 
 It is strongly recommended that you use the data bandwidth associated with
 your mobile phone to access the internet when on the go. Tethering a laptop to
-a mobile phone is not difficult these days.
+a smartphone is not difficult these days.
 
 If your data bandwidth is limited, and you simply **must** use public Wi-Fi, then
 it is strongly recommended that you only use such Wi-Fi in combination with a
@@ -422,7 +422,7 @@ rules:
 
 * Don't use public Wi-Fi, but if you must then only use it with a VPN
 
-* Always enable disk encryption where available
+* Enable disk encryption where available
 
 * Enable firewalls
 

@@ -2,7 +2,7 @@
 title: Sensible Computing Security Tips
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Sensible Computing Security Tips

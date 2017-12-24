@@ -8,38 +8,47 @@ published: false
 Browser Navigation in React Components
 ======================================
 
-A story, one day you develop a front-end application in
-[React](https://reactjs.org) because it is the current hotness. All
-goes well, you build a few components, you have them fetch content from a
-back-end API, you assemble them and all appears to work well. You then hit the
-browser back button in this React application and all suddenly all is not well in
-*single-page-application* (SPA) land. Rather than unwinding your navigation
-within your React app the browser will entirely exit your application.
+Traditional web applications generate pages server-side (on a remote computer)
+for display in a browser. The modern web has also seen the rise of client-side
+JavaScript frameworks, such as [React](https://reactjs.org/), and
+[Single-Page-Applications](https://en.wikipedia.org/wiki/Single-page_application)
+(SPAs) where a page is generated and updated client-side (inside the browser by
+JavaScript).
 
-[JavaScript SPAs](https://en.wikipedia.org/wiki/Single-page_application)
-update content dynamically and often independently of the URL.
-Such transistions from one state to the next will frequently not change the
-URL. By contrast traditional server side web applications will bind a page to a
-URL. The backward and forward buttons of a browser are designed to navigate
-from page-to-page, not state-to-state.
+Page content generated client-side is often completely independent of a URL
+unlike server-side pages where pages and URLs are tightly coupled. The browser
+back and forward buttons were created in the era where every web application
+was server-side generated and each page matched a unique URL. Unfortunately the
+back and forward, by default, do not work as users expect in client-side SPAs,
+rather than transistioning back through page changes and updates, the back (and
+forward) button will unexpectedly navigate completely out of the web
+application.
 
-Modern browsers do provide a solution for this SPA issue, that being the
-[HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/Histor),
-more specially the `pushState` functionality. Note, you as the SPA developer
-will be required to glue all the pieces together, `pushState` is not automatic
-or free.
+Modern browsers do provide a solution for this client-side SPA navigation
+issue, that being the [HTML5 History
+API](https://developer.mozilla.org/en-US/docs/Web/API/Histor), more specially
+the `pushState` function.
 
-Note, I am a novice when it comes to React, hence the solution described below
-may not be the most optimal. I welcome comments.
+This post will describe how to use `pushState` in a React application such that
+browser navigation correctly transistions through client-side page changes.
+Note, I found there is surprisingly little consolidated information on this
+topic on the interwebs, hence the reason for this post.
+
+Caveat, I am a novice when it comes to React and JavaScript, hence the React
+specific solution described below may not be optimal. I do welcome feedback and
+suggestions on the topic.
 
 Example Application
 ===================
 
-For this article we will reference a simple React application. That main
-component, named BookList, simply fetches and renders a paginated list of
-books. Next and previous links are provided, bu a Paginator component, to
-navigate through the list of books which are retrieved from a back-end API. The
-rough outline of the BookList component would be:
+For this article we will reference a simple React application. The main
+component, named BookList, fetches, sets local component state, and then
+renders a paginated list of books.
+
+Next and previous links are provided, by a separate Paginator component, to
+navigate through the list of books which are retrieved from a back-end API.
+
+A rough outline of the BookList component would be:
 
 ```jsx
 
@@ -49,7 +58,9 @@ class BookList extends Component {
   constructor(props) {
     super(props);
 
-    this.params = {}; // URL parameter used to fetch a particular set of books
+    this.params = {}; // URL parameter used to fetch a particular page of books.
+                      // NOT component state since we do not want to re-render
+                      // when it changes.
 
     this.state = {
       books: [],      // The actual list of books from the back-end API
@@ -61,6 +72,8 @@ class BookList extends Component {
     this.fetchBooks();
   }
 
+  // Invoked from the Paginator component when a user clicks next or previous
+  // or a particular page.
   handlePageChange = (page) => {
     this.params.page = page;
     this.fetchBooks();
@@ -106,17 +119,18 @@ Pushing State into History
 ==========================
 
 Access to the history API is not provided with React. You will need to install
-the React Router package to gain access to that API. Most non-trivial React
-applications will already be using React Router, if not then install it:
+the [React Router](https://github.com/ReactTraining/react-router) package to
+gain access to that API. Most non-trivial React applications will already be
+using React Router, if not then install it:
 
 ```
 yarn add react-router-dom
 ```
 
-Next you may need to wrap the component in `withRouter` to gain access to
+Next you may need to wrap your component with `withRouter` to gain access to
 needed history and location properties. If your component is
-already a `Route` component then nothing needs to be otherwise please wrap as
-follows:
+already a `Route` component then nothing needs to be done otherwise please wrap
+as follows:
 
 ```jsx
 import { withRouter } from 'react-router-dom';
@@ -124,16 +138,23 @@ import { withRouter } from 'react-router-dom';
 export default withRouter(BookList);
 ```
 
-Now push current state `this.params` into history:
+Now push current the current state, `this.params` in this case, into history:
 
 ```jsx
 
   handlePageChange = (page) => {
     this.params.page = page;
-    this.props.history.push('/artists', this.params);
+    this.props.history.push('/', this.params);
     this.fetchBooks();
   }
 ```
+
+Note, the URL page parameter, stored in `this.params`, is the only state we
+need to push into history. This SPA will only change when a user clicks through
+pages, hence the page parameter is the only state we need to record in history.
+
+In the push call the first parameter (`'/'` above) should be the actual URL of
+your component. In this application BookList will be mounted at the root URL.
 
 Preventing render when location changes
 =======================================
@@ -158,16 +179,19 @@ will safe, but that may not be the case with your components. Treat
 `shouldComponentUpdate` with extreme caution.
 
 
-Handle back and forward button press via popstate event handler
-===============================================================
+Browser navigation event handler
+================================
 
 The pressing of the back or forward button in a browser is an event. Our
-component needs an event handler for these events.
+component needs an handler for this event to correctly update the current page
+to a previous state.
+
+The event of interest is `window.onpopstate`:
 
 ```javascript
   componentDidMount() {
     window.onpopstate = this.handlePopState;
-    this.applyState();
+    this.applyParams();
   }
 
   componentWillUnmount() {
@@ -176,18 +200,18 @@ component needs an event handler for these events.
 
   handlePopState = (event) => {
     event.preventDefault();
-    this.applyState();
+    this.applyParams();
   }
 
-  applyState() {
+  applyParams() {
     this.params = this.props.location.state || {};
     this.fetchBooks();
   }
 ```
 
-Note, it is important to unset the `onpopstate` event handler when this
-component is being unmounted otherwise the event handler will persist even
-beyond the lifetime of the component.
+Note, it is important to unset the `onpopstate` when this component is being
+unmounted otherwise the event handler will persist beyond the lifetime of the
+component.
 
 Updated example
 ===============
@@ -212,7 +236,7 @@ class BookList extends Component {
 
   componentDidMount() {
     window.onpopstate = this.handlePopState;
-    this.applyState();
+    this.applyParams();
   }
 
   componentWillUnmount() {
@@ -225,10 +249,10 @@ class BookList extends Component {
 
   handlePopState = (event) => {
     event.preventDefault();
-    this.applyState();
+    this.applyParams();
   }
 
-  applyState() {
+  applyParams() {
     this.params = this.props.location.state || {};
     this.fetchBooks();
   }

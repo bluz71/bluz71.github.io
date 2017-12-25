@@ -218,7 +218,7 @@ Adding all the pieces together results in the following enhanced `BookList`
 component:
 
 ```jsx
-const BOOKS_ENDPOINT = `http://localhost:3000/books.json`;
+const BOOKS_ENDPOINT = 'http://localhost:3000/books.json';
 
 class BookList extends Component {
   constructor(props) {

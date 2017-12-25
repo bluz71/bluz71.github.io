@@ -36,9 +36,6 @@ This post will describe how to use `pushState` in a simple React application
 such that browser navigation correctly transitions through client-side page
 changes.
 
-Note, there is surprisingly little React-related information on this
-topic on the interwebs, hence this post.
-
 Example Application
 ===================
 
@@ -52,14 +49,13 @@ component (not documented here), to navigate through the list of books.
 A rough outline of the `BookList` component would be:
 
 ```jsx
-const BOOKS_ENDPOINT = `http://localhost:3000/books.json`;
+const BOOKS_ENDPOINT = 'http://localhost:3000/books.json';
 
 class BookList extends Component {
   constructor(props) {
     super(props);
 
     this.params = {};
-
     this.state = {
       books: [],
       pagination: {}
@@ -229,7 +225,6 @@ class BookList extends Component {
     super(props);
 
     this.params = {};
-
     this.state = {
       books: [],
       pagination: {}
@@ -307,6 +302,6 @@ navigate backward and forward through these pages without issue.
 Caveat
 ======
 
-I am a novice when it comes to React and JavaScript, hence the React solution
+I am a novice when it comes to JavaScript and React, hence the solution
 described above may not be optimal. I do welcome feedback and suggestions on
 the topic.

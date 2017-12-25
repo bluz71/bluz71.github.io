@@ -2,69 +2,67 @@
 title: Browser Navigation in React Components
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Browser Navigation in React Components
 ======================================
 
-Traditional web applications generate pages server-side (on a remote computer)
-for display in a browser. The modern web has also seen the rise of client-side
-JavaScript frameworks, such as [React](https://reactjs.org/), and
+The modern web has seen the rise of client-side frameworks, such as
+[React](https://reactjs.org/), and
 [Single-Page-Applications](https://en.wikipedia.org/wiki/Single-page_application)
-(SPAs) where a page is generated and updated client-side (inside the browser by
-JavaScript).
+(SPAs) where pages are generated and updated client-side (inside the browser by
+JavaScript) unlike traditional web applications where pages are generated
+server-side (on a remote computer) for display in a browser.
 
-Page content generated client-side is often completely independent of a URL
-unlike server-side pages where pages and URLs are tightly coupled. The browser
-back and forward buttons were created in the era where every web application
-was server-side generated and each page matched a unique URL. Unfortunately the
-back and forward, by default, do not work as users expect in client-side SPAs,
-rather than transistioning back through page changes and updates, the back (and
-forward) button will unexpectedly navigate completely out of the web
-application.
+Page content generated client-side is often independent of a URL unlike
+server-side pages where pages and URLs are tightly coupled. The browser back
+and forward buttons were created in an era where every web application was
+server-side generated and each page matched a unique URL. Unfortunately the
+back and forward buttons, by default, do not work as users expect in
+client-side SPAs, rather than transitioning back through page changes and
+updates, the back (and forward) button will unexpectedly navigate completely
+out of the SPA.
 
-Modern browsers do provide a solution for this client-side SPA navigation
+Using hash-bangs in URLs were a solution of sorts a few years ago but their
+usage is now [frowned
+upon](http://danwebb.net/2011/5/28/it-is-about-the-hashbangs). However, modern
+browsers do provide an elegant solution for this client-side SPA navigation
 issue, that being the [HTML5 History
-API](https://developer.mozilla.org/en-US/docs/Web/API/Histor), more specially
+API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), more specially
 the `pushState` function.
 
-This post will describe how to use `pushState` in a React application such that
-browser navigation correctly transistions through client-side page changes.
-Note, I found there is surprisingly little consolidated information on this
-topic on the interwebs, hence the reason for this post.
+This post will describe how to use `pushState` in a simple React application
+such that browser navigation correctly transitions through client-side page
+changes.
 
-Caveat, I am a novice when it comes to React and JavaScript, hence the React
-specific solution described below may not be optimal. I do welcome feedback and
-suggestions on the topic.
+Note, there is surprisingly little React-related information on this
+topic on the interwebs, hence this post.
 
 Example Application
 ===================
 
 For this article we will reference a simple React application. The main
-component, named BookList, fetches, sets local component state, and then
-renders a paginated list of books.
+component, named `BookList`, will primarily render a paginated list of books
+fetched from an API endpoint.
 
-Next and previous links are provided, by a separate Paginator component, to
-navigate through the list of books which are retrieved from a back-end API.
+In-page next and previous links are provided by a separate `Paginator`
+component (not documented here), to navigate through the list of books.
 
-A rough outline of the BookList component would be:
+A rough outline of the `BookList` component would be:
 
 ```jsx
-
 const BOOKS_ENDPOINT = `http://localhost:3000/books.json`;
 
 class BookList extends Component {
   constructor(props) {
     super(props);
 
-    this.params = {}; // URL parameter used to fetch a particular page of books.
-                      // NOT component state since we do not want to re-render
-                      // when it changes.
+    this.params = {};
 
     this.state = {
-      books: [],      // The actual list of books from the back-end API
-      pagination: {}  // Pagination parameters from the back-end API
+      books: [],
+      pagination: {}
     };
   }
 
@@ -72,8 +70,6 @@ class BookList extends Component {
     this.fetchBooks();
   }
 
-  // Invoked from the Paginator component when a user clicks next or previous
-  // or a particular page.
   handlePageChange = (page) => {
     this.params.page = page;
     this.fetchBooks();
@@ -104,7 +100,7 @@ class BookList extends Component {
   render() {
     return (
       <div>
-        <h2>Book List</h2>
+        <h1>Book List</h1>
         <ul>{this.renderBooks()}</ul>
         <Paginator pagination={this.state.pagination} onPageChange={this.handlePageChange} />
       </div>
@@ -114,6 +110,10 @@ class BookList extends Component {
 
 export default BookList;
 ```
+
+Note, the query parameters for the API end-point are stored in a member
+variable, as against component state, since we do not want to re-render when it
+changes. Also, Axios can be replaced with `fetch` if you so choose.
 
 Pushing State into History
 ==========================
@@ -138,10 +138,9 @@ import { withRouter } from 'react-router-dom';
 export default withRouter(BookList);
 ```
 
-Now push current the current state, `this.params` in this case, into history:
+Now push the required state, `this.params` in this case, into history:
 
 ```jsx
-
   handlePageChange = (page) => {
     this.params.page = page;
     this.props.history.push('/', this.params);
@@ -149,22 +148,24 @@ Now push current the current state, `this.params` in this case, into history:
   }
 ```
 
-Note, the URL page parameter, stored in `this.params`, is the only state we
-need to push into history. This SPA will only change when a user clicks through
-pages, hence the page parameter is the only state we need to record in history.
+The URL page parameter, stored in `this.params`, is the only state we need to
+push into history. This SPA will only change when a user clicks through pages,
+hence the page parameter is the only state we need to record in browser
+history.
 
-In the push call the first parameter (`'/'` above) should be the actual URL of
-your component. In this application BookList will be mounted at the root URL.
+Note, in the `push` call the first parameter (`'/'` above) should be the actual
+URL of your component. In this simple application `BookList` will be mounted at
+the root URL.
 
 Preventing render when location changes
 =======================================
 
-Note a minor issue here is that the BooksList component will be rendered twice
-when `handlePageChange` is invoked, once when `this.props.history.push` is
-called and once in the `fetchBooks` function when `setState` is called. In our
-example pushing state into history will **always** be followed a fetch records.
-Let's use the React lifecycle method `componentShouldUpdate` to ignore
-locations changes:
+A minor issue above is that the `BooksList` component will now be rendered
+twice when `handlePageChange` is invoked, once when `this.props.history.push`
+is called and once in the `fetchBooks` function when `setState` is called. In
+our example pushing state into history will **always** be followed
+`fetchBooks`. Lets use the React lifecycle method `componentShouldUpdate` to
+ignore locations changes:
 
 ```javascript
   shouldComponentUpdate(nextProps) {
@@ -172,18 +173,19 @@ locations changes:
   }
 ```
 
-Note, we need to use [Lodash isEqual](https://lodash.com/docs/#isEqual) to
-correctly test object equivalence. In the above `shouldComponentUpdate` call we
-will not re-render the component when the location changes. In our case that
-will safe, but that may not be the case with your components. Treat
-`shouldComponentUpdate` with extreme caution.
+In the above `shouldComponentUpdate` call we will not re-render the component
+when the location changes. In our case that will safe, but that may not be the
+case with your components. Treat `shouldComponentUpdate` with extreme caution.
 
+Note, we need to use [Lodash isEqual](https://lodash.com/docs/#isEqual) to
+correctly test object equivalence since JavaScript `===` does not work as one
+would expect.
 
 Browser navigation event handler
 ================================
 
 The pressing of the back or forward button in a browser is an event. Our
-component needs an handler for this event to correctly update the current page
+component needs a handler for this event to correctly update the current page
 to a previous state.
 
 The event of interest is `window.onpopstate`:
@@ -216,21 +218,21 @@ component.
 Updated example
 ===============
 
-XXX Add lots of documentation:
+Adding all the pieces together results in the following enhanced `BookList`
+component:
 
 ```jsx
-
 const BOOKS_ENDPOINT = `http://localhost:3000/books.json`;
 
 class BookList extends Component {
   constructor(props) {
     super(props);
 
-    this.params = {}; // URL parameter used to fetch a particular set of books
+    this.params = {};
 
     this.state = {
-      books: [],      // The actual list of books from the back-end API
-      pagination: {}  // Pagination parameters from the back-end API
+      books: [],
+      pagination: {}
     };
   }
 
@@ -259,7 +261,7 @@ class BookList extends Component {
 
   handlePageChange = (page) => {
     this.params.page = page;
-    this.props.history.push('/artists', this.params);
+    this.props.history.push('/', this.params);
     this.fetchBooks();
   }
 
@@ -288,7 +290,7 @@ class BookList extends Component {
   render() {
     return (
       <div>
-        <h2>Book List</h2>
+        <h1>Book List</h1>
         <ul>{this.renderBooks()}</ul>
         <Paginator pagination={this.state.pagination} onPageChange={this.handlePageChange} />
       </div>
@@ -298,3 +300,13 @@ class BookList extends Component {
 
 export default withRouter(BookList);
 ```
+
+A user will now be able to browse through the application pages and then
+navigate backward and forward through these pages without issue.
+
+Caveat
+======
+
+I am a novice when it comes to React and JavaScript, hence the React solution
+described above may not be optimal. I do welcome feedback and suggestions on
+the topic.

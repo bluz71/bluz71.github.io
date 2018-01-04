@@ -14,15 +14,15 @@ provide a pre-configured [Jest](https://facebook.github.io/jest) test runner.
 Adding the [Enzyme](http://airbnb.io/enzyme) test utilities to the mix makes
 testing simple React components a breeze.
 
-However, not all React components are simple. For example, some may speak to a
-back-end API, using [Axios](https://github.com/axios/axios) or Fetch for
-example, to populate state for later rendering. Components such as these can be
-a challenge to test if your goal is to keep these tests isolated and fast.
-Ideally we want to eliminate network hops in tests.
+However, not all React components are simple, some may speak to a back-end API,
+using [Axios](https://github.com/axios/axios) or Fetch for example, to populate
+state for later rendering. Components such as these can be a challenge to test
+if your goal is to keep these tests isolated and fast. Ideally we want to
+eliminate network hops in tests.
 
 This post will describe how to use Jest
 [Mocks](https://facebook.github.io/jest/docs/en/mock-functions.html#content) to
-simulate Axios in such React component tests.
+simulate Axios in React component tests.
 
 Example Application
 ===================
@@ -106,11 +106,11 @@ also stored in the `__mocks__` directory:
     "books": [
       {
         "id": 1,
-        "title": "ABC",
+        "title": "ABC"
       },
       {
         "id": 2,
-        "name": "DEF",
+        "name": "DEF"
       }
     ]
   }
@@ -160,8 +160,8 @@ This test will now correctly confirm that the `BookList` component can render a
 list of books retrieved from a back-end API whilst mocking away the network
 hop.
 
-Acknowledgments
-===============
+References
+==========
 
 Most of the information of this post was gleamed from these bits 'n pieces on
 the interwebs:

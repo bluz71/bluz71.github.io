@@ -96,7 +96,7 @@ decrement numbers.
 
 In normal mode, entering `ctrl-a` will increment the first number to the right
 of the cursor on the current line. Preceded by a count `ctrl-a` will increment
-by the count amount. The `ctrl-x` will do the reverse operation of
+by the count amount. The `ctrl-x` command will do the reverse operation of
 decrementing.
 
 Personally, I don't like increment and decrement to take octal and hex
@@ -143,7 +143,7 @@ Prepending a count to the `g ctrl-a` command will determine the step size of
 the increments. The `g ctrl-x` command will do decrementing instead of
 incrementing.
 
-However, I like to use `+` and `-` instead of `ctrl-a` and `ctrl-x`, hence I
+Again, I like to use `+` and `-` instead of `ctrl-a` and `ctrl-x`, hence I
 use these mappings instead for visual sequence incrementing and decrementing:
 
 ```viml

@@ -51,9 +51,9 @@ set undofile
 ```
 
 The above configuration will store Vim change histories in a private
-subdirectory of  `/tmp`, which on modern Linux and Mac workstations is carved
-from RAM. If one desires to persist *undos* across reboots then please replace
-`/tmp` with a directory in your home directory such as `$HOME/.vim/undodir` for
+subdirectory of  `/tmp`, which on modern Linux workstations is carved from RAM.
+If one desires to persist *undos* across reboots then please replace `/tmp`
+with a directory in your home directory such as `$HOME/.vim/undodir` for
 example. Note, in the latter case you may need to periodically clean the undo
 directory since it will accumulate changes forever.
 

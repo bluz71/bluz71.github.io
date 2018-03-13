@@ -231,6 +231,30 @@ inoremap <C-l> <C-x><C-l>
 One only need type *Control-l* whilst in insert mode to complete the current
 line by repeating an existing line.
 
+Dictionary complete current word with *Control-x Control-k*
+-----------------------------------------------------------
+
+Complete the current word with *omni dictionary completion:*
+
+```
+Control-x Control-k
+```
+
+This requires that the `dictionary` option be set, for Unix-based systems I
+recommend:
+
+```viml
+set dictionary=/usr/share/dict/words
+```
+The above is a little difficult to type, I prefer to use the following mapping:
+
+```viml
+inoremap <C-k> <C-x><C-k>
+```
+
+One only need type *Control-k* whilst in insert mode to complete the current
+word by using dictionary-based completion.
+
 Repeat last visual selection with *gv*
 --------------------------------------
 

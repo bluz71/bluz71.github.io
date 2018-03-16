@@ -151,6 +151,11 @@ directory. A minimal set of recommended `~/.inputrc` settings follows.
 Bash Settings
 -------------
 
+Bash Aliases
+-------------
+
+- `..2`
+
 Bash Tips
 ---------
 

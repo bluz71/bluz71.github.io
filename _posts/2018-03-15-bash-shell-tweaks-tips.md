@@ -88,8 +88,8 @@ If you have never used command-aware completion before it will be revelation
 how useful this capability is especially for commands such as `git` and `ssh`.
 Basically you want to hit the TAB character early and often.
 
-Readline Library Configuration
-------------------------------
+Readline Configuration
+----------------------
 
 The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html)
 library is used by Bash for line-editing and history management.
@@ -127,13 +127,13 @@ directory. A list of recommended `~/.inputrc` settings follows.
 
 - Ignore case when completing:
 
-    ```st
+    ```sh
     set completion-ignore-case on
     ```
 
 - Treat hypens and underscores as equivalent when completing:
 
-    ```st
+    ```sh
     set completion-map-case on
     ```
 
@@ -141,14 +141,14 @@ directory. A list of recommended `~/.inputrc` settings follows.
     use the already typed text as a required prefix when navigating through
     history:
 
-    ```st
+    ```sh
     "\e[A": history-search-backward
     "\e[B": history-search-forward
     ```
 
 - Disable beeps and don't display control characters:
 
-    ```st
+    ```sh
     set bell-style none
     set echo-control-characters off
     ```
@@ -160,31 +160,31 @@ The Readline library provides a number of useful default shortcuts.
 
 - Go to the beginning of the current line:
 
-    ```st
+    ```sh
     Control-a
     ```
 
 - Go to the end of the current line:
 
-    ```st
+    ```sh
     Control-e
     ```
 
 - Go back one word on the current line:
 
-    ```st
+    ```sh
     Alt-b
     ```
 
 - Go forward one word on the current line:
 
-    ```st
+    ```sh
     Alt-f
     ```
 
 - Search back through history:
 
-    ```st
+    ```sh
     Control-r
     ```
 
@@ -196,14 +196,14 @@ The Readline library provides a number of useful default shortcuts.
     In my case I have mapped `Control-f` (`f` for find) in my *inputrc* to do
     this same searching:
 
-    ```st
+    ```sh
     "\C-f": reverse-search-history
     ```
 
 - Append the last argument of the previous command to the end of the current
     command:
 
-    ```st
+    ```sh
     Alt-.
     ```
 
@@ -286,9 +286,9 @@ file:
     ```sh
     alias ll='ls -l'
     alias ll.='ls -la'
+    alias lls='ls -la --sort=size'
+    alias llt='ls -la --sort=time'
     alias ls='ls --color --classify --human-readable'
-    alias lss='ls -la --sort=size'
-    alias lst='ls -la --sort=time'
     ```
 
   We want colorization with human-readable file sizes. The last two aliases
@@ -329,7 +329,7 @@ file:
 - List all files larger than a given size:
 
     ```sh
-    alias lsfs='find_by_size(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; find_by_size'
+    alias llfs='find_by_size(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; find_by_size'
     ```
 
     For example, `lsfs +10k` will display all files larger than 10 kilobytes.
@@ -337,13 +337,46 @@ file:
 The z Directory Navigation Utility
 ----------------------------------
 
-There are a number of ways to navigate a file system: plain `cd`, or
-`pushd/popd`, or defining a `$CDPATH` environment variable.
+There are a number of ways to navigate a file system: plain `cd`, `pushd/popd`,
+or defining a `$CDPATH` environment variable as a short-circuit base directory.
 
-The [z](https://github.com/rupa/z) utility
+The [z](https://github.com/rupa/z) utility provides a quicker way to change to
+already visited directory. The z utility, which works in both Bash and Zsh,
+tracks the directories you visit with the `cd` command. Once trained you can
+just use the `z` command with a portion of path to jump to a visited directory.
 
-Programmer Tools f and rg
--------------------------
+The *z* utility is most easily installed with Homebrew or Linuxbrew:
+
+```sh
+brew install z
+```
+
+### Usage
+
+First you need to train `z`:
+
+```sh
+cd ~/dotfiles
+cd ~/projects/tickets_app
+cd ~/projects/tickets_app/src
+cd ~/projects/tickets
+cd ~/projects/tickets/src
+```
+
+Now you can jump using the `z` command with path components:
+
+```sh
+z dot         # will jump to ~/dotfiles
+z tic         # will jump to ~/projects/tickets
+z tic app     # will jump to ~/projects/tickets_app
+z tic app src # will jump to ~/projects/tickets_app/src
+```
+
+Though not Bash specific, the z utility is a fantastic tool that all Bash users
+will find useful.
 
 Conclusion
 ----------
+
+With just a little effort the Bash shell will become a more enjoyable and
+productive environment.

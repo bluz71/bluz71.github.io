@@ -284,11 +284,11 @@ file:
 - List command:
 
     ```sh
+    alias ls='ls --color --classify --human-readable'
     alias ll='ls -l'
     alias ll.='ls -la'
     alias lls='ls -la --sort=size'
     alias llt='ls -la --sort=time'
-    alias ls='ls --color --classify --human-readable'
     ```
 
   We want colorization with human-readable file sizes. The last two aliases

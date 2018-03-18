@@ -57,9 +57,9 @@ bash-completion
 
 Out of the box Bash only provides rudimentary filesystem based completions
 unlike the Zsh and Fish shells which offer command-aware completions. For
-example, `git pu<TAB>` should command-aware complete with the options of `pull`
-or `push` as compared to completing with filenames or directories starting with
-`p` (which is what standard Bash will do).
+example, `shopt cd<TAB>` should command-aware complete with the options of
+`cdable_vars` or `cdspell` as compared to completing with filenames or
+directories starting with `cd` (which is what standard Bash will do).
 
 The [bash-completion](https://github.com/scop/bash-completion) packages extends
 the Bash shell with intelligent completions for many common commands.
@@ -81,8 +81,9 @@ Then source bash-completion in your `~/.bashrc` file:
 . $(brew --prefix)/etc/bash_completion
 ```
 
-Confirm that bash-completion is enabled by trying the `git pu<TAB>` example
-noted above, the aim is to have the `pull` and `push` options displayed.
+Confirm that bash-completion is enabled by trying the `shopt cd<TAB>` example
+noted above, the aim is to have the `cdable_vars` and `cdspell` options
+displayed.
 
 If you have never used command-aware completion before it will be a revelation
 how useful this capability is especially for commands such as `git` and `ssh`.

@@ -9,14 +9,14 @@ Bash Shell Tweaks & Tips
 ========================
 
 [Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash
-is highly ubiquitous due to it being the default user shell for the various
+is highly ubiquitous due to it being the default user shell for various
 flavours of Unix including: Linux, macOS and the Windows Subsystem for Linux.
 
-Due to this ubiquity, and need to maintain strict backward compatibility, it is
-rare that newer features of Bash are enabled by default. Some mistake this
-*lack of default change* for stagnation and simply move across to a different
-shell such as [Zsh](https://www.zsh.org) or [Fish](https://fishshell.com) for
-their productivity enhancements.
+Due to this ubiquity, and need to maintain backward compatibility, it is rare
+that newer features of Bash are enabled by default. Some mistake this *lack of
+default change* for stagnation and simply move across to a different shell such
+as [Zsh](https://www.zsh.org) or [Fish](https://fishshell.com) for their
+productivity enhancements.
 
 This post will document a number of simple tweaks and tips, gleamed from the
 interwebs, that will improve user productivity when using Bash. A special note
@@ -95,17 +95,17 @@ The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html)
 library is used by Bash, and certain other utilities, for line-editing and
 history management.
 
-The library is configured by an `inputrc` file in a user's home directory. A
+This library is configured by an `.inputrc` file in a user's home directory. A
 list of recommended `~/.inputrc` settings follows.
 
-- The *TAB* key cycles forward through a completion menu. Press an arrow
+- The *TAB* key cycles forward through the completion choices. Press an arrow
     key, such as right-arrow, to choose a selection.
 
     ```sh
     TAB: menu-complete
     ```
 
-- The *Shift-TAB* key cycles backward through the completion menu. This is
+- The *Shift-TAB* key cycles backward through the completion choice. This is
     useful if you pressed *TAB* too many times an overshot the desired choice.
     Like *TAB*, press an arrow key, such as right-arrow, to choose a selection.
 
@@ -215,13 +215,12 @@ The Readline library also provides a number of useful default shortcuts.
     Control-r
     ```
 
-    This command does a reverse search, from most recent commands to oldest,
-    through history for commands that contain the chosen text. Hitting
-    `Control-r` again cycles back through the matches whilst `Control-Shift-r`
-    cycles forward.
+    This does a reverse search through history, from most recent to oldest, for
+    commands that contain the chosen text. Hitting `Control-r` again cycles
+    back through the matches whilst `Control-Shift-r` cycles forward.
 
-    In my case I have mapped `Control-f` (`f` for find) in my `~/.inputrc` to
-    do this same searching:
+    In my case I have also mapped `Control-f` (`f` for find) in my `~/.inputrc`
+    to do the same searching.
 
     ```sh
     "\C-f": reverse-search-history
@@ -241,7 +240,7 @@ The Readline library also provides a number of useful default shortcuts.
 Bash Settings
 -------------
 
-A productive Bash experience is best achieved by enabling and using the newer
+A more productive Bash experience is achieved by enabling and using the newer
 features the shell has made available.
 
 The Bash shell is configured through a `.bashrc` file in a user's home
@@ -260,7 +259,7 @@ directory. A list of recommended `~/.bashrc` settings follows.
     shopt -s cdspell
     ```
 
-- Enable the `**` pattern in file and directory expansions.
+- Enable the `**` globstar recursive pattern in file and directory expansions.
 
     ```sh
     shopt -s globstar
@@ -308,13 +307,13 @@ directory. A list of recommended `~/.bashrc` settings follows.
 
     Choose a smaller number if you wish to display less path components.
 
-- Enable history expansion with the space key.
+- Enable history expansion with the *SPACE* key.
 
     ```sh
     bind Space:magic-space
     ```
 
-    For example, `!!<space>` will immediately expand to the last command.
+    For example, `!!<SPACE>` will immediately expand to the last command.
 
 Bash Aliases
 -------------
@@ -397,6 +396,12 @@ brew install z
 ```
 
 Install the old fashioned way if you are not a Brew user.
+
+Then source the `z.sh` file in your `~/.bashrc` file:
+
+```sh
+. $(brew --prefix)/etc/profile.d/z.sh
+```
 
 ### Usage
 

@@ -12,11 +12,11 @@ Bash Shell Tweaks & Tips
 is highly ubiquitous due to it being the default user shell for various
 flavours of Unix including: Linux, macOS and the Windows Subsystem for Linux.
 
-Due to this ubiquity, and need to maintain backward compatibility, it is rare
-that newer features of Bash are enabled by default. Some mistake this *lack of
-default change* for stagnation and simply move across to a different shell such
-as [Zsh](https://www.zsh.org) or [Fish](https://fishshell.com) for their
-productivity enhancements.
+Due to this ubiquity, and the need to maintain backward compatibility, it is
+rare that newer features of Bash are enabled by default. Some mistake this
+*lack of default change* for stagnation and simply move across to a different
+shell such as [Zsh](https://www.zsh.org) or [Fish](https://fishshell.com) for
+their productivity enhancements.
 
 This post will document a number of simple tweaks and tips, gleamed from the
 interwebs, that will improve user productivity when using Bash. A special note
@@ -105,17 +105,17 @@ list of recommended `~/.inputrc` settings follows.
     TAB: menu-complete
     ```
 
-- The *Shift-TAB* key cycles backward through the completion choice. This is
-    useful if you pressed *TAB* too many times an overshot the desired choice.
+- The *Shift-TAB* key cycles backward through the completion choices. This is
+    useful if you pressed *TAB* too many times and overshot the desired choice.
     Like *TAB*, press an arrow key, such as right-arrow, to choose a selection.
 
     ```sh
     "\e[Z": menu-complete-backward
     ```
 
-- The first press of the completion key, *TAB*, should display a list of
-    choices that match the given prefix, whilst the next press of the
-    completion key will start cycling through the available choices.
+- The first press of the completion key, *TAB*, will display a list of choices
+    that match the given prefix, whilst the next press of the completion key
+    will start cycling through the available choices.
 
     ```sh
     set menu-complete-display-prefix on
@@ -244,7 +244,7 @@ A more productive Bash experience is achieved by enabling and using the newer
 features the shell has made available.
 
 The Bash shell is configured through a `.bashrc` file in a user's home
-directory. A list of recommended `~/.bashrc` settings follows.
+directory. A list of recommended `~/.bashrc` tweaks follows.
 
 - Typing a directory name just by itself will automatically change into that
     directory.

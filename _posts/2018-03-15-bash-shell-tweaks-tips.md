@@ -273,6 +273,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 
     ```sh
     HISTCONTROL='erasedups:ignoreboth'
+    HISTIGNORE=?:??
     HISTFILESIZE=9999
     HISTSIZE=9999
     PROMPT_COMMAND='history -a'
@@ -280,7 +281,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```
 
     The Readline incremental and reverse search commands are much more useful
-    when a good amount of history is kept.
+    when a good amount of history is kept. Note, we will ignore all commands
+    that are one or two characters long.
 
 - Display Git branch details in the prompt.
 

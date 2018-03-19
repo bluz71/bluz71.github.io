@@ -61,6 +61,8 @@ sudo mv -f chromedriver /usr/local/bin/
 sudo chmod +x /usr/local/bin/chromedriver
 ```
 
+**NOTE**: Replace `2.32` with a recent version of ChromeDriver.
+
 Configuration
 =============
 
@@ -114,7 +116,9 @@ before_install:
   - google-chrome-stable --headless --no-sandbox
 ```
 
-Note, the above listed Travis CI configuration is just a subset of a full
+**NOTE**: Replace `2.32` with a recent version of ChromeDriver.
+
+Be aware, the above listed Travis CI configuration is just a subset of a full
 Travis CI configuration, my application's full Travis CI configuration is listed
 [here](https://github.com/bluz71/platters/blob/master/.travis.yml).
 

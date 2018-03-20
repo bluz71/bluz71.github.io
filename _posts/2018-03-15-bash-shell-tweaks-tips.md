@@ -67,8 +67,8 @@ the Bash shell with intelligent completions for many common commands.
 
 Most Linux distributions install and enable bash-completion these days.
 
-Homebrew based Bash on macOS on the other hand you will require
-bash-completion installation and invocation.
+Homebrew based Bash on macOS on the other hand will require bash-completion
+installation and invocation.
 
 First install bash-completion:
 

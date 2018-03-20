@@ -165,6 +165,13 @@ list of recommended `~/.inputrc` settings follows.
     set completion-map-case on
     ```
 
+- Automatically append the `/` slash character to the end of symlinked
+    directories when completing.
+
+    ```sh
+    set mark-symlinked-directories on
+    ```
+
 - Enable incremental history navigation with the UP and DOWN arrow keys. This
     will use the already typed text as a required prefix when navigating
     through history.
@@ -260,6 +267,14 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     shopt -s cdspell
     ```
 
+- Automatically expand directory globs and fix directory name typos whilst
+    completing. Note, this works in conjuction with the `cdspell` option listed
+    above.
+
+    ```sh
+    shopt -s direxpand dirspell
+    ```
+
 - Enable the `**` globstar recursive pattern in file and directory expansions.
 
     ```sh
@@ -281,8 +296,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```
 
     The Readline incremental and reverse search commands are much more useful
-    when a good amount of history is kept. Note, we will ignore all commands
-    that are one or two characters long.
+    when a good amount of history is kept. Note, we will also ignore all
+    commands that are only one or two characters long.
 
 - Display Git branch details in the prompt.
 

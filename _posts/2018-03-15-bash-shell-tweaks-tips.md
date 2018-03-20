@@ -10,7 +10,8 @@ Bash Shell Tweaks & Tips
 
 [Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash
 is highly ubiquitous due to it being the default user shell for various
-flavours of Unix including: Linux, macOS and the Windows Subsystem for Linux.
+flavours of Unix including: Linux, macOS and the Windows Subsystem for Linux
+(WSL).
 
 Due to this ubiquity, and the need to maintain backward compatibility, it is
 rare that newer features of Bash are enabled by default. Some mistake this

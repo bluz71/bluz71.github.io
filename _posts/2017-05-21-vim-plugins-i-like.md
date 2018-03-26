@@ -329,17 +329,6 @@ the `-` operation which opens the file browser in the active split using the
 current buffer's working directory as a starting point, this is handy to
 navigate to sibling files. Note, continue to use `-` to navigate up the tree.
 
-eunuch
-------
-
-```viml
-Plug 'tpope/vim-eunuch'
-```
-
-The [vim-eunuch](https://github.com/tpope/vim-eunuch) plugin provides access to
-common Unix commands. The most useful commands I find are: `:Mkdir` to make a
-new directory and `:Move %<TAB>` to rename the current buffer file.
-
 supertab
 --------
 
@@ -478,7 +467,7 @@ vim-test
 
 ```viml
 Plug 'janko-m/vim-test'
-noremap <silent> <leader>T  :TestNearest<CR>
+noremap <silent> <leader>.  :TestNearest<CR>
 noremap <silent> <leader>tf :TestFile<CR>
 noremap <silent> <leader>ts :TestSuite<CR>
 noremap <silent> <leader>tl :TestLast<CR>
@@ -658,6 +647,19 @@ Note, Rails developers should still use *vim-rails* in preference to
 *vim-projectionist*, think of *vim-rails* as a pre-configured
 *vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
 and *vim-projectionist* do happily live side by side.
+
+sleuth
+------
+
+```viml
+Plug 'tpope/vim-sleuth'
+```
+
+The [vim-sleuth](https://github.com/tpope/vim-sleuth) plugin automatically
+adjusts `shiftwidth` and `expandtab` intelligently based on the existing
+indentation within the file or within the directory tree for like files. With
+this plugin in effect there is little need to manually define indentation
+settings.
 
 Ragtag
 ------

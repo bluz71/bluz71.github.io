@@ -309,24 +309,6 @@ current directory tree:
 vim -es $(find . -name '*.rb') < do.vim
 ```
 
-Completion for spellings
-------------------------
-
-Vim insert mode completion, via *Control-n* and *Control-p*, can be used to
-complete using dictionary words. This is useful when writing text.
-
-Simply enable the spell option and append *kspell* to the complete options:
-
-```viml
-set spell
-set complete+=kspell
-```
-
-Since I am not always editing text I prefer to toggle the above settings *on*
-and *off* when I desire. I have a **Spelling** function hooked up to the **F5**
-function key as seen in my
-[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
-
 Better wrapping with *breakindent*
 ----------------------------------
 

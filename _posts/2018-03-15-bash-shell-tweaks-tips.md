@@ -228,13 +228,6 @@ The Readline library also provides a number of useful default shortcuts.
     commands that contain the chosen text. Hitting `Control-r` again cycles
     back through the matches whilst `Control-Shift-r` cycles forward.
 
-    In my case I have also mapped `Control-f` (`f` for find) in my `~/.inputrc`
-    to do the same searching.
-
-    ```sh
-    "\C-f": reverse-search-history
-    ```
-
 - Append the last argument of the previous command to the end of the current
     command.
 

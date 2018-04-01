@@ -26,27 +26,27 @@ This post is all about the middle ground, that being to still use CtrlP for
 fuzzy finding, but greatly improving its performance and also improving the
 quality of the match results.
 
-Faster file listing using ripgrep
-=================================
+Faster file listing using fd
+============================
 
 The single biggest enhancement that can be done to improve CtrlP's performance
 is to specify a fast external file lister. The fastest such tool I have
-encountered is [ripgrep](https://github.com/BurntSushi/ripgrep).
+encountered is [fd](https://github.com/sharkdp/fd).
 
 It is quite easily installed using `brew` on macOS or Linux (using
 [Linuxbrew](http://linuxbrew.sh/)):
 
 ```
-brew install ripgrep
+brew install fd
 ```
 
-Then in your *vimrc* configure CtrlP to use ripgrep when fuzzy file finding:
+Then in your *vimrc* configure CtrlP to use fd when fuzzy file finding:
 
 ```viml
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
 ```
 
-Since ripgrep is usually so fast it is no longer necessary for CtrlP to cache
+Since fd is usually so fast it is no longer necessary for CtrlP to cache
 results, actually it is better to turn CtrlP caching off since that will lead
 to mismatches as files come and go in your development tree:
 

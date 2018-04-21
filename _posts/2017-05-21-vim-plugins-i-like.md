@@ -307,6 +307,7 @@ NERDTree Git Plugin
 ```viml
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeUpdateOnCursorHold = 0
+let g:NERDTreeUpdateOnWrite      = 0
 ```
 
 The [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin) plugin adds
@@ -315,19 +316,6 @@ The [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin) plugin adds
 I find the visual information provided by this plugin to be genuinely useful. I
 recommend all NERDTree users, who manage code via Git repositories, to give
 this plugin a try.
-
-vinegar
--------
-
-```viml
-Plug 'tpope/vim-vinegar'
-```
-
-The [vim-vinegar](https://github.com/tpope/vim-vinegar) plugin extends the
-Netrw file browser with some handy functionality. The most useful of which is
-the `-` operation which opens the file browser in the active split using the
-current buffer's working directory as a starting point, this is handy to
-navigate to sibling files. Note, continue to use `-` to navigate up the tree.
 
 supertab
 --------
@@ -485,6 +473,34 @@ Note, Neovim's inbuilt terminal is well integrated with *vim-test*. The above
 `has neovim` configuration will run tests in a split terminal window unlike Vim
 which will shell-out by default.
 
+vim-closer
+----------
+
+```viml
+Plug 'rstacruz/vim-closer'
+```
+
+The [vim-closer](https://github.com/rstacruz/vim-closer) plugin will
+automatically close `(`, `{` and `[` after `enter` is pressed when in insert
+mode for supported languages such as: C, C++, JavaScript and Go (to name a
+few). This plugin is a natural companion to the *vim-endwise* plugin noted
+below.
+
+vim-auto-save
+-------------
+
+```viml
+Plug '907th/vim-auto-save'
+let g:auto_save        = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+```
+
+The [vim-auto-save](https://github.com/907th/vim-auto-save) plugin
+automatically saves changes to disk without required manual `:w` invocations. I
+prefer to automatically save after: normal mode changes (`TextChanged`), exiting
+insert mode (`InsertLeave`) and when focussing away from Vim (`FocusLost`).
+
 Tim Pope Plugins
 ================
 
@@ -581,7 +597,8 @@ Plug 'tpope/vim-endwise'
 
 The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
 automatically insert **end**, in insert mode, to code blocks for languages such
-as: Ruby, Elixir and Crystal.
+as: Ruby, Elixir and Crystal. This plugin is a natural companion to the
+*vim-closer* plugin noted above.
 
 Projectionist
 -------------
@@ -727,8 +744,23 @@ to avoid that issue, `stty -ixon && vim`.
 This plugin is a little harder to explain than it is to use, however once you
 *get it* you can't imagine life without it.
 
+Repeat
+------
+
+```viml
+Plug 'tpope/vim-repeat'
+```
+
+The [vim-repeat](https://github.com/tpope/vim-repeat) enhances the `.` operator
+to work as one would expect with a number of Vim plugins, most notably the
+*vim-surround* plugin noted above.
+
 Unimpaired
 ----------
+
+```viml
+Plug 'tpope/vim-unimpaired'
+```
 
 The [vim-unimpaired](https://github.com/tpope/vim-unimpaired) plugin provides a
 set of mappings for many operations that have natural pairings. A pairing may
@@ -746,6 +778,8 @@ often:
 - `[a` / `]a` - navigate backward and forward through the file list
 
 - `[<Space>` / `]<Space>` - add a blank line above or below the current line
+
+- `[p` / `]p` - linewise paste above or below the current line
 
 The full set of mappings is documented
 [here](https://github.com/tpope/vim-unimpaired/blob/master/doc/unimpaired.txt).

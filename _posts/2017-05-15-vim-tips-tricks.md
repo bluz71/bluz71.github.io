@@ -452,32 +452,28 @@ The following `autocmd` will take care of split equalization for you:
 autocmd VimResized * wincmd =
 ```
 
-Autosave and autoread
------------------------
+Autoread
+--------
 
-Add the following snippet to your *vimrc* to enable functional autosave and
-autoread behaviour in Vim:
+Add the following snippet to your *vimrc* to enable functional autoread
+behaviour in terminal Vim:
 
 ```viml
 set autoread
 
-augroup autoSaveAndRead
+augroup autoRead
     autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
     autocmd CursorHold * silent! checktime
 augroup END
 ```
 
-Autosave will automatically save to disk the currently edited buffer upon
-leaving *insert* mode as well as after a text edit has occurred.
-
 Autoread will automatically update an open buffer if it has been changed
 outside the current edit session, usually by an external program.
 
-With these `autocmds` in effect one will rarely need to manually trigger an
-explicit save, which will be of benefit if one context switches often, for
-example a web developer switching between an edit terminal window and a test
-browser.
+A natural companion for this tip is the autosaving
+[vim-auto_save](https://github.com/907th/vim-auto-save) plugin. For more
+details please refer to the appropriate section of the [Vim Plugins I
+Like](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html) post.
 
 Recompute syntax highlighting
 -------------------------------

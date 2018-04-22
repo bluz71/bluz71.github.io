@@ -51,7 +51,7 @@ Launch a new shell and enter `echo $SHELL`, it should list
 
 I also recommend reading [this
 post](https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/)
-followed by installing the GNU command line utilities.
+followed by installation of the GNU command line utilities for macOS.
 
 bash-completion
 ---------------

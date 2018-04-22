@@ -42,16 +42,16 @@ Install Homebrew followed by:
 
 ```sh
 brew install bash
-
-sudo su -
-echo /usr/local/bin/bash >> /etc/shells
-exit # Back to the user account
-
+sudo echo /usr/local/bin/bash >> /etc/shells
 chsh -s /usr/local/bin/bash
 ```
 
 Launch a new shell and enter `echo $SHELL`, it should list
 `/usr/local/bin/bash`.
+
+Also, I recommend reading [this
+post](https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/)
+and installing the GNU command line utilities.
 
 bash-completion
 ---------------

@@ -49,9 +49,9 @@ chsh -s /usr/local/bin/bash
 Launch a new shell and enter `echo $SHELL`, it should list
 `/usr/local/bin/bash`.
 
-Also, I recommend reading [this
+I also recommend reading [this
 post](https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/)
-and installing the GNU command line utilities.
+followed by installing the GNU command line utilities.
 
 bash-completion
 ---------------

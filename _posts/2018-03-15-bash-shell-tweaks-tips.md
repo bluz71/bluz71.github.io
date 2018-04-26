@@ -449,10 +449,11 @@ Some suggestions:
 
 - Use a modern terminal and enable 256 colors.
 
-- Use a nice monospace font. I personally like the
-    [Menlo](https://en.wikipedia.org/wiki/Menlo_(typeface)) font on macOS and
-    the [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) font
-    on Linux.
+- Use a nice monospace font. Fine choices being:
+    [Hack](https://github.com/source-foundry/Hack),
+    [Fira Code](https://github.com/tonsky/FiraCode),
+    [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) and my
+    personal favourite [Ioveska](https://github.com/be5invis/Iosevka).
 
 - Configure the `LS_COLORS` environment variable to highlight filetypes using
     256 colors.

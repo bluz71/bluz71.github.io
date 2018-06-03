@@ -296,10 +296,12 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 - Display Git branch details in the prompt.
 
     ```sh
-    if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-        . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+    if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+        local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
+    elif [ -f /etc/bash_completion.d/git-prompt ]; then
+        local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
     else
-        . /etc/bash_completion.d/git-prompt
+        local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
     fi
     GIT_PS1_SHOWUPSTREAM="auto"
     PS1="\h\$(__git_ps1) \w > "
@@ -308,7 +310,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     Note, this is only a rudimentary prompt configuration, usually you will
     want to pretty it up with colors. Refer to to the `prompt()` function in my
     [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) for a
-    colored prompt example.
+    colorful prompt.
 
 - Automatically shorten deep paths in the prompt. The `\w` option in `PS1`
     controls whether to display the path or not.

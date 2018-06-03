@@ -439,6 +439,45 @@ z tic app src # will jump to ~/projects/tickets_app/src
 Though not Bash specific, the z utility is a fantastic tool that all Bash users
 will find useful.
 
+The qmv Rename Utility
+----------------------
+
+The [qmv](https://www.nongnu.org/renameutils) utility is used to rename files
+by way of an auto-generated document of filenames that will be opened in your
+editor ready for modification; the renames will be applied after the editor has
+exited. This utility is especially useful for bulk renames where the power of
+editor substitution can be used to quickly specify the desired renames.
+
+`qmv` installation for macOS via Homebrew:
+
+```
+brew install renameutils
+```
+
+Linux (Debian flavoured) installation:
+
+```
+sudo apt install renameutils
+```
+
+By default `qmv` will use two editor columns, in my experience this consumes
+too much valuable real-estate for little benefit, hence, I recommend the
+following Bash alias (force `destination-only`):
+
+```sh
+alias qmv='qmv -f do'
+```
+
+### Usage
+
+```sh
+qmv **/*.JPG # rename to lowercase '.jpg' extension via substitution
+qmv *.old    # rename to '.BAK' extension also via substitution
+```
+
+Like the z utility noted above, this `qmv` utility is not Bash specific, but it
+will also prove very useful to all Bash users.
+
 Style
 -----
 

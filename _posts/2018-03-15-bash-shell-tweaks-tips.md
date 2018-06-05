@@ -304,6 +304,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
         local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
     fi
     GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_SHOWSTASHSTATE=1
+    . $GIT_PROMPT_PATH
     PS1="\h\$(__git_ps1) \w > "
     ```
 

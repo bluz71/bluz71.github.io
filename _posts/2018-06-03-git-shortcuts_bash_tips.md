@@ -1,37 +1,41 @@
 ---
-title: Git Tips & Aliases
+title: Git - Shortcuts & Bash Tips
 layout: default
 comments: true
-published: false
+published: true
 ---
 
-# Git Tips & Aliases
+# Git - Shortcuts & Bash Tips
 
 The [Git](https://git-scm.com) version control system is a complex beast,
-especially when used at the command-line with its myriad of tools and switches.
+especially when used in the command-line with its myriad of tools and switches.
 
-Over time however, most users will settle on their preferred subset of `git`
-commands and shortcuts. This post contains my curated set of tips and shortcuts
-(aka `git aliases`). Note, many maybe even most, of these suggestions have
-been gleamed from the interwebs over many years. I do not claim authorship on
-anything noted here.
+Over time and with experience most users will settle on their preferred set of
+commands, shortcuts and helpers. This post contains my curated set of Git tips
+and shortcuts (aka `git aliases`).
+
+Note, many, maybe even most, of these suggestions have been gleamed from the
+interwebs over the years. I do not claim authorship on anything noted here.
 
 The full set of Git aliases I use are listed in my
 [gitconfig](https://github.com/bluz71/dotfiles/blob/master/gitconfig).
 
+Lastly, this post assumes a basic knowledge of Git in the command-line. If you
+are a Git-inside-editor person then this is not the post you are looking for.
+
 ## g alias for Bash
 
 The `git` command is three letters long. I am extremely lazy, I only want to
-type one letter, `g`, to invoke Git.
+type one letter, `g`, to invoke Git because I do it so often.
 
-Add the following to your `~/.bashrc`:
+Add the following to your `~/.bashrc`.
 
 ```sh
 alias g=git
 ```
 
 If using [bash-completion](https://github.com/scop/bash-completion), please
-also add:
+also add.
 
 ```sh
 complete -o default -o nospace -F _git g
@@ -42,18 +46,18 @@ complete -o default -o nospace -F _git g
 If you are a Bash user and are not using
 [bash-completion](https://github.com/scop/bash-completion), then I **strongly**
 suggest you setup it up. Please refer to my [Bash Shell Tweaks &
-Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) for
+Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) post for
 details.
 
-Once enabled you will be able to use TAB-completely for most Git commands and
-related paths.
+Once enabled you will be able to use TAB-completion for most Git commands and
+related paths. This will be a large time-saver.
 
 ## Git branch details in Bash prompt
 
-Once bash-completion has been enabled I suggest enabling Git branch information
-in your prompt.
+Once bash-completion has been enabled I also suggest adding Git branch
+information to your prompt.
 
-Add the following to your `~/.bashrc`:
+As a starting point, add the following to your `~/.bashrc`:
 
 ```sh
 if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
@@ -64,18 +68,20 @@ else
     local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
 fi
 GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWSTASHSTATE=1
+. $GIT_PROMPT_PATH
 PS1="\h\$(__git_ps1) \w > "
 ```
 
-Note, this is only a rudimentary prompt configuration, usually you will
-want to pretty it up with colors. Refer to to the `prompt()` function in my
-[bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) for a
-colorful prompt.
+Note, this is a rudimentary prompt configuration, usually you will want to
+pretty it up with colors. Refer to to the `prompt()` function in my
+[bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) for a colorful
+prompt.
 
 ## Nicer diffs with diff-so-fancy
 
 The [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) utility replaces
-Git's default machine-readable `diff` output with one that is much more human
+Git's default machine-readable `diff` output with one that is more human
 readable.
 
 Installation is most easily accomplished via [Homebrew](https://brew.sh) on
@@ -88,15 +94,14 @@ brew install diff-so-fancy
 Now enable diff-so-fancy.
 
 ```sh
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global core.pager 'diff-so-fancy | less --tabs=4 -RFX'
 ```
-
-`g diff` output will now be much nicer.
 
 ## General aliases
 
-Note, most of these above suggestions should already be enabled by default with
-modern versions of Git, but I still like to explicity enable them.
+Note, some of these suggestions are enabled by default with modern versions of
+Git, but I still like to explicitly enable them just in-case I inadvertently use
+an old version of Git.
 
 Only push the current branch, not multiple branches.
 
@@ -104,20 +109,27 @@ Only push the current branch, not multiple branches.
 git config --global push.default simple
 ```
 
-Automatically convert accidental DOS format text files back to Unix format when
-committing from a Unix-like host.
+Automatically convert stray DOS format text files back to Unix format when
+committing from Unix-style hosts.
 
 ```sh
 git config --global core.autocrlf input
 ```
 
-Enable on colorization.
+Enable colorization.
 
 ```sh
 git config --global color.ui auto
 ```
 
-Shutup warning message **if** using a command-line editor such as Vim.
+Use nicer histogram diff'ing.
+
+```sh
+git config --global diff.algorithm histogram
+```
+
+Shut up command-line commit warning message **if** using a command-line editor
+such as Vim.
 
 ```sh
 git config --global advice.waitingForEditor false
@@ -151,7 +163,7 @@ g st # Working tree status in compact notation
 
 ## Stage alias
 
-Incrementally stage changes including new files.
+Interactively stage changes on a per-chunk basis, including new files.
 
 ```sh
 git config --global alias.sg '!git add . -N && git add -p'
@@ -160,7 +172,7 @@ git config --global alias.sg '!git add . -N && git add -p'
 Usage:
 
 ```sh
-g sg # Individually stage all changes in the current working tree
+g sg # Individually stage changes in the current branch
 ```
 
 ## Commit aliases
@@ -173,8 +185,8 @@ git config --global alias.unci 'reset --soft HEAD~1'
 Usage:
 
 ```sh
-g ci   # Commit stage changes
-g unci # Undo the last commit. Do NOT do this for pushed commits.
+g ci   # Commit staged changes
+g unci # Undo the last commit. Note, do NOT do this for pushed commits.
 ```
 
 ## Branch aliases
@@ -202,13 +214,13 @@ Usage:
 
 ```sh
 g co <path-or-branch> # Check-out a particular path or branch
-g cob <branch>        # Create a new branch and immediately check-out
+g cob <branch>        # Create a new branch and immediately check-out into it
 ```
 
 ## Log aliases
 
 ```sh
-git config --global alias.li 'log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"'
+git config --global alias.ll 'log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"'
 git config --global alias.llm '!git ll master..HEAD'
 git config --global alias.llom '!git ll origin/master..HEAD'
 ```
@@ -263,18 +275,56 @@ git config --global alias.ss 'stash save'
 Usage:
 
 ```sh
-g sl     # List current stashes
-g ss     # Save current changes with auto-generated name
-g ss foo # Save current changes with specified name
-g sa 0   # Apply top stash, use 'g sl' to list stash numbers
-g sd 0   # Delete specified stash, use 'g sl' to list stash numbers
+g sl        # List current stashes
+g ss        # Save current changes with auto-generated name
+g ss <name> # Save current changes with specified name
+g sa 0      # Apply top stash, use 'g sl' to list stash numbers
+g sd 0      # Delete specified stash, use 'g sl' to list stash numbers
 ```
 
-Note, most of these stash aliases were provided by the following post:
-[6 Git Aliases to Make Stashing
-Easier](http://thesimplesynthesis.com/post/6-git-aliases-to-make-stashing-easier)
+## Fuzzy-finding command-line Git browser
 
-## Conclusion
+The [fzf](https://github.com/junegunn/fzf) utility is an excellent command-line
+fuzzy finder. With just a small of amount of scripting it is easy to create a
+command-line fuzzy-finding Git log browser with commit previews.
 
-Hopefully there will be a tip or alias contained in the above post that even
-the most seasoned of Git user will find useful.
+First install fzf. If using Homebrew or Linuxbrew.
+
+```sh
+brew install fzf
+```
+
+For other platforms.
+
+```sh
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+```
+
+Now add the following Git browser tooling to your `~/.bashrc` file.
+
+```sh
+alias gll='fzf_git_log'
+
+fzf_git_log() {
+    git ll --color=always "$@" |
+      fzf --ansi --no-sort --height 100% \
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                       xargs -I@ sh -c 'git show --color=always @'"
+}
+```
+
+Now type `gll` in a Git repository. This will display a compact log list that
+can be narrowed down by entering in fuzzy text at the prompt. Also, one can
+navigate up and down the commit list to preview the differences of each commit.
+Github-style browsing in the command-line, almost.
+
+# References
+
+Some of the suggestions in the post originated from the following:
+
+- [Must Have Git Aliases: Advanced Examples](http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples)
+
+- [6 Git Aliases to Make Stashing Easier](http://thesimplesynthesis.com/post/6-git-aliases-to-make-stashing-easier)
+
+- [Browsing git commit history with fzf](https://gist.github.com/junegunn/f4fca918e937e6bf5bad)

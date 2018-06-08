@@ -222,7 +222,7 @@ CtrlP
 
 ```viml
 Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window_reversed = 0
 ```
@@ -230,11 +230,11 @@ let g:ctrlp_match_window_reversed = 0
 The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is a fuzzy file
 finder.
 
-I highly recommend installing [ripgrep](https://github.com/BurntSushi/ripgrep)
-and configuring *CtrlP* to use it and to **not** cache results. *ripgrep* is a
-highly performant text search utility and it mates very well with *CtrlP*.
-Turning off caching means that every time *CtrlP* is run it will select from
-all available files including new ones.
+I highly recommend installing [fd](https://github.com/sharkdp/fd) and
+configuring *CtrlP* to use it and to **not** cache results. *fd* is a highly
+performant file find utility and it mates very well with *CtrlP*. Turning off
+caching means that every time *CtrlP* is run it will select from all available
+files including new ones.
 
 Also, here are some handy mappings for [Ruby on Rails](http://rubyonrails.org/)
 or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:

@@ -53,8 +53,8 @@ I also recommend reading [this
 post](https://www.topbug.net/blog/2013/04/14/install-and-use-gnu-command-line-tools-in-mac-os-x/)
 followed by installation of the GNU command line utilities for macOS.
 
-bash-completion
----------------
+<a id="bash-completion"></a>bash-completion
+-------------------------------------------
 
 Out of the box Bash only provides rudimentary filesystem based completions
 unlike the Zsh and Fish shells which offer command-aware completions. For

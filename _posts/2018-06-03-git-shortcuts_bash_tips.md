@@ -46,8 +46,8 @@ complete -o default -o nospace -F _git g
 If you are a Bash user and are not using
 [bash-completion](https://github.com/scop/bash-completion), then I **strongly**
 suggest you setup it up. Please refer to my [Bash Shell Tweaks &
-Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) post for
-details.
+Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html#bash-completion)
+post for details.
 
 Once enabled you will be able to use TAB-completion for most Git commands and
 related paths. This will be a large time-saver.

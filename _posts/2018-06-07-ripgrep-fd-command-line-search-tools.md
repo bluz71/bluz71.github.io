@@ -190,7 +190,7 @@ fzf
 
 The [fzf](https://github.com/junegunn/fzf) utility is a generic command-line
 fuzzy finder. If you are already using fzf and are not using fd as the file
-finder than I recommended adding the following settings to your shells
+finder than I recommended adding the following settings to your shell's
 configuration file (e.g `~/.bashrc`).
 
 ```sh

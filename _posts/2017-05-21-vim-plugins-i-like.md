@@ -407,8 +407,8 @@ Note, the two *let* options listed **should** be set for maximum performance.
 The default settings for the *indentLine* plugin **will** have a negative
 impact on Vim scroll performance.
 
-vim-grepper
------------
+<a id="vim-grepper"></a>vim-grepper
+-----------------------------------
 
 ```viml
 Plug 'mhinz/vim-grepper'

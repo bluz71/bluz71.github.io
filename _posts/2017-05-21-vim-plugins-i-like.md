@@ -217,8 +217,8 @@ inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
 **leader** key to `,` and I map `;` as a duplicate of `:`, hence those repeat
 characters are not even available.
 
-CtrlP
------
+<a id="ctrlp"></a>CtrlP
+-----------------------------
 
 ```viml
 Plug 'ctrlpvim/ctrlp.vim'

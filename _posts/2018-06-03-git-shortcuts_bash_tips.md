@@ -21,7 +21,8 @@ The full set of Git aliases I use are listed in my
 [gitconfig](https://github.com/bluz71/dotfiles/blob/master/gitconfig).
 
 Lastly, this post assumes a basic knowledge of Git in the command-line. If you
-are a Git-inside-editor person then this is not the post you are looking for.
+are a Git-inside-editor person then this is not the post you are looking for
+:smile:.
 
 ## g alias for Bash
 

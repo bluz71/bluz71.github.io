@@ -1,18 +1,18 @@
 ---
-title: ripgrep & fd, Friendly Command-line Search Tools
+title: ripgrep & fd - Command-line Search Tools
 layout: default
 comments: true
-published: false
+published: true
 ---
 
-ripgrep & fd, Friendly Command-line Search Tools
-================================================
+ripgrep & fd - Command-line Search Tools
+========================================
 
 The [grep](https://en.wikipedia.org/wiki/Grep) and
 [find](https://en.wikipedia.org/wiki/Find_(Unix)) utilities are ubiquitous
-search work-horses for Unix-like systems. The `grep` utility, as most reading
-this will be aware, is used to search for text *within* files whilst `find` is
-primarily used to match *actual* files based on supplied search criteria.
+search work-horses for Unix-like systems. The `grep` utility, as many reading
+this post will be aware, is used to search for patterns *within* files whilst
+`find` is primarily used to match file names based on supplied expressions.
 
 Both of these legacy tools are still valid today many decades after their
 initial release. However, a new wave of tools have recently appeared that make
@@ -22,16 +22,16 @@ This post highlights a couple such actively-developed tools, namely
 [ripgrep](https://github.com/BurntSushi/ripgrep) and
 [fd](https://github.com/sharkdp/fd).
 
-**ripgrep** (text search)
-=========================
+**ripgrep** (pattern search)
+============================
 
 The [ripgrep](https://github.com/BurntSushi/ripgrep) utility is a line-oriented
-search tool that recursively searches within the current directory for a supplied
-pattern.
+search tool that recursively searches within the current directory tree for a
+supplied pattern.
 
 Written in [Rust](https://www.rust-lang.org), ripgrep has [excellent
 performance](https://blog.burntsushi.net/ripgrep) that is as fast, and more
-often faster, than other text search tools.
+often faster, than other similar pattern search tools.
 
 Programmer-friendliness is provided by the following niceties:
 
@@ -87,7 +87,7 @@ However, when not in a Git tree, or when wanting to override `.gitignore`,
 ripgrep also respects, with higher precedence, ignores specified in `.rgignore`
 files.
 
-For instance, the next example will create a global ripgrep rule to ignore
+For instance, the next snippet will create a global ripgrep rule to ignore
 content in `tmp` directories.
 
 ```sh
@@ -104,8 +104,8 @@ details. This will nicely integrate ripgrep into Vim.
 **fd** (file find)
 ==================
 
-The [fd](https://github.com/sharkdp/fd) utility is a file finding tool, it is a
-modern-day simplified variant of the legacy Unix `find` tool.
+The [fd](https://github.com/sharkdp/fd) utility is a file finding tool. It is a
+modern-day simplified alternative to the Unix `find` tool.
 
 Like ripgrep, fd is also written in [Rust](https://www.rust-lang.org) and
 likewise has [excellent performance](https://github.com/sharkdp/fd#benchmark).
@@ -169,7 +169,7 @@ However, when not in a Git tree, or when wanting to override `.gitignore`,
 fd also respects, with higher precedence, ignores specified in `.fdignore`
 files.
 
-For instance, the next example will create a global fd rule to ignore
+For instance, the next snippet will create a global fd rule to ignore
 content in `tmp` directories.
 
 ```sh
@@ -180,8 +180,9 @@ Vim CtrlP plugin
 ----------------
 
 If you are a [Vim](https://www.vim.org) user who uses the
-[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) the I recommend [these CtrlP
-with fd](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#ctrlp)
+[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin then I recommend [these
+CtrlP with
+fd](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#ctrlp)
 settings.
 
 fzf
@@ -189,7 +190,7 @@ fzf
 
 The [fzf](https://github.com/junegunn/fzf) utility is a generic command-line
 fuzzy finder. If you are already using fzf and are not using fd as the file
-finder than I recommended adding the following settings in your shells
+finder than I recommended adding the following settings to your shells
 configuration file (e.g `~/.bashrc`).
 
 ```sh
@@ -198,7 +199,7 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 ```
 
 If you are unfamiliar with fzf, stay tuned for an upcoming post in this
-channel.
+channel. :eyes:
 
 Conclusion
 ==========

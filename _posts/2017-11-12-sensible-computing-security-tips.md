@@ -358,8 +358,9 @@ version, for personal home use, is available that will need to be run manually
 from time to time, whilst there is also a paid version that will offer real-time
 protection.
 
-Windows Defender and Malwarebytes compliment each other perfectly and provide
-superior protection for modern versions of Windows.
+[Windows Defender and
+Malwarebytes](https://thewirecutter.com/blog/best-antivirus) compliment each
+other and provide superior protection for modern versions of Windows.
 
 Backups
 =======
@@ -438,3 +439,12 @@ rules:
 * Backup your data
 
 Be secure and happy computing.
+
+Related Articles
+----------------
+
+- [The Best Internet Security: Layers of Protection, and Good Habits](https://thewirecutter.com/blog/internet-security-layers)
+
+- [Basic Computer Security: How to Protect Yourself from Viruses, Hackers, and Thieves](https://www.howtogeek.com/173478/10-important-computer-security-practices-you-should-follow)
+
+- [Top 10 Secure Computing Tips](https://security.berkeley.edu/resources/best-practices-how-to-articles/top-10-secure-computing-tips)

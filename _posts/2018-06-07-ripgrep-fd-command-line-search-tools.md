@@ -36,13 +36,13 @@ often faster, than other similar pattern search tools.
 Programmer-friendliness is provided by the following niceties:
 
 - ripgrep is automatically recursive, unlike `grep`, thus only a search pattern
-	need be supplied
+    need be supplied
 
 - ripgrep will automatically ignore all directories and files specified in
-	`.gitignore` files
+    `.gitignore` files
 
 - ripgrep search hits and file matches are clearly highlighted in distinctive
-	color
+    color
 
 - ripgrep is invoked by the short two-letter command `rg`, two fewer letters
     than `grep` :tada:
@@ -75,7 +75,6 @@ Screenshot
 ----------
 
 ![ripgrep example](http://burntsushi.net/stuff/ripgrep1.png "ripgrep example")
-
 
 Ignores
 -------
@@ -116,7 +115,7 @@ Programmer-friendliness is provided by the following niceties:
 - fd is automatically recursive, thus only a search pattern need be supplied
 
 - fd will automatically ignore all directories and files specified in
-	`.gitignore` files
+    `.gitignore` files
 
 - fd matches are colorized
 
@@ -157,7 +156,6 @@ Demonstration
 -------------
 
 ![fd example](https://github.com/sharkdp/fd/raw/master/doc/screencast.svg?sanitize=true "fd example")
-
 
 Ignores
 -------

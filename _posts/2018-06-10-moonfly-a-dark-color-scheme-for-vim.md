@@ -74,3 +74,18 @@ Installation details are provided
 
 The moonfly color scheme is completely free,
 [MIT](https://opensource.org/licenses/MIT) licensed.
+
+Alternatives
+------------
+
+The [vim-one](https://github.com/rakr/vim-one) color scheme is a light and dark
+theme derived from Atom's One Dark Syntax theme.
+
+![one screenshot](https://github.com/rakr/vim-one/raw/master/screenshots/new-logo.png "one")
+
+The [Nova](https://github.com/trevordmiller/nova-vim) color sheme is flat
+pastel theme that is designed to be easy on the eye.
+
+![Nova screenshot](https://github.com/trevordmiller/nova-vim/raw/master/assets/screenshot.png?raw=true "Nova")
+
+Both are superb themes.

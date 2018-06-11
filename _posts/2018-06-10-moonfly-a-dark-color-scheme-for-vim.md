@@ -83,7 +83,7 @@ theme derived from Atom's One Dark Syntax theme.
 
 ![one screenshot](https://github.com/rakr/vim-one/raw/master/screenshots/new-logo.png "one")
 
-The [Nova](https://github.com/trevordmiller/nova-vim) color sheme is flat
+The [Nova](https://github.com/trevordmiller/nova-vim) color sheme is a flat
 pastel theme that is designed to be easy on the eye.
 
 ![Nova screenshot](https://github.com/trevordmiller/nova-vim/raw/master/assets/screenshot.png?raw=true "Nova")

@@ -118,8 +118,45 @@ IPv6: 2610:a1:1018::1, 2610:a1:1019::1
 Note, Google offers fine DNS servers at `8.8.8.8` and `8.8.4.4`, but I
 recommend against the use of these servers if privacy is a prime concern.
 
-Browser Setup
-=============
+Browser Privacy
+===============
+
+In the [Sensible Computing Security
+Tips](http://localhost:4000/2017/11/12/sensible-computing-security-tips.html#browser)
+post I recommended the use of Google Chrome with the following extensions:
+
+* [HTTPS Everywhere](https://www.eff.org/https-everywhere)
+
+* [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+
+* [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
+
+That combination of browser and extensions increases both security **and**
+privacy, they latter by the blocking of many [web
+trackers](https://whatismyipaddress.com/web-tracking).
+
+Privacy can further be enhanced by tweaking the following Chrome settings.
+
+- In *Privacy and Security*, enable `Send a "Do Not Track" request with
+    your browsing traffic`
+
+- Disable `Use a web service to help resolve navigation errors`
+
+- Disable `Use a prediction service to help complete searches and URLs typed in
+    the address bar`
+
+- Disable `Use a prediction service to load pages more quickly`
+
+- In *Content Settings / Cookies*, enable `Keep local data only until you quit
+    your browser`
+
+- Enable `Block third-party cookies`
+
+Note, the second to last cookie setting will clear your session cookies upon
+browser exit. Session cookies can be used to track and de-anonymize users, by
+clearing them you increase your privacy at the expense of more frequest
+re-login into web services. This latter negative is not that onerous with
+cached user credentials.
 
 SMS and Emails are Not Private
 ==============================
@@ -142,6 +179,7 @@ Facebook Setup
 Windows Privacy
 ===============
 
+https://www.eff.org/deeplinks/2016/08/windows-10-microsoft-blatantly-disregards-user-choice-and-privacy-deep-dive
 Don't trust.
 Disable telemetry
 
@@ -162,6 +200,8 @@ Cover your Webcam
 
 Signal blocking bag for phone
 =============================
+
+Disable GPS (it is a location tracker)
 
 Whistleblowing
 ==============

@@ -319,8 +319,8 @@ store.
 Please **NEVER** install dubious software such as key generators, these more
 often than not are malicious.
 
-Browser Recommendations
-=======================
+<a id="browser"></a>Browser Recommendations
+===========================================
 
 For all platforms, apart from iOS, I recommend the Google Chrome browser for
 its enhanced security. From sandboxing, to hardened builds, to auto-updates, to

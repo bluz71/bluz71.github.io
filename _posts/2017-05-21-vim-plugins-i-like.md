@@ -218,7 +218,7 @@ inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
 characters are not even available.
 
 <a id="ctrlp"></a>CtrlP
------------------------------
+-----------------------
 
 ```viml
 Plug 'ctrlpvim/ctrlp.vim'

@@ -85,9 +85,8 @@ An alternative to using a VPN is the
 [Tor](https://en.wikipedia.org/wiki/Tor_(anonymity_network)) anonymity network.
 For most people I do **not** recommend Tor for a number of reasons including:
 poor performance due to the multiple network hops involved, poor web experience
-due to strict browsing mode invoked, and bandwidth contraints due to the basic
-architecture of the network. However, I do recommend Tor for whistleblowers
-(see below).
+due to the strict browsing mode used, and bandwidth contraints due to the basic
+architecture of the network. A VPN will provide a superior user experience.
 
 DNS
 ===
@@ -158,23 +157,152 @@ clearing them you increase your privacy at the expense of more frequest
 re-login into web services. This latter negative is not that onerous with
 cached user credentials.
 
-SMS and Emails are Not Private
-==============================
+Email
+=====
 
-Use a European email Provider
-=============================
+[Email](https://en.wikipedia.org/wiki/Email) is one of the most common methods
+of electronic message exchange in use today. Email is an old technology that
+pre-dates the Internet. Privacy was never a consideration in its design, and to
+this date still has not been satisfactorily addressed, and likely never will
+be.
 
-Signal and WhatsApp messaging
-=============================
+Note, I am ignoring the use PGP in Email because it is complicated,
+error-prone, and no longer recommended for use by [leading
+cryptographers](https://blog.cryptographyengineering.com/2014/08/13/whats-matter-with-pgp).
 
-Google Setup
-============
+Many users incorrectly assume that an email exchange is a private
+correspondence. In reality it is more akin to a loud conservation in public. At
+a minimum the Email provider has access to all the
+[plain-text](https://en.wikipedia.org/wiki/Plaintext) content. Cyber-criminals
+through to mass-surveillance systems may gain access to this content and
+exploit it as happened to [John Podesta in
+2016](https://en.wikipedia.org/wiki/Podesta_emails).
 
-Google alternative
+One issue is that some users never delete their old emails from their
+provider's system. In John Podesta's case that was 60,000 emails and a world of
+hurt. Please consider deleting old emails, how often do you read emails from
+five years ago?
+ 
+Another note of caution, be careful what you say in email, only be prepared to
+write what you a comfortable with if, in the unlikely event,
+[Wikileaks](https://wikileaks.org/) were to publish it.
+
+When it comes to mass-surveillance systems the jurisdiction of the provider is
+a factor that should be considered. For instance, Google's
+[Gmail](https://www.google.com/gmail/) is an excellent Email service, but it
+can not be considered privacy-focussed because Google is a partner in the
+mass-surveillance
+[PRISM](https://en.wikipedia.org/wiki/PRISM_(surveillance_program)) program.
+
+These excellent European-based Email providers do respect privacy.
+
+- [ProtonMail](https://protonmail.com)
+
+- [Runbox](https://runbox.com)
+
+- [Posteo.de](https://posteo.de)
+
+Email still has use today due to its simplicity and ubiquity, but when it comes
+to privacy please consider using the Signal application detailed next.
+
+Signal Application
 ==================
 
-Facebook Setup
-==============
+The [Signal](https://signal.org) application is a modern
+[end-to-end](https://en.wikipedia.org/wiki/End-to-end_principle) secure
+messaging application primarily used on
+[Android](https://en.wikipedia.org/wiki/Android_(operating_system)) and
+[iOS](https://en.wikipedia.org/wiki/IOS) devices.
+
+The [openly developed](https://github.com/signalapp) Signal application uses
+unobstrusive best-in-class cryptography housed in an extremely easy to use
+interface that anyone, be they technical or non-technical, can use. Text,
+voice, photos can securely be exchanged between two or more recipients. 
+
+Content is encrypted prior to sending and can only decrypted by the intended
+recipient. The servers used to host the Signal service do **not** have access
+to the [plain-text](https://en.wikipedia.org/wiki/Plaintext) of a conversation,
+not even the [FBI is able to gain
+access](https://arstechnica.com/tech-policy/2016/10/fbi-demands-signal-user-data-but-theres-not-much-to-hand-over).
+
+Android users can make Signal their default SMS application, and one
+by one convince the friends to also adopt Signal. One such inducement to change is
+that [SMS is not a secure or private
+technology](https://www.rokacom.com/are-text-messages-encrypted).
+
+The Signal application also supports [dissappearing
+messages](https://support.signal.org/hc/en-us/articles/213134237-Does-Signal-have-disappearing-messages-).
+This feature ensures that messages will be removed from your device and the
+device of your recipient a chosen amount of time after they have read the
+message. This is **especially** important for highly sensistive messages.
+
+If you use a smart phone, and you care about messaging privately, then you and
+your contacts should be using Signal.
+
+Google
+======
+
+Google has more than [one
+billion](https://techcrunch.com/2016/02/01/gmail-now-has-more-than-1b-monthly-active-users)
+active users. Google's motto at one time was *don't be evil*, but they never said
+anything abot respecting a user's privacy. If an internet service is free, like
+Google, then **you** are the product. In Google's case they generate income by
+targetting ads specifically to you. They want to know who you are and what you
+do, and to figure this out Google gobbles up lots of user data.
+
+To better target their ads Google will record the following details.
+
+- Your search queries
+
+- The search results you click on
+
+- The IP address you use
+
+- The location, and movement, of your Google-linked devices
+
+- And likely a lot of other [metadata](https://en.wikipedia.org/wiki/Metadata)
+
+For Android, YouTube and Gmail users it is simply not practical to delete their
+Google account. However, there are *some* options are user can tweak to
+decrease the amount of data Google collects about you.
+
+Log into to [My Activity](https://myactivity.google.com). This lists all the
+activity Google records for your account. Delete all the archives you no longer
+want Google to store. Select the *Activity Controls* and `pause` all the
+activities provided. Congratulations, Google is now collecting less of your
+private information.
+
+Web Searching
+=============
+
+The above Google changes does **not** entirely free you from the Google
+ad-targetting monolith. Google will still record your queries, even if they say
+otherwise.
+
+True private web searching requires the use of an alternate search service.
+
+Privacy-respecting alternatives to Google search.
+
+- [StartPage](https://www.startpage.com) (uses Google search results under the
+    covers)
+
+- [DuckDuckGo](https://duckduckgo.com)
+
+- [Quant](https://www.qwant.com)
+
+Facebook
+========
+
+Cambridge Analytica
+
+https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/
+
+Facebook Beacon: https://en.wikipedia.org/wiki/Facebook_Beacon
+
+Like buttons
+
+Oversharing
+
 
 Windows Privacy
 ===============
@@ -182,13 +310,6 @@ Windows Privacy
 https://www.eff.org/deeplinks/2016/08/windows-10-microsoft-blatantly-disregards-user-choice-and-privacy-deep-dive
 Don't trust.
 Disable telemetry
-
-Linux Privacy
-=============
-
-Custom kernel
-rkhunter
-lynis
 
 MAC Privacy
 ===========
@@ -203,8 +324,11 @@ Signal blocking bag for phone
 
 Disable GPS (it is a location tracker)
 
-Whistleblowing
-==============
+No Alexa, Voice Assistant, Webcam
+=================================
+
+Dissidents, Journalists & Whistle-blowers
+=========================================
 
 Summary
 =======

@@ -68,8 +68,8 @@ would be an old PDF reader.
   Google Pixel phones, these will receive security updates directly from Google
   itself and will do so for multiple years.
 
-Passwords and PINs
-==================
+<a id="passwords"></a>Passwords and PINs
+========================================
 
 Computers are getting faster and so is the ability for cybercriminals and
 hackers to crack user passwords. Most folks have poor password hygiene;
@@ -407,6 +407,34 @@ are a victim of cyberattack. At that point you will be extremely grateful that
 you had a backup to restore from. Backups are your digital insurance, just as
 you insure your home and contents, so you should backup your data.
 
+Multi-factor Authentication
+===========================
+
+[Multi-factor
+authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication)
+(MFA) is a method of granting access only after a client has supplied multiple
+valid pieces of identity evidence.
+
+Most systems and services default to single factor authentication, which more
+often than not would be a solitary password or PIN.
+
+Two-factor authentication (2FA) on the other hand requires two sources of
+identification; for example, a password **and** a one time PIN code which may be
+supplied by an authenticator app, or that may be SMS/emailed to you.
+
+2FA is now available for many high profile services such as: [Google](https://www.google.com/landing/2step/),
+[Facebook](https://www.facebook.com/help/148233965247823),
+[Twitter](https://help.twitter.com/en/managing-your-account/two-factor-authentication)
+and [Apple](https://support.apple.com/en-us/HT204915) to name a few.
+
+2FA greatly increases account security and is **strongly** recommended for
+[high value
+targets](http://www.businessinsider.com/the-biggest-targets-for-hackers-2015-3).
+However, most users are not high-value targets, so the question is whether the
+slight inconvenience is worth the benefit? That is a judgement you need to
+make. Currently I do not use 2FA, I prefer the convenience of a single
+[strong](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#passwords) factor.
+
 Summary
 =======
 
@@ -435,6 +463,8 @@ rules:
   Badger
 
 * Windows Defender and Malwarebytes are all the Windows anti-virus you need
+
+* Enable two-factor authentication if you are a high value target
 
 * Backup your data
 

@@ -415,7 +415,7 @@ authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication)
 (MFA) is a method of granting access only after a client has supplied multiple
 valid pieces of identity evidence.
 
-Most systems and services default to single factor authentication, which more
+Most systems and services default to single-factor authentication, which more
 often than not would be a solitary password or PIN.
 
 Two-factor authentication (2FA) on the other hand requires two sources of
@@ -430,10 +430,11 @@ and [Apple](https://support.apple.com/en-us/HT204915) to name a few.
 2FA greatly increases account security and is **strongly** recommended for
 [high value
 targets](http://www.businessinsider.com/the-biggest-targets-for-hackers-2015-3).
-However, most users are not high-value targets, so the question is whether the
-slight inconvenience is worth the benefit? That is a judgement you need to
-make. Currently I do not use 2FA, I prefer the convenience of a single
-[strong](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#passwords) factor.
+However, most citizens are not high-value targets, so the question is whether
+the inconvenience is worth the benefit? That is a judgement you need to make.
+Currently, I recommend
+[strong](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#passwords)
+single-factor authentication for most persons.
 
 Summary
 =======

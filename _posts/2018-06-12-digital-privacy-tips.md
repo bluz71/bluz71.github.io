@@ -117,8 +117,8 @@ IPv6: 2610:a1:1018::1, 2610:a1:1019::1
 Note, Google offers fine DNS servers at `8.8.8.8` and `8.8.4.4`, but I
 recommend against the use of these servers if privacy is a prime concern.
 
-Browser Privacy
-===============
+<a id="browser"></a>Browser Privacy
+===================================
 
 In the [Sensible Computing Security
 Tips](http://localhost:4000/2017/11/12/sensible-computing-security-tips.html#browser)
@@ -242,13 +242,14 @@ your contacts should be using Signal.
 Google
 ======
 
-Google has more than [one
+[Google](https://en.wikipedia.org/wiki/Google) is an Internet-services and
+technology company with more then [one
 billion](https://techcrunch.com/2016/02/01/gmail-now-has-more-than-1b-monthly-active-users)
-active users. Google's motto at one time was *don't be evil*, but they never said
-anything abot respecting a user's privacy. If an internet service is free, like
-Google, then **you** are the product. In Google's case they generate income by
-targetting ads specifically to you. They want to know who you are and what you
-do, and to figure this out Google gobbles up lots of user data.
+active users. Google's motto at one time was *don't be evil*, but they never
+said anything abot respecting a user's privacy. If an internet service is free,
+like Google, then **you** are the product. In Google's case they generate
+income by targetting ads specifically to you. They want to know who you are and
+what you do, and to figure this out Google gobbles up lots of user data.
 
 To better target their ads Google will record the following details.
 
@@ -275,7 +276,7 @@ private information.
 Web Searching
 =============
 
-The above Google changes does **not** entirely free you from the Google
+The above Google changes do **not** entirely free you from the Google
 ad-targetting monolith. Google will still record your queries, even if they say
 otherwise.
 
@@ -293,20 +294,108 @@ Privacy-respecting alternatives to Google search.
 Facebook
 ========
 
-Cambridge Analytica
+[Facebook](https://en.wikipedia.org/wiki/Facebook) is the largest social
+networking service in the world today. As of early 2018 there are estimated to
+be over [2 billion active
+users](https://www.statista.com/statistics/264810/number-of-monthly-active-facebook-users-worldwide)
+using the service. 
 
-https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/
+Similar to Google's online services, Facebook's social network is free of
+monetary cost, which in reality means you as the user are the service. Facebook
+monetizes their users by tracking and targetting ads specific to them.
 
-Facebook Beacon: https://en.wikipedia.org/wiki/Facebook_Beacon
+Facebook's business model is based on knowing who you are, what you like, what
+you do, who your friends are and much much more. In reality Facebook is little
+different than a online spy service.
 
-Like buttons
+Over the years Facebook has been at the center of controversy.
 
-Oversharing
+- There was the [Facebook
+    Beacon](https://en.wikipedia.org/wiki/Facebook_Beacon) incident of 2008.
 
+    > Beacon formed part of Facebook's advertisement system that sent data from
+    > external websites to Facebook, for the purpose of allowing targeted
+    > advertisements and allowing users to share their activities with their
+    > friends. Beacon would report to Facebook on its members' activities on
+    > third-party sites that also participate with Beacon. These activities would
+    > be published to users' News Feed.
+
+- Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinon about [online
+    identity and privacy](https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/).
+
+    > “You have one identity,” he emphasized three times in a single interview with
+    > David Kirkpatrick in his book, “The Facebook Effect.” “The days of you having a
+    > different image for your work friends or co-workers and for the other people
+    > you know are probably coming to an end pretty quickly.” He adds: “Having two
+    > identities for yourself is an example of a lack of integrity.”
+
+- In 2016 British consulting firm [Cambridge Analytica
+    acquired without content](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
+    the personal data of tens of millions of Facebooks users with the aim of
+    influencing the result of the US presidential election of the same year.
+
+- Subsequent to the Cambridge Analytica incident, Facebook announced in [April
+    2018](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
+    that most of 2 billion users may have had their personal data scrapped from
+    the site by *malicious actors*.
+
+If you **genuinely** care of privacy and anonymity then you should [shutdown
+your Facebook](http://www.trustedreviews.com/news/how-to-delete-facebook-account-2950145).
+
+If closing you Facebook account is not an option then you should at least be
+aware of Facebook is doing in the shadows, and take steps to maximize whatever
+privacy you can.
+
+- The [Browser Privacy](https://github.com/bluz71/2018/06/12/digital-privacy-tips.html#browser)
+    recommendations will block most of Facebook's third-party tracking.
+
+- Please stop [over-sharing](https://grownandflown.com/oversharing-why-we-do-it).
+    Are you comfortable with the stranger down the street knowing the details
+    you willing post on Facebook? If not, then don't share it in the first
+    place.
+
+- Strengthen the privacy settings of your Facebook account. 
+
+    - Go to *Settings* / *Privacy* and review the options. I suggest changing most
+        options to `Friends`.
+
+    - Likwise in *Timeline & Tagging*, change most options to `Friends`.
+
+    - Disable `Location History` in the *Location* section
+
+    - Disable `Face Recognition`
+
+    - In *Ad Preferences* / *Ad Settings*, disable all options.
+
+    - Periodically rereview your Facebook settings. Facebook has changed
+        settings and defaults **without** user consent a number of times over
+        the years. It is not certain the specific choices you make today will
+        hold tomorrow.
+
+The days of being unaware what Facebook is and what Facebook does should
+hopefully be over now. Use with caution.
 
 Windows Privacy
 ===============
 
+The Microsoft [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows)
+operating system is still a very common desktop and latop system. Many years
+ago, back in the Windows XP days, Windows was a highly insecure system.
+Nowadays, Windows 10 with [these enhancements]
+anti-](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#windows)
+are a secure combination.
+
+Unfortunately whilst Windows, especially Windows 10, has become more secure it
+has also become far less private. Windows 10 has adopted the Google and
+Facebook user-as-service business model.
+
+Windows 10 sends a worrying amount of usage data back to Microsoft, especially
+if the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is enabled.
+Data that is sent back includes: location data, text and voice input, input,
+webpages visited, and telemetry data regarding general usage of the computer.
+
+
+The 
 https://www.eff.org/deeplinks/2016/08/windows-10-microsoft-blatantly-disregards-user-choice-and-privacy-deep-dive
 Don't trust.
 Disable telemetry
@@ -324,8 +413,8 @@ Signal blocking bag for phone
 
 Disable GPS (it is a location tracker)
 
-No Alexa, Voice Assistant, Webcam
-=================================
+No Alexa, Voice Assistant, Smarthome
+====================================
 
 Dissidents, Journalists & Whistle-blowers
 =========================================
@@ -333,11 +422,13 @@ Dissidents, Journalists & Whistle-blowers
 Summary
 =======
 
-The right to privacy is a basic human right, not a privilege, and that same
-right should also apply in the digital domain.
+The right to privacy is a fundamental human right, not just a privilege, and
+that same right should across to the digital domain. But the reality is privacy
+in the digital domain either does not exist or is being eroded.
 
-Some would say, *but I have nothing to hide*, to those people I provide the
-following quotes.
+Some would say, *I don't care about privacy, I have nothing to hide*. To anyone
+with such dismissive attitudes about privacy I provide with the following
+quotes.
 
 [Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin) (one of the Founding Fathers of the United States)
 
@@ -354,3 +445,5 @@ following quotes.
 > nothing to hide is no different than saying you don't care about free speech
 > because you have nothing to say
 
+Hopefully after reading this post you now have the knowledge to increase your
+digital privacy.

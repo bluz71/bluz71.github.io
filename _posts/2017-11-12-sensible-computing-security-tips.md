@@ -344,8 +344,8 @@ extensions:
   is an extension that learns to block trackers as you browse the web. This
   extension will increase the privacy and security of your browsing session.
 
-Windows Anti-Virus
-==================
+<a id="windows"></a>Windows Anti-Virus
+======================================
 
 Back in the day running third-party Windows anti-virus was a necessity.
 However, these days moderns versions of Windows ship with their own

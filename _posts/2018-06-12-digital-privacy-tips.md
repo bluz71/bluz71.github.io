@@ -68,18 +68,18 @@ are shifting your trust relationship from the ISP to the VPN provider, hence it
 is important that you select a trust-worthy commercial provider that respects
 your privacy and is secure.
 
-Quality VPN providers I trust:
+Security-focussed VPN providers, based outside [Five Eyes
+jurisdiction](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes),
+that I trust:
 
 - [IVPN](https://www.ivpn.net)
 
-- [ProntonVPN](https://protonvpn.com)
+- [ProtonVPN](https://protonvpn.com)
 
 - [BolehVPN](https://www.bolehvpn.net)
 
-- [Mullvad](https://mullvad.net/en)
-
 [This Wirecutter](https://thewirecutter.com/reviews/best-vpn-service) article
-offers useful information on the subject of VPNs.
+offers useful information on the subject of VPN services.
 
 An alternative to using a VPN is the
 [Tor](https://en.wikipedia.org/wiki/Tor_(anonymity_network)) anonymity network.
@@ -131,7 +131,7 @@ post I recommended the use of Google Chrome with the following extensions:
 * [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
 
 That combination of browser and extensions increases both security **and**
-privacy, they latter by the blocking of many [web
+privacy, they latter done by blocking many [web
 trackers](https://whatismyipaddress.com/web-tracking).
 
 Privacy can further be enhanced by tweaking the following Chrome settings.
@@ -155,7 +155,7 @@ Note, the second to last cookie setting will clear your session cookies upon
 browser exit. Session cookies can be used to track and de-anonymize users, by
 clearing them you increase your privacy at the expense of more frequest
 re-login into web services. This latter negative is not that onerous with
-cached user credentials.
+browser cached user credentials.
 
 Email
 =====
@@ -225,9 +225,11 @@ to the [plain-text](https://en.wikipedia.org/wiki/Plaintext) of a conversation,
 not even the [FBI is able to gain
 access](https://arstechnica.com/tech-policy/2016/10/fbi-demands-signal-user-data-but-theres-not-much-to-hand-over).
 
-Android users can make Signal their default SMS application, and one
-by one convince the friends to also adopt Signal. One such inducement to change is
-that [SMS is not a secure or private
+Note, both sender and recipient need the Signl application to be installed.
+
+Android users can also make Signal their default SMS application, and one by
+one convince the friends to also adopt Signal on their device. One such
+inducement to change is that [SMS is not a secure or private
 technology](https://www.rokacom.com/are-text-messages-encrypted).
 
 The Signal application also supports [dissappearing
@@ -235,6 +237,10 @@ messages](https://support.signal.org/hc/en-us/articles/213134237-Does-Signal-hav
 This feature ensures that messages will be removed from your device and the
 device of your recipient a chosen amount of time after they have read the
 message. This is **especially** important for highly sensistive messages.
+
+Note, most complex software, including Signal, contains bugs. However, security
+flaws have historically been correctly [very quickly by the Signal development
+team](https://nakedsecurity.sophos.com/2018/05/16/serious-xss-vulnerability-discovered-in-signal).
 
 If you use a smart phone, and you care about messaging privately, then you and
 your contacts should be using Signal.
@@ -264,13 +270,13 @@ To better target their ads Google will record the following details.
 - And likely a lot of other [metadata](https://en.wikipedia.org/wiki/Metadata)
 
 For Android, YouTube and Gmail users it is simply not practical to delete their
-Google account. However, there are *some* options are user can tweak to
-decrease the amount of data Google collects about you.
+Google account. However, there are *some* options a user can tweak to decrease
+the amount of data Google collects about you.
 
 Log into to [My Activity](https://myactivity.google.com). This lists all the
 activity Google records for your account. Delete all the archives you no longer
 want Google to store. Select the *Activity Controls* and `pause` all the
-activities provided. Congratulations, Google is now collecting less of your
+activities provided. Well done, Google is now collecting less of your
 private information.
 
 Web Searching
@@ -300,15 +306,17 @@ be over [2 billion active
 users](https://www.statista.com/statistics/264810/number-of-monthly-active-facebook-users-worldwide)
 using the service. 
 
-Similar to Google's online services, Facebook's social network is free of
-monetary cost, which in reality means you as the user are the service. Facebook
-monetizes their users by tracking and targetting ads specific to them.
+Similar to Google's online services, Facebook's service is free of monetary
+cost, which in reality means you as the user are the service. Facebook
+monetizes their users by tracking and targeting ads specific to them.
 
-Facebook's business model is based on knowing who you are, what you like, what
-you do, who your friends are and much much more. In reality Facebook is little
-different than a online spy service.
+Facebook's business model is based on knowing who you are, where you are, what
+you like, who your friends are and much more. That data is used to create a
+profile which is then matched to ads that are likely to appeal to the profiled
+user. Data collection is at the heart of how Facebook does business.
 
-Over the years Facebook has been at the center of controversy.
+The tension between privacy and data collection has been at the center of a
+number of Facebook controversies.
 
 - There was the [Facebook
     Beacon](https://en.wikipedia.org/wiki/Facebook_Beacon) incident of 2008.
@@ -320,14 +328,19 @@ Over the years Facebook has been at the center of controversy.
     > third-party sites that also participate with Beacon. These activities would
     > be published to users' News Feed.
 
+    Users were none too pleased to have their third-party purchases
+    automatically noted on their Wall for all their Facebook friends to see.
+
 - Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinon about [online
     identity and privacy](https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/).
 
-    > “You have one identity,” he emphasized three times in a single interview with
-    > David Kirkpatrick in his book, “The Facebook Effect.” “The days of you having a
+    > "You have one identity," he emphasized three times in a single interview with
+    > David Kirkpatrick in his book, "The Facebook Effect." "The days of you having a
     > different image for your work friends or co-workers and for the other people
-    > you know are probably coming to an end pretty quickly.” He adds: “Having two
-    > identities for yourself is an example of a lack of integrity.”
+    > you know are probably coming to an end pretty quickly." He adds: "Having two
+    > identities for yourself is an example of a lack of integrity."
+
+    Facebook desperately wants to know who you really are.
 
 - In 2016 British consulting firm [Cambridge Analytica
     acquired without content](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
@@ -339,33 +352,38 @@ Over the years Facebook has been at the center of controversy.
     that most of 2 billion users may have had their personal data scrapped from
     the site by *malicious actors*.
 
-If you **genuinely** care of privacy and anonymity then you should [shutdown
-your Facebook](http://www.trustedreviews.com/news/how-to-delete-facebook-account-2950145).
+If you **genuinely** care of privacy and anonymity then you really should
+[shutdown your
+Facebook](http://www.trustedreviews.com/news/how-to-delete-facebook-account-2950145).
 
 If closing you Facebook account is not an option then you should at least be
-aware of Facebook is doing in the shadows, and take steps to maximize whatever
-privacy you can.
+aware of Facebook is doing in the shadows, and take steps you can to minimize
+the amount of data Facebook collects.
 
-- The [Browser Privacy](https://github.com/bluz71/2018/06/12/digital-privacy-tips.html#browser)
-    recommendations will block most of Facebook's third-party tracking.
+A number of recommendations.
+
+- The [Browser
+    Privacy](https://github.com/bluz71/2018/06/12/digital-privacy-tips.html#browser)
+    recommendations noted above will block much of Facebook's third-party
+    tracking.
 
 - Please stop [over-sharing](https://grownandflown.com/oversharing-why-we-do-it).
-    Are you comfortable with the stranger down the street knowing the details
-    you willing post on Facebook? If not, then don't share it in the first
-    place.
+    Are you comfortable with strangers knowing what you willing post? You
+    birthday, pictures of you family, when you are on holiday (house empty),
+    etc. If not, then don't share it in the first place.
 
-- Strengthen the privacy settings of your Facebook account. 
+- Strengthen the privacy settings inside your Facebook account. 
 
     - Go to *Settings* / *Privacy* and review the options. I suggest changing most
         options to `Friends`.
 
-    - Likwise in *Timeline & Tagging*, change most options to `Friends`.
+    - Likwise in *Timeline & Tagging*, change most options to `Friends`
 
     - Disable `Location History` in the *Location* section
 
     - Disable `Face Recognition`
 
-    - In *Ad Preferences* / *Ad Settings*, disable all options.
+    - In *Ad Preferences* / *Ad Settings*, disable all options
 
     - Periodically rereview your Facebook settings. Facebook has changed
         settings and defaults **without** user consent a number of times over
@@ -373,48 +391,95 @@ privacy you can.
         hold tomorrow.
 
 The days of being unaware what Facebook is and what Facebook does should
-hopefully be over now. Use with caution.
+hopefully be over now. Use with caution, or better yet exit the service.
+
+Online Services
+===============
+
+Google and Facebook are far the only online providers. Services such as
+[Twitter](https://twitter.com/), [Linkedin](https://www.linkedin.com),
+[Yahoo](https://www.yahoo.com) and [Instagram](https://www.instagram.com), to
+name a few, all follow the user-as-a-service model of Google and Facebook.
+
+Much like the Facebook advice above, the first question you should ask yourself
+is whether provider is serving a genuinely useful purpose. If *not*, shut it
+down. If *yes*, then **please** take the time and go to `Account Settings`,
+look over the relevant Security and Privacy sections and turn off all options
+that are not necessary, for instance advertiser related options.
 
 Windows Privacy
 ===============
 
-The Microsoft [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows)
-operating system is still a very common desktop and latop system. Many years
-ago, back in the Windows XP days, Windows was a highly insecure system.
-Nowadays, Windows 10 with [these enhancements]
-anti-](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#windows)
-are a secure combination.
+Microsoft [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) is a
+common desktop and laptop operating system. 
 
-Unfortunately whilst Windows, especially Windows 10, has become more secure it
-has also become far less private. Windows 10 has adopted the Google and
+Over the years Microsoft has greatly improved the security of Windows. Windows
+10 with an appropriate
+[anti-malware](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#windows)
+solution is quite a secure system.
+
+Unfortunately whilst Windows 10 is now relatively secure it is far less private
+than previous generations of Windows. Windows 10 has adopted the Google and
 Facebook user-as-service business model.
 
-Windows 10 sends a worrying amount of usage data back to Microsoft, especially
-if the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is enabled.
-Data that is sent back includes: location data, text and voice input, input,
-webpages visited, and telemetry data regarding general usage of the computer.
+Windows 10 sends a large amount of usage data back to Microsoft, especially if
+the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is enabled. Data
+that is sent back includes: location data, text and voice input, internet
+history, and telemetry data regarding general usage of the computer.
 
+If privacy is a concern then do **not** use Windows 10. Apple Mac and Linux
+systems are far more respectful of user privacy. If one has the funds and is
+less technically inclined then simply purchase an Apple Mac. If on the other
+hand a user already has a Windows 10 system and is technically capable then it
+is recommended to replace Windows 10 with Linux distribution such as [Linux
+Mint](https://linuxmint.com).
 
-The 
-https://www.eff.org/deeplinks/2016/08/windows-10-microsoft-blatantly-disregards-user-choice-and-privacy-deep-dive
-Don't trust.
-Disable telemetry
+If replacing Windows 10 is not viable then the next best option is to tweak
+the available controls.
 
-MAC Privacy
-===========
+- Please do **NOT** enable the Cortana assistant during installation. If
+    Cortana has been enabled during a previous installation then please
+    [disable it](https://www.windowscentral.com/how-turn-cortana-and-stop-personal-data-gathering-windows-10)
 
-https://github.com/drduh/macOS-Security-and-Privacy-Guide
+- Please create and use *local* accounts rather than an online Microsoft linked
+    user accounts
 
-Cover your Webcam
-=================
+- In *Settings* / *Privacy*
+
+    - Disable `Let apps use my advertising ID`
+
+    - Disable `Send Microsoft info about how I write`
+
+    - Disable `Let websites provide locally relevant context`
+
+    - Disable `Location`
+
+    The above options are the minimum options that should be disabled for
+    increased user privacy. Preferably **all** *Privacy* options should be
+    reviewed.
+
+Webcams
+=======
+
+You should cover your webcams when not in use.
+
+[Cybercriminals are targetting
+webcams](https://www.vice.com/en_au/article/ywgqdg/i-know-i-sound-crazy-but-please-cover-up-your-webcam).
+The solution is easy, simply place a slice of tape over the webcam. I like [these
+camJAMR](http://camjamr.com/webcam-covers/camjamr-covert-pack.html) pre-cut
+black stickers.
+
+Even a former Chief of the FBI
+[recommends](https://www.engadget.com/2016/09/15/fbi-chief-james-comey-webcam-tape)
+taping over your webcam.
+
+No Alexa, Voice Assistant, Smarthome
+====================================
 
 Signal blocking bag for phone
 =============================
 
 Disable GPS (it is a location tracker)
-
-No Alexa, Voice Assistant, Smarthome
-====================================
 
 Dissidents, Journalists & Whistle-blowers
 =========================================
@@ -433,7 +498,7 @@ quotes.
 [Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin) (one of the Founding Fathers of the United States)
 
 > Those who would give up essential liberty, to purchase a little temporary
-> safety, deserve neither liberty nor safety.
+> safety, deserve neither liberty nor safety
 
 [Joseph Goebbels](https://en.wikipedia.org/wiki/Joseph_Goebbels) (Nazi Party)
 
@@ -445,5 +510,5 @@ quotes.
 > nothing to hide is no different than saying you don't care about free speech
 > because you have nothing to say
 
-Hopefully after reading this post you now have the knowledge to increase your
+Hopefully after reading this post you now have more knowledge to increase your
 digital privacy.

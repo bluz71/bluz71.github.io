@@ -491,11 +491,11 @@ The right to privacy is a fundamental human right, not just a privilege, and
 that same right should across to the digital domain. But the reality is privacy
 in the digital domain either does not exist or is being eroded.
 
-Some would say, *I don't care about privacy, I have nothing to hide*. To anyone
-with such dismissive attitudes about privacy I provide with the following
-quotes.
+Some would say, *I have nothing to hide, so why should I care*. The following
+quotes are an answer to anyone with such a dimsissive attitude.
 
-[Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin) (one of the Founding Fathers of the United States)
+[Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin) (one of
+the Founding Fathers of the United States)
 
 > Those who would give up essential liberty, to purchase a little temporary
 > safety, deserve neither liberty nor safety

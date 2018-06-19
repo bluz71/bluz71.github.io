@@ -85,7 +85,7 @@ An alternative to using a VPN is the
 [Tor](https://en.wikipedia.org/wiki/Tor_(anonymity_network)) anonymity network.
 For most people I do **not** recommend Tor for a number of reasons including:
 poor performance due to the multiple network hops involved, poor web experience
-due to the strict browsing mode used, and bandwidth contraints due to the basic
+due to the strict browsing mode used, and bandwidth constraints due to the basic
 architecture of the network. A VPN will provide a superior user experience.
 
 DNS
@@ -153,7 +153,7 @@ Privacy can further be enhanced by tweaking the following Chrome settings.
 
 Note, the second to last cookie setting will clear your session cookies upon
 browser exit. Session cookies can be used to track and de-anonymize users, by
-clearing them you increase your privacy at the expense of more frequest
+clearing them you increase your privacy at the expense of more frequent
 re-login into web services. This latter negative is not that onerous with
 browser cached user credentials.
 
@@ -215,7 +215,7 @@ messaging application primarily used on
 [iOS](https://en.wikipedia.org/wiki/IOS) devices.
 
 The [openly developed](https://github.com/signalapp) Signal application uses
-unobstrusive best-in-class cryptography housed in an extremely easy to use
+unobtrusive best-in-class cryptography housed in an extremely easy to use
 interface that anyone, be they technical or non-technical, can use. Text,
 voice, photos can securely be exchanged between two or more recipients. 
 
@@ -225,18 +225,18 @@ to the [plain-text](https://en.wikipedia.org/wiki/Plaintext) of a conversation,
 not even the [FBI is able to gain
 access](https://arstechnica.com/tech-policy/2016/10/fbi-demands-signal-user-data-but-theres-not-much-to-hand-over).
 
-Note, both sender and recipient need the Signl application to be installed.
+Note, both sender and recipient need the Signal application to be installed.
 
 Android users can also make Signal their default SMS application, and one by
 one convince the friends to also adopt Signal on their device. One such
 inducement to change is that [SMS is not a secure or private
 technology](https://www.rokacom.com/are-text-messages-encrypted).
 
-The Signal application also supports [dissappearing
+The Signal application also supports [disappearing
 messages](https://support.signal.org/hc/en-us/articles/213134237-Does-Signal-have-disappearing-messages-).
 This feature ensures that messages will be removed from your device and the
 device of your recipient a chosen amount of time after they have read the
-message. This is **especially** important for highly sensistive messages.
+message. This is **especially** important for highly sensitive messages.
 
 Note, most complex software, including Signal, contains bugs. However, security
 flaws have historically been correctly [very quickly by the Signal development
@@ -252,9 +252,9 @@ Google
 technology company with more then [one
 billion](https://techcrunch.com/2016/02/01/gmail-now-has-more-than-1b-monthly-active-users)
 active users. Google's motto at one time was *don't be evil*, but they never
-said anything abot respecting a user's privacy. If an internet service is free,
+said anything about respecting a user's privacy. If an internet service is free,
 like Google, then **you** are the product. In Google's case they generate
-income by targetting ads specifically to you. They want to know who you are and
+income by targeting ads specifically to you. They want to know who you are and
 what you do, and to figure this out Google gobbles up lots of user data.
 
 To better target their ads Google will record the following details.
@@ -283,7 +283,7 @@ Web Searching
 =============
 
 The above Google changes do **not** entirely free you from the Google
-ad-targetting monolith. Google will still record your queries, even if they say
+ad-targeting monolith. Google will still record your queries, even if they say
 otherwise.
 
 True private web searching requires the use of an alternate search service.
@@ -331,7 +331,7 @@ number of Facebook controversies.
     Users were none too pleased to have their third-party purchases
     automatically noted on their Wall for all their Facebook friends to see.
 
-- Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinon about [online
+- Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinion about [online
     identity and privacy](https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/).
 
     > "You have one identity," he emphasized three times in a single interview with
@@ -377,7 +377,7 @@ A number of recommendations.
     - Go to *Settings* / *Privacy* and review the options. I suggest changing most
         options to `Friends`.
 
-    - Likwise in *Timeline & Tagging*, change most options to `Friends`
+    - Likewise in *Timeline & Tagging*, change most options to `Friends`
 
     - Disable `Location History` in the *Location* section
 
@@ -407,8 +407,8 @@ down. If *yes*, then **please** take the time and go to `Account Settings`,
 look over the relevant Security and Privacy sections and turn off all options
 that are not necessary, for instance advertiser related options.
 
-Windows Privacy
-===============
+Windows
+=======
 
 Microsoft [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) is a
 common desktop and laptop operating system. 
@@ -461,38 +461,96 @@ the available controls.
 Webcams
 =======
 
-You should cover your webcams when not in use.
+Webcams are now ever-present, they are to be found on latops, smartphones,
+tablets and even smart TVs. Webcams are a [target for
+cybercriminals](https://www.vice.com/en_au/article/ywgqdg/i-know-i-sound-crazy-but-please-cover-up-your-webcam).
+Being observed and recorded through a webcam without your knowledge or consent
+is about as an egregious an invasion of privacy as one can ever experience.
 
-[Cybercriminals are targetting
-webcams](https://www.vice.com/en_au/article/ywgqdg/i-know-i-sound-crazy-but-please-cover-up-your-webcam).
-The solution is easy, simply place a slice of tape over the webcam. I like [these
-camJAMR](http://camjamr.com/webcam-covers/camjamr-covert-pack.html) pre-cut
-black stickers.
+You **should** cover your webcams when not in use. Simply place a slice of tape
+over all inactive webcams. I like and recommend [these
+camJAMR](http://camjamr.com/webcam-covers/camjamr-covert-pack.html) stickers.
 
 Even a former Chief of the FBI
 [recommends](https://www.engadget.com/2016/09/15/fbi-chief-james-comey-webcam-tape)
 taping over your webcam.
 
-No Alexa, Voice Assistant, Smarthome
-====================================
+Smart Homes & Voice Assistants
+==============================
 
-Signal blocking bag for phone
-=============================
+Many home appliances, such as heating & cooling, lighting, security & camera
+systems and even washers, fridges &
+[toasters](https://www.engadget.com/2017/01/04/griffin-connects-your-toast-to-your-phone),
+are becoming smarter and network-connected.
 
-Disable GPS (it is a location tracker)
 
-Dissidents, Journalists & Whistle-blowers
-=========================================
+At the same time, the past few years has also seen the emergence of a new
+product category, the always-listening voice assistant, most notably the:
+Amazon Alexa, Google Assistant, Apple Siri and Microsoft Cortana technologies.
+
+The arrival of these devices and technologies is extremely concerning from a
+security and privacy perspective. If a security flaw is found in a smart fridge
+will it ever be fixed and patched? Unlikely. Likewise how will you ever know if
+an always-listening voice assistant, such as Amazon Alexa, is [secretly
+recording your conversations without your
+consent](https://www.washingtonpost.com/news/the-switch/wp/2018/05/24/hey-alexa-come-clean-about-how-much-youre-really-recording-us/?utm_term=.37b73981c9c5)?
+You will not know.
+
+We survived generations without smart appliances and voice assistants, do we
+really not need them now? If security and privacy are a concern, then no we
+do not. **No** to smart appliances and voice assistants.
+
+Smartphones
+===========
+
+Smartphones contain radios, microphones and cameras. Using these sensors a
+smartphone will know your location and can listen, watch and record you. A bad
+actor could use a smartphone against a user without them knowing.
+
+In today's world, a smartphones is an almost an indispensable device. Unlike a
+smart fridge, it is far less practical to give up a smartphone.
+
+A reasonable compromise is to use a [signal blocking
+pouch](https://micahflee.com/2015/11/some-thoughts-on-faraday-bags-and-operational-security)
+when you explicitly do **not** want a smartphone to eavesdrop. A signal
+blocking pouch is fundamentally a [faraday
+cage](https://en.wikipedia.org/wiki/Faraday_cage), it will block all incoming
+and outgoing signals to the encased smartphone.
+
+When used appropriately, a signal blocking pouch will provide opportune privacy.
+
+Dissidents, National Security Reporters & Whistleblowers
+=========================================================
+
+The tips and suggestions contained in this and the [Sensible Computing
+Security
+](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html) posts
+are aimed at average citizens.
+
+A different, and far tighter, operational security regime **must** be followed
+if you are a dissident, national security reporter or whistleblower. One misstep
+here may lead to prison or worse.
+
+If you are actively being targeted then do please **NOT** rely on the advice
+provided in this post.
+
+I suggest such targets refer to the following resources.
+
+- [Freedom of the Press Foundation](https://freedom.press/training)
+
+- [Electronic Frontier Foundation Surveillance Self-Defense](https://ssd.eff.org)
+
+- [National Whistleblower Center](https://www.whistleblowers.org)
 
 Summary
 =======
 
 The right to privacy is a fundamental human right, not just a privilege, and
-that same right should across to the digital domain. But the reality is privacy
-in the digital domain either does not exist or is being eroded.
+that same right should transfer across to the digital domain. But the reality
+is privacy in the digital domain either does not exist or is being eroded.
 
 Some would say, *I have nothing to hide, so why should I care*. The following
-quotes are an answer to anyone with such a dimsissive attitude.
+quotes are my answer to anyone with such a dismissive attitude.
 
 [Benjamin Franklin](https://en.wikipedia.org/wiki/Benjamin_Franklin) (one of
 the Founding Fathers of the United States)
@@ -510,5 +568,5 @@ the Founding Fathers of the United States)
 > nothing to hide is no different than saying you don't care about free speech
 > because you have nothing to say
 
-Hopefully after reading this post you now have more knowledge to increase your
+Hopefully after reading this post you now have the knowledge to increase your
 digital privacy.

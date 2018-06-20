@@ -340,7 +340,7 @@ extensions:
   is a content filtering extension most well known for blocking ads, but it
   also blocks content from sites known to host malware (malicious software).
 
-* [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp)
+* [Privacy Badger](https://www.eff.org/privacybadger)
   is an extension that learns to block trackers as you browse the web. This
   extension will increase the privacy and security of your browsing session.
 

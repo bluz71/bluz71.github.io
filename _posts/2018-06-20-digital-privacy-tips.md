@@ -20,14 +20,14 @@ targeted advertising systems.
 Digital privacy is the right to protect your personal information from:
 unpermitted collection, unpermitted use, and unpermitted distribution to third
 parties. This guide contains practical tips and suggestions that readers can
-use to increase their privacy in the digital domain.
+use to increase their privacy in this hostile digital domain.
 
 Security
 ========
 
 Before tackling digital privacy it is **extremely** important that one has a
 strong security regime in place. Please read this [Sensible Computing Security
-Tips](http://localhost:4000/2017/11/12/sensible-computing-security-tips.html)
+Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html)
 post as a starting point to secure your digital devices.
 
 You can not be private unless you are first secure. Please keep up-to-date,
@@ -46,20 +46,19 @@ That information may also be mirrored by intelligence agencies to feed into
 their [mass-surveillance systems](https://en.wikipedia.org/wiki/Stellar_Wind),
 or the ISP may sell that information to advertisers to [target ads to
 you](https://www.wired.com/2014/10/verizons-perma-cookie). It is also possible
-that cyber-criminals may attempt to steal that information for their own
+that cybercriminals may attempt to steal that information for their own
 nefarious means. Basically if your activity is logged, it will be a target for
 various bad actors.
 
-The most appropriate technology to circumvent ISP snooping and logging is a
-[virtual private
-network](https://en.wikipedia.org/wiki/Virtual_private_network) (VPN). A VPN
-creates a private network across a public network, most often the internet. A
-genuine virtual network creates a secure encrypted tunnel to your VPN provider's
-[data center](https://en.wikipedia.org/wiki/Data_center) and then onto the
-internet thus blinding your ISP to your activity. Note, when using a VPN you
-are shifting your trust relationship from the ISP to the VPN provider, hence it
-is important that you select a trust-worthy commercial provider that respects
-your privacy and is secure.
+The most appropriate technology to circumvent ISP snooping is a [virtual
+private network](https://en.wikipedia.org/wiki/Virtual_private_network) (VPN).
+A VPN creates a private network across a public network, most often the
+internet. A genuine virtual network creates a secure encrypted tunnel to your
+VPN provider's [data center](https://en.wikipedia.org/wiki/Data_center) and
+then onto the internet thus blinding your ISP to your activity. Note, when
+using a VPN you are shifting your trust relationship from the ISP to the VPN
+provider, hence it is important that you select a trust-worthy commercial
+provider that respects your privacy and is secure.
 
 Security-focussed VPN providers that I trust.
 
@@ -94,8 +93,8 @@ The [domain name system](https://en.wikipedia.org/wiki/Domain_Name_System)
 human-readable address, such as `www.google.com`, to something a computing
 device can understand, such as `172.217.22.4`.
 
-The proprietor of a DNS end-point has great power, they can monitor your
-activity and they can also block or censor your activity
+The proprietor of a DNS service has great power, they can monitor your
+activity and they can also block or censor your activity.
 
 Most people likely use the DNS servers provided by their ISP. Since ISPs may
 not be trust-worthy, I recommended changing your DNS configuration from
@@ -103,7 +102,7 @@ ISP-supplied to a third-party DNS provider.
 
 Note, when VPN connected, by way of a secure provider, you will be using the
 DNS servers of the VPN provider, which is desired. However, when not VPN
-connected then I recommend [Cloudflare's 1.1.1.1](https://1.1.1.1) service.
+connected I recommend [Cloudflare's 1.1.1.1](https://1.1.1.1) service.
 
 Please configure Cloudflare's DNS servers in your router.
 
@@ -120,7 +119,7 @@ servers to follow you for ad-targeting purposes.
 ===================================
 
 In the [Sensible Computing Security
-Tips](http://localhost:4000/2017/11/12/sensible-computing-security-tips.html#browser)
+Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#browser)
 post I recommended the use of Google Chrome with the following extensions:
 
 * [HTTPS Everywhere](https://www.eff.org/https-everywhere)
@@ -172,13 +171,13 @@ cryptographers](https://blog.cryptographyengineering.com/2014/08/13/whats-matter
 Many users incorrectly assume that an email exchange is a private
 correspondence. In reality it is more akin to a loud conservation in public. At
 a minimum the Email provider has access to all the
-[plain-text](https://en.wikipedia.org/wiki/Plaintext) content. Cyber-criminals
+[plain-text](https://en.wikipedia.org/wiki/Plaintext) content. Cybercriminals
 through to mass-surveillance systems may gain access to this content and
 exploit it as happened to [John Podesta in
 2016](https://en.wikipedia.org/wiki/Podesta_emails).
 
-Some users never delete their old emails from their provider's system. In John
-Podesta's case that was 60,000 emails and a world of hurt. Please consider
+Some users also never delete their old emails from their provider's system. In
+John Podesta's case that was 60,000 emails and a world of hurt. Please consider
 deleting old emails, how often do you read emails from five years ago? Another
 note of caution, be careful what you say in email, only be prepared to write
 what you are comfortable with if, in the unlikely event,
@@ -361,7 +360,7 @@ amount of data Facebook collects.
 A number of recommendations.
 
 - The [Browser
-    Privacy](https://github.com/bluz71/2018/06/20/digital-privacy-tips.html#browser)
+    Privacy](https://bluz71.github.io/2018/06/20/digital-privacy-tips.html#browser)
     recommendations noted above will block much of Facebook's third-party
     tracking.
 
@@ -398,7 +397,7 @@ Google and Facebook are far from the the only user-as-a-service providers.
 Services such as [Twitter](https://twitter.com/),
 [Linkedin](https://www.linkedin.com), [Yahoo](https://www.yahoo.com) and
 [Instagram](https://www.instagram.com), to name a few, all roughly follow the
-business model of Google and Facebook.
+same business model of Google and Facebook.
 
 Much like the Facebook advice above, the first question you should ask yourself
 is whether provider is serving a genuinely useful purpose. If *not*, shut it
@@ -437,7 +436,7 @@ If replacing Windows 10 is not viable then the next best option is to tweak
 the available controls.
 
 - Please do **NOT** enable the Cortana assistant during installation. If
-    Cortana has been enabled during a previous installation then please
+    Cortana has already been enabled during a previous installation then please
     [disable it](https://www.windowscentral.com/how-turn-cortana-and-stop-personal-data-gathering-windows-10)
 
 - Please create and use *local* accounts rather than an online Microsoft-linked
@@ -497,7 +496,8 @@ consent](https://www.washingtonpost.com/news/the-switch/wp/2018/05/24/hey-alexa-
 You will not know.
 
 We survived generations without smart appliances and voice assistants, do we
-really need them now? If security and privacy are a concern, then no we do not.
+really need them now? If security and privacy are a concern, then **no** we do
+not.
 
 Smartphones
 ===========

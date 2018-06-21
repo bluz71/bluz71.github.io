@@ -8,14 +8,14 @@ published: true
 Digital Privacy Tips
 ====================
 
-We live in an age where everyone in the digital domain is being surveilled,
-profiled and targeted. That may be at a nation-state level, such as by the
-American [NSA](https://en.wikipedia.org/wiki/National_Security_Agency) and
-British
+We live in an age where most everyone in the digital domain is being
+surveilled, profiled and targeted. That may be at a nation-state level, such as
+by the American [NSA](https://en.wikipedia.org/wiki/National_Security_Agency)
+and British
 [GCHQ](https://en.wikipedia.org/wiki/Government_Communications_Headquarters)
 with their mass-surveillance systems, or it may be at a private enterprise
-level, such as by the internet giants Google and Facebooks with their
-targeted advertising systems.
+level, such as by the internet giants Google and Facebooks with their targeted
+advertising systems.
 
 Digital privacy is the right to protect your personal information from:
 unpermitted collection, unpermitted use, and unpermitted distribution to third
@@ -50,15 +50,16 @@ that cybercriminals may attempt to steal that information for their own
 nefarious means. Basically if your activity is logged, it will be a target for
 various bad actors.
 
-The most appropriate technology to circumvent ISP snooping is a [virtual
-private network](https://en.wikipedia.org/wiki/Virtual_private_network) (VPN).
-A VPN creates a private network across a public network, most often the
-internet. A genuine virtual network creates a secure encrypted tunnel to your
-VPN provider's [data center](https://en.wikipedia.org/wiki/Data_center) and
-then onto the internet thus blinding your ISP to your activity. Note, when
-using a VPN you are shifting your trust relationship from the ISP to the VPN
-provider, hence it is important that you select a trust-worthy commercial
-provider that respects your privacy and is secure.
+The most appropriate technology, for most people, to circumvent ISP snooping is
+a [virtual private
+network](https://en.wikipedia.org/wiki/Virtual_private_network) (VPN). A VPN
+creates a private network across a public network, most often the internet. A
+genuine virtual network creates a secure encrypted tunnel to your VPN
+provider's [data center](https://en.wikipedia.org/wiki/Data_center) and then
+onto the internet thus blinding your ISP to your activity. Note, when using a
+VPN you are shifting your trust relationship from the ISP to the VPN provider,
+hence it is important that you select a trust-worthy commercial provider that
+respects your privacy and is secure.
 
 Security-focussed VPN providers that I trust.
 
@@ -77,10 +78,13 @@ systems is important.
 
 An alternative to using a VPN is the
 [Tor](https://en.wikipedia.org/wiki/Tor_(anonymity_network)) anonymity network.
-For most people I do **not** recommend Tor for a number of reasons including:
+For most people, I do **not** recommend Tor for a number of reasons including:
 poor performance due to the multiple network hops involved, poor web experience
-due to the strict browsing mode used, and bandwidth constraints due to the basic
-architecture of the network. A VPN will provide a superior user experience.
+due to the strict browsing mode used, and bandwidth constraints due to the
+basic architecture of the network. A VPN will provide a superior user
+experience. Tor however is appropriate, as part of a layered security regime,
+for dissidents, national security reporters, whistleblowers and other targeted
+users.
 
 [This Wirecutter](https://thewirecutter.com/reviews/best-vpn-service) article
 is a useful companion piece on the subject of VPN services.
@@ -128,8 +132,8 @@ post I recommended the use of Google Chrome with the following extensions:
 
 * [Privacy Badger](https://www.eff.org/privacybadger)
 
-That combination of browser and extensions increases both security **and**
-privacy, they latter done by blocking many [web
+That combination of browser and extensions increases security **and** privacy,
+they latter done by blocking many [web
 trackers](https://whatismyipaddress.com/web-tracking).
 
 Privacy can further be enhanced by tweaking the following Chrome settings.
@@ -400,8 +404,8 @@ Services such as [Twitter](https://twitter.com/),
 same business model of Google and Facebook.
 
 Much like the Facebook advice above, the first question you should ask yourself
-is whether provider is serving a genuinely useful purpose. If *not*, shut it
-down. If *yes*, then **please** take the time and go to `Account Settings`,
+is whether the provider is serving a genuinely useful purpose. If *not*, shut
+it down. If *yes*, then **please** take the time and go to `Account Settings`,
 look over the relevant Security and Privacy sections and turn off all options
 that are not necessary, for instance advertiser related options.
 

@@ -544,8 +544,8 @@ I suggest such targets instead refer to the following resources.
 
 - [National Whistleblower Center](https://www.whistleblowers.org)
 
-Summary
-=======
+Conclusion
+==========
 
 The right to privacy is a fundamental human right, not just a privilege, and
 that same right should transfer across to the digital domain. But the reality

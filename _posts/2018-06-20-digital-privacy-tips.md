@@ -493,7 +493,7 @@ Cortana](https://en.wikipedia.org/wiki/Cortana) technologies.
 
 The arrival of these technologies is extremely concerning from a security and
 privacy perspective. If a security flaw is found in a smart fridge will it ever
-be fixed and patched? Unlikely. Likewise how will you ever know if an
+be fixed and patched? Unlikely. Likewise, how will you ever know if an
 always-listening voice assistant, such as Amazon Alexa, is [secretly recording
 your conversations without your
 consent](https://www.washingtonpost.com/news/the-switch/wp/2018/05/24/hey-alexa-come-clean-about-how-much-youre-really-recording-us/?utm_term=.37b73981c9c5)?
@@ -515,8 +515,8 @@ smart fridge, it is far less practical to give up a smartphone.
 
 A reasonable compromise is to use a [signal blocking
 pouch](https://micahflee.com/2015/11/some-thoughts-on-faraday-bags-and-operational-security)
-when you explicitly do **not** want a smartphone to potentially eavesdrop. A
-signal blocking pouch is a [faraday
+when you explicitly do **not** want a smartphone to potentially eavesdrop or
+track you. A signal blocking pouch is a [faraday
 cage](https://en.wikipedia.org/wiki/Faraday_cage), it will block all incoming
 and outgoing signals to the encased smartphone.
 

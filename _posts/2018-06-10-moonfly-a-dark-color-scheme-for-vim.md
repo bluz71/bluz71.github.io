@@ -53,7 +53,7 @@ JavaScript
 
 <img width="800" alt="javascript" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/moonfly/javascript_moonfly.png">
 
-The font in use is [Ioveska](https://github.com/be5invis/Iosevka).
+The font in use is [Iosevka](https://github.com/be5invis/Iosevka).
 
 Details
 -------

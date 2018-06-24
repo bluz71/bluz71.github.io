@@ -47,14 +47,13 @@ Screenshots
 
 Ruby
 
-![ruby screenshot](https://github.com/bluz71/vim-moonfly-colors/raw/master/ruby_moonfly.png "ruby screenshot")
+<img width="800" alt="ruby" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/moonfly/ruby_moonfly.png">
 
 JavaScript
 
-![javascript screenshot](https://github.com/bluz71/vim-moonfly-colors/raw/master/javascript_moonfly.png "javascript screenshot")
+<img width="800" alt="javascript" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/moonfly/javascript_moonfly.png">
 
-Note, due to compression, the above images are not an exact representation,
-they are a dimmer than the actual color scheme.
+The font in use is [Ioveska](https://github.com/be5invis/Iosevka).
 
 Details
 -------

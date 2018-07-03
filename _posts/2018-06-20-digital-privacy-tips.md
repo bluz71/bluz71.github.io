@@ -295,7 +295,7 @@ Privacy-respecting alternatives to Google search.
 
 - [DuckDuckGo](https://duckduckgo.com)
 
-- [Quant](https://www.qwant.com)
+- [Quant](https://lite.qwant.com)
 
 Facebook
 ========
@@ -543,6 +543,8 @@ I suggest such targets instead refer to the following resources.
 - [Electronic Frontier Foundation Surveillance Self-Defense](https://ssd.eff.org)
 
 - [National Whistleblower Center](https://www.whistleblowers.org)
+
+- [The Intercept Welcomes Whistleblowers](https://theintercept.com/source)
 
 Conclusion
 ==========

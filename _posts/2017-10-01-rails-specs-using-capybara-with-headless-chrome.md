@@ -16,7 +16,7 @@ required a JavaScript driver I used the
 [Poltergeist](https://github.com/teampoltergeist/poltergeist) gem driving the
 headless [PhantomJS](http://phantomjs.org/) browser engine.
 
-This worked well enough even though PhantomJS did have some strange quirks.
+This worked well enough even though PhantomJS did have some quirks.
 
 Recently however, Google Chrome added in support for headless operation (sans
 GUI). This headless Chrome capability prompted the PhantomJS lead to
@@ -66,33 +66,30 @@ sudo chmod +x /usr/local/bin/chromedriver
 Configuration
 =============
 
-Replace `poltergeist` with `capybara-selenium` in your `Gemfile`, then `bundle
+Replace `poltergeist` with `selenium-webdriver` in your `Gemfile`, then `bundle
 install`:
 
 ```ruby
-gem 'capybara-selenium', group: :test
+gem 'selenium-webdriver', group: :test
 ```
 
-Next configure the Capybara JavaScript driver in `spec/rails_helper.rb`:
+Next configure the system spec JavaScript driver in `spec/support/capybara.rb`:
 
 ```ruby
-require "selenium/webdriver"
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+    Capybara.server = :puma, { Silent: true }
+  end
 end
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: {args: %w(headless)})
-  Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
-end
-Capybara.javascript_driver = :headless_chrome
 ```
 
-Note, this configuration provides both headless and standard Chrome drivers. In
-the `javascript_driver` line replace `:headless_chrome` with `:chome` if one
-desires a visible browser whilst running JavaScript specs.
-
 That is all, running specs with `bundle exec rspec` should now run headless
-Chrome for tests involving JavaScript.
+Chrome for all RSpec system tests involving JavaScript.
 
 Travis CI configuration
 =======================

@@ -175,6 +175,18 @@ Usage:
 g sg # Individually stage changes in the current branch
 ```
 
+## Unadd alias
+
+```sh
+git config --global alias.unadd 'reset HEAD'
+```
+
+Usage:
+
+```sh
+g unadd <file> # Unstage a file
+```
+
 ## Commit aliases
 
 ```sh

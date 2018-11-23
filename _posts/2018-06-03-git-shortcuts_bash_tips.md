@@ -319,10 +319,15 @@ Now add the following Git browser tooling to your `~/.bashrc` file.
 alias gll='fzf_git_log'
 
 fzf_git_log() {
-    git ll --color=always "$@" |
-      fzf --ansi --no-sort --height 100% \
-          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @'"
+    local commits=$(
+      git ll --color=always "$@" |
+        fzf --ansi --no-sort --height 100% \
+            --preview "git show --color=always {2}"
+      )
+    if [ -n "$commits" ]; then
+        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $hashes
+    fi
 }
 ```
 

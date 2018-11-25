@@ -28,9 +28,9 @@ Some notable characteristics of fzf:
 
 - comprehensive feature set
 
-- pleasant colorful interface
+- colorful interface
 
-- optionally preview search results in a split window
+- optional search preview in a split window
 
 Installation
 ------------
@@ -45,7 +45,7 @@ brew install fzf
 For other platforms please consult [these installation
 details](https://github.com/junegunn/fzf#installation).
 
-When **STDIN** is not supplied fzf will use the [find
+When **STDIN** is not supplied fzf, by default, will use the [find
 command](https://en.wikipedia.org/wiki/Find_(Unix)) to fetch a list of files
 to filter through. I recommend installing and then using the
 [fd](https://github.com/sharkdp/fd) utility instead.
@@ -54,19 +54,23 @@ to filter through. I recommend installing and then using the
 brew install fd
 ```
 
+Details about the fd tool are noted in [this
+post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#fd).
+
 Configuration
 -------------
 
 Please add the following configuration settings to your `~/.bashrc` file.
 
-Enable fzf key bindings in the Bash shell. If not using Brew, please adjust the
-following path appropriately.
+Enable fzf key bindings in the Bash shell.
 
 ```sh
 . $(brew --prefix)/opt/fzf/shell/key-bindings.bash
 ```
 
-Use the `fd` command instead of the `find` command in fzf key bindings.
+Note, if not using Brew, please adjust the above listed path appropriately.
+
+Use the `fd` command instead of the `find` command.
 
 ```sh
 export FZF_DEFAULT_COMMAND='fd --type f --color=never'
@@ -74,9 +78,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 ```
 
-fzf look and behaviour are overridden in the **FZF_DEFAULT_COMMAND**
-environment variable. I like a top-down, 40% fzf window that enables
-multi-selection and also responds to page-up/page-up keys.
+The default fzf look and behaviour are overridden with the
+**FZF_DEFAULT_COMMAND** environment variable. I like a top-down, 40% fzf window
+that enables multi-selection and also responds to page-up/page-up keys.
 
 ```sh
 export FZF_DEFAULT_OPTS='
@@ -95,8 +99,9 @@ Examples:
 ```sh
 fzf                             # Fuzzy file lister
 fzf --preview="head -$LINES {}" # Fuzzy file lister with file preview
-vim $(fzf)                      # Lauch editor on fuzzy found file
+vim $(fzf)                      # Lauch Vim editor on fuzzy found file
 history | fzf                   # Fuzzy find a command from history
+cat /usr/share/dict/words | fzf # Fuzzy search a dictionary word
 ```
 
 Commands:
@@ -114,34 +119,99 @@ Search syntax:
 - `^abcd`, exact prefix match
 - `abcd$`, exact suffix match
 
-
 Bash Key Bindings
 -----------------
 
-- Alt-c
-- Ctrl-r
-- Ctrl-t
+In the configuration section above the following Bash key bindings were enabled.
 
-Screenshot
-----------
+- Reverse search through Bash history using fzf as the filter.
+
+    ```sh
+    Control-r
+    ```
+
+- Append fuzzy found files to the end of the current shell command.
+
+    ```sh
+    Control-t
+    ```
+
+- Change to a fuzzy found sub-directory.
+
+    ```sh
+    Alt-t
+    ```
 
 <a id="search-scripts"></a>Search Scripts
 -----------------------------------------
 
-One of the search helper examples, listed below, uses the
-[ripgrep](https://github.com/BurntSushi/ripgrep) utility. If you plan to use
-that helper then please also install the ripgrep utility.
+Whilst the above bare and key-bound usages of are useful, fzf really is best
+utilized when scripting custom search commands.
+
+Note, some of the scripts make use of
+[ripgrep](https://github.com/BurntSushi/ripgrep) and
+[bat](https://github.com/sharkdp/bat). If using Brew please install those
+utilities as follows.
 
 ```sh
-brew install ripgrep
+brew install ripgrep bat
 ```
 
-Details about the ripgrep and fd search tools are noted in [this
-post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
+Please read [this
+post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#ripgrep)
+for details about ripgrep, and [this
+one](https://remysharp.com/2018/08/23/cli-improved#bat--cat) for details about
+bat.
 
-- fzf find-file-and-edit
-- fzf find-file-with-text-and-edit
-- fzf git add
-- fzf git unadd
-- fzf git browser
-- fzf process kill
+### Find File and Edit
+
+```sh
+fzf_find_edit() {
+    local file=$(
+      fzf --no-multi --height 80% \
+          --preview 'bat --color=always --line-range :500 {}'
+      )
+    if [ -n "$file" ]; then
+        $EDITOR $file
+    fi
+}
+
+alias vf='fzf_find_edit'
+```
+
+Fuzzy find a file, with colorful preview, then once selected edit it in your
+preferred editor.
+
+### Find File with Text and Edit
+
+```sh
+fzf_rg_edit(){
+    if [ $# == 0 ]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+    local match=$(
+      rg --color=never --line-number "$1" |
+        fzf --no-multi --delimiter : --height 80% \
+            --preview "bat --color=always --line-range {2}: {1}"
+      )
+    local file=$(echo "$match" | cut -d':' -f1)
+    if [ -n "$file" ]; then
+        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
+    fi
+}
+
+alias vrg='fzf_rg_edit'
+```
+
+Fuzzy find a file, with colorful preview, contained the supplied term, then
+once selected edit it in your preerred editor. Note, if your `EDITOR` is Vim or
+Neovim then you will be automatically scrolled to the selected line.
+
+### Find and Kill Process
+
+### Git Stage Files
+
+### Git Unstage Files
+
+### Git Log Browser

@@ -22,8 +22,8 @@ This post highlights a couple such actively-developed tools, namely
 [ripgrep](https://github.com/BurntSushi/ripgrep) and
 [fd](https://github.com/sharkdp/fd).
 
-**ripgrep** (pattern search)
-============================
+<a id="ripgrep"></a>**ripgrep** (pattern search)
+================================================
 
 The [ripgrep](https://github.com/BurntSushi/ripgrep) utility is a line-oriented
 search tool that recursively searches within the current directory tree for a
@@ -100,8 +100,8 @@ If you are a [Vim](https://www.vim.org) user then I recommend reading
 [these vim-grepper](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper)
 details. This will nicely integrate ripgrep into Vim.
 
-**fd** (file find)
-==================
+<a id="fd"></a>**fd** (file find)
+=================================
 
 The [fd](https://github.com/sharkdp/fd) utility is a file finding tool. It is a
 modern-day simplified alternative to the Unix `find` tool.

@@ -24,6 +24,8 @@ based around fzf.
 
 Some notable characteristics of fzf:
 
+- real-time updates
+
 - [high-performance core](https://junegunn.kr/2015/02/fzf-in-go)
 
 - comprehensive feature set
@@ -136,10 +138,25 @@ In the configuration section above the following Bash key bindings were enabled.
     Control-t
     ```
 
+    If desired, optionally enable file previews, using
+    [bat](https://github.com/sharkdp/bat), for `Control-t`.
+
+    ```sh
+    export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+    ```
+
+
 - Change to a fuzzy found sub-directory.
 
     ```sh
     Alt-t
+    ```
+
+  If desired, optionally enable directory previews, using
+  [tree](http://mama.indstate.edu/users/ice/tree/), for `Alt-c`.
+
+    ```sh
+    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
     ```
 
 <a id="search-scripts"></a>Search Scripts
@@ -148,7 +165,7 @@ In the configuration section above the following Bash key bindings were enabled.
 Whilst the above bare and key-bound usages of are useful, fzf really is best
 utilized when scripting custom search commands.
 
-Note, some of the scripts make use of
+Note, some of the following scripts make use of
 [ripgrep](https://github.com/BurntSushi/ripgrep) and
 [bat](https://github.com/sharkdp/bat). If using Brew please install those
 utilities as follows.
@@ -176,7 +193,7 @@ fzf_find_edit() {
     fi
 }
 
-alias vf='fzf_find_edit'
+alias ffe='fzf_find_edit'
 ```
 
 Fuzzy find a file, with colorful preview, then once selected edit it in your
@@ -201,17 +218,74 @@ fzf_rg_edit(){
     fi
 }
 
-alias vrg='fzf_rg_edit'
+alias frge='fzf_rg_edit'
 ```
 
-Fuzzy find a file, with colorful preview, contained the supplied term, then
-once selected edit it in your preerred editor. Note, if your `EDITOR` is Vim or
-Neovim then you will be automatically scrolled to the selected line.
+Fuzzy find a file, with colorful preview, that contains the supplied term, then
+once selected edit it in your preferred editor. Note, if your `EDITOR` is Vim
+or Neovim then you will be automatically scrolled to the selected line.
 
 ### Find and Kill Process
 
+```sh
+fzf_kill() {
+    local pids=$(
+      ps -f -u $USER | sed 1d | fzf --multi --height 80% | tr -s [:blank:] |
+        cut -d' ' -f3
+      )
+    if [ -n "$pids" ]; then
+        echo "$pids" | xargs kill -9 "$@"
+    fi
+}
+
+alias fkill='fzf_kill'
+```
+
+Fuzzy find a process or group of processes, then `SIGKILL` them.
+Multi-selection is enabled to allow multiple processes to be selected via the
+TAB key.
+
+This script negates the need to run `ps` manually and all the pain involved to
+kill a recalcitrant process.
+
 ### Git Stage Files
 
-### Git Unstage Files
+```sh
+fzf_git_add() {
+    local files=$(git ls-files --modified | fzf --ansi)
+    if [ -n "$files" ]; then
+        git add --verbose $files
+    fi
+}
+
+alias gadd='fzf_git_add'
+```
+
+Selectively stage fuzzily found files for committing. Only modified files will
+be listed for staging.
 
 ### Git Log Browser
+
+```sh
+fzf_git_log() {
+    local commits=$(
+      git ll --color=always "$@" |
+        fzf --ansi --no-sort --height 100% \
+            --preview "git show --color=always {2}"
+      )
+    if [ -n "$commits" ]; then
+        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $hashes
+    fi
+}
+
+alias gll='fzf_git_log'
+```
+
+Display a compact log list that can be narrowed down by entering in fuzzy text
+at the prompt. Navigation up and down the commit list will preview the changes
+of each commit.
+
+Git Log Browser in action:
+
+<img width="800" alt="ruby" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/git_log_browser.png">

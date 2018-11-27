@@ -2,7 +2,7 @@
 title: Fuzzy Finding in Bash with fzf
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Fuzzy Finding in Bash with fzf
@@ -12,15 +12,16 @@ The [fzf](https://github.com/junegunn/fzf) utility is a line-oriented fuzzy
 finding tool for the Unix command-line.
 
 Fuzzy finding is a search technique that uses approximate pattern matching
-rather than exact matching. For some search tasks, fuzzy finding will be highly
-effective at generating relevant results for a minimal amount of search effort.
+rather than exact matching. For some search tasks *fuzzy finding* will be
+highly effective at generating relevant results for a minimal amount of search
+effort.
 
 Adhering to the [Unix
 philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), fzf performs one
 primary task, fuzzy finding, whilst also handling and emitting text streams.
 Hence, it is quite easy to build useful [search
-scripts](https://bluz71.github.io/2018/11/21/fuzzy-finding-in-bash-with-fzf#search-scripts)
-based around fzf.
+scripts](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf#search-scripts)
+built upon fzf.
 
 Some notable characteristics of fzf:
 
@@ -47,7 +48,7 @@ brew install fzf
 For other platforms please consult [these installation
 details](https://github.com/junegunn/fzf#installation).
 
-When **STDIN** is not supplied fzf, by default, will use the [find
+When **STDIN** is not supplied, fzf, by default, will use the [find
 command](https://en.wikipedia.org/wiki/Find_(Unix)) to fetch a list of files
 to filter through. I recommend installing and then using the
 [fd](https://github.com/sharkdp/fd) utility instead.
@@ -56,13 +57,28 @@ to filter through. I recommend installing and then using the
 brew install fd
 ```
 
+Note, some of the key bindings and scripts in this post make use of the:
+[ripgrep](https://github.com/BurntSushi/ripgrep),
+[bat](https://github.com/sharkdp/bat) and
+[tree](http://mama.indstate.edu/users/ice/tree) utilities. If using Brew please
+install those utilities as follows.
+
+```sh
+brew install ripgrep bat tree
+```
+
 Details about the fd tool are noted in [this
-post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#fd).
+post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#fd),
+whilst ripgrep is noted
+[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#ripgrep)
+and bat is discussed
+[here](https://remysharp.com/2018/08/23/cli-improved#bat--cat).
 
 Configuration
 -------------
 
-Please add the following configuration settings to your `~/.bashrc` file.
+Please consider adding the following optional configuration settings to your
+`~/.bashrc` file.
 
 Enable fzf key bindings in the Bash shell.
 
@@ -70,7 +86,8 @@ Enable fzf key bindings in the Bash shell.
 . $(brew --prefix)/opt/fzf/shell/key-bindings.bash
 ```
 
-Note, if not using Brew, please adjust the above listed path appropriately.
+Note, if not using Brew installed fzf, please adjust the above listed path
+appropriately.
 
 Use the `fd` command instead of the `find` command.
 
@@ -80,13 +97,13 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 ```
 
-The default fzf look and behaviour are overridden with the
-**FZF_DEFAULT_COMMAND** environment variable. I like a top-down, 40% fzf window
-that enables multi-selection and also responds to page-up/page-up keys.
+The default fzf look and behaviour are overridden by the
+**FZF_DEFAULT_COMMAND** environment variable. I like a top-down 75% fzf window
+that enables multi-selection and also responds to `control-f`/`control-b` keys.
 
 ```sh
 export FZF_DEFAULT_OPTS='
-  --height 40% --multi --reverse
+  --height 75% --multi --reverse
   --bind ctrl-f:page-down,ctrl-b:page-up
 '
 ```
@@ -149,7 +166,7 @@ In the configuration section above the following Bash key bindings were enabled.
 - Change to a fuzzy found sub-directory.
 
     ```sh
-    Alt-t
+    Alt-c
     ```
 
   If desired, optionally enable directory previews, using
@@ -165,28 +182,15 @@ In the configuration section above the following Bash key bindings were enabled.
 Whilst the above bare and key-bound usages of are useful, fzf really is best
 utilized when scripting custom search commands.
 
-Note, some of the following scripts make use of
-[ripgrep](https://github.com/BurntSushi/ripgrep) and
-[bat](https://github.com/sharkdp/bat). If using Brew please install those
-utilities as follows.
+Here are some that I use.
 
-```sh
-brew install ripgrep bat
-```
-
-Please read [this
-post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#ripgrep)
-for details about ripgrep, and [this
-one](https://remysharp.com/2018/08/23/cli-improved#bat--cat) for details about
-bat.
 
 ### Find File and Edit
 
 ```sh
 fzf_find_edit() {
     local file=$(
-      fzf --no-multi --height 80% \
-          --preview 'bat --color=always --line-range :500 {}'
+      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
       )
     if [ -n "$file" ]; then
         $EDITOR $file
@@ -209,7 +213,7 @@ fzf_rg_edit(){
     fi
     local match=$(
       rg --color=never --line-number "$1" |
-        fzf --no-multi --delimiter : --height 80% \
+        fzf --no-multi --delimiter : \
             --preview "bat --color=always --line-range {2}: {1}"
       )
     local file=$(echo "$match" | cut -d':' -f1)
@@ -230,8 +234,7 @@ or Neovim then you will be automatically scrolled to the selected line.
 ```sh
 fzf_kill() {
     local pids=$(
-      ps -f -u $USER | sed 1d | fzf --multi --height 80% | tr -s [:blank:] |
-        cut -d' ' -f3
+      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f3
       )
     if [ -n "$pids" ]; then
         echo "$pids" | xargs kill -9 "$@"
@@ -245,8 +248,8 @@ Fuzzy find a process or group of processes, then `SIGKILL` them.
 Multi-selection is enabled to allow multiple processes to be selected via the
 TAB key.
 
-This script negates the need to run `ps` manually and all the pain involved to
-kill a recalcitrant process.
+This script negates the need to run `ps` manually and all the related pain
+involved to kill a recalcitrant process.
 
 ### Git Stage Files
 
@@ -261,8 +264,8 @@ fzf_git_add() {
 alias gadd='fzf_git_add'
 ```
 
-Selectively stage fuzzily found files for committing. Only modified files will
-be listed for staging.
+Selectively stage fuzzily found files for committing. Note, only modified files
+will be listed for staging.
 
 ### Git Log Browser
 
@@ -282,10 +285,22 @@ fzf_git_log() {
 alias gll='fzf_git_log'
 ```
 
-Display a compact log list that can be narrowed down by entering in fuzzy text
-at the prompt. Navigation up and down the commit list will preview the changes
-of each commit.
+The `ll` Git alias used above should be created with the following command.
+
+```sh
+git config --global alias.ll 'log --graph --format=format:"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+```
+
+The `gll` Bash alias displays a compact Git log list that can be filtered by
+entering in a fuzzy term at the prompt. Navigation up and down the commit list
+will preview the changes of each commit.
 
 Git Log Browser in action:
 
 <img width="800" alt="ruby" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/git_log_browser.png">
+
+Conclusion
+----------
+
+The fzf utility has become an indispensable tool in my workflow. Please give it
+a try yourself, I am positive it will prove useful to you as well.

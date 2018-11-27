@@ -61,7 +61,7 @@ Note, some of the key bindings and scripts in this post make use of the:
 [ripgrep](https://github.com/BurntSushi/ripgrep),
 [bat](https://github.com/sharkdp/bat) and
 [tree](http://mama.indstate.edu/users/ice/tree) utilities. If using Brew please
-install those utilities as follows.
+install those utilities as follows:
 
 ```sh
 brew install ripgrep bat tree
@@ -162,7 +162,6 @@ In the configuration section above the following Bash key bindings were enabled.
     export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
     ```
 
-
 - Change to a fuzzy found sub-directory.
 
     ```sh
@@ -184,7 +183,6 @@ utilized when scripting custom search commands.
 
 Here are some that I use.
 
-
 ### Find File and Edit
 
 ```sh
@@ -203,7 +201,7 @@ alias ffe='fzf_find_edit'
 Fuzzy find a file, with colorful preview, then once selected edit it in your
 preferred editor.
 
-### Find File with Text and Edit
+### Find File with Term and Edit
 
 ```sh
 fzf_rg_edit(){
@@ -249,7 +247,7 @@ Multi-selection is enabled to allow multiple processes to be selected via the
 TAB key.
 
 This script negates the need to run `ps` manually and all the related pain
-involved to kill a recalcitrant process.
+involved to kill a recalcitrant process :tada: :tada:
 
 ### Git Stage Files
 

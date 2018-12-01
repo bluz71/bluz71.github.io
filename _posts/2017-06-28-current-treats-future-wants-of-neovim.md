@@ -375,6 +375,12 @@ would like
 [this feature request](https://github.com/vim/vim/issues/1735) implemented;
 please thumb it up if you can.
 
+**UPDATE (Sep 2018):** Vim patch
+[8.1.0374](https://github.com/vim/vim/commit/bd9a53c06c8869ad811cb3dd01a309c9be7d7a63)
+implemented an important `relativenumber` optimisation, that being to only
+redraw the number column, not all visible lines. The above listed issue has
+been fixed.
+
 Major future Neovim wants
 =========================
 

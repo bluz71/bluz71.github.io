@@ -496,7 +496,7 @@ Some suggestions:
     [Hack](https://github.com/source-foundry/Hack),
     [Fira Code](https://github.com/tonsky/FiraCode),
     [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) and my
-    personal favourite [Ioveska](https://github.com/be5invis/Iosevka).
+    personal favourite [Iosevka](https://github.com/be5invis/Iosevka).
 
 - Configure the `LS_COLORS` environment variable to highlight filetypes using
     256 colors.

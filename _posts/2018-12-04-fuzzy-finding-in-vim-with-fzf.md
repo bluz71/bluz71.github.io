@@ -8,15 +8,16 @@ published: false
 Fuzzy Finding in Vim with fzf
 =============================
 
-Following on from [Fuzzy Finding in Bash with
+Following on from [fuzzy finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html),
 this post will discuss usage of the [fzf](https://github.com/junegunn/fzf) tool
 within the [Vim](https://www.vim.org) and [Neovim](https://neovim.io) editors.
 
-Please do read [Fuzzy Finding in Bash with
+Please do read [fuzzy finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
-to gain insight about the fzf tool, how to install, configure and then use it
-within the [Bash](https://www.gnu.org/software/bash) command-line.
+to first gain insight about the fzf tool; that post will note how to install,
+configure and then use fzf within the [Bash](https://www.gnu.org/software/bash)
+shell.
 
 Fuzzy finding is a powerful search technique that can be just as useful inside
 an editor as it is at the command-line. Useful fuzzy finding operations within
@@ -73,8 +74,12 @@ Plug 'junegunn/fzf.vim'
 ```
 
 Then run `:PlugInstall` to install the fzf command-line tool and associated Vim
-plugin. Note, the Vim plugin uses the fzf command line tool, hence the two
-plugin lines.
+plugin. Note, the Vim plugin will invoke the fzf command line tool, hence the
+two plugin lines above.
+
+Note, if one has already installed the fzf command-line tool why bother with
+installing it again via a Vim plugin? Basically to maintain runtime
+synchronization between plugin and command-line tool.
 
 If using a different plugin manager please adjust the above statements
 appropriately.
@@ -235,8 +240,8 @@ nnoremap <silent> <localleader>bc :BCommits<CR>
 The `g:fzf_commits_log_options` option customizes the appearance of Git log
 command used by the `:Commits` and `:Bcommits` commands.
 
-Pattern search with Rg command
-------------------------------
+Pattern search with the Rg command
+----------------------------------
 
 [ripgrep](https://github.com/BurntSushi/ripgrep) is an excellent command-line
 text search utility that I have previously [posted
@@ -274,13 +279,13 @@ Most Recently Used Files
 ------------------------
 
 Sometimes one may want to open an out-of-project file that had been previously
-edited in Vim. Such a need is best served by an MRU (most-recently-used) that
-provides access to a cached list of recently opened files.
+edited in Vim. Such a need is best served by an MRU (most-recently-used) cache
+that provides access to a list of recently opened files.
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin unfortunately does
 not provide any MRU functionality, however, the
-[fzf-mru](https://github.com/pbogut/fzf-mru.vim) does provide a bridge between
-FZF and an MRU.
+[fzf-mru](https://github.com/pbogut/fzf-mru.vim) plugin does provide a bridge
+between FZF and an MRU cache.
 
 If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:
@@ -337,18 +342,18 @@ plugin](https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.htm
 So why am I not using CtrlP anymore? Answer, performance.
 
 Even with the turbocharging noted above CtrlP can still slowdown when
-navigating huge source trees or when navigating a very large tag file. Neovim
+navigating huge source trees or when navigating a very large tags file. Neovim
 especially, when running the [cpsm](https://github.com/nixprime/cpsm) CtrlP
-matcher, can be noticably slowdown due to the cost of Python RPC
+matcher, can be noticably sluggish due to the cost of Python RPCs
 (remote-procedure-calls) as noted in this
 [issue](https://github.com/neovim/neovim/issues/7063).
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin is highly performant,
-even when dealing with very large source trees or tag files. Pattern matching
+even when dealing with very large source trees or tags files. Pattern matching
 is asynchronous and progressive, so it always feels fast and never laggy.
 
 I will note, if you are a CtrlP user, and its performance is fine to you, then
-there really is no need to change over fzf.vim unless some of its unique
+there really is no need to change over to fzf.vim unless some of its unique
 features, such as `:Commits` or `:Rg`, appeal to you.
 
 Conclusion

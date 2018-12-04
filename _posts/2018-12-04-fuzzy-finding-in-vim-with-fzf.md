@@ -240,6 +240,17 @@ nnoremap <silent> <localleader>bc :BCommits<CR>
 The `g:fzf_commits_log_options` option customizes the appearance of Git log
 command used by the `:Commits` and `:Bcommits` commands.
 
+TODO: Needs fugitive installed.
+
+Lines command
+-------------
+
+TODO
+
+- `:Lines` - list lines of all open buffer, then navigate to selection
+
+- `:Blines` - list lines of current buffer, then navigate to selection
+
 Pattern search with the Rg command
 ----------------------------------
 
@@ -314,10 +325,6 @@ The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin also provides the
 following notable commands.
 
 - `:Colors` - list color schemes, then change `colorscheme` to the selection
-
-- `:Lines` - list lines of all open buffer, then navigate to selection
-
-- `:Blines` - list lines of current buffer, then navigate to selection
 
 - `:Marks` - list all marks, then navigate to selection
 

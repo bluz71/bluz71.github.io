@@ -34,7 +34,7 @@ such as gVim and MacVim, especially benefit since prior to the integration of a
 terminal fzf would spawn an ugly external terminal window which was highly
 distracting.
 
-I recommed installing and updating Vim or Neovim using
+I recommend installing and updating Vim or Neovim using
 [Homebrew](https://brew.sh/) on macOS and [Linuxbrew](http://linuxbrew.sh) on
 Linux.
 
@@ -59,8 +59,9 @@ the box.
 
 However, I strongly recommend installing and using the
 [fzf.vim](https://github.com/junegunn/fzf.vim) plugin instead. Note, both
-projects are maintained by [Junegunn Choi](https://github.com/junegunn), hence,
-will always be synchronized if installed and updated simultaneously.
+projects were created and are maintained by [Junegunn
+Choi](https://github.com/junegunn), hence, they will always be synchronized if
+installed and updated simultaneously.
 
 If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:

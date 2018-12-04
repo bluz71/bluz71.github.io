@@ -26,6 +26,8 @@ location by short fuzzy name, switching to an open file by fuzzy name or
 opening a file by fuzzy
 [tag](http://vim.wikia.com/wiki/Browsing_programs_with_tags).
 
+TODO: Add notes about bashrc and vimrc
+
 Requirements
 ------------
 
@@ -60,8 +62,9 @@ integration](https://github.com/junegunn/fzf/blob/master/README-VIM.md) out of
 the box.
 
 However, I strongly recommend installing and using the
-[fzf.vim](https://github.com/junegunn/fzf.vim) plugin instead. Note, both
-projects were created and are maintained by [Junegunn
+[fzf.vim](https://github.com/junegunn/fzf.vim) plugin instead which wraps the
+fzf command-line tool and provides many useful commands. Note, both projects
+were created and are maintained by [Junegunn
 Choi](https://github.com/junegunn), hence, they will always be synchronized if
 installed and updated simultaneously.
 
@@ -200,7 +203,7 @@ The `:Buffers` command is used to quickly switch to an open buffer.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <localleader>, :Buffers<CR>
+nnoremap <silent> <localleader>b :Buffers<CR>
 ```
 
 Tags command

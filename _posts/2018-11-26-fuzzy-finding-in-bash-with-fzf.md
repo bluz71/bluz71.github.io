@@ -14,7 +14,8 @@ finding tool for the Unix command-line.
 Fuzzy finding is a search technique that uses approximate pattern matching
 rather than exact matching. For some search tasks *fuzzy finding* will be
 highly effective at generating relevant results for a minimal amount of search
-effort.
+effort. In practice this often means that just a few notable search characters
+need be entered to quickly fuzzy find the item of interest.
 
 Adhering to the [Unix
 philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), fzf performs one

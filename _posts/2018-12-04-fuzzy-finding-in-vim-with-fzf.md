@@ -362,5 +362,5 @@ Conclusion
 Fuzzing finding, when editing, is a productivity game-changer, no matter which
 underlying fuzzy finding technology is used.
 
-Please give fzf.vim, or CtrlP, a try, I am sure whichever plugin you use will
+Please give fzf.vim or CtrlP a try, I am sure whichever plugin you use will
 prove itself extremely useful :thumbsup:

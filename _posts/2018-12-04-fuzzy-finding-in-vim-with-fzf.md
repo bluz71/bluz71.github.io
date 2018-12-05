@@ -2,7 +2,7 @@
 title: Fuzzy Finding in Vim with fzf
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Fuzzy Finding in Vim with fzf
@@ -34,12 +34,12 @@ fzf configurations.
 Requirements
 ------------
 
-For the best user experience, please use a modern versions of Vim or Neovim
-that provides a built-in terminal. For Vim that means using version 8.1 or
-later, and for Neovim that means using version 0.2 or later. GUI-based Vim's,
-such as gVim and MacVim, especially benefit since versions pre-terminal
-integration, when running fzf, would spawn an ugly external terminal window
-which was highly unpleasant.
+For the best user experience, please use a modern version of Vim or Neovim that
+provides a built-in terminal. For Vim that means using version 8.1 or later,
+and for Neovim that means using version 0.2 or later. GUI-based Vims, such as
+gVim and [MacVim](https://github.com/macvim-dev/macvim), especially benefit
+since versions pre-terminal integration, when running fzf, would spawn an ugly
+external terminal window which was highly unpleasant.
 
 I recommend installing and updating Vim, or Neovim, using
 [Homebrew](https://brew.sh/) on macOS and [Linuxbrew](http://linuxbrew.sh) on
@@ -66,13 +66,14 @@ the box.
 
 However, I strongly recommend installing and using the
 [fzf.vim](https://github.com/junegunn/fzf.vim) plugin  which smartly wraps the
-fzf command-line tool whilst also providing a number of convenient commands.
-Just like the command-line tool, fzf.vim provides responsive real-time updates
-as fuzzy text is entered.
-
+fzf command-line tool whilst also providing a number of powerful Vim commands.
 Note, both fzf and fzf.vim were created and are maintained by [Junegunn
 Choi](https://github.com/junegunn), hence, they will always be synchronized if
 installed and updated simultaneously. 
+
+Just like the command-line tool, fzf.vim provides responsive real-time updates
+as fuzzy text is entered.
+
 
 If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:
@@ -82,12 +83,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 ```
 
-Then run `:PlugInstall` to install the fzf command-line tool and associated Vim
-plugin.
+Then run `:PlugInstall` to install both the fzf command-line tool and
+associated Vim plugin.
 
 You may wonder, if one has already installed the fzf command-line tool why
 bother with installing it again via a Vim plugin? Basically to maintain runtime
-synchronization between Vim plugin and command-line tool.
+synchronization between the Vim plugin and command-line tool.
 
 If using a different plugin manager please adjust the above statements
 appropriately.
@@ -104,12 +105,12 @@ Files command
 -------------
 
 The `:Files` command is a fuzzy file finder. Without an argument `:Files` will
-recursively search files that match the supplied fuzzy query, from the current
+recursively search files that match the supplied fuzzy query from the current
 directory downwards.
 
 Note, when the fzf command line tool is configured to use the
 [fd](https://github.com/sharkdp/fd) tool, Git ignores will be respected, which
-can greatly increase fuzzy find performance. Please refer to [Fuzzy Finding in
+can greatly increase fuzzy find performance. Please refer to [fuzzy finding in
 Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 for details about how to configure fzf to use fd.
@@ -146,7 +147,7 @@ Sibling files
 Sometimes one may need to edit a sibling file of the currently edited file,
 that being a file in the same directory with the current file.
 
-This SPACE DASH mapping will open the fuzzy finder just in the directory
+This SPACE DASH mapping will open the fuzzy finder just for the directory
 containing the currently edited file.
 
 ```viml
@@ -185,7 +186,7 @@ noremap <silent> <leader>ec :Files src/components<CR>
 noremap <silent> <leader>et :Files src/__tests__/components<CR>
 ```
 
-When dealing with multiple frameworks I recommend scoping key mappings by
+When dealing with multiple frameworks I recommend scoping such key mappings by
 searching for a distinguishing file, that way key mappings can be reused such
 as the `<leader>ec` mapping noted above.
 
@@ -260,7 +261,7 @@ nnoremap <silent> <leader>bc :BCommits<CR>
 ```
 
 The `g:fzf_commits_log_options` option customizes the appearance of Git log
-command used by the `:Commits` and `:Bcommits` commands.
+command used by the `:Commits` and `:BCommits` commands.
 
 ### Screenshot
 
@@ -275,14 +276,14 @@ about](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) utility provides integration
 with ripgrep with the `:Rg` and `:Rg!` commands. Both commands should be
-launched with an search term, for example `:Rg my_search_term`. The bang
+launched with a search term, for example `:Rg my_search_term`. The bang
 version, `:Rg!`, launches a fullscreen window whilst `:Rg` launches the usual
 bottom-of-screen split window.
 
 Once a search has been completed, fzf can be used to filter the results to just
 those of interest. If only one selection is chosen then that match will be
-opened, otherwise if multiple selections are chosen the first match will be
-opened along with the
+opened, otherwise if multiple selections are chosen then the first match will
+be opened along with the
 [quickfix](http://vimdoc.sourceforge.net/htmldoc/quickfix.html) window listing
 all matches. Note, use `Alt-a` and `Alt-d` to select and deselect all matches.
 
@@ -299,19 +300,19 @@ nnoremap <leader>rg :Rg<Space>
 nnoremap <leader>! :Rg!<Space>
 ```
 
-The preview window can be hidden with the hitting the QUESTION MARK key.
+The preview window can be toggled with the QUESTION MARK key.
 
 Most Recently Used Files
 ------------------------
 
 Sometimes one may want to open an out-of-project file that had been previously
 edited in Vim. Such a need is best served by an MRU (most-recently-used) cache
-that provides access to a list of recently opened files.
+that can provide access to a list of recently opened files.
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin unfortunately does
 not provide any MRU functionality, however, the
 [fzf-mru](https://github.com/pbogut/fzf-mru.vim) plugin does provide a bridge
-between FZF and an MRU cache.
+between fzf and a MRU cache.
 
 If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:
@@ -340,14 +341,16 @@ following useful commands.
 
 - `:Lines` - list lines of all open buffers, then navigate to the selection
 
-- `:Blines` - list lines of current buffer, then navigate to the selection
+- `:BLines` - list lines of the current buffer, then navigate to the selection
 
-- `:Marks` - list all marks, then navigate to the selection
+- `:Marks` - list all [marks](http://vim.wikia.com/wiki/Using_marks), then
+  navigate to the selection
 
 - `:Snippets` - list [UltiSnips](https://github.com/SirVer/ultisnips) snippets,
   then run the selected snippet
 
-- `:Maps` - list all mappings
+- `:Maps` - list all
+  [mappings](http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1))
 
 - `:Helptags` - explore Vim's `:help` documentation, then navigate to the
   selected topic
@@ -376,7 +379,8 @@ matcher, can be sluggish due to the cost of Python RPCs
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin is highly performant,
 even when dealing with very large source trees or tags files. Pattern matching
-is asynchronous and progressive, so it always feels fast and never laggy.
+is asynchronous and progressive, so it usually feels fast and very rarely
+laggy.
 
 I will note, if you are a CtrlP user, and its performance is fine to you, then
 there really is no need to change over to fzf.vim unless some of its unique

@@ -14,8 +14,8 @@ finding tool for the Unix command-line.
 Fuzzy finding is a search technique that uses approximate pattern matching
 rather than exact matching. For some search tasks *fuzzy finding* will be
 highly effective at generating relevant results for a minimal amount of search
-effort. In practice this often means that just a few notable search characters
-need be entered to quickly fuzzy find the item of interest.
+effort. In practice this often means that just a few notable characters need be
+entered to quickly fuzzy find the item of interest.
 
 Adhering to the [Unix
 philosophy](https://en.wikipedia.org/wiki/Unix_philosophy), fzf performs one
@@ -35,6 +35,10 @@ Some notable characteristics of fzf:
 - colorful interface
 
 - optional search preview in a split window
+
+Note, feel free to refer to my
+[bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) file to view my
+fzf configuration.
 
 Installation
 ------------
@@ -296,10 +300,10 @@ will preview the changes of each commit.
 
 Git Log Browser in action:
 
-<img width="800" alt="ruby" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/git_log_browser.png">
+<img width="800" alt="git_log_browser" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/git_log_browser.png">
 
 Conclusion
 ----------
 
-The fzf utility has become an indispensable tool in my workflow. Please give it
-a try yourself, I am positive it will prove useful to you as well.
+The fzf tool has become an indispensable tool in my workflow. Please give it
+a try yourself, I am confident it will prove useful to you as well.

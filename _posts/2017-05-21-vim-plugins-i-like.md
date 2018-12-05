@@ -264,8 +264,10 @@ their appropriate directories.
 
 Lastly, be aware that quite a few Vim users are now using
 [fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
-needs instead of *CtrlP*. Personally I've not played with it since *CtrlP* with
-*ripgrep* works perfectly fine for me.
+needs instead of *CtrlP*.
+
+**UPDATE (DEC 2018)**: I now use fzf.vim instead of CtrlP as documented
+[here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html)
 
 UltiSnips
 ---------

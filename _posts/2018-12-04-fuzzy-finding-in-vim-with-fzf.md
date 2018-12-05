@@ -69,11 +69,10 @@ However, I strongly recommend installing and using the
 fzf command-line tool whilst also providing a number of powerful Vim commands.
 Note, both fzf and fzf.vim were created and are maintained by [Junegunn
 Choi](https://github.com/junegunn), hence, they will always be synchronized if
-installed and updated simultaneously. 
+installed and updated simultaneously.
 
 Just like the command-line tool, fzf.vim provides responsive real-time updates
 as fuzzy text is entered.
-
 
 If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:
@@ -145,7 +144,7 @@ Sibling files
 -------------
 
 Sometimes one may need to edit a sibling file of the currently edited file,
-that being a file in the same directory with the current file.
+that being a file in the same directory with that current file.
 
 This SPACE DASH mapping will open the fuzzy finder just for the directory
 containing the currently edited file.
@@ -194,7 +193,7 @@ For example:
 
 ```viml
 if filereadable('config/routes.rb')
-  " This looks like a Rails app, add Rails specific mapping here.
+  " This looks like a Rails app, add Rails specific mappings here.
 elseif filereadable('src/index.js')
   " This looks like a React app, add React specific mappings here.
 endif
@@ -203,7 +202,7 @@ endif
 Note, the [vim-rails](https://github.com/tpope/vim-rails) and
 [vim-projectionist](https://github.com/tpope/vim-projectionist) plugins can
 also be used be used to navigate projects. All these project navigation
-techniques are complimentary, and they can happily co-exist.
+techniques are complimentary, they can happily co-exist.
 
 Buffers command
 ---------------
@@ -274,8 +273,8 @@ Pattern search with the Rg command
 text search utility that I have previously [posted
 about](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#ripgrep).
 
-The [fzf.vim](https://github.com/junegunn/fzf.vim) utility provides integration
-with ripgrep with the `:Rg` and `:Rg!` commands. Both commands should be
+The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin provides access
+to ripgrep with the `:Rg` and `:Rg!` commands. Both commands should be
 launched with a search term, for example `:Rg my_search_term`. The bang
 version, `:Rg!`, launches a fullscreen window whilst `:Rg` launches the usual
 bottom-of-screen split window.
@@ -297,7 +296,7 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 nnoremap <leader>rg :Rg<Space>
-nnoremap <leader>! :Rg!<Space>
+nnoremap <leader>!  :Rg!<Space>
 ```
 
 The preview window can be toggled with the QUESTION MARK key.
@@ -357,12 +356,11 @@ following useful commands.
 
 - `:Colors` - list color schemes, then change `colorscheme` to the selection
 
-
 Why not just use CtrlP
 ----------------------
 
 The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is the precursor to
-most Vim fuzzing finding plugins. It is an excellent plugin which is still
+most Vim fuzzy finding plugins. It is an excellent plugin which is still
 actively maintained.
 
 I used CtrlP for many years. I even posted how to [turbocharge the CtrlP Vim
@@ -379,7 +377,7 @@ matcher, can be sluggish due to the cost of Python RPCs
 
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin is highly performant,
 even when dealing with very large source trees or tags files. Pattern matching
-is asynchronous and progressive, so it usually feels fast and very rarely
+is asynchronous and progressive, so it usually feels very fast and rarely
 laggy.
 
 I will note, if you are a CtrlP user, and its performance is fine to you, then
@@ -389,8 +387,8 @@ features, such as `:Commits` or `:Rg`, appeal to you.
 Conclusion
 ----------
 
-I have found fzf-based fuzzing finding, when editing in Vim, to be a
-productivity game-changer.
+I have found fzf-based fuzzy finding, when editing in Vim, to be a productivity
+game-changer.
 
 So I encourage you to be curious and to not be afraid to go down the fzf rabbit
 hole :rabbit2:

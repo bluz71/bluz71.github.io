@@ -301,8 +301,7 @@ the covers and in the community at large, some of those enhancements being:
   [Thunderbird](https://www.mozilla.org/en-US/thunderbird) session. This same
   *client/server* API has also lead to the development of some very interesting
   Neovim [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui)
-  such as the [Electron](http://electron.atom.io) based
-  [NyaoVim](https://github.com/rhysd/NyaoVim).
+  such as [Oni](https://www.onivim.io/).
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively

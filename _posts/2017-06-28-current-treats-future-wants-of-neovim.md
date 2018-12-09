@@ -266,18 +266,6 @@ cover that capability (and others).
 **UPDATE (July 2017)**: It appears the *Vim* is getting its own
 [terminal](https://groups.google.com/forum/#!topic/vim_dev/Q9gUWGCeTXM).
 
-Working Ruby on Rails autocomplete
-----------------------------------
-
-The [vim-ruby](https://github.com/vim-ruby) plugin provides omni-completion for
-Ruby on Rails code when `let g:rubycomplete_rails = 1` is set.
-
-When set accordingly, Rails code omni-completes successfully when using Neovim
-but for unknown reasons does not work, at least for me, when using Vim 8.
-
-I have an existing [issue](https://github.com/vim-ruby/vim-ruby/issues/349) on
-in the *vim-ruby* issue tracker in regards to that Vim failure.
-
 Major Neovim features
 =====================
 

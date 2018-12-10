@@ -286,15 +286,9 @@ be opened along with the
 [quickfix](http://vimdoc.sourceforge.net/htmldoc/quickfix.html) window listing
 all matches. Note, use `Alt-a` and `Alt-d` to select and deselect all matches.
 
-### Example configuration and key mapping
+### Example key mapping
 
 ```viml
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('right:50%', '?'),
-  \   <bang>0)
-
 nnoremap <leader>rg :Rg<Space>
 nnoremap <leader>!  :Rg!<Space>
 ```

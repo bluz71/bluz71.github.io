@@ -35,7 +35,7 @@ macOS by default ships with a very old version of Bash, version 3.2, due to
 licensing reasons. That version is over a decade old with many missing
 features.
 
-Please upgrade to version 4.x of Bash. This is most easily accomplished by
+Please upgrade to version 4.x of Bash. That is most easily accomplished by
 using the [Homebrew](https://brew.sh) package manager.
 
 Install Homebrew followed by:
@@ -352,9 +352,10 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
   We want colorization with human-readable file sizes. The last two aliases
   will order by size (largest to smallest) or by time (newest to oldest).
 
-- Easy navigation up a directory hierarchy.
+- Easy navigation back and up a directory hierarchy.
 
     ```sh
+    alias -- -='cd -'
     alias ..='cd ..'
     alias ..2='..; ..'
     alias ..3='..2; ..'
@@ -371,7 +372,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     complete -o default -o nospace -F _git g
     ```
 
-    If you use git, then why not save a couple characters?
+    If you use Git, then why not save a couple characters?
 
 - Confirm unsafe file operations.
 

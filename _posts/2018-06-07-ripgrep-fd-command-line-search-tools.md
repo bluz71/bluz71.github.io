@@ -199,6 +199,11 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 If you are unfamiliar with fzf, stay tuned for an upcoming post in this
 channel. :eyes:
 
+**UPDATE (DEC 2018)**: Please read [fuzzy finding in Bash with
+fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
+and [fuzzy finding in Vim with
+fzf](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html)
+
 Conclusion
 ==========
 

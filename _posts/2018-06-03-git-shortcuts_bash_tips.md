@@ -331,8 +331,8 @@ fzf_git_log() {
 }
 ```
 
-Now type `gll` in a Git repository. This will display a compact log list that
-can be narrowed down by entering in fuzzy text at the prompt. Also, one can
+Type `gll` in a Git repository. This will display a compact log list that can
+be narrowed down by entering in fuzzy text at the prompt. Also, one can
 navigate up and down the commit list to preview the differences of each commit.
 Github-style browsing in the command-line, almost.
 

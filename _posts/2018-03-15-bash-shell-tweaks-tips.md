@@ -286,7 +286,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     HISTFILESIZE=9999
     HISTSIZE=9999
     PROMPT_COMMAND='history -a'
-    shopt -s histappend
+    shopt -s histappend histverify
     ```
 
     The Readline incremental and reverse search commands are much more useful

@@ -74,7 +74,7 @@ Force Vim to always do global substitutions.
 set gdefault
 ```
 
-This removes the need to tack on **g** to the end of *substitute* commands.
+This removes the need to tack on **g** at the end of *substitute* commands.
 Once `gdefault` is set the following will be a global substitute command:
 
 ```
@@ -246,7 +246,8 @@ recommend:
 ```viml
 set dictionary=/usr/share/dict/words
 ```
-The above is a little difficult to type, I prefer to use the following mapping:
+If that key combination is a little difficult to type, then it may be
+worthwhile to set the following mapping:
 
 ```viml
 inoremap <C-k> <C-x><C-k>
@@ -306,8 +307,12 @@ This example will execute the above *do.vim* script over all Ruby files in the
 current directory tree:
 
 ```
-vim -es $(find . -name '*.rb') < do.vim
+vim -es **/*.rb < do.vim
 ```
+
+If using Bash please enable `globstar` in your `~/.bashrc` file via the
+`shopt -s globstar` statement. For more details please read [Bash shell tweaks
+& tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html).
 
 Better wrapping with *breakindent*
 ----------------------------------
@@ -479,7 +484,7 @@ Recompute syntax highlighting
 -------------------------------
 
 ```viml
-nnoremap <silent> <leader>s :syntax sync fromstart<CR>
+nnoremap <silent> <leader>S :syntax sync fromstart<CR>
 
 autocmd FileType markdown syntax sync fromstart
 ```
@@ -488,11 +493,6 @@ This mapping is used to force a full syntax recompute for the current buffer.
 By default, syntax highlighting is calculated only for the visible set of lines
 and a variable amount of lines surrounding that visible set. However, sometimes
 when large navigation jumps are done the syntax highlighting can get jumbled
-up. The mapping above, `<leader>s` in my case, will `syntax sync` the
+up. The mapping above, `<leader>S` in my case, will `syntax sync` the
 complete buffer, this will fix any syntax highlight errors caused by large
-jumps.
-
-Separately, the above `autocmd` is used to always force a full file syntax
-computation when opening *Markdown* files. In my experience *Markdown* files
-are just about the likeliest to have their syntax broken by large navigation
 jumps.

@@ -281,7 +281,7 @@ g rsu # Show state of local and remote upstream branches
 git config --global alias.sa '!sh -c "git stash apply stash@{$1}" -'
 git config --global alias.sd '!sh -c "git stash drop stash@{$1}" -'
 git config --global alias.sl 'stash list'
-git config --global alias.ss 'stash save'
+git config --global alias.ss 'stash save --include-untracked'
 ```
 
 Usage:

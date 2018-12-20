@@ -302,6 +302,25 @@ Git Log Browser in action:
 
 <img width="800" alt="git_log_browser" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/git_log_browser.png">
 
+### Git RefLog Browser
+
+```sh
+fzf_git_reflog() {
+    local hash=$(
+      git reflog --color=always "$@" |
+        fzf --no-multi --ansi --no-sort --height 100% \
+            --preview "git show --color=always {1}"
+      )
+    echo $hash
+}
+
+alias grf='fzf_git_reflog'
+```
+
+The `grf` Bash alias displays a Git reflog list that can be filtered by
+entering in a fuzzy term at the prompt. Navigation up and down the hash list
+will preview the changes of each hash.
+
 Conclusion
 ----------
 

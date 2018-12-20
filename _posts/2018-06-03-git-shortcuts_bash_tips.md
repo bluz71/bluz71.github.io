@@ -250,6 +250,7 @@ g llom # List commits that differ between current branch and origin/master
 ```sh
 git config --global alias.mg 'merge'
 git config --global alias.mgs 'merge --squash'
+git config --global alias.unmg reset --merge ORIG_HEAD'
 ```
 
 Usage:
@@ -257,6 +258,7 @@ Usage:
 ```sh
 g mg <branch>  # Merge branch
 g mgs <branch> # Squash merge the commits of the specified branch
+g unmg         # Undo the last merge. Note, do NOT do this for pushed merges.
 ```
 
 ## Remote aliases

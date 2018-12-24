@@ -318,8 +318,36 @@ fzf_git_reflog() {
 alias grf='fzf_git_reflog'
 ```
 
-The `grf` Bash alias displays a Git reflog list that can be filtered by
+The `grf` Bash alias displays a Git
+[reflog](https://git-scm.com/docs/git-reflog) list that can be filtered by
 entering in a fuzzy term at the prompt. Navigation up and down the hash list
+will preview the changes of each hash.
+
+### Git Pickaxe Browser
+
+```sh
+fzf_git_log_pickaxe() {
+     if [ $# == 0 ]; then
+         echo 'Error: search term was not provided.'
+         return
+     fi
+     local commits=$(
+       git log --oneline --color=always -S "$@" |
+         fzf --ansi --no-sort --height 100% \
+             --preview "git show --color=always {1}"
+       )
+     if [ -n "$commits" ]; then
+         local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+         git show $hashes
+     fi
+ }
+
+alias glS='fzf_git_log_pickaxe'
+```
+
+The `glS` Bash alias displays a Git log list that has been
+[pickaxe](http://www.philandstuff.com/2014/02/09/git-pickaxe.html) (`-S`)
+filtered by the supplied search term. Navigation up and down the commit list
 will preview the changes of each hash.
 
 Conclusion

@@ -67,6 +67,7 @@ elif [ -f /etc/bash_completion.d/git-prompt ]; then
 else
     local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
 fi
+    GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWSTASHSTATE=1
 . $GIT_PROMPT_PATH
@@ -74,9 +75,12 @@ PS1="\h\$(__git_ps1) \w > "
 ```
 
 Note, this is a rudimentary prompt configuration, usually you will want to
-pretty it up with colors. Refer to to the `prompt()` function in my
-[bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) for a colorful
-prompt.
+spruce it up.
+
+For example, one can install and use a Bash prompt script, such as
+[seafly](https://github.com/bluz71/bash-seafly-prompt) or
+[bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which will
+emit Git details with visual flair.
 
 ## Nicer diffs with diff-so-fancy
 

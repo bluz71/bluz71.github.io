@@ -303,6 +303,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     else
         local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
     fi
+    GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUPSTREAM="auto"
     GIT_PS1_SHOWSTASHSTATE=1
     . $GIT_PROMPT_PATH
@@ -310,9 +311,10 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```
 
     Note, this is only a rudimentary prompt configuration, usually you will
-    want to pretty it up with colors. Refer to to the `prompt()` function in my
-    [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) for a
-    colorful prompt.
+    want to spruce it up. For example, one can install and use a Bash prompt
+    script, such as [seafly](https://github.com/bluz71/bash-seafly-prompt) or
+    [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which
+    will emit Git details with visual flair..
 
 - Automatically shorten deep paths in the prompt. The `\w` option in `PS1`
     controls whether to display the path or not.
@@ -443,6 +445,21 @@ z tic app src # will jump to ~/projects/tickets_app/src
 
 Though not Bash specific, the z utility is a fantastic tool that all Bash users
 will find useful.
+
+:bomb: z by default will hook into the `PROMPT_COMMAND` environment variable to
+record `cd` events (the *training* phase). This connection may not exist when
+using a custom prompt script such as
+[seafly](https://github.com/bluz71/bash-seafly-prompt). In that case I
+recommend the following settings:
+
+```sh
+_Z_NO_PROMPT_COMMAND=1
+. $(brew --prefix)/etc/profile.d/z.sh
+alias c='cd_with_z(){ cd "$@" && _z --add "$(pwd)"; }; cd_with_z'
+```
+
+Use the `c` command to record directory changes in the z database (aka
+*training*).
 
 The qmv Rename Utility
 ----------------------

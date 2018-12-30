@@ -73,13 +73,13 @@ installation and invocation.
 First install bash-completion:
 
 ```sh
-brew install bash-completion
+brew install bash-completion@2
 ```
 
 Then source bash-completion in your `~/.bashrc` file:
 
 ```sh
-. $(brew --prefix)/etc/bash_completion
+. $brew_prefix/share/bash-completion/bash_completion
 ```
 
 Confirm that bash-completion is enabled by trying the `shopt cd<TAB>` example

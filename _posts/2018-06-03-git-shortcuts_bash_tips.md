@@ -40,6 +40,18 @@ also add.
 ```sh
 complete -o default -o nospace -F _git g
 ```
+**UPDATE (JAN 2019)**: Stealing an idea from the [thoughbot
+dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing
+`g` to `git`, as noted above, make it a smart alias:
+
+```sh
+alias g='_g() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _g'
+```
+
+When invoked without arguments `g` will do a short Git status, otherwise it
+will just pass on the given arguments to the `git` command. Status is likely to
+the be Git command one will execute the most, hence this simple enhancement does
+prove very useful in practice.
 
 ## Bash completion
 

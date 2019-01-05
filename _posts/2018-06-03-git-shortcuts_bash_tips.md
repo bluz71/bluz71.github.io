@@ -60,9 +60,9 @@ information to your prompt.
 As a starting point, add the following to your `~/.bashrc`:
 
 ```sh
-if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+if [[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]]; then
     local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
-elif [ -f /etc/bash_completion.d/git-prompt ]; then
+elif [[ -f /etc/bash_completion.d/git-prompt ]]; then
     local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
 else
     local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
@@ -333,7 +333,7 @@ fzf_git_log() {
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
-    if [ -n "$commits" ]; then
+    if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
         git show $hashes
     fi

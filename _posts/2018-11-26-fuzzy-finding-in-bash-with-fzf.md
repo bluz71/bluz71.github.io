@@ -195,7 +195,7 @@ fzf_find_edit() {
     local file=$(
       fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
       )
-    if [ -n "$file" ]; then
+    if [[ -n $file ]]; then
         $EDITOR $file
     fi
 }
@@ -210,7 +210,7 @@ preferred editor.
 
 ```sh
 fzf_rg_edit(){
-    if [ $# == 0 ]; then
+    if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
     fi
@@ -220,7 +220,7 @@ fzf_rg_edit(){
             --preview "bat --color=always --line-range {2}: {1}"
       )
     local file=$(echo "$match" | cut -d':' -f1)
-    if [ -n "$file" ]; then
+    if [[ -n $file ]]; then
         $EDITOR $file +$(echo "$match" | cut -d':' -f2)
     fi
 }
@@ -239,7 +239,7 @@ fzf_kill() {
     local pids=$(
       ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f3
       )
-    if [ -n "$pids" ]; then
+    if [[ -n $pids ]]; then
         echo "$pids" | xargs kill -9 "$@"
     fi
 }
@@ -259,7 +259,7 @@ involved to kill a recalcitrant process :tada: :tada:
 ```sh
 fzf_git_add() {
     local files=$(git ls-files --modified | fzf --ansi)
-    if [ -n "$files" ]; then
+    if [[ -n $files ]]; then
         git add --verbose $files
     fi
 }
@@ -280,7 +280,7 @@ fzf_git_log() {
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
-    if [ -n "$commits" ]; then
+    if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
         git show $hashes
     fi
@@ -327,7 +327,7 @@ will preview the changes of each hash.
 
 ```sh
 fzf_git_log_pickaxe() {
-     if [ $# == 0 ]; then
+     if [[ $# == 0 ]]; then
          echo 'Error: search term was not provided.'
          return
      fi
@@ -336,7 +336,7 @@ fzf_git_log_pickaxe() {
          fzf --ansi --no-sort --height 100% \
              --preview "git show --color=always {1}"
        )
-     if [ -n "$commits" ]; then
+     if [[ -n $commits ]]; then
          local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
          git show $hashes
      fi

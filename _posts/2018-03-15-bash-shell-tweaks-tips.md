@@ -296,9 +296,9 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 - Display Git branch details in the prompt.
 
     ```sh
-    if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+    if [[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]]; then
         local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
-    elif [ -f /etc/bash_completion.d/git-prompt ]; then
+    elif [[ -f /etc/bash_completion.d/git-prompt ]]; then
         local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
     else
         local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"

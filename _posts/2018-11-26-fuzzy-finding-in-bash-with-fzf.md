@@ -292,7 +292,7 @@ alias gll='fzf_git_log'
 The `ll` Git alias used above should be created with the following command.
 
 ```sh
-git config --global alias.ll 'log --graph --format=format:"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+git config --global alias.ll 'log --graph --format="%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 ```
 
 The `gll` Bash alias displays a compact Git log list that can be filtered by

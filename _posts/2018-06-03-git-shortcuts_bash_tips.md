@@ -250,7 +250,7 @@ g cob <branch>        # Create a new branch and immediately check-out into it
 ## Log aliases
 
 ```sh
-git config --global alias.ll 'log --graph --format=format:"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
+git config --global alias.ll 'log --graph --format="%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 git config --global alias.llm '!git ll master..HEAD'
 git config --global alias.llu '!git ll @{upstream}..HEAD'
 git config --global alias.lld '!git ll HEAD..@{upstream}'

@@ -45,7 +45,7 @@ dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing
 `g` to `git`, as noted above, make it a smart alias:
 
 ```sh
-alias g='_g() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _g'
+alias g='_f() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _f'
 ```
 
 When invoked without arguments `g` will do a short Git status, otherwise it

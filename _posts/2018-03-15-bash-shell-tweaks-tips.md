@@ -382,7 +382,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     `g` to `git`, as noted above, make it a smart alias:
 
     ```sh
-    alias g='_g() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _g'
+    alias g='_f() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _f'
     ```
 
     When invoked without arguments `g` will do a short Git status, otherwise it
@@ -404,7 +404,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 - List all files larger than a given size.
 
     ```sh
-    alias llfs='_llfs(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; _llfs'
+    alias llfs='_f(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; _f'
     ```
 
     For example, `llfs +10k` will find and  display all files larger than 10
@@ -469,7 +469,7 @@ recommend the following settings:
 ```sh
 _Z_NO_PROMPT_COMMAND=1
 . $(brew --prefix)/etc/profile.d/z.sh
-alias c='_c(){ cd "$@" && _z --add "$(pwd)"; }; _c'
+alias c='_f(){ cd "$@" && _z --add "$(pwd)"; }; _f'
 ```
 
 Use the `c` command to record directory changes in the z database (aka

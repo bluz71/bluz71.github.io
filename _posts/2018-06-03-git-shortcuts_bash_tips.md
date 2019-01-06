@@ -252,15 +252,17 @@ g cob <branch>        # Create a new branch and immediately check-out into it
 ```sh
 git config --global alias.ll 'log --graph --format=format:"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 git config --global alias.llm '!git ll master..HEAD'
-git config --global alias.llom '!git ll origin/master..HEAD'
+git config --global alias.llu '!git ll @{upstream}..HEAD'
+git config --global alias.lld '!git ll HEAD..@{upstream}'
 ```
 
 Usage:
 
 ```sh
-g ll   # List commits in a compact colorful format
-g llm  # List commits that differ between current branch and master
-g llom # List commits that differ between current branch and origin/master
+g ll  # List commits in a compact colorful format
+g llm # List commits that exist in current branch but not in master
+g llu # List commits in current branch that are ready to be pushed up
+g lld # List commits in the remote tracking branch that a ready to be pulled down
 ```
 
 ## Merge aliases

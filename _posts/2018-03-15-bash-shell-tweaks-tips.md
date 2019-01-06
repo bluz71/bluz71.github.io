@@ -365,7 +365,8 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     alias ..5='..4; ..'
     ```
 
-    No more need to type `cd ../../..`, just do `..3` instead.
+    No more need to type `cd ../../..`, just do `..3` instead. Also, just type
+    `-` to return the previous directory.
 
 - Git command.
 
@@ -375,6 +376,19 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     ```
 
     If you use Git, then why not save a couple characters?
+
+    **UPDATE (JAN 2019)**: Stealing an idea from the [thoughbot
+    dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing
+    `g` to `git`, as noted above, make it a smart alias:
+
+    ```sh
+    alias g='_g() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@"; fi }; _g'
+    ```
+
+    When invoked without arguments `g` will do a short Git status, otherwise it
+    will just pass on the given arguments to the `git` command. Status is likely to
+    the be Git command one will execute the most, hence this simple enhancement does
+    prove very useful in practice.
 
 - Confirm unsafe file operations.
 
@@ -390,7 +404,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 - List all files larger than a given size.
 
     ```sh
-    alias llfs='find_by_size(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; find_by_size'
+    alias llfs='_llfs(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; _llfs'
     ```
 
     For example, `llfs +10k` will find and  display all files larger than 10
@@ -455,7 +469,7 @@ recommend the following settings:
 ```sh
 _Z_NO_PROMPT_COMMAND=1
 . $(brew --prefix)/etc/profile.d/z.sh
-alias c='cd_with_z(){ cd "$@" && _z --add "$(pwd)"; }; cd_with_z'
+alias c='_c(){ cd "$@" && _z --add "$(pwd)"; }; _c'
 ```
 
 Use the `c` command to record directory changes in the z database (aka

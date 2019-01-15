@@ -206,16 +206,16 @@ g unadd <file> # Unstage a file
 ## Commit aliases
 
 ```sh
-git config --global alias.cc 'commit'
-git config --global alias.uncc 'reset --soft HEAD~1'
+git config --global alias.ci 'commit'
+git config --global alias.unci 'reset --soft HEAD~1'
 git config --global alias.oops 'commit --amend'
 ```
 
 Usage:
 
 ```sh
-g cc   # Commit staged changes
-g uncc # Undo the last commit. Note, do NOT do this for pushed commits.
+g ci   # Commit staged changes
+g unci # Undo the last commit. Note, do NOT do this for pushed commits.
 g oops # Modify the most recent commit. Note, do NOT do this for pushed commits.
 ```
 

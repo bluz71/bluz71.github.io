@@ -304,6 +304,7 @@ git config --global alias.sa '!sh -c "git stash apply stash@{$1}" -'
 git config --global alias.sd '!sh -c "git stash drop stash@{$1}" -'
 git config --global alias.sl 'stash list'
 git config --global alias.ss 'stash save --include-untracked'
+git config --global alias.ssp '!sh -c 'git stash show -p stash@{$1}' -'
 ```
 
 Usage:
@@ -312,8 +313,9 @@ Usage:
 g sl        # List current stashes
 g ss        # Save current changes with auto-generated name
 g ss <name> # Save current changes with specified name
-g sa 0      # Apply top stash, use 'g sl' to list stash numbers
+g sa 0      # Apply specified stash, use 'g sl' to list stash numbers
 g sd 0      # Delete specified stash, use 'g sl' to list stash numbers
+g ssp 0     # Show the changes of the specified stash in diff preview format
 ```
 
 ## Fuzzy-finding command-line Git browser

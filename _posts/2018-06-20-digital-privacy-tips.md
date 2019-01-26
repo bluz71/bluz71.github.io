@@ -67,7 +67,7 @@ Security-focussed VPN providers that I trust.
 
 - [ProtonVPN](https://protonvpn.com)
 
-- [BolehVPN](https://www.bolehvpn.net)
+- [VPN.AC](https://vpn.ac)
 
 - [AirVPN](https://airvpn.org)
 

@@ -200,7 +200,7 @@ If your data bandwidth is limited, and you simply **must** use public Wi-Fi, the
 it is strongly recommended that you only use such Wi-Fi in combination with a
 [strong virtual private network (VPN)](http://www.techradar.com/news/public-wi-fi-and-why-you-need-a-vpn).
 I recommend trusted commercial VPN providers such as:
-[ProtonVPN](https://protonvpn.com), [BolehVPN](https://www.bolehvpn.net) or
+[ProtonVPN](https://protonvpn.com), [VPN.AC](https://vpn.ac) or
 [IVPN](https://www.ivpn.net). Note, ProtonVPN also offers a low-bandwidth free
 VPN option, this is an excellent choice if you infrequently need to use public
 Wi-Fi.

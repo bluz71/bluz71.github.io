@@ -101,7 +101,7 @@ Git's default machine-readable `diff` output with one that is more human
 readable.
 
 Installation is most easily accomplished via [Homebrew](https://brew.sh) on
-macOS and [Linuxbrew](http://linuxbrew.sh) on Linux.
+macOS and [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
 
 ```sh
 brew install diff-so-fancy

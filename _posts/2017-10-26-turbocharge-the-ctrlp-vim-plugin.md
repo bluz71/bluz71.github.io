@@ -39,7 +39,7 @@ is to specify a fast external file lister. The fastest such tool I have
 encountered is [fd](https://github.com/sharkdp/fd).
 
 It is quite easily installed using `brew` on macOS or Linux (using
-[Linuxbrew](http://linuxbrew.sh/)):
+[Linuxbrew](https://docs.brew.sh/Linuxbrew)):
 
 ```
 brew install fd

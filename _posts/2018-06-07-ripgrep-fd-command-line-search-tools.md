@@ -51,7 +51,7 @@ Installation
 ------------
 
 ripgrep is easily installed using [Homebrew](https://brew.sh) on macOS and
- [Linuxbrew](http://linuxbrew.sh) on Linux.
+ [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
 
 ```sh
 brew install ripgrep
@@ -130,7 +130,7 @@ Installation
 ------------
 
 fd is easily installed using [Homebrew](https://brew.sh) on macOS and
- [Linuxbrew](http://linuxbrew.sh) on Linux.
+ [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
 
 ```sh
 brew install fd

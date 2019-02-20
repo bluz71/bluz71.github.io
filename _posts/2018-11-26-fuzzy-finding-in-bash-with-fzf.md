@@ -209,7 +209,7 @@ preferred editor.
 ### Find File with Term and Edit
 
 ```sh
-fzf_rg_edit(){
+fzf_grep_edit(){
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
@@ -225,7 +225,7 @@ fzf_rg_edit(){
     fi
 }
 
-alias frge='fzf_rg_edit'
+alias fge='fzf_grep_edit'
 ```
 
 Fuzzy find a file, with colorful preview, that contains the supplied term, then

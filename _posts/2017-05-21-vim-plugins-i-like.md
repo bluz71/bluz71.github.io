@@ -271,33 +271,6 @@ needs instead of *CtrlP*.
 instead of CtrlP as [noted
 here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html).
 
-UltiSnips
----------
-
-```viml
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger       = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-```
-
-The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
-easily insert predefined text segments in the current buffer.
-
-The following Vimcasts are an excellent introduction to *UltiSnips*, please
-view:
-
-- [Meet UltiSnips](http://vimcasts.org/episodes/meet-ultisnips/)
-- [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
-- [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
-
-Note, by default *UltiSnips* will use the **TAB** character to expand a
-snippet, however that will conflict with the *supertab* plugin. Instead use
-`Control-j`, as defined above, to expand and then navigate forward through a
-snippet's tabstops and `Control-k` to navigate back up through the tabstops.
-
-The small set of snippets I use are declared [here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
-
 NERDTree
 --------
 
@@ -386,6 +359,33 @@ I would classify *VimCompletesMe*, *supertab*, *MUcomplete*  and
 spectrum whilst the others I would classify as being towards the advanced,
 sometimes heavy end of the spectrum. Personally, I recommend starting simple
 then moving up only when necessary.
+
+UltiSnips
+---------
+
+```viml
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger       = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+```
+
+The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
+easily insert predefined text segments in the current buffer.
+
+The following Vimcasts are an excellent introduction to *UltiSnips*, please
+view:
+
+- [Meet UltiSnips](http://vimcasts.org/episodes/meet-ultisnips/)
+- [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
+- [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
+
+Note, by default *UltiSnips* will use the **TAB** character to expand a
+snippet, however that will conflict with the *VimCompletesMe* plugin. Instead
+use `Control-j`, as defined above, to expand and then navigate forward through
+a snippet's tabstops and `Control-k` to navigate back up through the tabstops.
+
+The small set of snippets I use are declared [here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
 
 indentLine
 ----------

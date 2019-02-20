@@ -227,7 +227,7 @@ Plug 'chaoren/vim-wordmotion'
 
 The [wordmotion](https://github.com/chaoren/vim-wordmotion) plugin expands
 Vim's definition of a word motion. This plugin will take into account camel and
-snake-case and allow navigation within such words defined with such casing.
+snake-case and allow navigation within words defined with such casing.
 
 This plugin will not suit everyone, but for certain language, such as
 [Ruby](https://www.ruby-lang.org/) which uses both camel and snake-case, it has

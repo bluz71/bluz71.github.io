@@ -202,6 +202,7 @@ clever-f
 ```viml
 Plug 'rhysd/clever-f.vim'
 let g:clever_f_across_no_line = 1
+let g:clever_f_fix_key_direction = 1
 let g:clever_f_timeout_ms = 3000
 ```
 
@@ -266,8 +267,9 @@ Lastly, be aware that quite a few Vim users are now using
 [fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
 needs instead of *CtrlP*.
 
-**UPDATE (DEC 2018)**: I now use fzf.vim instead of CtrlP as documented
-[here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html)
+**UPDATE (DEC 2018)**: I now use [fzf.vim](https://github.com/junegunn/fzf.vim)
+instead of CtrlP as [noted
+here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html).
 
 UltiSnips
 ---------
@@ -346,49 +348,43 @@ I find the visual information provided by this plugin to be genuinely useful. I
 recommend all NERDTree users, who manage code via Git repositories, to give
 this plugin a try.
 
-supertab
---------
+VimCompletesMe
+--------------
 
 ```viml
-Plug 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-autocmd FileType css,scss let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+Plug 'ajh17/VimCompletesMe'
+autocmd FileType css,javascript.jsx,ruby,scss let b:vcm_tab_complete = "omni"
 ```
 
-The [supertab](https://github.com/ervandew/supertab) plugin uses the **TAB**
-character to carry out completions, using Vim's various existing completion
-options, whilst in *insert* mode. The plugin itself determines the appropriate
-type of completion, be it *keyword*, *file* or *omni* completion, based on the
+The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the
+**TAB** character, whilst in *insert* mode, to carry out completions using
+Vim's various built-in completions. The plugin itself usually determines the
+appropriate type of completion, be it *keyword*, *file* or
+[omni](http://vim.wikia.com/wiki/Omni_completion) completion, based on the
 current context.
 
-Note, the above listed `autocmd` is required for nice *supertab* completions in
-**CSS** files.
+Note, the above listed `autocmd` will result in *omni* completion being used as
+the primary completion choice for the listed language types. Feel free to vary
+for your needs.
 
-Similar to *CtrlP* and *NERDTree*, it seems that the mature *supertab* plugin
-is a little uncool to like these days especially with modern alternatives
-available. It is often accused of having a crufty codebase, which may well be
-true, but I continue to use it simply because it *just works.* But it must be
-said, my completion needs are modest and I find Vim's existing *omni*-based
-completion to be quite good, not *Jetbrains* IDE good, but good enough for me.
-
-If *supertab* doesn't float your boat then rest assured there are many
-completion choices available ranging from the simple to the advanced. Such Vim
+If *VimCompletesMe* doesn't float your boat then rest assured there are many
+completion choices available ranging from the simple to the advanced, some even
+support [Language Server Protocol](https://langserver.org). Such Vim
 plugin completion choices include:
 
-- [VimCompletesMe](https://github.com/ajh17/VimCompletesMe)
+- [Supertab](https://github.com/ervandew/supertab)
 - [MUcomplete](https://github.com/lifepillar/vim-mucomplete)
 - [vim-simple-complete](https://github.com/maxboisvert/vim-simple-complete)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 - [neocomplete](https://github.com/Shougo/neocomplete.vim)/[deoplete](https://github.com/Shougo/deoplete.nvim)
 - [nvim-completion-manager](https://github.com/roxma/nvim-completion-manager)
 - [completor.vim](https://github.com/maralla/completor.vim)
+- [Coc](https://github.com/neoclide/coc.nvim)
 
-I would classify *supertab*, *VimCompletesMe*, *MUcomplete*  and
+I would classify *VimCompletesMe*, *supertab*, *MUcomplete*  and
 *vim-simple-complete* as being towards the simple/light end of completion
 spectrum whilst the others I would classify as being towards the advanced,
-sometimes heavy, end of the spectrum. Personally, I recommend starting simple
+sometimes heavy end of the spectrum. Personally, I recommend starting simple
 then moving up only when necessary.
 
 indentLine
@@ -484,12 +480,15 @@ vim-test
 
 ```viml
 Plug 'janko-m/vim-test'
-noremap <silent> <leader>.  :TestNearest<CR>
+let test#javascript#jest#executable = 'CI=true yarn test --colors'
+noremap <silent> <leader>tt :TestNearest<CR>
 noremap <silent> <leader>tf :TestFile<CR>
 noremap <silent> <leader>ts :TestSuite<CR>
 noremap <silent> <leader>tl :TestLast<CR>
 if has("nvim")
     let test#strategy = "neovim"
+else
+    let test#strategy = "vimterminal"
 endif
 ```
 
@@ -498,9 +497,16 @@ interface to various back-end testing frameworks. This plugin allows one to
 agnostically run tests for different languages and their associated testing
 frameworks.
 
-Note, Neovim's inbuilt terminal is well integrated with *vim-test*. The above
-`has neovim` configuration will run tests in a split terminal window unlike Vim
-which will shell-out by default.
+Since we are using modern versions of Vim, let's use the terminal capabilities
+provided to run tests in a split terminal window.
+
+Note, the following configuration is required to use *vim-test* with
+[Create React App](https://github.com/facebook/create-react-app) created
+projects:
+
+```viml
+let test#javascript#jest#executable = 'CI=true yarn test --colors'
+```
 
 vim-closer
 ----------

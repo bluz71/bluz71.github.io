@@ -517,8 +517,7 @@ Since we are using modern versions of Vim, let's use the terminal capabilities
 provided to run tests in a split terminal window.
 
 Note, the following configuration is required to use *vim-test* with
-[Create React App](https://github.com/facebook/create-react-app) created
-projects:
+[Create React App](https://github.com/facebook/create-react-app) projects:
 
 ```viml
 let test#javascript#jest#executable = 'CI=true yarn test --colors'

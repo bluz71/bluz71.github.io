@@ -291,7 +291,7 @@ NERDTree
 --------
 
 ```viml
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeHijackNetrw = 0
 noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
 noremap <silent> <leader>f :NERDTreeFind<CR> <C-w>=

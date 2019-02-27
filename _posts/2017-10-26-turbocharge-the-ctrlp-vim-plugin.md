@@ -26,9 +26,10 @@ This post is all about the middle ground, that being to still use CtrlP for
 fuzzy finding, but greatly improving its performance and also improving the
 quality of the match results.
 
-**UPDATE (DEC 2018)**: I now use fzf.vim instead of CtrlP as documented
+**UPDATE (DEC 2018)**: I now use [fzf.vim](https://github.com/junegunn/fzf.vim)
+instead of CtrlP as documented
 [here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html).
-The fzf issue noted above no longer applies since Neovim & Vim integrated a
+The fzf issue noted above no longer applies since Neovim & Vim both integrated a
 terminal.
 
 Faster file listing using fd

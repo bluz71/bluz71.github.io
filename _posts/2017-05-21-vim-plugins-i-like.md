@@ -8,11 +8,13 @@ published: true
 Vim Plugins I Like
 ==================
 
+**UPDATED FEBRUARY 2019**
+
 Vim gains much functionality through the inclusion of *plugins*.
 
-This post contains a curated set of my favourite Vim plugins. Note, most of
+This post contains a curated set of my favourite Vim plugins. Note, many of
 these plugins are *the usual suspects*. I also fully acknowledge that there are
-**many** useful Vim plugins beyond those discussed here, hence, I do encourage
+**numerous** useful plugins beyond those discussed here, hence, I do encourage
 Vim users to explore, test and discuss those plugins they appreciate.
 
 The full set of plugins and mappings I use are available in my
@@ -21,16 +23,17 @@ The full set of plugins and mappings I use are available in my
 vim-plug
 --------
 
-The first decision a Vim user, looking to enter the plugin world, must decide
-is which plugin manager to use. There are many to choose from:
+The first decision a Vim user, looking to enter the plugin world, must decide is
+which plugin manager to use. There are many to choose from:
 [Vundle](https://github.com/VundleVim/Vundle.vim),
 [Pathogen](https://github.com/tpope/vim-pathogen),
-[vim-plug](https://github.com/junegunn/vim-plug), and
-[Dein](https://github.com/Shougo/dein.vim) to name a few.
+[vim-plug](https://github.com/junegunn/vim-plug),
+[Dein](https://github.com/Shougo/dein.vim) and [Vim 8 native package
+management](http://vimcasts.org/episodes/packages/) to name a few.
 
-Each will do the job, but for *simplicity* and *performance* the
-[vim-plug](https://github.com/junegunn/vim-plug) plugin manager is the one I
-like most.
+Each will do the job, but for *simplicity*, *performance* and *features* 
+the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager is the one I
+use.
 
 Note, if you are a *Vundle* user, like I was, transferring over to *vim-plug*
 is simple, just follow
@@ -225,10 +228,10 @@ vim-wordmotion
 Plug 'chaoren/vim-wordmotion'
 ```
 
-The [wordmotion](https://github.com/chaoren/vim-wordmotion) plugin expands
-Vim's definition of a word motion. This plugin will take into account camel and
-snake-case (and other unusal word definitions) and allow navigation, using `w`
-and `b`, within such words.
+The [wordmotion](https://github.com/chaoren/vim-wordmotion) plugin expands Vim's
+definition of a word. This plugin will take into account programming-related
+camel and snake-case (and other unusal word definitions) and allow navigation,
+using `w` and `b`, within such *words*.
 
 This plugin will not suit everyone, but for certain language, such as
 [Ruby](https://www.ruby-lang.org/) which uses both camel and snake-case, it has
@@ -247,37 +250,37 @@ let g:ctrlp_match_window_reversed = 0
 The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is a fuzzy file
 finder.
 
-I highly recommend installing [fd](https://github.com/sharkdp/fd) and
-configuring *CtrlP* to use it and to **not** cache results. *fd* is a highly
-performant file find utility and it mates very well with *CtrlP*. Turning off
-caching means that every time *CtrlP* is run it will select from all available
-files including new ones.
+I recommend installing [fd](https://github.com/sharkdp/fd) and configuring
+*CtrlP* to use it and to **not** cache results. *fd* is a highly performant file
+find utility and it mates very well with *CtrlP* as noted
+[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#fd)
+and
+[here](https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html).
 
 Also, here are some handy mappings for [Ruby on Rails](http://rubyonrails.org/)
 or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:
 
 ```viml
-if filereadable('config/environment.rb') && isdirectory('app')
+if filereadable('config/routes.rb')
     " This looks like a Rails app.
     noremap <localleader>ec :CtrlP app/controllers<CR>
     noremap <localleader>eh :CtrlP app/helpers<CR>
     noremap <localleader>em :CtrlP app/models<CR>
     noremap <localleader>es :CtrlP spec<CR>
-    noremap <localleader>eT :CtrlP test<CR>
     noremap <localleader>ev :CtrlP app/views<CR>
 elseif filereadable('web/router.ex')
     " This looks like an Elixir/Phoenix app.
     noremap <localleader>ec :CtrlP web/controllers<CR>
     noremap <localleader>em :CtrlP web/models<CR>
-    noremap <localleader>eT :CtrlP test<CR>
-    noremap <localleader>et :CtrlP web/templates<CR>
+    noremap <localleader>et :CtrlP test<CR>
     noremap <localleader>ev :CtrlP web/views<CR>
+    noremap <localleader>ex :CtrlP web/templates<CR>
 endif
 ```
 
 Those mappings, which can also easily be extended for other frameworks, provide
-quick and direct access to *model/view/controller* files (among others) in
-their appropriate directories.
+quick and direct access to *model/view/controller* files (among others) from
+their standard directories.
 
 Lastly, be aware that quite a few Vim users are now using
 [fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
@@ -460,33 +463,53 @@ all the best standalone language plugins, such as
 of all this plugin will configure all language scripts to only load when
 required.
 
-Neomake
--------
+ALE
+---
 
 ```viml
-Plug 'neomake/neomake'
-let g:neomake_open_list = 1
-noremap <silent> <leader>m :Neomake<CR>
+Plug 'w0rp/ale'
+let g:ale_linters = {
+\  'css':        ['csslint'],
+\  'javascript': ['eslint'],
+\  'json':       ['jsonlint'],
+\  'markdown':   ['mdl'],
+\  'ruby':       ['rubocop'],
+\  'scss':       ['sasslint'],
+\  'yaml':       ['yamllint']
+\}
+let g:ale_linters_explicit = 1
+let g:ale_open_list = 1
 ```
 
-The [Neomake](https://github.com/neomake/neomake) plugin is used to
+The [ALE](https://github.com/w0rp/ale) plugin is used to
 asynchronously run language linters, or compilers, within modern versions of
 Vim.
 
-Neomake ships with configurations for most common languages, such as JavaScript
+ALE ships with configurations for most common languages, such as JavaScript
 and Ruby to name a few, hence very little configuration is usually required.
-Note, the tools that *Neomake* uses, such as *eslint* or *rubocop*, **will**
-need to be installed on the host.
+Note, the tools that *ALE* uses, such as *eslint* or *rubocop*, **will**
+need to be installed on the host, the ALE plugin will not install the underlying
+lint tools.
 
-I like to use a mapping, `<leader>m`, to invoke Neomake when I desire, others
-however prefer to hook into to the file save event as follows:
+I like to use a mapping, `<leader>l`, to invoke ALE when I desire, others
+however prefer to have ALE lint code is it is being written (the default
+behaviour). My ALE settings:
 
 ```viml
-autocmd! BufWritePost * Neomake
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_text_changed = 'never'
+nnoremap <localleader>l :ALELint<CR>
+nnoremap <localleader><BS> :ALEReset<CR>
 ```
 
-Neomake is not the only asynchronous linting solution for Vim, an alternative
-is [ALE](https://github.com/w0rp/ale) which will live lint unlike Neomake.
+Note, use the `:ALEInfo` command to display runtime information per the
+current file type, use it when you need to debug any ALE linting issues.
+
+ALE is not the only asynchronous linting solution for Vim, an alternative
+is [Neomake](https://github.com/neomake/neomake) which does much the same job.
 
 Developers should integrate linting into their development flow, either one of
 these two modern plugins should satisfy that need.
@@ -541,7 +564,7 @@ vim-auto-save
 
 ```viml
 Plug '907th/vim-auto-save'
-let g:auto_save        = 1
+let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 ```
@@ -688,9 +711,9 @@ let g:projectionist_heuristics = {
       \}
 noremap <leader>ec :Econtroller<Space>
 noremap <leader>em :Emodel<Space>
-noremap <leader>et :Etemplate<Space>
-noremap <leader>eT :Etest<Space>
+noremap <leader>et :Etest<Space>
 noremap <leader>ev :Eview<Space>
+noremap <leader>ex :Etemplate<Space>
 noremap <leader>A  :A<CR>
 ```
 
@@ -823,7 +846,7 @@ often:
   through *vim-grepper* results
 
 - `[l` / `]l` - navigate up and down through the **l**ocation list, for instance
-  through *neomake* results
+  through *ALE* results
 
 - `[a` / `]a` - navigate backward and forward through the file list
 

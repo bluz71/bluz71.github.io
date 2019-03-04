@@ -434,6 +434,7 @@ runtime autoload/grepper.vim
 let g:grepper.jump = 1
 let g:grepper.stop = 500
 noremap <leader>gr :GrepperRg<Space>
+xmap gr <plug>(GrepperOperator)
 ```
 
 The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
@@ -447,6 +448,8 @@ search matches to a max of 500 matches since I want speedy results and also
 because I never usually have that many hits.
 
 I have a simple mapping `<leader>gr` to invoke *vim-grepper*'s *ripgrep* search.
+The visual mode mapping `gr` will invoke a *ripgrep* search upon the current
+visual selection.
 
 vim-polyglot
 ------------

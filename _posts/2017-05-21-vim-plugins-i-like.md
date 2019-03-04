@@ -345,7 +345,7 @@ VimCompletesMe
 
 ```viml
 Plug 'ajh17/VimCompletesMe'
-autocmd FileType css,javascript.jsx,ruby,scss let b:vcm_tab_complete = "omni"
+autocmd FileType css,ruby,scss let b:vcm_tab_complete = "omni"
 ```
 
 The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the
@@ -501,8 +501,8 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_text_changed = 'never'
-nnoremap <localleader>l :ALELint<CR>
-nnoremap <localleader><BS> :ALEReset<CR>
+nmap <localleader>l <Plug>(ale_lint)
+nmap <localleader><BS> <Plug>(ale_reset_buffer)
 ```
 
 Note, use the `:ALEInfo` command to display runtime information per the

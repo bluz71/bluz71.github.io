@@ -283,7 +283,7 @@ Fold code in Vim
 
 ```viml
 set foldmethod=indent
-nnoremap <leader><Space> za
+nnoremap <leader>, za
 ```
 
 There are multiple choices available when choosing a Vim fold method. I like to

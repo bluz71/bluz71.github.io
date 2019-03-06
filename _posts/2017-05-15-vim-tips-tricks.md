@@ -198,19 +198,20 @@ Or using Tim Pope's superb case-smart
 :cfdo %S/oldterm/newterm/ | update
 ```
 
-Change word under cursor and dot repeat
----------------------------------------
+Substitute word under cursor and dot repeat
+-------------------------------------------
 
 ```viml
-nnoremap c* *Ncgn
-nnoremap c# #NcgN
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 ```
 
-The relatively new `gn` command allows for easy operation on the *next* match
-of a completed search. These `c*` and `c#` mappings make use of `gn` to provide
-easy *word-under-cursor* changing, aka in-file refactoring. Best of all simply
-use `.` (dot) to repeat that change for the next match instead of `n.` as has
-usually been necessary in Vim when doing such changes.
+The relatively new `gn` command allows easy operation on the *next* match of a
+completed search. These `s*` normal and visual mode mappings make use of `gn` to
+provide easy *word-under-cursor* or *visual-selected-term* substitution, aka
+in-file refactoring. Best of all simply use `.` (dot) to repeat that
+substitution for the next match instead of `n.` as has usually been necessary in
+Vim when doing such changes.
 
 Complete a line with *Control-x Control-l*
 ------------------------------------------
@@ -234,7 +235,7 @@ line by repeating an existing line.
 Dictionary complete current word with *Control-x Control-k*
 -----------------------------------------------------------
 
-Complete the current word with *omni dictionary completion:*
+Complete the current word with *dictionary completion:*
 
 ```
 Control-x Control-k
@@ -250,10 +251,10 @@ If that key combination is a little difficult to type, then it may be
 worthwhile to set the following mapping:
 
 ```viml
-inoremap <C-k> <C-x><C-k>
+inoremap <C-d> <C-x><C-k>
 ```
 
-One only need type *Control-k* whilst in insert mode to complete the current
+One only need type *Control-d* whilst in insert mode to complete the current
 word by using dictionary-based completion.
 
 Repeat last visual selection with *gv*

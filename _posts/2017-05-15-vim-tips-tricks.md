@@ -202,22 +202,39 @@ Substitute word under cursor and dot repeat
 -------------------------------------------
 
 ```viml
-nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+nnoremap <silent> c* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> c* "sy:let @/=@s<CR>cgn
 ```
 
 The relatively new `gn` command allows easy operation on the *next* match of a
-completed search. These `s*` normal and visual mode mappings make use of `gn` to
+completed search. These `c*` normal and visual mode mappings make use of `gn` to
 provide easy *word-under-cursor* or *visual-selected-term* substitution, aka
 in-file refactoring. Best of all simply use `.` (dot) to repeat that
 substitution for the next match instead of `n.` as has usually been necessary in
 Vim when doing such changes.
 
+Star search that does not move the cursor
+-----------------------------------------
+
+The `*` operator will find and navigate to the next instance of the word under
+the cursor. The [visual-star-search](https://github.com/nelstrom/vim-visual-star-search) plugin expands that paradigm to visual selections.
+
+But in certain instances one may want to search for the word under the cursor or
+the current visual selection **but** not move to the next instance. For instance
+one may wish to only highlight matches.
+
+These `g*` mappings will behave like `*` whilst keeping the cursor where it is.
+
+```viml
+nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
+xnoremap <silent> g* "sy:let @/=@s<CR>
+```
+
 Complete a line with *Control-x Control-l*
 ------------------------------------------
 
-Sometimes in insert mode you may wish to repeat an existing full line; *omni
-line completion* is up to the task:
+Sometimes in insert mode you may wish to repeat an existing full line; *line
+completion* is up to the task:
 
 ```
 Control-x Control-l
@@ -235,7 +252,7 @@ line by repeating an existing line.
 Dictionary complete current word with *Control-x Control-k*
 -----------------------------------------------------------
 
-Complete the current word with *dictionary completion:*
+Complete the current word with *dictionary completion* whilst in insert mode:
 
 ```
 Control-x Control-k
@@ -247,15 +264,16 @@ recommend:
 ```viml
 set dictionary=/usr/share/dict/words
 ```
-If that key combination is a little difficult to type, then it may be
-worthwhile to set the following mapping:
+
+If that key combination is a little difficult to type, then it may be worthwhile
+to set the following mapping:
 
 ```viml
 inoremap <C-d> <C-x><C-k>
 ```
 
-One only need type *Control-d* whilst in insert mode to complete the current
-word by using dictionary-based completion.
+One only need type *Control-d* (d for dictionary) whilst in insert mode to
+complete the current word by using dictionary-based completion.
 
 Repeat last visual selection with *gv*
 --------------------------------------

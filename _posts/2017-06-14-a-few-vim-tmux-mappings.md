@@ -253,8 +253,8 @@ In my case that is a non-issue since I use the
 [clever-f](https://github.com/rhysd/clever-f.vim) plugin which provides `f` and
 `F` as repeat operators among other benefits.
 
-Center next *Vim* search match
-------------------------------
+Center next *Vim* search matches
+--------------------------------
 
 ```viml
 noremap n nzz
@@ -283,7 +283,7 @@ Fold code in Vim
 
 ```viml
 set foldmethod=indent
-nnoremap <leader>, za
+nnoremap <leader>z za
 ```
 
 There are multiple choices available when choosing a Vim fold method. I like to
@@ -303,10 +303,28 @@ Zoom a *Vim* split
 ------------------
 
 ```viml
-noremap <silent> <leader>z :tab split<CR>
+noremap <silent> <leader>Z :tab split<CR>
 ```
 
 This handy mapping zooms a split into its own full tab page. This is
 useful when the current workspace has been divided multiple times making edits
 to any single split difficult due to a lack of space. In that case simply
 *zoom* the split.
+
+Yank, paste and delete helpers
+------------------------------
+
+```viml
+noremap <leader>y "yy
+noremap <leader>p "yp
+noremap <leader>P "yP
+noremap <leader>x "_x
+noremap <leader>d "_d
+```
+
+Yank and paste into and out-of the user `y`-register. Normal yanks and pastes
+are prone to being accidentally overwritten by subsequent operations. Use these
+commands if you wish to persist a yank operation.
+
+The `<leader>x` and `<leader>d` commands will delete into the black-hole
+register, hence will not overwrite the unnamed register.

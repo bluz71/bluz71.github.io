@@ -430,10 +430,11 @@ impact on Vim scroll performance.
 ```viml
 Plug 'mhinz/vim-grepper'
 let g:grepper = {}
+let g:grepper.tools = ["rg"]
 runtime autoload/grepper.vim
 let g:grepper.jump = 1
-let g:grepper.stop = 500
 noremap <leader>gr :GrepperRg<Space>
+nnoremap gr :Grepper -cword -noprompt<CR>
 xmap gr <plug>(GrepperOperator)
 ```
 
@@ -441,15 +442,19 @@ The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
 interface to various text search utilities including my favourite, the
 [ripgrep](https://github.com/BurntSushi/ripgrep) search utility.
 
-Upon execution *vim-grepper* search matches will populate Vim's *quickfix* list
-allowing easy navigation through the hits. Note, when run on a modern version
-of Vim or Neovim the search will be executed asynchronously. I also limit
-search matches to a max of 500 matches since I want speedy results and also
-because I never usually have that many hits.
+For more details about *ripgrep* please read [this
+post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
+Short summary, *ripgrep* is fast and is repository aware (aka it will skip
+ignores).
 
-I have a simple mapping `<leader>gr` to invoke *vim-grepper*'s *ripgrep* search.
-The visual mode mapping `gr` will invoke a *ripgrep* search upon the current
-visual selection.
+Upon execution *Grepper* search matches will populate Vim's *quickfix* list
+allowing easy navigation through the matches. Note, when run on a modern version
+of Vim or Neovim the search will be executed asynchronously.
+
+I have a simple mapping `<leader>gr` to invoke an interactive *Grepper* search.
+The normal mode mapping `gr` will invoke a search on the word under the cursor
+whilst the visual mode mapping `gr` will invoke a search on the current visual
+selection.
 
 vim-polyglot
 ------------

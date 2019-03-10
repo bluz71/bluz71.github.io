@@ -113,8 +113,8 @@ Mapping the `+` and `-` keys to increment and decrement feels more natural than
 using the `ctrl` based defaults:
 
 ```viml
-noremap + <C-a>
-noremap - <C-x>
+nnoremap + <C-a>
+nnoremap - <C-x>
 ```
 
 Simply hit `+` or `-` to adjust numbers on the current line.

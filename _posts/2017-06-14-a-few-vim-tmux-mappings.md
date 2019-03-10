@@ -328,3 +328,31 @@ commands if you wish to persist a yank operation.
 
 The `<leader>x` and `<leader>d` commands will delete into the black-hole
 register, hence will not overwrite the unnamed register.
+
+Insert mode completion mappings
+-------------------------------
+
+```viml
+inoremap <C-]>     <C-x><C-]>
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-d>     <C-x><C-k>
+inoremap <C-f>     <C-x><C-f>
+inoremap <C-l>     <C-x><C-l>
+```
+
+When in insert mode Vim provides a suite of useful context-aware completions via
+the `<Control-x>` prefix. However, I find it difficult and annoying to enter
+these completions, the `Control Control` cadence feels too much like Emacs.
+
+Instead I prefer to use these simpler mappings:
+
+- `Control-]`, complete using the project tags file
+
+- `Control-Space`, context and programming language aware omni-completion
+
+- `Control-d`, dictionary completion, please also set `set
+    dictionary=/usr/share/dict/words`
+
+- `Control-f`, file path completion
+
+- `Control-l`, whole-of-line completion

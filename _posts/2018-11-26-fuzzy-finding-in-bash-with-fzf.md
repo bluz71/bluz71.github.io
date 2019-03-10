@@ -315,10 +315,10 @@ fzf_git_reflog() {
     echo $hash
 }
 
-alias grf='fzf_git_reflog'
+alias grl='fzf_git_reflog'
 ```
 
-The `grf` Bash alias displays a Git
+The `grl` Bash alias displays a Git
 [reflog](https://git-scm.com/docs/git-reflog) list that can be filtered by
 entering in a fuzzy term at the prompt. Navigation up and down the hash list
 will preview the changes of each hash.

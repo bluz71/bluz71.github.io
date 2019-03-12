@@ -152,8 +152,8 @@ system command:
 :'<,'>sort u
 ```
 
-Project wide substitution using *cfdo*
--------------------------------------
+<a id="cfdo"></a>Project wide substitution using *cfdo*
+-------------------------------------------------------
 
 Historically it has been awkward to carry out multi-file substitutions in
 Vim. Many possibilities exist, some involving `argo`, others involving

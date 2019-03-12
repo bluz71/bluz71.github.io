@@ -19,12 +19,12 @@ throughout a project's entire codebase.
 
 Vim does not prescribe a recommended way to do such refactors, for example: one
 may change-word with `cw` and then do `n.n.n.`, or one may use the `:subsitute`
-command to name two choices among many.
+command, to name two choices among many.
 
 This post will highlight my new approaches to _finding & replacing_ in Vim for
 the following three scenarios:
 
--   Find & replace nearby instances in the current file
+-   Find & replace nearby instances
 
 -   Find & replace within the current file
 
@@ -62,8 +62,8 @@ set gdefault
 
 :bomb: I am aware this is a controversial setting since it **may** break
 **some** plugins. Note, after many years I have yet to experience any
-deleterious effects with the plugins I use, 40 or so, whilst I thoroughly
-detested the need to enter `/g` with every `:substitute` command prior to that.
+deleterious effects with the plugins I use, whilst I thoroughly detested the
+need to enter `/g` with every `:substitute` command prior to that.
 
 ## Nearby Find & Replace
 
@@ -73,9 +73,9 @@ a multi-cursor option which allows a user to mark multiple locations, after
 searching for a term, and then batch-edit simultaneously at those locations.
 This pattern works well for finding and replacing instances that are nearby.
 
-With Vim, I recommend against the usage of any multi-cursor plugins, instead the
-recent [`gn`
-command](http://vimcasts.org/episodes/operating-on-search-matches-using-gn) is
+With Vim, I recommend against the use of any multi-cursor plugins, instead the
+modern `gn`
+[command](http://vimcasts.org/episodes/operating-on-search-matches-using-gn) is
 the natural operator for this scenerio.
 
 Helpers to add to `~/.vimrc`
@@ -91,13 +91,47 @@ xnoremap ! <Esc>ngnzz
 Initiate the nearby replacements by executing `\c` on the word to be replaced or
 for the current visual selection, type the new text and then hit `Escape` to
 complete the change. The dot operator will immediately repeat that change
-forward for the next match, hitting dot again to repeat the change. However, if
-one wishes to accept or reject each change individually then the enter and
-exclamation mark mappings listed above will prove useful; `Enter` will accept
-the change and then move forward to the next match, `!` will reject the change
-whilst also moving forward to the next match.
+forward for the next match, hit dot again to continue repeating the change.
+However, if one wishes to individually accept or reject each change then the
+enter and exclamation mark mappings listed above will prove useful; `Enter` will
+accept the change and then move forward to the next match, `!` will reject the
+change whilst also moving forward to the next match.
 
 Why `\c` as the mapping? Back-slash is available for user mappings, and it
 reminds me of forward-slash which is Vim's search operator. The **c** is for
 change. So the mnemonic behind `\c` is find-and-change. Please replace it with
 whatever key-sequence works best for you.
+
+## Find & Replace in the Current File
+
+Helpers to add to `~/.vimrc`
+
+```viml
+nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
+xnoremap \s "sy:%s/<C-r>s//<Left>
+```
+
+As most Vim users will be aware, the `:substitute` command when prefixed with
+`%` is all that is required to subsitute throughout the current file. The `\s`
+helper above will simply pre-populate the pattern field with either the word
+under the cursor or the current visual selection, one is then free to simply
+enter the replacement text.
+
+Similar to the `\c` mapping above, the mnemonic behind `\s` is
+find-and-substitute, **s** for substitute. Please replace it with whatever
+key-sequence works best for you.
+
+Note, if confirmation for each replacement is required than append `/c` to the
+end of the `:substitute` command.
+
+:bulb: Neovim provides a setting, `inccommand` to live preview the `:subtitute`
+command. If using Neovim I strongly recommend enabling that setting.
+
+```viml
+if has("nvim")
+    set inccommand=nosplit
+endif
+```
+
+[This Vimcast](http://vimcasts.org/episodes/neovim-eyecandy) by Drew Neil
+highlights the live preview feature.

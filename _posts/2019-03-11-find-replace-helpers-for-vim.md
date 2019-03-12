@@ -72,7 +72,7 @@ may vary.
 Editors such as [Visual Studio Code](https://code.visualstudio.com),
 [Atom](https://atom.io) and [Sublime](https://www.sublimetext.com) provide a
 multi-cursor option which allows a user to mark multiple locations, after a
-search, and then batch-edit simultaneously at those locations. This pattern
+search, and then batch-edit simultaneously at those locations. That pattern
 works well for finding and replacing instances that are nearby.
 
 With Vim, I recommend against the use of any multi-cursor plugins, instead the
@@ -95,9 +95,9 @@ the current visual selection, type the new text and then hit `Escape` to
 complete the change. The dot operator will immediately repeat that change
 forward for the next match, hit dot again to continue repeating the change.
 However, if one wishes to individually accept or reject each change then the
-enter and exclamation mark mappings listed above will prove useful; `Enter` will
-accept the change and then move forward to the next match, `!` will reject the
-change whilst also moving forward to the next match.
+*enter* and *exclamation mark* mappings listed above will prove useful; `Enter`
+will accept the change and then move forward to the next match, `!` will reject
+the change whilst also moving forward to the next match.
 
 Why `\c` as the mapping? Back-slash is available for user mappings, and it
 reminds me of forward-slash which is Vim's search operator. The **c** is for
@@ -128,8 +128,8 @@ find-and-substitute, **s** for substitute. Please replace that mapping with
 whatever key-sequence works best for you.
 
 :bulb: [Neovim](https://neovim.io) provides an option, `inccommand`, to live
-preview the `:subtitute` command. If you use Neovim then I recommend this
-setting.
+preview the `:substitute` command. If you use Neovim then I recommend this
+turning on this setting.
 
 ```viml
 if has("nvim")

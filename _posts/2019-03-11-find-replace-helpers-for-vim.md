@@ -2,12 +2,12 @@
 title: Find & Replace Helpers for Vim
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 # Find & Replace Helpers for Vim
 
-The post, [how do you handle these common find / replace use
+This post, [how do you handle these common find / replace use
 cases](https://www.reddit.com/r/vim/comments/armt3o/how_do_you_handle_these_common_find_replace_use),
 from the [Vim subreddit](https://www.reddit.com/r/vim) was the spark that lead
 me down a Vim _find & replace_ rabbit-hole.
@@ -18,10 +18,10 @@ as simple as renaming a local variable or as complex as changing a typename
 throughout a project's entire codebase.
 
 Vim does not prescribe a recommended way to do such refactors, for example: one
-may change-word with `cw` and then do `n.n.n.`, or one may use the `:subsitute`
-command, to name two choices among many.
+may execute a find followed by change-word with `cw` and then do `n.n.n.`, or
+one may use the `:%subsitute` command, to name two choices among many.
 
-This post will highlight my new approaches to _finding & replacing_ in Vim for
+This post will highlight my recent helpers to _finding & replacing_ in Vim for
 the following three scenarios:
 
 -   Find & replace nearby instances
@@ -36,8 +36,8 @@ text when in _visual_ mode (similar to the
 [visual-star-search](https://github.com/nelstrom/vim-visual-star-search)
 plugin).
 
-Note, I am **not** proclaiming my approaches as best-in-class, rather they
-should be viewed as a _resource of possibilities_.
+Note, I am **not** proclaiming my helpers as best-in-class, rather they should
+be viewed as a _resource of possibilities_.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ This pattern works well for finding and replacing instances that are nearby.
 With Vim, I recommend against the use of any multi-cursor plugins, instead the
 modern `gn`
 [command](http://vimcasts.org/episodes/operating-on-search-matches-using-gn) is
-the natural operator for this scenerio.
+the natural operator for this scenario.
 
 Helpers to add to `~/.vimrc`
 
@@ -112,7 +112,7 @@ xnoremap \s "sy:%s/<C-r>s//<Left>
 ```
 
 As most Vim users will be aware, the `:substitute` command when prefixed with
-`%` is all that is required to subsitute throughout the current file. The `\s`
+`%` is all that is required to substitute throughout the current file. The `\s`
 helper above will simply pre-populate the pattern field with either the word
 under the cursor or the current visual selection, one is then free to simply
 enter the replacement text.
@@ -122,7 +122,7 @@ find-and-substitute, **s** for substitute. Please replace it with whatever
 key-sequence works best for you.
 
 Note, if confirmation for each replacement is required than append `/c` to the
-end of the `:substitute` command.
+end of the `:%substitute` command.
 
 :bulb: Neovim provides a setting, `inccommand` to live preview the `:subtitute`
 command. If using Neovim I strongly recommend enabling that setting.
@@ -135,3 +135,59 @@ endif
 
 [This Vimcast](http://vimcasts.org/episodes/neovim-eyecandy) by Drew Neil
 highlights the live preview feature.
+
+## Project-wide Find & Replace
+
+Helpers to add to `~/.vimrc`
+
+```viml
+nnoremap \S
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+xmap \S
+  \ "sy
+  \ gvgr
+  \ :cfdo %s/<C-r>s// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+```
+
+Note, please make sure [ripgrep](https://github.com/BurntSushi/ripgrep) is
+available on the host and that the
+[Grepper](https://github.com/mhinz/vim-grepper) Vim plugin is installed with
+these settings in your `/.vimrc`.
+
+```viml
+let g:grepper = {}
+let g:grepper.tools = ["rg"]
+xmap gr <plug>(GrepperOperator)
+```
+
+Again for reference, I have documented both ripgrep and the Grepper plugin
+[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html)
+and
+[here](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper)
+respectively.
+
+The above-listed `\S` helpers use ripgrep, via the Grepper plugin, to do a
+project-wide search on either the word under the cursor or the current visual
+selection, followed by a pre-populated substitution by way of the `:cfdo`
+[command](https://bluz71.github.io/2017/05/15/vim-tips-tricks.html#cfdo) on the
+Grepper matched files in the _quickfix_ list. Yes, the mapping and the
+explanation are convoluted, but in use it really is quite simple.
+
+Note, if confirmation for each replacement is required than append `/c` to the
+end of the `:%substitute` command.
+
+The mnemonic behind `\S` is find-and-SUBSTITUTE, **S** for substitute across
+many files. As per usual, please replace it with a key-sequence that works best
+for you.
+
+# Summary
+
+I am sure there are many fine choices of how to find & replace in Vim beyond
+those I have listed here. Hopefully this article stimulates you to improve your
+Vim workflow similar to how [this Reddit
+post](https://www.reddit.com/r/vim/comments/armt3o/how_do_you_handle_these_common_find_replace_use)
+did to me :beers:

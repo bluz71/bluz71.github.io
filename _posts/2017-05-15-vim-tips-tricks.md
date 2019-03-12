@@ -202,8 +202,8 @@ Substitute word under cursor and dot repeat
 -------------------------------------------
 
 ```viml
-nnoremap <silent> c* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> c* "sy:let @/=@s<CR>cgn
+nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 ```
 
 The relatively new `gn` command allows easy operation on the *next* match of a

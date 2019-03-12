@@ -17,9 +17,9 @@ Programming often entails
 as simple as renaming a local variable or as complex as changing a typename
 throughout a project's entire codebase.
 
-Vim does not prescribe a recommended way to do such refactors, for example: one
-may execute a find followed by change-word with `cw` and then do `n.n.n.`, or
-one may use the `:%subsitute` command, to name two choices among many.
+Vim does not prescribe a way to do such refactors, for example: one may execute
+a find followed by `cw` (change-word) and then repeat with `n.n.n.`, or one may
+use the `:%substitute` command, to name two choices among many.
 
 This post will highlight my new helpers for _finding & replacing_ in Vim for
 the following three scenarios:
@@ -44,17 +44,17 @@ should be viewed as a _resource of possibilities_.
 A fairly modern version of Vim, at least [Vim
 7.4.858](https://www.vim.org/download.php) or [Neovim
 0.2.0](https://github.com/neovim/neovim/wiki/Installing-Neovim), is required
-since some of the helpers will make use of the modern `gn` and `:cfdo` commands.
+since some of the helpers make use of the modern `gn` and `:cfdo` commands.
 
 The project-wide helper will also make use of the
 [ripgrep](https://github.com/BurntSushi/ripgrep) command-line search tool and
 the [Grepper](https://github.com/mhinz/vim-grepper) Vim plugin. The ripgrep tool
 is documented in [this
 article](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html)
-whilst Grepper plugin is documented
+whilst the Grepper plugin is documented
 [here](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper).
 
-The `:subsitute`-based helpers assume global replacement has been set in your
+The `:substitute`-based helpers assume global replacement has been set in your
 `~/.vimrc`
 
 ```viml

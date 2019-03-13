@@ -134,10 +134,10 @@ Seamlessly navigate *Vim* splits and *tmux* panes
 In *~/.vimrc:*
 
 ```viml
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 Plug 'christoomey/vim-tmux-navigator'
 if &term == 'screen-256color'
@@ -294,7 +294,7 @@ Equalize *Vim* splits
 ---------------------
 
 ```viml
-noremap <leader>= <C-w>=
+nnoremap <leader>= <C-w>=
 ```
 
 The above mapping equalizes the splits of the current *Vim* workspace.
@@ -303,7 +303,7 @@ Zoom a *Vim* split
 ------------------
 
 ```viml
-noremap <silent> <leader>Z :tab split<CR>
+nnoremap <silent> <leader>Z :tab split<CR>
 ```
 
 This handy mapping zooms a split into its own full tab page. This is

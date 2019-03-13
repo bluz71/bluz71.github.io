@@ -196,7 +196,7 @@ For example, the following mapping to create a new tab page, via `Alt-t`, works
 in Neovim but not in terminal Vim:
 
 ```viml
-noremap <silent> <A-t> :$tabnew<CR>
+nnoremap <silent> <A-t> :$tabnew<CR>
 ```
 
 Note, it is possible to configure an `Alt-t` mapping in terminal Vim, but it

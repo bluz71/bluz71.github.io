@@ -361,6 +361,10 @@ be narrowed down by entering in fuzzy text at the prompt. Also, one can
 navigate up and down the commit list to preview the differences of each commit.
 Github-style browsing in the command-line, almost.
 
+Refer to [fuzzy finding in Bash with
+fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
+for more such Git examples.
+
 # References
 
 Some of the suggestions in the post originated from the following:

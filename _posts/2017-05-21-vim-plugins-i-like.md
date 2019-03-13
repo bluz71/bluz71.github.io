@@ -263,18 +263,18 @@ or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:
 ```viml
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
-    noremap <localleader>ec :CtrlP app/controllers<CR>
-    noremap <localleader>eh :CtrlP app/helpers<CR>
-    noremap <localleader>em :CtrlP app/models<CR>
-    noremap <localleader>es :CtrlP spec<CR>
-    noremap <localleader>ev :CtrlP app/views<CR>
+    nnoremap <localleader>ec :CtrlP app/controllers<CR>
+    nnoremap <localleader>eh :CtrlP app/helpers<CR>
+    nnoremap <localleader>em :CtrlP app/models<CR>
+    nnoremap <localleader>es :CtrlP spec<CR>
+    nnoremap <localleader>ev :CtrlP app/views<CR>
 elseif filereadable('web/router.ex')
     " This looks like an Elixir/Phoenix app.
-    noremap <localleader>ec :CtrlP web/controllers<CR>
-    noremap <localleader>em :CtrlP web/models<CR>
-    noremap <localleader>et :CtrlP test<CR>
-    noremap <localleader>ev :CtrlP web/views<CR>
-    noremap <localleader>ex :CtrlP web/templates<CR>
+    nnoremap <localleader>ec :CtrlP web/controllers<CR>
+    nnoremap <localleader>em :CtrlP web/models<CR>
+    nnoremap <localleader>et :CtrlP test<CR>
+    nnoremap <localleader>ev :CtrlP web/views<CR>
+    nnoremap <localleader>ex :CtrlP web/templates<CR>
 endif
 ```
 
@@ -433,7 +433,7 @@ let g:grepper = {}
 let g:grepper.tools = ["rg"]
 runtime autoload/grepper.vim
 let g:grepper.jump = 1
-noremap <leader>gr :GrepperRg<Space>
+nnoremap <leader>g :GrepperRg<Space>
 nnoremap gr :Grepper -cword -noprompt<CR>
 xmap gr <plug>(GrepperOperator)
 ```
@@ -528,10 +528,10 @@ vim-test
 ```viml
 Plug 'janko-m/vim-test'
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
-noremap <silent> <leader>tt :TestNearest<CR>
-noremap <silent> <leader>tf :TestFile<CR>
-noremap <silent> <leader>ts :TestSuite<CR>
-noremap <silent> <leader>tl :TestLast<CR>
+nnoremap <silent> <leader>tt :TestNearest<CR>
+nnoremap <silent> <leader>tf :TestFile<CR>
+nnoremap <silent> <leader>ts :TestSuite<CR>
+nnoremap <silent> <leader>tl :TestLast<CR>
 if has("nvim")
     let test#strategy = "neovim"
 else
@@ -662,7 +662,8 @@ Fugitive
 
 ```viml
 Plug 'tpope/vim-fugitive'
-noremap <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>B :Gblame<CR>
+nnoremap <silent> <leader>G :Gstatus<CR>
 ```
 
 The [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin is a Git
@@ -717,12 +718,12 @@ let g:projectionist_heuristics = {
       \    }
       \  }
       \}
-noremap <leader>ec :Econtroller<Space>
-noremap <leader>em :Emodel<Space>
-noremap <leader>et :Etest<Space>
-noremap <leader>ev :Eview<Space>
-noremap <leader>ex :Etemplate<Space>
-noremap <leader>A  :A<CR>
+nnoremap <leader>ec :Econtroller<Space>
+nnoremap <leader>em :Emodel<Space>
+nnoremap <leader>et :Etest<Space>
+nnoremap <leader>ev :Eview<Space>
+nnoremap <leader>ex :Etemplate<Space>
+nnoremap <leader>A  :A<CR>
 ```
 
 The above configuration will result in the following commands being created:

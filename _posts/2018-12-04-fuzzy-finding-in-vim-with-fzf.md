@@ -172,17 +172,17 @@ whilst models are located in `app/models` and lastly views are located in
 access to controller, model and view files.
 
 ```viml
-noremap <silent> <leader>ec :Files app/controllers<CR>
-noremap <silent> <leader>em :Files app/models<CR>
-noremap <silent> <leader>ev :Files app/views<CR>
+nnoremap <silent> <leader>ec :Files app/controllers<CR>
+nnoremap <silent> <leader>em :Files app/models<CR>
+nnoremap <silent> <leader>ev :Files app/views<CR>
 ```
 
 A React application on the other hand may be navigated with the following
 mappings.
 
 ```viml
-noremap <silent> <leader>ec :Files src/components<CR>
-noremap <silent> <leader>et :Files src/__tests__/components<CR>
+nnoremap <silent> <leader>ec :Files src/components<CR>
+nnoremap <silent> <leader>et :Files src/__tests__/components<CR>
 ```
 
 When dealing with multiple frameworks I recommend scoping such key mappings by

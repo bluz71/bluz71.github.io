@@ -356,3 +356,42 @@ Instead I prefer to use these simpler mappings:
 - `Control-f`, file path completion
 
 - `Control-l`, whole-of-line completion
+
+Readline-style mappings for insert and command modes
+----------------------------------------------------
+
+```viml
+inoremap <C-a>  <C-o>^
+inoremap <C-e>  <C-o>$
+inoremap <A-b>  <C-Left>
+inoremap <A-f>  <C-Right>
+inoremap <A-BS> <C-w>
+inoremap <A-d>  <C-o>dw
+cnoremap <C-a>  <Home>
+cnoremap <C-e>  <End>
+cnoremap <A-b>  <C-Left>
+cnoremap <A-f>  <C-Right>
+cnoremap <A-BS> <C-w>
+cnoremap <A-d>  <C-Right><C-w>
+```
+
+The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library
+is used by the Bash shell, and certain other utilities, for line-editing and
+history management. If one uses the default Readline key bindings, for example
+with Bash, then it makes sense to use those same bindings when in Vim's insert
+or command mode.
+
+- `Control-a`, go to the beginning of the line.
+
+- `Control-e`, go to the end of the line
+
+- `Alt-b`, go back one word
+
+- `Alt-f`, go forward one word
+
+- `Alt-Backspace`, delete backward one word
+
+- `Alt-d`, delete forward one word
+
+**Note**, the above `Alt`-mappings function correctly with Neovim and GUI-based
+versions of Vim (such gVim), but do not work with terminal Vim.

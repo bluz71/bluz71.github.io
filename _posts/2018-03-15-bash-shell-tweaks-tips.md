@@ -194,28 +194,40 @@ Readline Shortcuts
 
 The Readline library also provides a number of useful default shortcuts.
 
-- Go to the beginning of the current line.
+- Go to the beginning of the line.
 
     ```sh
     Control-a
     ```
 
-- Go to the end of the current line.
+- Go to the end of the line.
 
     ```sh
     Control-e
     ```
 
-- Go back one word on the current line.
+- Go back one word.
 
     ```sh
     Alt-b
     ```
 
-- Go forward one word on the current line.
+- Go forward one word.
 
     ```sh
     Alt-f
+    ```
+
+- Delete backward one word.
+
+    ```sh
+    Alt-Backspace
+    ```
+
+- Delete forward one word.
+
+    ```viml
+    Alt-d
     ```
 
 - Search back through history.
@@ -291,7 +303,9 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 
     The Readline incremental and reverse search commands are much more useful
     when a good amount of history is kept. Note, we will also ignore all
-    commands that are only one or two characters long.
+    commands that are only one or two characters long. Also, history expansions,
+    such as `!!`, will not be auto-executed, instead they will expanded on a new
+    line which will provide scope for review before execution.
 
 - Display Git branch details in the prompt.
 
@@ -324,14 +338,6 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```
 
     Choose a smaller number if you wish to display less path components.
-
-- Enable history expansion with the *SPACE* key.
-
-    ```sh
-    bind Space:magic-space
-    ```
-
-    For example, `!!<SPACE>` will immediately expand to the last command.
 
 Bash Aliases
 -------------

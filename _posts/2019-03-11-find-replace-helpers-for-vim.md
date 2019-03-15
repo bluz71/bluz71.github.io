@@ -88,6 +88,7 @@ xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 nnoremap <Enter> gnzz
 xmap <Enter> .<Esc>gnzz
 xnoremap ! <Esc>ngnzz
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 ```
 
 Initiate nearby replacements by executing `\c` on the word to be replaced or for
@@ -98,6 +99,9 @@ However, if one wishes to individually accept or reject each change then the
 *enter* and *exclamation mark* mappings listed above will prove useful; `Enter`
 will accept the change and then move forward to the next match, `!` will reject
 the change whilst also moving forward to the next match.
+
+Note, we restore the default `Enter` behaviour, via an `autocmd`, when in the
+quickfix list, that being the ability to go to the entry selected.
 
 Why `\c` as the mapping? Back-slash is available for user mappings, and it
 reminds me of forward-slash which is Vim's search operator. The **c** is for

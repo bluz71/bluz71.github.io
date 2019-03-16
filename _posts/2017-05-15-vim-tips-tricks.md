@@ -198,6 +198,10 @@ Or using Tim Pope's superb case-smart
 :cfdo %S/oldterm/newterm/ | update
 ```
 
+**UPDATE (MAR 2019)**: This [find & replace helpers for Vim
+post](https://bluz71.github.io/2019/03/11/find-replace-helpers-for-vim.html)
+may be of interest.
+
 Substitute word under cursor and dot repeat
 -------------------------------------------
 

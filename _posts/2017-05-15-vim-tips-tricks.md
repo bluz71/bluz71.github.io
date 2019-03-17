@@ -434,6 +434,20 @@ use **TAB** again to quickly scroll through the options (left and right arrows
 also work). Note, when opening a file via `:e` use up and down arrows to
 enter or leave directories.
 
+Fast buffer switching using TAB and *wildmenu*
+----------------------------------------------
+
+Expanding on the previous tip, use `wildmenu` to quickly switch buffers.
+
+```viml
+set wildcharm=<Tab>
+nnoremap <Tab> :buffer<Space><Tab>
+```
+
+Hitting **TAB** in normal mode will list the open buffers in the status line via
+`wildmenu`, use **TAB** or arrow-keys to navigate the choices and then hit
+**Enter** to select the desired buffer.
+
 Make dot work over visual line selections
 -----------------------------------------
 

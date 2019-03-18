@@ -344,14 +344,23 @@ The relatively new `breakindent` indent option is an *excellent* way to wrap
 long code lines. When set, long lines will wrap *with* an indentation thus
 preserving the clean indented look of code.
 
-Note, a very modern version of Vim, and Neovim, will be required. All the more
-reason to upgrade!
+Note, a modern version of Vim, and Neovim, will be required. All the more reason
+to upgrade!
 
 Set the following options to wrap long lines with indentation:
 
 ```viml
 set breakindent
+set breakindentopt=shift:2
 set showbreak=\\\\\
+```
+
+**UPDATE (MAR 2019)**: When using a modern font, such as
+[Iosevka](https://github.com/be5invis/iosevka), then I recommend using a
+bent-arrow glyph as the `showbreak`:
+
+```viml
+set showbreak=↳
 ```
 
 Smarter *j* and *k* navigation

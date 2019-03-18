@@ -859,7 +859,11 @@ often:
 
 - `[a` / `]a` - navigate backward and forward through the file list
 
+- `[b` / `]b` - navigate backward and forward through the buffer list
+
 - `[<Space>` / `]<Space>` - add a blank line above or below the current line
+
+- `[e` / `]e` - move the current line, or visual lines, up or down
 
 - `[p` / `]p` - linewise paste above or below the current line
 

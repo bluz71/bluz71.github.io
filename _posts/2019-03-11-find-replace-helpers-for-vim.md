@@ -88,7 +88,8 @@ xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 nnoremap <Enter> gnzz
 xmap <Enter> .<Esc>gnzz
 xnoremap ! <Esc>ngnzz
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd! BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd! CmdwinEnter *        nnoremap <buffer> <CR> <CR>
 ```
 
 Initiate nearby replacements by executing `\c` on the word to be replaced or for

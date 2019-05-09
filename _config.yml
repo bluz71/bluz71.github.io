@@ -8,8 +8,8 @@ author:
   name:       bluz71
   url:        https://bluz71.github.io
 
-# Gems
-gems:
+# Plugins
+plugins:
   - jekyll-paginate
   - jekyll-feed
   - jemoji

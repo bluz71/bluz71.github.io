@@ -8,45 +8,43 @@ published: false
 Brave with DuckDuckGo, an alternative to Chrome
 ===============================================
 
-Google has become omnipresent as technology has become an integral part of
-modern life.
+It seems as if Google is now omnipresent as technology has become an integral
+part of modern life.
 
-With 90% of the market, Google is dominant in web search whilst
-also being dominant in web browsing with Google Chrome having 70% of the
-market as of May 2019.
+And for good reason, with 90% of the market, Google is dominant in web search
+whilst also now being dominant in web browsing with Google Chrome having 70% of
+the market as of May 2019.
 
-With the ubiquity of Google Chrome and Search, Google has unrivaled power to
-individually target you with ads based on your online footprint.
+With the ubiquity of the Google Search, Chrome, Android and YouTube suite of
+products, Google has unrivaled power to individually target you with ads based
+on your online footprint.
 
 For those wishing to reduce their Google footprint, this post will discuss the
 [Brave browser](https://brave.com) and [DuckDuckGo
 search](https://duckduckgo.com) as viable alternatives to Google Chrome and
-Google Search. Switching to these products will reduce your Google footprint
+Google Search. Not only will switching to these products will reduce your Google footprint
 whilst also greatly increasing your privacy.
 
-Privacy Issues with Chrome
---------------------------
+Automatic Sign-in issue with Chrome
+-----------------------------------
 
-I must confess, I was a long time user of Chrome, that being from launch in 2008
-up until 2018. I liked Chrome, it was fast, secure, extendable, and most
-importantly cross-platform (including Linux).
+I was a long time user of Chrome, that being from launch in 2008 up until 2018.
+I liked Chrome, it was fast, secure, extendible, and most importantly
+cross-platform.
 
-The inflection point when I soured on Chrome was when Google [merged Google
-accounts with Chrome 'Sign in'](https://news.ycombinator.com/item?id=17942252)
-in September of 2018. Prior to this change, in Chrome 69, your Goggle login
-(Gmail) was separate from your Chrome *Sign in* (for bookmark synchronization
-across multiple devices). Post Chrome 69 logging into your Google account, to
-read your Gmail for example, would then result in Chrome simultaneously signing
-to Google. Presumably once Chrome is *Signed in* Google can track your activity
-the web more easily.
+The inflection point when I soured on Chrome was when [Google accounts where
+merged with Chrome sign-in](https://news.ycombinator.com/item?id=17942252) in
+Chrome 69. After that change, logging into your Google account, to read your
+Gmail for instance, would then result in Chrome simultaneously signing to
+Google thus potentially synchronizing with Google some of your activity without
+your consent. Also, presumably once Chrome is signed-in Google may track your
+activity more easily, either now or in the future.
 
-It seems I was not the only one upset by this change, Matthew Green wrote an
-excellent article that is still worth a read:
-
-- [Why I’m done with
-    Chrome](https://blog.cryptographyengineering.com/2018/09/23/why-im-leaving-chrome)
-
-XXX: Android auto-login
+I was not the only one upset by this particular change, Matthew Green, a
+professor at Johns Hopkins University who teaches cryptography, [wrote about
+the
+issue](https://blog.cryptographyengineering.com/2018/09/23/why-im-leaving-chrome)
+in depth.
 
 Brave Browser
 -------------
@@ -62,7 +60,7 @@ Eich, the creator of [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and
 co-founder of [Mozilla](https://en.wikipedia.org/wiki/Mozilla), the organization
 that makes [Firefox](https://en.wikipedia.org/wiki/Firefox).
 
-Notable privacy-by-default characteristics of Brave:
+Notable privacy and security characteristics of Brave:
 
 - Automatically blocks unwanted content, such as tracking cookies and 3rd-party
   ads
@@ -73,11 +71,14 @@ Notable privacy-by-default characteristics of Brave:
 - Where possible, insecure connections will be seamlessly be upgraded to
   encrypted connections for secure communication
 
+- True private browsing mode via the [Tor](https://www.torproject.org) anonymity
+  network
+
 Similarities of Brave to Chrome:
 
 - Generally similar look and feel
 
-- Multi-platform support, including all major desktop and mobile platforms 
+- Multi-platform support, including all major desktop and mobile platforms
 
 - Cross-platform and cross-device
   [synchronization](https://support.brave.com/hc/en-us/articles/360021218111-How-do-I-set-up-Sync-)
@@ -97,10 +98,10 @@ Whilst some of the privacy-focussed characteristics of Brave listed above are
 available as browser extensions to Chrome, namely [uBlock
 Origin](https://github.com/gorhill/uBlock/) and [HTTPS
 Everywhere](https://www.eff.org/https-everywhere), be aware that not all
-versions of Chrome support extensions, most frustratingly Chrome on mobile devices.
-Also, content-filtering extensions, such as uBlock, run the risk of one day being
-black-listed by Google. That will not be an issue for Brave since security and
-privacy protections are built-int to the browser itself.
+versions of Chrome support extensions, most frustratingly Chrome on mobile
+devices. Also, content-filtering extensions, such as uBlock, run the risk of one
+day being black-listed by Google. That will never be an issue for Brave since
+its security and privacy protections are built-int to the browser itself.
 
 Note, Brave is not the only Chromium-based browser available, other choices
 include: [Vivaldi](https://vivaldi.com), [Opera](https://www.opera.com),
@@ -110,8 +111,21 @@ Personally, I favour Brave above all these alternatives due to: open-source
 development, timely updates, cross-platform support including Linux and mobile,
 native privacy and security features, and lastly cross-device synchronization.
 
-Brave Settings
---------------
+Recommended Brave Settings
+--------------------------
+
+Privacy and security can further be enhanced by tweaking Brave's settings.
+
+Brave Desktop settings:
+
+- `Brave Shields default`, `Fingerprintig protection` change to `Block 
+  all fingerprinting`
+
+- `Social Buttons and Logins`, disable all options
+
+- `Privacy and security`, enable `Send a "Do not track"` and disable `Allow
+  sites to check if you have payment saved`
+
 
 DuckDuckGo
 ----------

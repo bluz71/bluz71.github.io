@@ -42,7 +42,7 @@ Install Homebrew followed by:
 
 ```sh
 brew install bash
-sudo echo /usr/local/bin/bash >> /etc/shells
+sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
 ```
 

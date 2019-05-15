@@ -107,16 +107,24 @@ Note, Brave is not the only Chromium-based browser available, other choices
 include: [Vivaldi](https://vivaldi.com), [Opera](https://www.opera.com),
 [Ungoogled Chromium](https://github.com/Eloston/ungoogled-chromium) and even
 Microsoft's [Edge browser](https://www.microsoftedgeinsider.com/en-us).
-Personally, I favour Brave above all these alternatives due to: open-source
-development, timely updates, cross-platform support including Linux and mobile,
-native privacy and security features, and lastly cross-device synchronization.
+Personally, I favour Brave above all these alternatives due to: open
+development, timely updates, cross-platform support including desktop and
+mobile, native privacy and security features, and cross-device synchronization.
+
+Lastly, Brave has an excellent and easy to understand [privacy
+policy](https://brave.com/privacy).
 
 Recommended Brave Settings
 --------------------------
 
 Privacy and security can further be enhanced by tweaking Brave's settings.
 
-Brave Desktop settings:
+Brave settings:
+
+- `Search Engine`, `Search engine used in the address bar`, change to
+  `DuckDuckGo`
+
+Brave desktop-specific settings:
 
 - `Brave Shields default`, `Fingerprintig protection` change to `Block 
   all fingerprinting`
@@ -129,6 +137,42 @@ Brave Desktop settings:
 
 DuckDuckGo
 ----------
+
+[DuckDuckGo](https://duckduckgo.com) is a privacy focussed Internet search
+engine.
+
+Unlike Google Search, DuckDuckGo will:
+
+- Not log IP addresses
+
+- Not log user searches, unlike Google Search
+
+- Display the same results, for a given search, to **all** users
+
+The quality of search results for DuckDuckGo has greatly improved in the last
+few years, hence, it no longer feels like a compromise to DuckDuckGo as compared
+to Google Search.
+
+Much like Brave, DuckDuckGo also has an excellent and easy to understand
+[privacy policy](https://duckduckgo.com/privacy).
+
+DuckDuckGo Features
+-------------------
+
+- `shorten http:\\really-long-url`
+
+- `expand http:\\shortened-url`
+
+- `password 20`
+
+- `random passphrase`
+
+- `stopwatch`
+
+- `calendar`
+
+DuckDuckGo !Bang
+----------------
 
 Conclusion
 ----------

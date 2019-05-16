@@ -21,9 +21,9 @@ on your online footprint.
 
 For those wishing to reduce their Google footprint, this post will discuss the
 [Brave browser](https://brave.com) and [DuckDuckGo
-search](https://duckduckgo.com) as viable alternatives to Google Chrome and
-Google Search. Not only will switching to these products will reduce your Google footprint
-whilst also greatly increasing your privacy.
+search](https://duckduckgo.com) products as viable alternatives to Google Chrome
+and Google Search. Switching to these products will reduce your Google footprint
+whilst also greatly increasing your privacy and security.
 
 Automatic Sign-in issue with Chrome
 -----------------------------------
@@ -35,9 +35,9 @@ cross-platform.
 The inflection point when I soured on Chrome was when [Google accounts where
 merged with Chrome sign-in](https://news.ycombinator.com/item?id=17942252) in
 Chrome 69. After that change, logging into your Google account, to read your
-Gmail for instance, would then result in Chrome simultaneously signing to
-Google thus potentially synchronizing with Google some of your activity without
-your consent. Also, presumably once Chrome is signed-in Google may track your
+Gmail for instance, would then result in Chrome simultaneously signing to Google
+thus potentially synchronizing, with Google, some of your activity without your
+consent. Also, presumably once Chrome is signed-in Google may track your online
 activity more easily, either now or in the future.
 
 I was not the only one upset by this particular change, Matthew Green, a
@@ -95,13 +95,13 @@ Chrome](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(fe
 - Cookie lifetimes are limited to 7 days
 
 Whilst some of the privacy-focussed characteristics of Brave listed above are
-available as browser extensions to Chrome, namely [uBlock
+available as browser extensions to Chrome, namely the [uBlock
 Origin](https://github.com/gorhill/uBlock/) and [HTTPS
-Everywhere](https://www.eff.org/https-everywhere), be aware that not all
-versions of Chrome support extensions, most frustratingly Chrome on mobile
+Everywhere](https://www.eff.org/https-everywhere) extensions, be aware that not
+all versions of Chrome support extensions, most frustratingly Chrome on mobile
 devices. Also, content-filtering extensions, such as uBlock, run the risk of one
 day being black-listed by Google. That will never be an issue for Brave since
-its security and privacy protections are built-int to the browser itself.
+its security and privacy protections are built-in to the browser itself.
 
 Note, Brave is not the only Chromium-based browser available, other choices
 include: [Vivaldi](https://vivaldi.com), [Opera](https://www.opera.com),
@@ -117,7 +117,8 @@ policy](https://brave.com/privacy).
 Recommended Brave Settings
 --------------------------
 
-Privacy and security can further be enhanced by tweaking Brave's settings.
+Privacy and security can further be enhanced by tweaking Brave's settings at
+`brave://settings`.
 
 Brave settings:
 
@@ -145,38 +146,83 @@ Unlike Google Search, DuckDuckGo will:
 
 - Not log IP addresses
 
-- Not log user searches, unlike Google Search
+- Not log user searches
 
 - Display the same results, for a given search, to **all** users
 
-The quality of search results for DuckDuckGo has greatly improved in the last
-few years, hence, it no longer feels like a compromise to DuckDuckGo as compared
-to Google Search.
+- Track your online activity
+
+The quality and relevance of search results for DuckDuckGo has greatly improved
+in the last few years, hence, it no longer feels like a compromise to DuckDuckGo
+as compared to Google Search.
 
 Much like Brave, DuckDuckGo also has an excellent and easy to understand
 [privacy policy](https://duckduckgo.com/privacy).
 
-DuckDuckGo Features
--------------------
-
-- `shorten http:\\really-long-url`
-
-- `expand http:\\shortened-url`
-
-- `password 20`
-
-- `random passphrase`
-
-- `stopwatch`
-
-- `calendar`
-
 DuckDuckGo !Bang
 ----------------
+
+DuckDuckGo Bangs are simple shortcuts to 3rd party search sites. To invoke a
+Bang search simply type `!` with the appropriate site code followed by the
+search query.
+
+Note, as of May 2019 there are over [12,000 Bangs
+available](https://duckduckgo.com/bang) to explore and use.
+
+A few convenient DuckDuckGo Bangs:
+
+- `!g search query`, [Google Search](https://www.google.com)
+
+- `!gi search query`, [Goggle Images](https://images.google.com)
+
+- `!gm search query`, [Google Maps](https://www.google.com/maps)
+
+- `!yt search query`, [YouTube](https://www.youtube.com)
+
+- `!a search query`, [Amazon](https://www.amazon.com)
+
+- `!w search query`, [Wikipedia](https://www.wikipedia.org)
+
+- `!eb search query`, [eBay](https://www.ebay.com)
+
+- `!r search query`, [Reddit](https://www.reddit.com)
+
+- `!gh search query`, [Github](https://www.github.com)
+
+- `!so search query`, [Stack Overflow](https://stackoverflow.com)
+
+- `!t search query`, [Thesaurus.com](https://www.thesaurus.com)
+
+- `!d search query`, [The Free Dictionary](https://www.thefreedictionary.com)
+
+- `!rt search query`, [Rotten Tomatoes](https://www.rottentomatoes.com)
+
+- `!bang search query` [DuckDuckGo Bangs](https://duckduckgo.com/bang)
+
+Bangs work particularly well in Brave once DuckDuckGo has been configured as the
+default Search Engine; simply enter the Bang of choice and search query directly
+in the address bar.
+
+DuckDuckGo Bangs making searching the web easy, simple and fast.
+
+Other DuckDuckGo Features
+-------------------------
+
+DuckDuckGo also provides the following simple tools:
+
+- `shorten http:\\really-long-url`, shorten web links
+
+- `@user_handle`, search Social Media platforms for a particular user handle
+
+- `calendar`, this months calendar
+
+- `calculator`, simple calculator
+
+- `stopwatch`, simple stopwatch
 
 Conclusion
 ----------
 
-* No reason anyone should use Chrome over Brave. Brave does everything Chrome
-  does whislt doing it more securely and privately whilst being very similar to
-  Chrome
+I see no reason why anyone should use Chrome over Brave. Brave does everything
+Chrome does whislt doing it more securely and privately whilst being very
+similar to Chrome.

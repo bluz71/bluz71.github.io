@@ -159,8 +159,8 @@ as compared to Google Search.
 Much like Brave, DuckDuckGo also has an excellent and easy to understand
 [privacy policy](https://duckduckgo.com/privacy).
 
-DuckDuckGo !Bang
-----------------
+DuckDuckGo !Bangs
+-----------------
 
 DuckDuckGo Bangs are simple shortcuts to 3rd party search sites. To invoke a
 Bang search simply type `!` with the appropriate site code followed by the
@@ -183,7 +183,7 @@ A few convenient DuckDuckGo Bangs:
 
 - `!w search query`, [Wikipedia](https://www.wikipedia.org)
 
-- `!eb search query`, [eBay](https://www.ebay.com)
+- `!e search query`, [eBay](https://www.ebay.com)
 
 - `!r search query`, [Reddit](https://www.reddit.com)
 
@@ -205,14 +205,14 @@ in the address bar.
 
 DuckDuckGo Bangs making searching the web easy, simple and fast.
 
-Other DuckDuckGo Features
--------------------------
+DuckDuckGo Tools
+----------------
 
-DuckDuckGo also provides the following simple tools:
+DuckDuckGo provides the following useful tools:
 
 - `shorten http:\\really-long-url`, shorten web links
 
-- `@user_handle`, search Social Media platforms for a particular user handle
+- `@user_handle`, search social media platforms for a particular user handle
 
 - `calendar`, this months calendar
 
@@ -223,6 +223,10 @@ DuckDuckGo also provides the following simple tools:
 Conclusion
 ----------
 
-I see no reason why anyone should use Chrome over Brave. Brave does everything
-Chrome does whislt doing it more securely and privately whilst being very
-similar to Chrome.
+For the most part, technology is now guided by a few giant companies; this is
+not healthy, it behoves us to sensibly diversify where possible. Thankfully with
+Brave and DuckDuckGo, as alternatives to Chrome and Google Search, diversifying
+will reap dividends, especially with regards to privacy, and with little to no
+concession.
+
+Hopefully you are curious enough now to give Brave and DuckDuckGo a try :beers:

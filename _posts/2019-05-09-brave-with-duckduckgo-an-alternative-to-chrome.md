@@ -223,10 +223,11 @@ DuckDuckGo provides the following useful tools:
 Conclusion
 ----------
 
-Technology is now dominated by a few giant companies; that market concentration
-is not healthy, it well behooves us to sensibly diversify where possible. Thankfully
-with Brave and DuckDuckGo, as alternatives to Chrome and Google Search,
-diversifying will reap dividends, especially with regards to privacy, and with
-little to no concession.
+The Web is now dominated by a few giant companies, chief among them Google. That
+market concentration is not healthy, so it behooves us to sensibly diversify
+where possible. Thankfully with Brave and DuckDuckGo, as alternatives to Chrome
+and Google Search respectively, diversifying will reap dividends, especially
+with regards to privacy, and with little to no concession.
 
-Hopefully you are curious to give Brave and DuckDuckGo a try :beers:
+The more people that use products like Brave and DuckDuckGo, the healthier the
+Web will be. Please give these alternatives a try :beers:

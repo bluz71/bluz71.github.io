@@ -127,14 +127,13 @@ Brave settings:
 
 Brave desktop-specific settings:
 
-- `Brave Shields default`, `Fingerprintig protection` change to `Block 
+- `Brave Shields default`, `Fingerprintig protection` change to `Block
   all fingerprinting`
 
 - `Social Buttons and Logins`, disable all options
 
 - `Privacy and security`, enable `Send a "Do not track"` and disable `Allow
   sites to check if you have payment saved`
-
 
 DuckDuckGo
 ----------
@@ -215,6 +214,8 @@ DuckDuckGo provides the following useful tools:
 - `@user_handle`, search social media platforms for a particular user handle
 
 - `calendar`, this months calendar
+
+- `calendar june 2011`, a particular months calendar
 
 - `calculator`, simple calculator
 

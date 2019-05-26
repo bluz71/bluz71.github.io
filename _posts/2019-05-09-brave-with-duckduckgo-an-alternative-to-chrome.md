@@ -11,16 +11,16 @@ Brave with DuckDuckGo, an alternative to Chrome
 It seems as if Google is omnipresent these days as technology has become an
 integral part of modern life.
 
-And for good reason, with 90% of the market, Google is dominant in web search
-whilst also now being dominant in web browsing with Google Chrome having 70% of
-the market as of May 2019.
+With 90% of the market Google is dominant in web search whilst also now being
+dominant in web browsing with Google Chrome having 70% of the market as of May
+2019.
 
-With the ubiquity of the Google Search, Chrome, Android and YouTube suite of
-products, Google has unrivaled power to individually target you with ads based
-on your online footprint.
+The ubiquity of the Google Search, Chrome, Android and YouTube suite of products
+has provided Google with unrivaled power to individually target you with ads
+based on your online footprint.
 
-For those who are troubled by Google's power and reach, this post will discuss
-the [Brave browser](https://brave.com) and [DuckDuckGo
+For those troubled by Google's power and reach, this post will discuss the
+[Brave browser](https://brave.com) and [DuckDuckGo
 search](https://duckduckgo.com) products as viable alternatives to Google Chrome
 and Google Search. Switching to these products will reduce your Google footprint
 whilst also increasing your privacy and security.
@@ -36,8 +36,9 @@ The inflection point when I soured on Chrome was when [Google accounts where
 merged with Chrome sign-in](https://news.ycombinator.com/item?id=17942252) in
 Chrome 69. After that change, logging into your Google account, to read your
 Gmail for instance, would  also result in Chrome simultaneously signing-in to
-Google. Presumably once Chrome is signed-in Google may synchronise and therefore
-track your online activity, without your consent, either now or in the future.
+Google. Presumably once Chrome is signed-in Google may synchronise, and
+therefore track, your online activity without your consent, either now or in
+the future.
 
 I was not the only one upset by this particular change, Matthew Green, a
 professor at Johns Hopkins University who teaches cryptography, [wrote about
@@ -112,26 +113,30 @@ development, native privacy and security features, timely updates,
 cross-platform support and synchronization and lastly its resemblance to
 Chrome.
 
-Brave has an excellent and easy to understand [privacy
+Lastly, Brave has an excellent and easy to understand [privacy
 policy](https://brave.com/privacy).
 
 Recommended Brave Settings
 --------------------------
 
-Privacy and security can further be enhanced by tweaking Brave's settings at
-`brave://settings`:
-
-- `Search Engine`, `Search engine used in the address bar`, change to
-  `DuckDuckGo`
+Privacy and security can further be enhanced by tweaking Brave's settings. Note,
+the following settings were valid as of May 2019, however, there is no guarantee
+they will be named the same, or even exist, going forward. 
 
 Brave desktop-specific settings:
+
+- `Search engine`, `Search engine used in the address bar`, change to
+  `DuckDuckGo`
 
 - `Brave Shields default`, `Fingerprintig protection` change to `Block
   all fingerprinting`
 
 - `Social Buttons and Logins`, disable all options
 
-- `Privacy and security`, enable `Send a "Do not track"`
+
+Brave mobile-specific settings:
+
+- `Search engine`, change `Standard Tab` and `Private Tab` to `DuckDuckGo`
 
 DuckDuckGo
 ----------
@@ -149,7 +154,7 @@ Unlike Google Search, DuckDuckGo will:
 
 - Display the same results, for a given search, to **all** users
 
-The quality and relevance of search results for DuckDuckGo has greatly improved
+The quality and relevance of search results from DuckDuckGo has greatly improved
 over the last few years, hence, it no longer feels like a compromise to use
 DuckDuckGo as compared to Google Search.
 
@@ -164,9 +169,9 @@ Bang search simply type `!` with the appropriate site code followed by the
 search query.
 
 Note, as of May 2019 there are over [12,000 Bangs
-available](https://duckduckgo.com/bang) to explore and use.
+available](https://duckduckgo.com/bang) to use.
 
-A few convenient DuckDuckGo Bangs:
+A few helpful DuckDuckGo Bangs:
 
 - `!g search query`, [Google Search](https://www.google.com)
 
@@ -202,12 +207,17 @@ in the address bar.
 
 DuckDuckGo Bangs making searching the web easy, simple and fast.
 
-DuckDuckGo Tools
-----------------
+DuckDuckGo Instant Answers
+--------------------------
 
-DuckDuckGo provides the following useful tools:
+[DuckDuckGo Instant
+Answers](https://help.duckduckgo.com/duckduckgo-help-pages/features/instant-answers-and-other-features)
+provides answers to searches, just below the search field, without need to click
+any search results.
 
-- `shorten http:\\really-long-url`, shorten web links
+A few helpful DuckDuckGo Instant Answers:
+
+- `shorten http:\\really-long-url`, shorten a long web link
 
 - `@user_handle`, search social media platforms for a particular user handle
 
@@ -215,19 +225,22 @@ DuckDuckGo provides the following useful tools:
 
 - `calendar june 2011`, a particular months calendar
 
-- `calculator`, simple calculator
+- `calculator`, a simple calculator
 
-- `stopwatch`, simple stopwatch
+- `stopwatch`, a simple stopwatch
+
+- `weather`, this weeks weather
+
+- `weather london`, this weeks weather in a particular city
 
 Conclusion
 ----------
 
-The Web is now dominated by a few giant companies, chief among them Google.
-That market concentration is not healthy, so it behooves us to sensibly
-diversify where possible. Thankfully with Brave and DuckDuckGo, as alternatives
-to Chrome and Google Search respectively, diversifying will incur little
-concession whilst reaping genuine dividends, especially with regards to
-privacy.
+The Web is now dominated by a few giant companies, chief among them Google. That
+market concentration is not healthy, so it behooves us to sensibly diversify
+where possible. Thankfully with Brave and DuckDuckGo, as alternatives to Chrome
+and Google Search respectively, diversifying will incur little compromise whilst
+reaping genuine dividends, especially with regards to privacy.
 
 The more people that use products like Brave and DuckDuckGo, the healthier the
 Web will be. Please give these alternatives a try :beers:

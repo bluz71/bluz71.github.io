@@ -319,30 +319,36 @@ store.
 Please **NEVER** install dubious software such as key generators, these more
 often than not are malicious.
 
-<a id="browser"></a>Browser Recommendations
-===========================================
+<a id="browser"></a>Browser Recommendation
+==========================================
 
-For all platforms, apart from iOS, I recommend the Google Chrome browser for
-its enhanced security. From sandboxing, to hardened builds, to auto-updates, to
-multi-platform support, Chrome is hard to beat. For iOS the best choice is the
-default Safari browser.
+With a strong focus on privacy and security I recommend the 
+[Brave](https://brave.com) browser.
 
-Chrome security can be strengthened by the addition of these three excellent
-extensions:
+Brave is a modern, cross-platform browser based on the same
+[Chromium](https://chromium.googlesource.com/chromium/src) browser and
+[Blink](https://www.chromium.org/blink) rendering engine that powers Google
+Chrome.
 
-* [HTTPS Everywhere](https://www.eff.org/https-everywhere) is an extension that
-  will force the use of connection encryption whenever possible. Certain web
-  sites offer both plain-text and encrypted connections but will default to
-  plain-text, these connections can be eavesdropped. This extension will force
-  the secure encrypted connection in such circumstances.
+Notable privacy and security features of Brave:
 
-* [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
-  is a content filtering extension most well known for blocking ads, but it
-  also blocks content from sites known to host malware (malicious software).
+- Automatically blocks unwanted content, such as tracking cookies and 3rd-party
+  ads
 
-* [Privacy Badger](https://www.eff.org/privacybadger)
-  is an extension that learns to block trackers as you browse the web. This
-  extension will increase the privacy and security of your browsing session.
+- Automatically protects against
+  [fingerprinting](https://github.com/brave/brave-browser/wiki/Fingerprinting-Protection-Mode)
+
+- Where possible, insecure connections will be seamlessly be upgraded to
+  encrypted connections for secure communication
+
+- True private browsing mode via the [Tor](https://www.torproject.org) anonymity
+  network
+
+Please read [Brave with DuckDuckGo, an alternative to
+Chrome](https://bluz71.github.io/2019/05/26/brave-with-duckduckgo-an-alternative-to-chrome.html) for greater insight.
+
+**UPDATE (MAY 2019)**: Browser recommendation changed from Google Chrome to
+Brave now that Brave has matured.
 
 <a id="windows"></a>Windows Anti-Virus
 ======================================
@@ -460,8 +466,7 @@ rules:
 
 * Only install reputable software from trusted sources
 
-* Use the Chrome browser with HTTPS Everywhere, uBlock Origin and Privacy
-  Badger
+* Use the Brave browser
 
 * Windows Defender and Malwarebytes are all the Windows anti-virus you need
 

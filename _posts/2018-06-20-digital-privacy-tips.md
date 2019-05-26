@@ -124,21 +124,30 @@ servers to follow you for ad-targeting purposes.
 
 In the [Sensible Computing Security
 Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#browser)
-post I recommended the use of Google Chrome with the following extensions:
+post I recommended the use of the Brave browser.
 
-* [HTTPS Everywhere](https://www.eff.org/https-everywhere)
+Notable privacy and security features of Brave:
 
-* [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+- Automatically blocks unwanted content, such as tracking cookies and 3rd-party
+  ads
 
-* [Privacy Badger](https://www.eff.org/privacybadger)
+- Automatically protects against
+  [fingerprinting](https://github.com/brave/brave-browser/wiki/Fingerprinting-Protection-Mode)
 
-That combination of browser and extensions increases security **and** privacy,
-they latter done by blocking many [web
-trackers](https://whatismyipaddress.com/web-tracking).
+- Where possible, insecure connections will be seamlessly be upgraded to
+  encrypted connections for secure communication
 
-Privacy can further be enhanced by tweaking the following Chrome settings.
+- True private browsing mode via the [Tor](https://www.torproject.org) anonymity
+  network
 
-- In *Privacy and Security*, enable `Send a "Do Not Track" request with
+Please read [Brave with DuckDuckGo, an alternative to
+Chrome](https://bluz71.github.io/2019/05/26/brave-with-duckduckgo-an-alternative-to-chrome.html) for greater insight.
+
+Privacy can further be enhanced by tweaking the following Brave settings.
+
+- Disable all `Social Buttons and Logins`
+
+- In `Privacy and Security`, enable `Send a "Do Not Track" request with
     your browsing traffic`
 
 - Disable `Use a web service to help resolve navigation errors`
@@ -148,16 +157,16 @@ Privacy can further be enhanced by tweaking the following Chrome settings.
 
 - Disable `Use a prediction service to load pages more quickly`
 
-- In *Content Settings / Cookies*, enable `Keep local data only until you quit
-    your browser`
+- Disable `Allow sites to check if you have payment methods saved`
 
-- Enable `Block third-party cookies`
+- In `Site Settings` / `Cookies` enable `Keep local data only until you quit
+  your browser`
 
-Note, the second to last cookie setting will clear your session cookies upon
-browser exit. Session cookies can be used to track and de-anonymize users, by
-clearing them you increase your privacy at the expense of more frequent
-re-login into web services. This latter inconvenience is not that onerous with
-browser auto-filled usernames and passwords.
+Note, the last cookie setting will clear your session cookies upon browser exit.
+Session cookies can be used to track and de-anonymize users, by clearing them
+you increase your privacy at the expense of more frequent re-login into web
+services. This latter inconvenience is not that onerous with browser auto-filled
+usernames and passwords.
 
 Email
 =====
@@ -290,10 +299,10 @@ True private web searching requires the use of an alternate search service.
 
 Privacy-respecting alternatives to Google search.
 
+- [DuckDuckGo](https://duckduckgo.com)
+
 - [StartPage](https://www.startpage.com) (uses anonymized Google search results
     under the covers)
-
-- [DuckDuckGo](https://duckduckgo.com)
 
 - [Quant](https://lite.qwant.com)
 

@@ -466,9 +466,8 @@ the available controls.
 
     - Disable `Location`
 
-    The above options are the minimum options that should be disabled for
-    increased user privacy. Preferably **all** *Privacy* options should be
-    reviewed.
+The above options are the minimum options that should be disabled for increased
+user privacy. Preferably **all** *Privacy* options should be reviewed.
 
 Webcams
 =======

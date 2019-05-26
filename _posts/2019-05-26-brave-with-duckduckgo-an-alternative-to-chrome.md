@@ -2,7 +2,7 @@
 title: Brave with DuckDuckGo, an alternative to Chrome
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 Brave with DuckDuckGo, an alternative to Chrome
@@ -19,7 +19,7 @@ The ubiquity of the Google Search, Chrome, Android and YouTube suite of products
 has provided Google with unrivaled power to individually target you with ads
 based on your online footprint.
 
-For those troubled by Google's power and reach, this post will discuss the
+For those troubled with Google's power and reach, this post will discuss the
 [Brave browser](https://brave.com) and [DuckDuckGo
 search](https://duckduckgo.com) products as viable alternatives to Google Chrome
 and Google Search. Switching to these products will reduce your Google footprint
@@ -32,11 +32,11 @@ I was a long time user of Chrome, that being from launch in 2008 up until 2018.
 I liked Chrome, it was fast, secure, extensible, and most importantly
 cross-platform.
 
-The inflection point when I soured on Chrome was when [Google accounts where
+The inflection point when I soured on Chrome was when [Google accounts were
 merged with Chrome sign-in](https://news.ycombinator.com/item?id=17942252) in
 Chrome 69. After that change, logging into your Google account, to read your
-Gmail for instance, would  also result in Chrome simultaneously signing-in to
-Google. Presumably once Chrome is signed-in Google may synchronise, and
+Gmail, for instance, would  also result in Chrome simultaneously signing-in to
+Google. Presumably once Chrome is signed-in Google may synchronize, and
 therefore track, your online activity without your consent, either now or in
 the future.
 
@@ -95,8 +95,8 @@ Chrome](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(fe
 
 - Client-side cookie lifetimes are limited to 7 days
 
-Whilst some of the privacy-focussed characteristics of Brave listed above are
-available as browser extensions to Chrome, namely the [uBlock
+Whilst some privacy-focussed characteristics of Brave listed above are available
+as browser extensions to Chrome, namely the [uBlock
 Origin](https://github.com/gorhill/uBlock/) and [HTTPS
 Everywhere](https://www.eff.org/https-everywhere) extensions, be aware that not
 all versions of Chrome support extensions, most frustratingly Chrome on mobile
@@ -238,9 +238,9 @@ Conclusion
 
 The Web is now dominated by a few giant companies, chief among them Google. That
 market concentration is not healthy, so it behooves us to sensibly diversify
-where possible. Thankfully with Brave and DuckDuckGo, as alternatives to Chrome
+where possible. Thankfully, with Brave and DuckDuckGo, as alternatives to Chrome
 and Google Search respectively, diversifying will incur little compromise whilst
-reaping genuine dividends, especially with regards to privacy.
+reaping genuine dividends, especially regarding privacy.
 
 The more people that use products like Brave and DuckDuckGo, the healthier the
 Web will be. Please give these alternatives a try :beers:

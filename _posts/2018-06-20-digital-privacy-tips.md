@@ -433,10 +433,11 @@ Unfortunately whilst Windows 10 is now relatively secure it is far less private
 than previous generations of Windows. Windows 10 has somewhat adopted the
 Google and Facebook user-as-service business model.
 
-Windows 10, by default, sends a large amount of usage data back to Microsoft,
-especially if the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is
-enabled. Data that is sent back includes: location data, text and voice input,
-internet history, and telemetry data regarding general usage of the computer.
+Windows 10, by default, [sends a large amount of telemetry back to
+Microsoft](https://www.privacytools.io/operating-systems/#win10), especially if
+the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is enabled. Data
+that is sent back includes: location data, text and voice input, internet
+history, and general usage data of the operating system.
 
 If privacy is a concern then do **not** use Windows 10. Apple Mac and Linux
 systems are far more respectful of user privacy. If one has the funds and is

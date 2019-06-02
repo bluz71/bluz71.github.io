@@ -68,7 +68,7 @@ Personally I am not a fan of heavy *statusline* plugins like
 [powerline](https://github.com/powerline/powerline) and
 [airline](https://github.com/vim-airline/vim-airline).
 
-Instead I have created a simple matching `statusline` for the *moonfly*
+Instead, I have created a simple matching `statusline` for the *moonfly*
 color scheme named appropriately
 [moonfly-statusline](https://github.com/bluz71/vim-moonfly-statusline). It
 provides all relevant information I find useful whilst also clearly indicating
@@ -83,9 +83,9 @@ Plug 'rakr/vim-one'
 
 The [vim-one](https://github.com/rakr/vim-one) `colorscheme` advertises itself
 as *a light and dark Vim colorscheme, shamelessly stolen from Atom*. It is
-basically a port of Atom's
-[One](http://blog.atom.io/2015/02/18/one-themes.html) theme. Whenever I get
-bored with my own *moonfly* color scheme I change over to *One*.
+basically a port of Atom's [One](http://blog.atom.io/2015/02/18/one-themes.html)
+theme. When I get bored with my own *moonfly* color scheme I change over to
+*One*.
 
 visual-star-search
 ------------------
@@ -212,10 +212,10 @@ let g:clever_f_timeout_ms = 3000
 The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
 `F`, `t` and `T` movements more informative and convenient.
 
-The more informative part is achieved by *clever-f* highlighting all the
+The more informative aspect is achieved by *clever-f* highlighting all the
 matches for the chosen movement.
 
-The more convenient part is achieved by simply using the `f` and `F`
+The more convenient aspect is achieved by simply using the `f` and `F`
 characters to navigate forward and backward through the matches unlike Vim's
 inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
 **leader** key to `,` and I map `;` as a duplicate of `:`, hence those repeat
@@ -399,12 +399,13 @@ view:
 - [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
 - [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
 
-Note, by default *UltiSnips* will use the **TAB** character to expand a
-snippet, however that will conflict with the *VimCompletesMe* plugin. Instead
-use `Control-j`, as defined above, to expand and then navigate forward through
-a snippet's tabstops and `Control-k` to navigate back up through the tabstops.
+By default, *UltiSnips* will use the **TAB** character to expand a snippet,
+however that will conflict with the *VimCompletesMe* plugin. I recommend the use
+of `Control-j`, as defined above, to expand and then navigate forward through a
+snippet's tabstops and `Control-k` to navigate back up through the tabstops.
 
-The small set of snippets I use are declared [here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
+The small set of snippets I use are declared
+[here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
 
 indentLine
 ----------
@@ -738,9 +739,9 @@ Configuring *vim-projectionist* for other frameworks like
 [react](https://facebook.github.io/react/) or [Ember](https://www.emberjs.com/)
 should not be too difficult.
 
-Setting up this plugin does require a little bit of upfront work, but once
-done, and then used, you will really appreciate the navigation capabilities
-this plugin provides.
+Setting up this plugin does require a bit of upfront work, but once done, and
+then used, you will really appreciate the navigation capabilities this plugin
+provides.
 
 Note, Rails developers should still use *vim-rails* in preference to
 *vim-projectionist*, think of *vim-rails* as a pre-configured
@@ -819,7 +820,7 @@ lines. Note, in both cases the cursor will be inserted *between* the
 *surrounding pair*. The double `Ctrl-S-S` is especially useful for inserting
 curly braces in *C/C++/Java/JavaScript* type languages.
 
-Note, terminal Vim users need to make sure flow-control is disable otherwise
+Note, terminal Vim users need to make sure flow-control is disabled otherwise
 the above `Ctrl-S` will lock your terminal. I recommend starting Vim this way
 to avoid that issue, `stty -ixon && vim`.
 

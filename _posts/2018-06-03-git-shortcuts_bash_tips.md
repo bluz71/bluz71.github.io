@@ -50,7 +50,7 @@ alias g='_f() { if [[ $# == 0 ]]; then git status --short --branch; else git "$@
 
 When invoked without arguments `g` will do a short Git status, otherwise it
 will just pass on the given arguments to the `git` command. Status is likely to
-the be Git command one will execute the most, hence this simple enhancement does
+be the Git command one will execute the most, hence this simple enhancement does
 prove very useful in practice.
 
 ## Bash completion
@@ -61,12 +61,12 @@ suggest you setup it up. Please refer to my [Bash Shell Tweaks &
 Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html#bash-completion)
 post for details.
 
-Once enabled you will be able to use TAB-completion for most Git commands and
+Once enabled, you will be able to use TAB-completion for most Git commands and
 related paths. This will be a large time-saver.
 
 ## Git branch details in Bash prompt
 
-Once bash-completion has been enabled I also suggest adding Git branch
+Once bash-completion has been enabled, I also suggest adding Git branch
 information to your prompt.
 
 As a starting point, add the following to your `~/.bashrc`:
@@ -367,7 +367,7 @@ for more such Git examples.
 
 # References
 
-Some of the suggestions in the post originated from the following:
+Some suggestions in the post originated from the following:
 
 - [Must Have Git Aliases: Advanced Examples](http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples)
 

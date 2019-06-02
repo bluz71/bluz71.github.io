@@ -85,11 +85,11 @@ Plug 'junegunn/fzf.vim'
 Then run `:PlugInstall` to install both the fzf command-line tool and
 associated Vim plugin.
 
-You may wonder, if one has already installed the fzf command-line tool why
+You may wonder, if one has already installed the fzf command-line tool, why
 bother with installing it again via a Vim plugin? Basically to maintain runtime
 synchronization between the Vim plugin and command-line tool.
 
-If using a different plugin manager please adjust the above statements
+If using a different plugin manager, please adjust the above statements
 appropriately.
 
 Usage
@@ -98,7 +98,7 @@ Usage
 With [fzf.vim](https://github.com/junegunn/fzf.vim) installed we can now
 focus on how to use fzf within Vim.
 
-Hint, use the ESC key to quickly dismiss an fzf window.
+Hint, use the ESC key to quickly dismiss a fzf window.
 
 Files command
 -------------
@@ -119,7 +119,7 @@ DOWN keys to move the selection line. Hit the ENTER key to edit a selected file
 in the current window, or use TAB to first select multiple files and then hit
 ENTER to edit all the selected files. To open the selected file(s) in a new
 tab, rather than the current window, use `Control-t` instead of ENTER.
-Similarly use `Control-x` or `Control-v` to open file selections in new
+Similarly, use `Control-x` or `Control-v` to open file selections in new
 horizontal or vertical splits.
 
 ### Example key mapping
@@ -161,7 +161,7 @@ Project navigation
 
 Modern project frameworks, such as [Ruby on Rails](https://rubyonrails.org) and
 [Create React App](https://github.com/facebook/create-react-app), are
-opinionated with regards to directory structure and project layout.
+opinionated in regards to directory structure and project layout.
 
 Those opinionated project layouts, as created by the above listed frameworks
 and others, can form the basis for fuzzy project navigation.
@@ -177,7 +177,7 @@ nnoremap <silent> <leader>em :Files app/models<CR>
 nnoremap <silent> <leader>ev :Files app/views<CR>
 ```
 
-A React application on the other hand may be navigated with the following
+A React application, on the other hand, may be navigated with the following
 mappings.
 
 ```viml
@@ -200,9 +200,9 @@ endif
 ```
 
 Note, the [vim-rails](https://github.com/tpope/vim-rails) and
-[vim-projectionist](https://github.com/tpope/vim-projectionist) plugins can
-also be used be used to navigate projects. All these project navigation
-techniques are complimentary, they can happily co-exist.
+[vim-projectionist](https://github.com/tpope/vim-projectionist) plugins can also
+be used to navigate projects. All these project navigation techniques are
+complimentary, they can happily co-exist.
 
 Buffers command
 ---------------
@@ -314,7 +314,7 @@ following to your `~/.vimrc` file:
 Plug 'pbogut/fzf-mru.vim'
 ```
 
-Run `:PlugInstall` to install the plugin. If using a different plugin manager
+Run `:PlugInstall` to install the plugin. If using a different plugin manager,
 please adjust the above statement appropriately.
 
 ### Example key mapping

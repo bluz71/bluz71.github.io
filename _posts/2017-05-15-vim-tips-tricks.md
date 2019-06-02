@@ -11,8 +11,8 @@ Vim Tips & Tricks
 As a long-term Vim user myself, here are some of my favourite *tips n' tricks*
 that I have picked up along the journey.
 
-Note, by no means is this an exclusive list, many of these *tips* will be well
-known to the Vim community at large. However, even the most seasoned of Vim
+Note, by no means is this an exclusive list, many of these *tips* will be
+well-known to the Vim community at large. However, even the most seasoned of Vim
 users can sometimes learn a *trick* or two from posts like this.
 
 Quite a few of these *tips n' tricks* are baked into my
@@ -38,8 +38,8 @@ Whilst in insert mode you can quickly execute a single normal operation with:
 Control-o <<command>>
 ```
 
-When the normal mode command has completed you will be returned back to insert
-mode where you were last editing.
+Once the normal mode command has completed you will be returned to insert mode
+where you were last editing.
 
 A useful example would be centering the text being edited in the current window:
 
@@ -129,7 +129,7 @@ Use the `sort` command to sort a selection, say a visual selection:
 :'<,'>sort
 ```
 
-By default lines starting with *0-9* will be sorted before *A-Z* followed
+By default, lines starting with *0-9* will be sorted before *A-Z* followed
 lastly by lines starting with *a-z*.
 
 Use the `i` option to ignore case when sorting, more often than not you want to
@@ -221,7 +221,9 @@ Star search that does not move the cursor
 -----------------------------------------
 
 The `*` operator will find and navigate to the next instance of the word under
-the cursor. The [visual-star-search](https://github.com/nelstrom/vim-visual-star-search) plugin expands that paradigm to visual selections.
+the cursor. The
+[visual-star-search](https://github.com/nelstrom/vim-visual-star-search) plugin
+expands that paradigm to visual selections.
 
 But in certain instances one may want to search for the word under the cursor or
 the current visual selection **but** not move to the next instance. For instance
@@ -289,7 +291,7 @@ Launch browser with *gx* command
 
 Launch a browser window by moving the cursor, in normal mode, into a URL text
 area and simply enter the `gx` command. I only recently came across this nice
-tip, I wish I knew this one years ago!
+tip, I wish I knew this years ago!
 
 Delete all lines containing pattern
 -----------------------------------
@@ -333,7 +335,7 @@ current directory tree:
 vim -es **/*.rb < do.vim
 ```
 
-If using Bash please enable `globstar` in your `~/.bashrc` file via the
+If one uses Bash, please enable `globstar` in your `~/.bashrc` file via the
 `shopt -s globstar` statement. For more details please read [Bash shell tweaks
 & tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html).
 
@@ -369,7 +371,7 @@ Smarter *j* and *k* navigation
 When any form of wrapping is in effect, I recommend `breakindent` as noted
 above, then it is natural to convert the **j** and **k** movement commands from
 strict linewise movements to onscreen display line movements via the **gj** and
-**gk** commands. However when preceded with a count, useful when
+**gk** commands. However, when preceded with a count, useful when
 `relativenumber` is in effect, then we *want* to go back to strict linewise
 movements.
 
@@ -396,7 +398,7 @@ enhancement, thanks *p1xelHer0*.
 Set *infercase*
 ---------------
 
-Most folks set `ignorecase` when searching. However that option does not play
+Most folks set `ignorecase` when searching. However, that option does not play
 nicely with completion which will then completely ignore case. Set the
 `infercase` option for smarter completions that will be case aware:
 
@@ -463,7 +465,7 @@ did, since it will break `Control-i` inward navigation.
 Make dot work over visual line selections
 -----------------------------------------
 
-By default the **.** repeat operator does not work on visual selections.
+By default, the **.** repeat operator does not work on visual selections.
 
 Add this mapping in your *vimrc* file to enable a simple form of dot repetition
 over visual line selections.

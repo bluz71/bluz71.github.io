@@ -304,7 +304,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     The Readline incremental and reverse search commands are much more useful
     when a good amount of history is kept. Note, we will also ignore all
     commands that are only one or two characters long. Also, history expansions,
-    such as `!!`, will not be auto-executed, instead they will expanded on a new
+    such as `!!`, will not be auto-executed, instead they will expand on a new
     line which will provide scope for review before execution.
 
 - Display Git branch details in the prompt.
@@ -392,9 +392,9 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     ```
 
     When invoked without arguments `g` will do a short Git status, otherwise it
-    will just pass on the given arguments to the `git` command. Status is likely to
-    the be Git command one will execute the most, hence this simple enhancement does
-    prove very useful in practice.
+    will just pass on the given arguments to the `git` command. Status is likely
+    to be the Git command one will execute the most, hence this simple
+    enhancement does prove very useful in practice.
 
 - Confirm unsafe file operations.
 
@@ -424,7 +424,7 @@ or defining a `CDPATH` environment variable as a short-circuit base directory.
 
 The [z](https://github.com/rupa/z) utility provides a quicker way to change to
 an already visited directory. The z utility, which works in both Bash and Zsh,
-tracks the directories you visit with the `cd` command. Once trained you can
+tracks the directories you visit with the `cd` command. Once trained, you can
 just use the `z` command with a portion of a path to jump to a visited
 directory.
 
@@ -434,7 +434,7 @@ The *z* utility is most easily installed with Homebrew or Linuxbrew:
 brew install z
 ```
 
-Install the old fashioned way if you are not a Brew user.
+Install the old-fashioned way if you are not a Brew user.
 
 Then source the `z.sh` file in your `~/.bashrc` file:
 
@@ -502,7 +502,7 @@ Linux (Debian flavoured) installation:
 sudo apt install renameutils
 ```
 
-By default `qmv` will use two editor columns, in my experience this consumes
+By default, `qmv` will use two editor columns, in my experience this consumes
 too much valuable real-estate for little benefit, hence, I recommend the
 following Bash alias (force `destination-only`):
 
@@ -523,7 +523,7 @@ will also prove very useful to all Bash users.
 Style
 -----
 
-If you spend a lot of time in the command line then I recommend styling up the
+If you spend a lot of time in the command line, then I recommend styling up the
 terminal to suit your needs.
 
 Some suggestions:

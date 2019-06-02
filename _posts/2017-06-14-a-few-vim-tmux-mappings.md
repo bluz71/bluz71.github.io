@@ -94,7 +94,7 @@ if-shell 'case "`uname`" in *Linux*) true;; *) false;; esac' \
 
 The above configuration is compatible with *tmux* version 2.4 and above.
 
-When using *Vim* with *tmux* it makes sense to configure *vi* style bindings in
+When using *Vim* with *tmux*, it makes sense to configure *vi* style bindings in
 *tmux*. The above configuration allows for *Vim* style visual selection and
 yanking when in *tmux* copy mode.
 
@@ -214,7 +214,7 @@ bind-key -n M-9 select-window -t 9
 `<prefix>-<number>`. However, I find using a `<prefix>` based mapping a bit
 cumbersome if I want to quickly flick between windows.
 
-Instead I prefer to use `Alt-<number>` to quickly get to the window I want.
+Instead, I prefer to use `Alt-<number>` to quickly get to the window I want.
 
 Navigate between *Vim* tab pages
 --------------------------------
@@ -340,11 +340,11 @@ inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
 ```
 
-When in insert mode Vim provides a suite of useful context-aware completions via
+When in insert mode, Vim provides a suite of useful context-aware completions via
 the `<Control-x>` prefix. However, I find it difficult and annoying to enter
 these completions, the `Control Control` cadence feels too much like Emacs.
 
-Instead I prefer to use these simpler mappings:
+Instead, I prefer to use these simpler mappings:
 
 - `Control-]`, complete using the project tags file
 

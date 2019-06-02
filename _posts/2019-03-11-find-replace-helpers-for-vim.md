@@ -9,7 +9,7 @@ published: true
 
 The post, [how do you handle these common find / replace use
 cases](https://www.reddit.com/r/vim/comments/armt3o/how_do_you_handle_these_common_find_replace_use),
-from the [Vim subreddit](https://www.reddit.com/r/vim) was the spark that lead
+from the [Vim subreddit](https://www.reddit.com/r/vim) was the spark that led
 me down a _find & replace_ rabbit-hole.
 
 Programming often entails
@@ -44,7 +44,7 @@ should be viewed as a _resource of possibilities_.
 A fairly modern version of Vim, at least [Vim
 7.4.858](https://www.vim.org/download.php) or [Neovim
 0.2.0](https://github.com/neovim/neovim/wiki/Installing-Neovim), is required
-since some of the helpers make use of the modern `gn` and `:cfdo` commands.
+since some helpers make use of the modern `gn` and `:cfdo` commands.
 
 The project-wide helper will also make use of the
 [ripgrep](https://github.com/BurntSushi/ripgrep) command-line search tool and

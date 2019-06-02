@@ -8,7 +8,7 @@ published: true
 Turbocharge the CtrlP Vim plugin
 ================================
 
-The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is a well established
+The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is a well-established
 fuzzy finder for the Vim editor. This plugin is most often used to quickly
 navigate to a file, within the current development tree, by simply typing
 letters that appear in the file name; CtrlP will take care of the fuzzy
@@ -91,7 +91,7 @@ On Linux (Debian flavoured):
 sudo apt install cmake python-dev libboost-all-dev
 ```
 
-Finally install the cpsm plugin using your preferred Vim plugin manager. I like
+Finally, install the cpsm plugin using your preferred Vim plugin manager. I like
 [vim-plug](https://github.com/junegunn/vim-plug) since it allows compilation of
 the cpsm plugin directly **without** needing to `cd` (then compile) in the cpsm
 directory after installation. In vimrc:

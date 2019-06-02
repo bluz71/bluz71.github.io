@@ -105,7 +105,7 @@ Basically that means the cursor shape will differ depending on mode:
 - An underscore in *replace* mode
 
 This works in *iTerm2* (on macOS) and *gnome-terminal* (on Linux). Best of all
-the cursor shape change will only effect the current Neovim edit session unlike
+the cursor shape change will only affect the current Neovim edit session unlike
 Vim's crude `t_SI/t_EI` based cursor shape change functionality which will
 bleed into all panes and windows of a *tmux* session.
 
@@ -280,14 +280,14 @@ the covers and in the community at large, some of those enhancements being:
 - A development community that can survive the comings and goings of key
   developers. The initial Neovim lead, Thiago de Arruda, did depart the Neovim
   project yet Neovim has continued on just fine. Would Vim development continue
-  if Bram Moolenaar, Vim's creator and on-going maintainer, was no longer
+  if Bram Moolenaar, Vim's creator and ongoing maintainer, was no longer
   active?
 
 - Neovim's remote API functionality provides a pathway where Neovim can be a
   true component in another application. This Neovim component could exist in
   an [Atom](https://atom.io) or
   [Thunderbird](https://www.mozilla.org/en-US/thunderbird) session. This same
-  *client/server* API has also lead to the development of some very interesting
+  *client/server* API has also led to the development of some very interesting
   Neovim [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui)
   such as [Oni](https://www.onivim.io/).
 
@@ -350,7 +350,7 @@ that plugin.
 Improved *relativenumber* scroll performance
 --------------------------------------------
 
-This performance issue effects both Vim **and** Neovim. Currently when
+This performance issue effects both Vim **and** Neovim. Currently, when
 `relativenumber` is enabled any type of scroll event will cause a full redraw
 for all visible lines which in turn results in every line having its syntax
 re-evaluated even though no text has actually changed (only line numbers
@@ -397,6 +397,6 @@ future.
 As of mid-2017 both the Vim and Neovim projects appear healthy. The competitive
 tension seems to have benefited the Vim user community at large. Hence, I say
 that every Vim user should want Neovim to continue and more than that
-**thrive**, whether they use Neovim or they don't.
+**thrive**, whether they use Neovim, or they don't.
 
 P.S. I still continue to use both Vim and Neovim.

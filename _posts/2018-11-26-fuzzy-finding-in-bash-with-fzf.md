@@ -62,7 +62,7 @@ to filter through. I recommend installing and then using the
 brew install fd
 ```
 
-Note, some of the key bindings and scripts in this post make use of the:
+Note, some key bindings and scripts in this post make use of the:
 [ripgrep](https://github.com/BurntSushi/ripgrep),
 [bat](https://github.com/sharkdp/bat) and
 [tree](http://mama.indstate.edu/users/ice/tree) utilities. If using Brew please
@@ -296,8 +296,8 @@ git config --global alias.ll 'log --graph --format="%C(yellow)%h%C(red)%d%C(rese
 ```
 
 The `gll` Bash alias displays a compact Git log list that can be filtered by
-entering in a fuzzy term at the prompt. Navigation up and down the commit list
-will preview the changes of each commit.
+entering a fuzzy term at the prompt. Navigation up and down the commit list will
+preview the changes of each commit.
 
 Git Log Browser in action:
 
@@ -320,8 +320,8 @@ alias grl='fzf_git_reflog'
 
 The `grl` Bash alias displays a Git
 [reflog](https://git-scm.com/docs/git-reflog) list that can be filtered by
-entering in a fuzzy term at the prompt. Navigation up and down the hash list
-will preview the changes of each hash.
+entering a fuzzy term at the prompt. Navigation up and down the hash list will
+preview the changes of each hash.
 
 ### Git Pickaxe Browser
 

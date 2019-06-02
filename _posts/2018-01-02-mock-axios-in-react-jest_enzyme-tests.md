@@ -76,7 +76,7 @@ export default BookList;
 Axios Mock
 ==========
 
-Since we do not want to speak to a back-end API in our tests we need to mock
+Since we do not want to speak to a back-end API in our tests, we need to mock
 Axios. This is best done by creating an `axios.js` file in a top-level
 `__mocks__` directory as follows:
 
@@ -134,8 +134,8 @@ An Ezyme snapshot test for a simple component would look something like:
 
 However, such a test will not work for an Axios based component, even our mocked
 version, since the retrieval of the books is an asynchronous operation done in
-the background. If the above test template where applied to out `BookList`
-component the snapshot would end up containing no books.
+the background. If the above test template where applied to our `BookList`
+component, the snapshot would end up containing no books.
 
 The test needs to wait for list of books to populate component state. That is
 best done by waiting for the `Promise` queue to be flushed as follows:

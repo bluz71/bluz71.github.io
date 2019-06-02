@@ -25,7 +25,7 @@ Vim has had persistent undo capability since version 7.3. Due to apathy I only
 recently became annoyed enough about lost *undos* that I enabled it, now I
 can't imagine living without it.
 
-By default Vim does not enable persistent undo meaning change history will only
+By default, Vim does not enable persistent undo meaning change history will only
 be saved for the active buffer, changing to another file results in change
 history starting from scratch even when navigating back to the original file.
 This is how one loses *undos*.
@@ -140,11 +140,10 @@ Entering `g ctrl-a` will result in:
 ```
 
 Prepending a count to the `g ctrl-a` command will determine the step size of
-the increments. The `g ctrl-x` command will do decrementing instead of
-incrementing.
+the increments. The `g ctrl-x` command will decrement instead of increment.
 
 Again, I like to use `+` and `-` instead of `ctrl-a` and `ctrl-x`, hence I
-use these mappings instead for visual sequence incrementing and decrementing:
+use these mappings instead for visual sequence increment and decrement:
 
 ```viml
 xnoremap + g<C-a>

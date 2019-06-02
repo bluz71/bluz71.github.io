@@ -8,7 +8,7 @@ published: true
 Sensible Computing Security Tips
 ===============================
 
-Being secure in this fast moving and ever changing digital world can be a
+Being secure in this fast moving and ever-changing digital world can be a
 challenge, especially for those who are not IT professionals. Security is
 usually the last thing folks want to deal with; *bad stuff won't happen to me*,
 *devices and services are secure out of the box, right?*
@@ -106,15 +106,15 @@ These, compatible, password managers store your passwords in an encrypted
 database protected by a master password. Please choose a very strong master
 password. Also, when using a locally installed password manager, such as
 KeePassXC, please keep a copy of the encrypted database, usually
-`Passwords.kdbx`, safely stored offsite, I recommend a CD-R in a safety
-deposit box.
+`Passwords.kdbx`, safely stored offsite, I recommend a CD-R in a safe deposit
+box.
 
 I suggest storing all your accounts and passwords in KeePassXC; when a new
 password is needed let KeePassXC generate one for you. With experience using a
 password manager will become second nature whilst at the same time it will
 greatly improve your digital security.
 
-With smartphones I recommend PIN codes that are at least eight digits long.
+With smartphones, I recommend PIN codes that are at least eight digits long.
 Also configure fingerprint unlock, Touch ID on iPhones, if available, for fast
 unlock. Long PINs will then not be that bothersome.
 
@@ -131,11 +131,11 @@ often for malicious reasons, by disguising as a trustworthy entity in an
 electronic communication.
 
 The most common form of phishing is unsolicited email disguised as coming from
-a legitimate entity you may have an account with. For example it may be an
+a legitimate entity you may have an account with. For example, it may be an
 email styled to look like it came from PayPal with a link to a fake PayPal
 site designed to fool the victim into typing in their username and password.
 
-To protect yourself from such scams please be sceptical of any unsolicited
+To protect yourself from such scams please be skeptical of any unsolicited
 correspondence, either in email or messaging form. Do **NOT** click links, do
 **NOT** open attachments, do **NOT** be tricked into sending your password in
 electronic form. Do not trust links in emails, they may be a scam.
@@ -174,7 +174,7 @@ in public places ready for unsuspecting folk to pick them up, take them home,
 and insert them into their computer. Such malicious USB sticks, once inserted,
 will compromise your home network.
 
-Your should
+You should
 [never trust a found USB stick](https://threatpost.com/never-trust-a-found-usb-drive-black-hat-demo-shows-why/119653/).
 
 If you see a USB stick on the ground, simply leave it there and walk on.
@@ -211,7 +211,7 @@ Disk Encryption
 [Disk encryption](https://en.wikipedia.org/wiki/Disk_encryption) is technology
 that protects your data, stored on disk, by scrambling it when devices are
 powered off. For example, disk encryption will protect the confidentiality of
-your data if your lose a powered off laptop, or if a thief steals your home
+your data if you lose a powered off laptop, or if a thief steals your home
 computer.
 
 Disk encryption requires a master password, hence it is very important that you
@@ -234,14 +234,14 @@ your own data.
 * iOS platforms, iPhones and iPads, encrypt data by default. But the encryption
   will only be effective once a PIN has been enabled.
 
-* Modern Android phones encrypt by default whilst most older Android phones do
-  not. Old Android phones are insecure, hence it is recommended to upgrade to a
+* Modern Android phones encrypt by default whilst older Android phones do not.
+  Old Android phones are insecure, hence it is recommended to upgrade to a
   modern Android device such as a Google Pixel phone. Please also set a strong
   PIN code.
 
 * Modern NASs, such as QNAP and Synology devices, also provide encryption
   capabilities. If a NAS is used to store confidential information, such as
-  financial details or family photos, then it is recommended to setup encrypted
+  financial details or family photos, then it is recommended to set up encrypted
   shares. Just be aware you will need to log into the management interface to
   unlock a share each time the NAS is started or rebooted; a very minor
   inconvenience.
@@ -271,7 +271,7 @@ unauthorised access to a network like your home network.
 * Please also make sure that your router's firewall is enabled, sometimes it
   will be marked as *Stateful Packet Inspection* (SPI). Most modern routers
   will enable their firewall by default, many older routers do not. If you own
-  an old router I recommend replacing it with a modern router.
+  an old router, I recommend replacing it with a modern router.
 
 Secure Your Router and Wi-Fi
 ============================
@@ -393,8 +393,8 @@ My preferred software for local backups:
 * [Deja Dup](https://launchpad.net/deja-dup) is a simple backup utility for
   Linux systems.
 
-When using these local backup software **please** enable their encryption
-support. You don't want your backups in plain text in case your lose your
+When using these local backup software, **please** enable their encryption
+support. You don't want your backups in plain text in case you lose your
 backup drive or have it stolen.
 
 If you already have a functional backup strategy, but you are not encrypting
@@ -408,7 +408,7 @@ Please make sure that backups are running with regularity, at least once a
 week.
 
 Whichever approach you take, please have a backup strategy, any strategy will
-do, since there will likely come a day where either your computer dies or you
+do, since there will likely come a day when either your computer dies or you
 are a victim of cyberattack. At that point you will be extremely grateful that
 you had a backup to restore from. Backups are your digital insurance, just as
 you insure your home and contents, so you should backup your data.

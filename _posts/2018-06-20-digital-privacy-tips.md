@@ -8,7 +8,7 @@ published: true
 Digital Privacy Tips
 ====================
 
-We live in an age where most everyone in the digital domain is being
+We live in an age where almost everyone in the digital domain is being
 surveilled, profiled and targeted. That may be at a nation-state level, such as
 by the American [NSA](https://en.wikipedia.org/wiki/National_Security_Agency)
 and British
@@ -25,7 +25,7 @@ use to increase their privacy in this hostile digital domain.
 Security
 ========
 
-Before tackling digital privacy it is **extremely** important that one has a
+Before tackling digital privacy, it is **extremely** important that one has a
 strong security regime in place. Please read this [Sensible Computing Security
 Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html)
 post as a starting point to secure your digital devices.
@@ -37,7 +37,7 @@ phishing and social engineering.
 ISP Snooping
 ============
 
-Depending in which country you live in, and possibly which provider you use,
+Depending on which country you live in, and possibly which provider you use,
 your internet activity may be snooped and logged by your internet service
 provider (ISP). That may include: which sites you visit, who you communicate
 with, at what time and for how long.
@@ -83,7 +83,7 @@ poor performance due to the multiple network hops involved, poor web experience
 due to the strict browsing mode used, and bandwidth constraints due to the
 basic architecture of the network. A VPN will provide a superior user
 experience. Tor however is appropriate, as part of a layered security regime,
-for dissidents, national security reporters, whistleblowers and other targeted
+for dissidents, national security reporters, whistle blowers and other targeted
 users.
 
 [This Wirecutter](https://thewirecutter.com/reviews/best-vpn-service) article
@@ -98,7 +98,7 @@ human-readable address, such as `www.google.com`, to something a computing
 device can understand, such as `172.217.22.4`.
 
 The proprietor of a DNS service has great power, they can monitor your
-activity and they can also block or censor your activity.
+activity, and they can also block or censor your activity.
 
 Most people likely use the DNS servers provided by their ISP. Since ISPs may
 not be trust-worthy, I recommended changing your DNS configuration from
@@ -173,7 +173,7 @@ Email
 
 [Email](https://en.wikipedia.org/wiki/Email) is still one of the most common
 methods of electronic message exchange in use today. Email is an old technology
-that pre-dates the Internet. Privacy was never a consideration in its design,
+that predates the Internet. Privacy was never a consideration in its design,
 and to this date still has not been satisfactorily addressed, and likely never
 will be.
 
@@ -182,7 +182,7 @@ error-prone, and no longer recommended for use by [leading
 cryptographers](https://blog.cryptographyengineering.com/2014/08/13/whats-matter-with-pgp).
 
 Many users incorrectly assume that an email exchange is a private
-correspondence. In reality it is more akin to a loud conservation in public. At
+correspondence. In reality, it is more akin to a loud conservation in public. At
 a minimum the Email provider has access to all the
 [plain-text](https://en.wikipedia.org/wiki/Plaintext) content. Cybercriminals
 through to mass-surveillance systems may gain access to this content and
@@ -196,7 +196,7 @@ note of caution, be careful what you say in email, only be prepared to write
 what you are comfortable with if, in the unlikely event,
 [Wikileaks](https://wikileaks.org/) were to publish it.
 
-When it comes to mass-surveillance systems the jurisdiction of the provider is
+When it comes to mass-surveillance systems, the jurisdiction of the provider is
 a factor that should be considered. For instance, Google's
 [Gmail](https://www.google.com/gmail/) is an excellent Email service, but it
 can not be considered privacy-focussed because Google is a partner in the
@@ -258,7 +258,7 @@ Google
 ======
 
 [Google](https://en.wikipedia.org/wiki/Google) is an Internet-services and
-technology company with more then [one
+technology company with more than [one
 billion](https://techcrunch.com/2016/02/01/gmail-now-has-more-than-1b-monthly-active-users)
 active users. Google's motto at one time was *don't be evil*, but they never
 said anything about respecting a user's privacy. If an internet service is free,
@@ -310,7 +310,7 @@ Facebook
 ========
 
 [Facebook](https://en.wikipedia.org/wiki/Facebook) is the largest social
-networking service in the world. As of early 2018 there are estimated to be
+networking service in the world. As of early 2018, there are estimated to be
 over [2 billion active
 users](https://www.statista.com/statistics/264810/number-of-monthly-active-facebook-users-worldwide)
 using the service. 
@@ -356,7 +356,7 @@ number of Facebook controversies.
     the personal data of tens of millions of Facebooks users with the aim of
     influencing the result of the US presidential election of the same year.
 
-- Subsequent to the Cambridge Analytica incident, Facebook announced in [April
+- After to the Cambridge Analytica incident, Facebook announced in [April
     2018](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
     that most of 2 billion users may have had their personal data scrapped from
     the site by *malicious actors*.
@@ -395,7 +395,7 @@ A number of recommendations.
 
     - In *Ad Preferences* / *Ad Settings*, disable all options
 
-    - Periodically rereview your Facebook settings. Facebook has changed
+    - Periodically review your Facebook settings. Facebook has changed
         settings and defaults **without** user consent a number of times over
         the years. It is not certain the specific choices you make today will
         hold tomorrow.
@@ -406,11 +406,10 @@ hopefully be over now. Use with caution, or better yet exit the service.
 Online Services
 ===============
 
-Google and Facebook are far from the the only user-as-a-service providers.
-Services such as [Twitter](https://twitter.com/),
-[Linkedin](https://www.linkedin.com), [Yahoo](https://www.yahoo.com) and
-[Instagram](https://www.instagram.com), to name a few, all roughly follow the
-same business model of Google and Facebook.
+Google and Facebook are far from the only user-as-a-service providers. Services
+such as [Twitter](https://twitter.com/), [Linkedin](https://www.linkedin.com),
+[Yahoo](https://www.yahoo.com) and [Instagram](https://www.instagram.com), to
+name a few, all roughly follow the same business model of Google and Facebook.
 
 Much like the Facebook advice above, the first question you should ask yourself
 is whether the provider is serving a genuinely useful purpose. If *not*, shut
@@ -439,14 +438,14 @@ the [Cortana](https://en.wikipedia.org/wiki/Cortana) assistant is enabled. Data
 that is sent back includes: location data, text and voice input, internet
 history, and general usage data of the operating system.
 
-If privacy is a concern then do **not** use Windows 10. Apple Mac and Linux
+If privacy is a concern, then do **not** use Windows 10. Apple Mac and Linux
 systems are far more respectful of user privacy. If one has the funds and is
 less technically inclined then simply purchase an Apple Mac. If on the other
 hand a user already has a Windows 10 system and is technically capable then it
 is recommended to replace Windows 10 with a Linux distribution such as [Linux
 Mint](https://linuxmint.com).
 
-If replacing Windows 10 is not viable then the next best option is to tweak
+If replacing Windows 10 is not viable, then the next best option is to tweak
 the available controls.
 
 - Please do **NOT** enable the Cortana assistant during installation. If
@@ -500,11 +499,11 @@ Assistant](https://en.wikipedia.org/wiki/Google_Assistant), [Apple
 Siri](https://en.wikipedia.org/wiki/Siri) and [Microsoft
 Cortana](https://en.wikipedia.org/wiki/Cortana) technologies.
 
-The arrival of these technologies is extremely concerning from a security and
-privacy perspective. If a security flaw is found in a smart fridge will it ever
-be fixed and patched? Unlikely. Likewise, how will you ever know if an
-always-listening voice assistant, such as Amazon Alexa, is [secretly recording
-your conversations without your
+The arrival of these technologies is concerning from a security and privacy
+perspective. If a security flaw is found in a smart fridge will it ever be fixed
+and patched? Unlikely. Likewise, how will you ever know if an always-listening
+voice assistant, such as Amazon Alexa, is [secretly recording your conversations
+without your
 consent](https://www.washingtonpost.com/news/the-switch/wp/2018/05/24/hey-alexa-come-clean-about-how-much-youre-really-recording-us/?utm_term=.37b73981c9c5)?
 You will not know.
 
@@ -519,7 +518,7 @@ Smartphones contain radios, microphones and cameras. Using these sensors a
 smartphone will know your location and can listen, watch and record you. A bad
 actor could remotely use a smartphone against a user without them knowing.
 
-In today's world a smartphones is an almost an indispensable device. Unlike a
+In today's world a smartphone is an almost an indispensable device. Unlike a
 smart fridge, it is far less practical to give up a smartphone.
 
 A reasonable compromise is to use a [signal blocking
@@ -539,7 +538,7 @@ The tips and suggestions contained in this and the [Computing Security
 posts are aimed at average citizens.
 
 A different, and far tighter, operational security regime **must** be followed
-if you are a dissident, national security reporter or whistleblower. One
+if you are a dissident, national security reporter or whistle blower. One
 misstep by such a targeted user may lead to prison or even death.
 
 If you are actively being targeted then please do **NOT** rely on the advice

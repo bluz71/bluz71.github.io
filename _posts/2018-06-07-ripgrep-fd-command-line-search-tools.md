@@ -15,7 +15,7 @@ this post will be aware, is used to search for patterns *within* files whilst
 `find` is primarily used to match file names based on supplied expressions.
 
 Both of these legacy tools are still valid today many decades after their
-initial release. However, a new wave of tools have recently appeared that make
+initial release. However, a new wave of tools has recently appeared that make
 command-line searching easier, faster and more user-friendly.
 
 This post highlights a couple such actively-developed tools, namely
@@ -96,7 +96,7 @@ echo tmp >> ~/.rgignore
 Vim integration
 ---------------
 
-If you are a [Vim](https://www.vim.org) user then I recommend reading
+If you are a [Vim](https://www.vim.org) user, then I recommend reading
 [these vim-grepper](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper)
 details. This will nicely integrate ripgrep into Vim.
 
@@ -108,7 +108,7 @@ modern-day simplified alternative to the Unix `find` tool.
 
 Like ripgrep, fd is also written in [Rust](https://www.rust-lang.org) and
 likewise has [excellent performance](https://github.com/sharkdp/fd#benchmark).
-Note, I am lead to believe that ripgrep and fd do share some code.
+Note, I am led to believe that ripgrep and fd do share some code.
 
 Programmer-friendliness is provided by the following niceties:
 
@@ -178,7 +178,7 @@ Vim CtrlP plugin
 ----------------
 
 If you are a [Vim](https://www.vim.org) user who uses the
-[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin then I recommend [these
+[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin, then I recommend [these
 CtrlP with
 fd](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#ctrlp)
 settings.

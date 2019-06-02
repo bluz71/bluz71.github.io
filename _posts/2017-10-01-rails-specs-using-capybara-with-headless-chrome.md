@@ -27,7 +27,7 @@ technology to rely on for the long term.
 Due to this PhantomJS uncertainty I converted my simple project over from
 PhantomJS to headless Chrome including support for
 [Travis CI](https://travis-ci.org/). After some grief, mainly related to
-Travis CI, all is working fine and I am pleased with the final result.
+Travis CI, all is working fine, and I am pleased with the final result.
 
 Installation
 ============
@@ -51,7 +51,7 @@ installed:
 brew install chromedriver
 ```
 
-Otherwise for Linux systems, sans Linuxbrew, install ChromeDriver the
+Otherwise, for Linux systems, sans Linuxbrew, install ChromeDriver the
 old-fashioned way:
 
 ```

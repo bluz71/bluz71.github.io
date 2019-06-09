@@ -143,30 +143,31 @@ Notable privacy and security features of Brave:
 Please read [Brave with DuckDuckGo, an alternative to
 Chrome](https://bluz71.github.io/2019/05/26/brave-with-duckduckgo-an-alternative-to-chrome.html) for greater insight.
 
-Privacy can further be enhanced by tweaking the following Brave settings.
+Privacy can be enhanced by tweaking the following Brave settings.
 
-- Disable all `Social Buttons and Logins`
+- `Brave Shields default`, `Fingerprintig protection` change to `Block
+  all fingerprinting`
 
-- In `Privacy and Security`, enable `Send a "Do Not Track" request with
-    your browsing traffic`
+- `Social Buttons and Logins`, disable all choices
 
-- Disable `Use a web service to help resolve navigation errors`
+- `Privacy and Security`, enable `Send a "Do Not Track" request with your
+  browsing traffic`
 
-- Disable `Use a prediction service to help complete searches and URLs typed in
-    the address bar`
+- `Privacy and security`, disable `Use a web service to help resolve navigation
+  errors`, `Use a prediction service to load pages more quickly` and `Allow
+  sites to check if you have payment methods saved`
 
-- Disable `Use a prediction service to load pages more quickly`
-
-- Disable `Allow sites to check if you have payment methods saved`
+- `Privacy and security`, change `WebRTC IP Handling Policy` to `Disable
+  Non-Proxied UDP`
 
 - In `Site Settings` / `Cookies` enable `Keep local data only until you quit
   your browser`
 
 Note, the last cookie setting will clear your session cookies upon browser exit.
 Session cookies can be used to track and de-anonymize users, by clearing them
-you increase your privacy at the expense of more frequent re-login into web
-services. This latter inconvenience is not that onerous with browser auto-filled
-usernames and passwords.
+you increase privacy at the expense of frequent re-login into web services. This
+latter inconvenience is not that onerous with browser auto-filled usernames and
+passwords.
 
 Email
 =====

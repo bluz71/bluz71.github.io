@@ -119,8 +119,8 @@ policy](https://brave.com/privacy).
 Recommended Brave Settings
 --------------------------
 
-Privacy and security can further be enhanced by tweaking Brave's settings. Note,
-the following settings were valid as of May 2019, however, there is no guarantee
+Privacy and security can be enhanced by tweaking Brave's settings. Note, the
+following settings were valid as of May 2019, however, there is no guarantee
 they will be named the same, or even exist, going forward. 
 
 Brave desktop-specific settings:
@@ -131,12 +131,24 @@ Brave desktop-specific settings:
 - `Brave Shields default`, `Fingerprintig protection` change to `Block
   all fingerprinting`
 
-- `Social Buttons and Logins`, disable all options
+- `Social Buttons and Logins`, disable all choices
 
+- `Privacy and Security`, enable `Send a "Do Not Track" request with your
+  browsing traffic`
+
+- `Privacy and security`, disable `Use a web service to help resolve navigation
+  errors`, `Use a prediction service to load pages more quickly` and `Allow
+  sites to check if you have payment methods saved`
+
+- `Privacy and security`, change `WebRTC IP Handling Policy` to `Disable
+  Non-Proxied UDP`
 
 Brave mobile-specific settings:
 
 - `Search engine`, change `Standard Tab` and `Private Tab` to `DuckDuckGo`
+
+- `Privacy`, disable `Navigation error suggestions`, `Search and URL
+  suggestions` and `Access payment methods`
 
 DuckDuckGo
 ----------

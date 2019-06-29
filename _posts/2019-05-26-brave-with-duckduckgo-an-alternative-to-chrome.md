@@ -133,9 +133,6 @@ Brave desktop-specific settings:
 
 - `Social Buttons and Logins`, disable all choices
 
-- `Privacy and Security`, enable `Send a "Do Not Track" request with your
-  browsing traffic`
-
 - `Privacy and security`, disable `Use a web service to help resolve navigation
   errors`, `Use a prediction service to load pages more quickly` and `Allow
   sites to check if you have payment methods saved`

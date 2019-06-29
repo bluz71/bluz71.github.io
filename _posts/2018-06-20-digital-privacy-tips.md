@@ -150,9 +150,6 @@ Privacy can be enhanced by tweaking the following Brave settings.
 
 - `Social Buttons and Logins`, disable all choices
 
-- `Privacy and Security`, enable `Send a "Do Not Track" request with your
-  browsing traffic`
-
 - `Privacy and security`, disable `Use a web service to help resolve navigation
   errors`, `Use a prediction service to load pages more quickly` and `Allow
   sites to check if you have payment methods saved`
@@ -286,8 +283,10 @@ the amount of data Google collects.
 Log into to [My Activity](https://myactivity.google.com). This lists all the
 activity Google records for your account. Delete all the archives you no longer
 want Google to store. Select the *Activity Controls* and `pause` all the
-activities provided. Congratulations, Google is now collecting less of your
-private information :tada:.
+activities provided. Likewise log into [Ad
+Settings](https://https://adssettings.google.com) and disable personalization.
+Congratulations, Google is now collecting less of your private information
+:tada:.
 
 Web Searching
 =============

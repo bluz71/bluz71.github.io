@@ -226,6 +226,7 @@ vim-wordmotion
 
 ```viml
 Plug 'chaoren/vim-wordmotion'
+nmap cw ce
 ```
 
 The [wordmotion](https://github.com/chaoren/vim-wordmotion) plugin expands Vim's
@@ -236,6 +237,9 @@ using `w` and `b`, within such *words*.
 This plugin will not suit everyone, but for certain language, such as
 [Ruby](https://www.ruby-lang.org/) which uses both camel and snake-case, it has
 proven invaluable in practice.
+
+Note, the `cw` mapping will restore standard Vim behaviour, that being to 
+preserve whitespace between words.
 
 <a id="ctrlp"></a>CtrlP
 -----------------------

@@ -481,12 +481,19 @@ ALE
 
 ```viml
 Plug 'w0rp/ale'
+let g:ale_fixers = {
+\  'css':        ['prettier'],
+\  'javascript': ['prettier-standard'],
+\  'json':       ['prettier'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['prettier'],
+\  'yml':        ['prettier']
+\}
 let g:ale_linters = {
 \  'css':        ['csslint'],
-\  'javascript': ['eslint'],
+\  'javascript': ['standard'],
 \  'json':       ['jsonlint'],
-\  'markdown':   ['mdl'],
-\  'ruby':       ['rubocop'],
+\  'ruby':       ['standardrb'],
 \  'scss':       ['sasslint'],
 \  'yaml':       ['yamllint']
 \}
@@ -494,19 +501,21 @@ let g:ale_linters_explicit = 1
 let g:ale_open_list = 1
 ```
 
-The [ALE](https://github.com/w0rp/ale) plugin is used to
-asynchronously run language linters, or compilers, within modern versions of
-Vim.
+The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
+language linters and fixers within modern versions of Vim.
 
-ALE ships with configurations for most common languages, such as JavaScript
-and Ruby to name a few, hence very little configuration is usually required.
-Note, the tools that *ALE* uses, such as *eslint* or *rubocop*, **will**
-need to be installed on the host, the ALE plugin will not install the underlying
-lint tools.
+Be aware, a fixer can also format code, hence there is no need to install code
+formatting plugins such as
+[vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
 
-I like to use a mapping, `<leader>l`, to invoke ALE when I desire, others
-however prefer to have ALE lint code is it is being written (the default
-behaviour). My ALE settings:
+ALE ships with configurations for most common languages, such as JavaScript and
+Ruby to name a few, hence little configuration is required. Note, the tools that
+*ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
+host, the ALE plugin will not install the underlying lint or fix tools.
+
+I like to use mappings, `<leader>l` for linting and `<leader>f` for fixing,
+when I desire, others however prefer to have ALE lint code is it is being
+written (the default behaviour). My ALE settings:
 
 ```viml
 let g:ale_lint_on_enter = 0
@@ -514,18 +523,17 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_text_changed = 'never'
-nmap <localleader>l <Plug>(ale_lint)
-nmap <localleader><BS> <Plug>(ale_reset_buffer)
+nmap <leader>l    <Plug>(ale_lint)
+nmap <leader>f    <Plug>(ale_fix)
+nmap <leader><BS> <Plug>(ale_reset_buffer)
 ```
 
 Note, use the `:ALEInfo` command to display runtime information per the
 current file type, use it when you need to debug any ALE linting issues.
 
 ALE is not the only asynchronous linting solution for Vim, an alternative
-is [Neomake](https://github.com/neomake/neomake) which does much the same job.
-
-Developers should integrate linting into their development flow, either one of
-these two modern plugins should satisfy that need.
+is [Neomake](https://github.com/neomake/neomake) which does much the same job. I
+prefer ALE since it also incorporates fixing.
 
 vim-test
 --------

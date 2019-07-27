@@ -8,6 +8,8 @@ published: true
 Vim Tips & Tricks
 =================
 
+**UPDATED JULY 2019**
+
 As a long-term Vim user myself, here are some of my favourite *tips n' tricks*
 that I have picked up along the journey.
 
@@ -151,6 +153,31 @@ system command:
 ```viml
 :'<,'>sort u
 ```
+
+Improved diffing
+----------------
+
+```viml
+if has("nvim")
+    " When using version 0.3.8 or later.
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+elseif has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
+```
+
+Modern Vim, starting with patch 8.1.0360, and Neovim, starting with version
+0.3.8, incorporate Git's [xdiff](https://github.com/git/git/tree/master/xdiff)
+library.
+
+This library improves [diffing](https://github.com/vim/vim/pull/2732) within Vim
+for certain kinds of diff. There is no need to install diff-specific plugins
+with their degraded performance due to shelling out.
+
+I like the
+[histogram](http://download.eclipse.org/jgit/docs/jgit-2.0.0.201206130900-r/apidocs/org/eclipse/jgit/diff/HistogramDiff.html)
+algorithm with [indent
+heuristic](https://github.com/libgit2/libgit2/commit/19f1a8e6f289b07389d525a12a13a4aaeaabe443).
 
 <a id="cfdo"></a>Project wide substitution using *cfdo*
 -------------------------------------------------------

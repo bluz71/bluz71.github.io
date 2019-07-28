@@ -154,27 +154,23 @@ system command:
 :'<,'>sort u
 ```
 
-Improved diffing
-----------------
+Diffing
+-------
 
 ```viml
-if has("nvim")
-    " When using version 0.3.8 or later.
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-elseif has("patch-8.1.0360")
+if has('nvim') || has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
 ```
 
-Modern Vim, starting with patch 8.1.0360, and Neovim, starting with version
-0.3.8, incorporate Git's [xdiff](https://github.com/git/git/tree/master/xdiff)
-library.
+Vim, starting with patch 8.1.0360, and Neovim, starting with version 0.3.2,
+incorporates Git's [xdiff](https://github.com/git/git/tree/master/xdiff) library.
 
-This library improves [diffing](https://github.com/vim/vim/pull/2732) within Vim
-for certain kinds of diff. There is no need to install diff-specific plugins
-with their degraded performance due to shelling out.
+This library can improve [diffing](https://github.com/vim/vim/pull/2732) within
+Vim for certain kinds of diff. With this enhancement, there is now no need to
+install [diff-specific plugins](https://github.com/chrisbra/vim-diff-enhanced).
 
-I like the
+I like and recommend the
 [histogram](http://download.eclipse.org/jgit/docs/jgit-2.0.0.201206130900-r/apidocs/org/eclipse/jgit/diff/HistogramDiff.html)
 algorithm with [indent
 heuristic](https://github.com/libgit2/libgit2/commit/19f1a8e6f289b07389d525a12a13a4aaeaabe443).
@@ -256,7 +252,8 @@ But in certain instances one may want to search for the word under the cursor or
 the current visual selection **but** not move to the next instance. For instance
 one may wish to only highlight matches.
 
-These `g*` mappings will behave like `*` whilst keeping the cursor where it is.
+These `g*` mappings will behave like `*` whilst keeping the cursor where it
+currently is.
 
 ```viml
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
@@ -558,19 +555,24 @@ A natural companion for this tip is the autosaving
 details please refer to the appropriate section of the [Vim Plugins I
 Like](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html) post.
 
-Recompute syntax highlighting
--------------------------------
+Improve scroll performance
+--------------------------
+
+Add the following snippet to your *vimrc* to improve scroll performance for
+certain file types:
 
 ```viml
-nnoremap <silent> <leader>S :syntax sync fromstart<CR>
-
-autocmd FileType markdown syntax sync fromstart
+augroup syntaxSyncMinLines
+    autocmd!
+    autocmd Syntax * syntax sync minlines=2000
+augroup END
 ```
 
-This mapping is used to force a full syntax recompute for the current buffer.
-By default, syntax highlighting is calculated only for the visible set of lines
-and a variable amount of lines surrounding that visible set. However, sometimes
-when large navigation jumps are done the syntax highlighting can get jumbled
-up. The mapping above, `<leader>S` in my case, will `syntax sync` the
-complete buffer, this will fix any syntax highlight errors caused by large
-jumps.
+Computing syntax highlight information on the fly whilst scrolling can be slow
+in Vim. How much of a file Vim highlight's is determined by the `filetype` in
+use. For some languages the value of `minlines` is small hence Vim can
+occasionally stutter whilst scrolling.
+
+The above setting can markedly improve scroll performance for certain file
+types. Also, I have yet to encounter a detriment with this setting on modern
+machines.

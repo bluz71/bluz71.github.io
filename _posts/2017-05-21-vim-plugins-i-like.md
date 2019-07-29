@@ -535,6 +535,50 @@ ALE is not the only asynchronous linting solution for Vim, an alternative
 is [Neomake](https://github.com/neomake/neomake) which does much the same job. I
 prefer ALE since it also incorporates fixing.
 
+vim-gitgutter
+-------------
+
+```viml
+Plug 'airblade/vim-gitgutter'
+let g:gitgutter_grep = 'rg'
+let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_added = '▎'
+let g:gitgutter_sign_modified = '▎'
+let g:gitgutter_sign_modified_removed = '▶'
+let g:gitgutter_sign_removed = '▶'
+let g:gitgutter_sign_removed_first_line = '◥'
+nmap [g <Plug>GitGutterPrevHunkzz
+nmap ]g <Plug>GitGutterNextHunkzz
+nmap <leader>p <Plug>GitGutterPreviewHunk
+nmap <leader>+ <Plug>GitGutterStageHunk
+nmap <leader>- <Plug>GitGutterUndoHunk
+```
+
+The [vim-gitgutter](https://github.com/airblade/vim-gitgutter) plugin highlights
+Git repository modifications via the signs column whilst also providing
+functionality to navigate, preview, stage and undo those modified Git chunks,
+aka hunks.
+
+The speed with which signs appear and change is governed by Vim's `updatetime`
+option. I suggest setting it to 300ms:
+
+```viml
+set updatetime=300
+```
+
+Candidate mappings:
+
+- Square-brackets `g` navigates between hunks
+
+- `<leader>p` displays the current hunk as a diff in the preview window
+
+- `<leader>+` stages the curent hunk
+
+- `<leader>-` reverts the curent hunk back to `HEAD`
+
+This plugin shines when dealing with modified Git chunks; that being easy
+navigation and staging of those hunks.
+
 vim-test
 --------
 

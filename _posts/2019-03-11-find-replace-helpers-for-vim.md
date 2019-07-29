@@ -151,14 +151,14 @@ Helpers to add to `~/.vimrc`
 
 ```viml
 nnoremap \S
-  \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/<C-r>s// \| update
+  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
+  \:Grepper -cword -noprompt<CR> \|
+  \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap \S
-  \ "sy
-  \ gvgr
-  \ :cfdo %s/<C-r>s// \| update
+  \ "sy \|
+  \gvgr
+  \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 ```
 

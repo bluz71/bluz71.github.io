@@ -215,6 +215,18 @@ The `:Buffers` command is used to quickly switch to an open buffer.
 nnoremap <silent> <leader>b :Buffers<CR>
 ```
 
+GFiles? command
+----------------
+
+The `:GFiles?` command is used to display the status of the current Git
+repository.
+
+### Example key mapping
+
+```viml
+nnoremap <silent> <leader>g :GFiles?
+```
+
 Tags command
 ------------
 

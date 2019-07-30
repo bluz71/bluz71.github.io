@@ -215,7 +215,7 @@ GFiles? command
 ----------------
 
 The `:GFiles?` command is used to display the status of the current Git
-repository.
+repository whilst also allowing easy navigation to modified files.
 
 ### Example key mapping
 

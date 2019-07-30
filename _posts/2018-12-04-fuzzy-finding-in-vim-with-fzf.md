@@ -145,15 +145,12 @@ Sibling files
 Sometimes one may need to edit a sibling file of the currently edited file,
 that being a file in the same directory with that current file.
 
-This SPACE DASH mapping will open the fuzzy finder just for the directory
+This SPACE DOT mapping will open the fuzzy finder just for the directory
 containing the currently edited file.
 
 ```viml
-nnoremap <silent> <leader>- :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 ```
-
-DASH was chosen due to previous experience with Tim Pope's
-[Vinegar](https://github.com/tpope/vim-vinegar) plugin.
 
 Project navigation
 ------------------

@@ -428,7 +428,7 @@ tracks the directories you visit with the `cd` command. Once trained, you can
 just use the `z` command with a portion of a path to jump to a visited
 directory.
 
-The *z* utility is most easily installed with Homebrew or Linuxbrew:
+The *z* utility is most easily installed with Homebrew:
 
 ```sh
 brew install z

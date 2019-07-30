@@ -29,7 +29,7 @@ quality of the match results.
 **UPDATE (DEC 2018)**: I now use [fzf.vim](https://github.com/junegunn/fzf.vim)
 instead of CtrlP as documented
 [here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html).
-The fzf issue noted above no longer applies since Neovim & Vim both integrated a
+The fzf issue noted above no longer apply since Neovim & Vim both integrated a
 terminal.
 
 Faster file listing using fd
@@ -39,8 +39,7 @@ The single biggest enhancement that can be done to improve CtrlP's performance
 is to specify a fast external file lister. The fastest such tool I have
 encountered is [fd](https://github.com/sharkdp/fd).
 
-It is quite easily installed using `brew` on macOS or Linux (using
-[Linuxbrew](https://docs.brew.sh/Linuxbrew)):
+It is quite easily installed using `brew` on macOS or Linux:
 
 ```
 brew install fd

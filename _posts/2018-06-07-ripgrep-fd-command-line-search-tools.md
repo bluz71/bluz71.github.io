@@ -51,7 +51,7 @@ Installation
 ------------
 
 ripgrep is easily installed using [Homebrew](https://brew.sh) on macOS and
- [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
+Linux.
 
 ```sh
 brew install ripgrep
@@ -129,8 +129,7 @@ use-cases.
 Installation
 ------------
 
-fd is easily installed using [Homebrew](https://brew.sh) on macOS and
- [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
+fd is easily installed using [Homebrew](https://brew.sh) on macOS and Linux.
 
 ```sh
 brew install fd
@@ -173,15 +172,6 @@ content in `tmp` directories.
 ```sh
 echo tmp >> ~/.fdignore
 ```
-
-Vim CtrlP plugin
-----------------
-
-If you are a [Vim](https://www.vim.org) user who uses the
-[CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin, then I recommend [these
-CtrlP with
-fd](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#ctrlp)
-settings.
 
 fzf
 ---

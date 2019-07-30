@@ -44,14 +44,14 @@ On macOS systems that have [Homebrew](https://brew.sh) installed:
 brew install chromedriver
 ```
 
-For Linux systems that have [Linuxbrew](https://docs.brew.sh/Linuxbrew)
+For Linux systems that have [Homebrew](https://docs.brew.sh/Homebrew-on-Linux)
 installed:
 
 ```
 brew install chromedriver
 ```
 
-Otherwise, for Linux systems, sans Linuxbrew, install ChromeDriver the
+Otherwise, for Linux systems, sans Homebrew, install ChromeDriver the
 old-fashioned way:
 
 ```

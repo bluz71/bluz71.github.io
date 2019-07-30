@@ -42,8 +42,7 @@ since versions pre-terminal integration, when running fzf, would spawn an ugly
 external terminal window which was highly unpleasant.
 
 I recommend installing and updating Vim, or Neovim, using
-[Homebrew](https://brew.sh/) on macOS and
-[Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
+[Homebrew](https://brew.sh/) on macOS and Linux.
 
 For example, to install Neovim using Brew:
 

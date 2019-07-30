@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED FEBRUARY 2019**
+**UPDATED JULY 2019**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
@@ -241,58 +241,21 @@ proven invaluable in practice.
 Note, the `cw` mapping will restore standard Vim behaviour, that being to 
 preserve whitespace between words.
 
-<a id="ctrlp"></a>CtrlP
------------------------
+fzf.vim
+-------
 
 ```viml
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_match_window_reversed = 0
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
 ```
 
-The [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) plugin is a fuzzy file
+The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin is a performant fuzzy
 finder.
 
-I recommend installing [fd](https://github.com/sharkdp/fd) and configuring
-*CtrlP* to use it and to **not** cache results. *fd* is a highly performant file
-find utility and it mates very well with *CtrlP* as noted
-[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html#fd)
-and
-[here](https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html).
-
-Also, here are some handy mappings for [Ruby on Rails](http://rubyonrails.org/)
-or [Elixir/Phoneix](http://www.phoenixframework.org/) developers:
-
-```viml
-if filereadable('config/routes.rb')
-    " This looks like a Rails app.
-    nnoremap <localleader>ec :CtrlP app/controllers<CR>
-    nnoremap <localleader>eh :CtrlP app/helpers<CR>
-    nnoremap <localleader>em :CtrlP app/models<CR>
-    nnoremap <localleader>es :CtrlP spec<CR>
-    nnoremap <localleader>ev :CtrlP app/views<CR>
-elseif filereadable('web/router.ex')
-    " This looks like an Elixir/Phoenix app.
-    nnoremap <localleader>ec :CtrlP web/controllers<CR>
-    nnoremap <localleader>em :CtrlP web/models<CR>
-    nnoremap <localleader>et :CtrlP test<CR>
-    nnoremap <localleader>ev :CtrlP web/views<CR>
-    nnoremap <localleader>ex :CtrlP web/templates<CR>
-endif
-```
-
-Those mappings, which can also easily be extended for other frameworks, provide
-quick and direct access to *model/view/controller* files (among others) from
-their standard directories.
-
-Lastly, be aware that quite a few Vim users are now using
-[fzf.vim](https://github.com/junegunn/fzf.vim) for their fuzzy file finding
-needs instead of *CtrlP*.
-
-**UPDATE (DEC 2018)**: I now use [fzf.vim](https://github.com/junegunn/fzf.vim)
-instead of CtrlP as [noted
-here](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html).
+Please refer to [fuzzy finding in Vim with
+fzf](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html) for
+comprehensive details about [fzf](https://github.com/junegunn/fzf) and the
+[fzf.vim](https://github.com/junegunn/fzf.vim) plugin.
 
 NERDTree
 --------
@@ -498,7 +461,7 @@ let g:ale_linters = {
 \  'yaml':       ['yamllint']
 \}
 let g:ale_linters_explicit = 1
-let g:ale_open_list = 1
+let g:ale_open_list        = 1
 ```
 
 The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
@@ -518,11 +481,11 @@ when I desire, others however prefer to have ALE lint code is it is being
 written (the default behaviour). My ALE settings:
 
 ```viml
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter            = 0
 let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave     = 0
+let g:ale_lint_on_save             = 0
+let g:ale_lint_on_text_changed     = 'never'
 nmap <leader>l    <Plug>(ale_lint)
 nmap <leader>f    <Plug>(ale_fix)
 nmap <leader><BS> <Plug>(ale_reset_buffer)
@@ -540,12 +503,12 @@ vim-gitgutter
 
 ```viml
 Plug 'airblade/vim-gitgutter'
-let g:gitgutter_grep = 'rg'
-let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '▎'
-let g:gitgutter_sign_modified_removed = '▶'
-let g:gitgutter_sign_removed = '▶'
+let g:gitgutter_grep                    = 'rg'
+let g:gitgutter_map_keys                = 0
+let g:gitgutter_sign_added              = '▎'
+let g:gitgutter_sign_modified           = '▎'
+let g:gitgutter_sign_modified_removed   = '▶'
+let g:gitgutter_sign_removed            = '▶'
 let g:gitgutter_sign_removed_first_line = '◥'
 nmap [g <Plug>GitGutterPrevHunkzz
 nmap ]g <Plug>GitGutterNextHunkzz
@@ -629,7 +592,7 @@ vim-auto-save
 
 ```viml
 Plug '907th/vim-auto-save'
-let g:auto_save = 1
+let g:auto_save        = 1
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 ```
@@ -747,53 +710,47 @@ primarily, provides infrastructure to navigate around projects. This plugin is
 effectively the core of the [vim-rails](https://github.com/tpope/vim-rails)
 plugin extracted into a standalone plugin.
 
-Here is a simple configuration for Elixir/Phoenix projects:
+Here is a simple configuration for
+[create-react-app](https://github.com/facebook/create-react-app) projects:
 
 ```viml
 Plug 'tpope/vim-projectionist'
-let g:projectionist_heuristics = {
-      \  "config/prod.exs": {
-      \    "web/controllers/*_controller.ex": {
-      \      "type": "controller",
-      \      "alternate": "test/controllers/{}_controller_test.exs",
-      \    },
-      \    "web/models/*.ex": {
-      \      "type": "model",
-      \      "alternate": "test/models/{}_test.exs",
-      \    },
-      \    "web/views/*_view.ex": {
-      \      "type": "view",
-      \      "alternate": "test/views/{}_view_test.exs",
-      \    },
-      \    "web/templates/*.html.eex": {
-      \      "type": "template",
-      \      "alternate": "web/views/{dirname|basename}_view.ex"
-      \    },
-      \    "test/*_test.exs": {
-      \      "type": "test",
-      \      "alternate": "web/{}.ex",
-      \    }
-      \  }
-      \}
-nnoremap <leader>ec :Econtroller<Space>
-nnoremap <leader>em :Emodel<Space>
-nnoremap <leader>et :Etest<Space>
-nnoremap <leader>ev :Eview<Space>
-nnoremap <leader>ex :Etemplate<Space>
-nnoremap <leader>A  :A<CR>
+if filereadable('src/App.js')
+    " This looks like a React app.
+    let g:projectionist_heuristics = {
+    \  'src/App.js': {
+    \    'src/components/*.js': {
+    \      'type': 'component',
+    \      'alternate': 'src/__tests__/components/{}.test.js'
+    \    },
+    \    'src/__tests__/components/*.test.js': {
+    \      'type': 'test',
+    \      'alternate': 'src/components/{}.js'
+    \    },
+    \    'src/styles/*.css': {
+    \      'type': 'stylesheet',
+    \      'alternate': 'src/components/{}.js'
+    \    }
+    \  }
+    \}
+    nnoremap <leader>ec :Ecomponent<Space>
+    nnoremap <leader>es :Estylesheet<Space>
+    nnoremap <leader>et :Etest<Space>
+endif
+nnoremap <leader>a  :A<CR>
 ```
 
 The above configuration will result in the following commands being created:
-`Econtroller`, `Emodel`, `Eview`, `Etemplate` and `Etest`. Those commands are
-then mapped for quick access. Hence, `<leader>ec <TAB>` will list all available
-controllers, in the status line if `wildmenu` and `wildmode` are set
-appropriately, allowing a developer to quickly go to the controller they wish.
-The `<leader>A` mapping provides quick switching to an *alternate* file, which
-will usually be the associated test suite for the current file.
+`Ecomponent`, `Estylesheet` and `Etest`. Those commands are then mapped for
+quick access. Hence, `<leader>ec <TAB>` will list all available components, in
+the status line if `wildmenu` and `wildmode` are set appropriately, allowing a
+developer to quickly go to the component they wish. The `<leader>a` mapping
+provides quick switching to an *alternate* file, which will usually be the
+associated test suite for the current component file.
 
 Configuring *vim-projectionist* for other frameworks like
-[react](https://facebook.github.io/react/) or [Ember](https://www.emberjs.com/)
-should not be too difficult.
+[Phoenix](https://phoenixframework.org) or [Ember](https://www.emberjs.com/)
+should not be difficult.
 
 Setting up this plugin does require a bit of upfront work, but once done, and
 then used, you will really appreciate the navigation capabilities this plugin

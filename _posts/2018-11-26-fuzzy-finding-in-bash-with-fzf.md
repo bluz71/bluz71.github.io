@@ -43,8 +43,7 @@ fzf configuration.
 Installation
 ------------
 
-fzf is easily installed using [Homebrew](https://brew.sh) on macOS and
- [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
+fzf is easily installed using [Homebrew](https://brew.sh) on macOS and Linux.
 
 ```sh
 brew install fzf

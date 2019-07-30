@@ -101,7 +101,7 @@ Git's default machine-readable `diff` output with one that is more human
 readable.
 
 Installation is most easily accomplished via [Homebrew](https://brew.sh) on
-macOS and [Linuxbrew](https://docs.brew.sh/Linuxbrew) on Linux.
+macOS and Linux.
 
 ```sh
 brew install diff-so-fancy
@@ -324,7 +324,7 @@ The [fzf](https://github.com/junegunn/fzf) utility is an excellent command-line
 fuzzy finder. With just a small of amount of scripting it is easy to create a
 command-line fuzzy-finding Git log browser with commit previews.
 
-First install fzf. If using Homebrew or Linuxbrew.
+First install fzf. If using Homebrew.
 
 ```sh
 brew install fzf

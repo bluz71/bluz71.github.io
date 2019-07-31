@@ -118,11 +118,11 @@ In vimrc using vim-plug:
 ```viml
 Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_funky_syntax_highlight = 1
-nnoremap <leader>f :CtrlPFunky<CR>
+nnoremap <Leader>f :CtrlPFunky<CR>
 ```
 
 Note, use whatever mapping you desire to launch ctrlp-funky, here I am using
-`<leader>f`.
+`<Leader>f`.
 
 Summary
 =======

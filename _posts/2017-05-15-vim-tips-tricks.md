@@ -476,10 +476,10 @@ Expanding on the previous tip, use `wildmenu` to quickly switch buffers.
 
 ```viml
 set wildcharm=<Tab>
-nnoremap <leader><Tab> :buffer<Space><Tab>
+nnoremap <Leader><Tab> :buffer<Space><Tab>
 ```
 
-Hitting **leader + TAB** in normal mode will list the open buffers in the status
+Hitting **Leader + TAB** in normal mode will list the open buffers in the status
 line via `wildmenu`, use **TAB** or arrow-keys to navigate the choices and then
 hit **Enter** to select the desired buffer.
 

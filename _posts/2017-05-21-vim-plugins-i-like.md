@@ -263,8 +263,8 @@ NERDTree
 ```viml
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 let NERDTreeHijackNetrw = 0
-noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
-noremap <silent> <leader>f :NERDTreeFind<CR> <C-w>=
+noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
+noremap <silent> <Leader>f :NERDTreeFind<CR> <C-w>=
 ```
 
 Most Vim users are aware of
@@ -272,8 +272,8 @@ Most Vim users are aware of
 needed, *NERDTree* is a simple file explorer that open up on the left-hand side
 of a Vim workspace.
 
-I use `<leader>n` to toggle *NERDTree* whilst also equalizing all existing
-splits. I also have a `<leader>f` mapping to open NERDTree and reveal the
+I use `<Leader>n` to toggle *NERDTree* whilst also equalizing all existing
+splits. I also have a `<Leader>f` mapping to open NERDTree and reveal the
 current buffer in the file tree.
 
 One inconvenience is that *NERDTree*, by default, will not refresh itself when
@@ -401,7 +401,7 @@ let g:grepper = {}
 let g:grepper.tools = ["rg"]
 runtime autoload/grepper.vim
 let g:grepper.jump = 1
-nnoremap <leader>g :GrepperRg<Space>
+nnoremap <Leader>g :GrepperRg<Space>
 nnoremap gr :Grepper -cword -noprompt<CR>
 xmap gr <plug>(GrepperOperator)
 ```
@@ -419,7 +419,7 @@ Upon execution *Grepper* search matches will populate Vim's *quickfix* list
 allowing easy navigation through the matches. Note, when run on a modern version
 of Vim or Neovim the search will be executed asynchronously.
 
-I have a simple mapping `<leader>gr` to invoke an interactive *Grepper* search.
+I have a simple mapping `<Leader>gr` to invoke an interactive *Grepper* search.
 The normal mode mapping `gr` will invoke a search on the word under the cursor
 whilst the visual mode mapping `gr` will invoke a search on the current visual
 selection.
@@ -476,7 +476,7 @@ Ruby to name a few, hence little configuration is required. Note, the tools that
 *ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
 host, the ALE plugin will not install the underlying lint or fix tools.
 
-I like to use mappings, `<leader>l` for linting and `<leader>f` for fixing,
+I like to use mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
 when I desire, others however prefer to have ALE lint code is it is being
 written (the default behaviour). My ALE settings:
 
@@ -486,9 +486,9 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave     = 0
 let g:ale_lint_on_save             = 0
 let g:ale_lint_on_text_changed     = 'never'
-nmap <leader>l    <Plug>(ale_lint)
-nmap <leader>f    <Plug>(ale_fix)
-nmap <leader><BS> <Plug>(ale_reset_buffer)
+nmap <Leader>l    <Plug>(ale_lint)
+nmap <Leader>f    <Plug>(ale_fix)
+nmap <Leader><BS> <Plug>(ale_reset_buffer)
 ```
 
 Note, use the `:ALEInfo` command to display runtime information per the
@@ -512,9 +512,9 @@ let g:gitgutter_sign_removed            = '▶'
 let g:gitgutter_sign_removed_first_line = '◥'
 nmap [g <Plug>GitGutterPrevHunkzz
 nmap ]g <Plug>GitGutterNextHunkzz
-nmap <leader>p <Plug>GitGutterPreviewHunk
-nmap <leader>+ <Plug>GitGutterStageHunk
-nmap <leader>- <Plug>GitGutterUndoHunk
+nmap <Leader>p <Plug>GitGutterPreviewHunk
+nmap <Leader>+ <Plug>GitGutterStageHunk
+nmap <Leader>- <Plug>GitGutterUndoHunk
 ```
 
 The [vim-gitgutter](https://github.com/airblade/vim-gitgutter) plugin highlights
@@ -533,11 +533,11 @@ Candidate mappings:
 
 - Square-brackets `g` navigates between hunks
 
-- `<leader>p` displays the current hunk as a diff in the preview window
+- `<Leader>p` displays the current hunk as a diff in the preview window
 
-- `<leader>+` stages the curent hunk
+- `<Leader>+` stages the curent hunk
 
-- `<leader>-` reverts the curent hunk back to `HEAD`
+- `<Leader>-` reverts the curent hunk back to `HEAD`
 
 This plugin shines when dealing with modified Git chunks; that being easy
 navigation and staging of those hunks.
@@ -548,10 +548,10 @@ vim-test
 ```viml
 Plug 'janko-m/vim-test'
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
-nnoremap <silent> <leader>tt :TestNearest<CR>
-nnoremap <silent> <leader>tf :TestFile<CR>
-nnoremap <silent> <leader>ts :TestSuite<CR>
-nnoremap <silent> <leader>tl :TestLast<CR>
+nnoremap <silent> <Leader>tt :TestNearest<CR>
+nnoremap <silent> <Leader>tf :TestFile<CR>
+nnoremap <silent> <Leader>ts :TestSuite<CR>
+nnoremap <silent> <Leader>tl :TestLast<CR>
 if has("nvim")
     let test#strategy = "neovim"
 else
@@ -682,8 +682,8 @@ Fugitive
 
 ```viml
 Plug 'tpope/vim-fugitive'
-nnoremap <silent> <leader>B :Gblame<CR>
-nnoremap <silent> <leader>G :Gstatus<CR>
+nnoremap <silent> <Leader>B :Gblame<CR>
+nnoremap <silent> <Leader>G :Gstatus<CR>
 ```
 
 The [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin is a Git
@@ -733,18 +733,18 @@ if filereadable('src/App.js')
     \    }
     \  }
     \}
-    nnoremap <leader>ec :Ecomponent<Space>
-    nnoremap <leader>es :Estylesheet<Space>
+    nnoremap <Leader>ec :Ecomponent<Space>
+    nnoremap <Leader>es :Estylesheet<Space>
     nnoremap <leader>et :Etest<Space>
 endif
-nnoremap <leader>a  :A<CR>
+nnoremap <Leader>a  :A<CR>
 ```
 
 The above configuration will result in the following commands being created:
 `Ecomponent`, `Estylesheet` and `Etest`. Those commands are then mapped for
-quick access. Hence, `<leader>ec <TAB>` will list all available components, in
+quick access. Hence, `<Leader>ec <TAB>` will list all available components, in
 the status line if `wildmenu` and `wildmode` are set appropriately, allowing a
-developer to quickly go to the component they wish. The `<leader>a` mapping
+developer to quickly go to the component they wish. The `<Leader>a` mapping
 provides quick switching to an *alternate* file, which will usually be the
 associated test suite for the current component file.
 

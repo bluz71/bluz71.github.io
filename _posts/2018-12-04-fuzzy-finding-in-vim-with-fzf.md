@@ -128,7 +128,7 @@ following.
 
 ```viml
 let mapleader = " "
-nnoremap <silent> <leader><Space> :Files<CR>
+nnoremap <silent> <Leader><Space> :Files<CR>
 ```
 
 Hitting SPACE SPACE quickly brings up the fuzzy file finder. An alternative
@@ -149,7 +149,7 @@ This SPACE DOT mapping will open the fuzzy finder just for the directory
 containing the currently edited file.
 
 ```viml
-nnoremap <silent> <leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
 ```
 
 Project navigation
@@ -168,22 +168,22 @@ whilst models are located in `app/models` and lastly views are located in
 access to controller, model and view files.
 
 ```viml
-nnoremap <silent> <leader>ec :Files app/controllers<CR>
-nnoremap <silent> <leader>em :Files app/models<CR>
-nnoremap <silent> <leader>ev :Files app/views<CR>
+nnoremap <silent> <Leader>ec :Files app/controllers<CR>
+nnoremap <silent> <Leader>em :Files app/models<CR>
+nnoremap <silent> <Leader>ev :Files app/views<CR>
 ```
 
 A React application, on the other hand, may be navigated with the following
 mappings.
 
 ```viml
-nnoremap <silent> <leader>ec :Files src/components<CR>
-nnoremap <silent> <leader>et :Files src/__tests__/components<CR>
+nnoremap <silent> <Leader>ec :Files src/components<CR>
+nnoremap <silent> <Leader>et :Files src/__tests__/components<CR>
 ```
 
 When dealing with multiple frameworks I recommend scoping such key mappings by
 searching for a distinguishing file, that way key mappings can be reused such
-as the `<leader>ec` mapping noted above.
+as the `<Leader>ec` mapping noted above.
 
 For example:
 
@@ -208,7 +208,7 @@ The `:Buffers` command is used to quickly switch to an open buffer.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 ```
 
 GFiles? command
@@ -220,7 +220,7 @@ repository whilst also allowing easy navigation to modified files.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <leader>g :GFiles?
+nnoremap <silent> <Leader>g :GFiles?
 ```
 
 Tags command
@@ -234,8 +234,8 @@ whilst `:Tags` will use the complete project tags.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <leader>]  :Tags<CR>
-nnoremap <silent> <leader>b] :BTags<CR>
+nnoremap <silent> <Leader>]  :Tags<CR>
+nnoremap <silent> <Leader>b] :BTags<CR>
 ```
 
 Commits command
@@ -263,8 +263,8 @@ let g:fzf_commits_log_options = '--graph --color=always
   \ --format="%C(yellow)%h%C(red)%d%C(reset)
   \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 
-nnoremap <silent> <leader>c  :Commits<CR>
-nnoremap <silent> <leader>bc :BCommits<CR>
+nnoremap <silent> <Leader>c  :Commits<CR>
+nnoremap <silent> <Leader>bc :BCommits<CR>
 ```
 
 The `g:fzf_commits_log_options` option customizes the appearance of Git log
@@ -297,8 +297,8 @@ all matches. Note, use `Alt-a` and `Alt-d` to select and deselect all matches.
 ### Example key mapping
 
 ```viml
-nnoremap <leader>rg :Rg<Space>
-nnoremap <leader>!  :Rg!<Space>
+nnoremap <Leader>rg :Rg<Space>
+nnoremap <Leader>!  :Rg!<Space>
 ```
 
 The preview window can be toggled with the QUESTION MARK key.
@@ -328,7 +328,7 @@ please adjust the above statement appropriately.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <leader>m :FZFMru<CR>
+nnoremap <silent> <Leader>m :FZFMru<CR>
 ```
 
 The SPACE m key combination will launch the fzf window with a list of recently

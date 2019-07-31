@@ -41,7 +41,7 @@ unbind-key C-b
 set -g prefix C-w
 ```
 
-*Vim* leader
+*Vim* Leader
 ------------
 
 The *Vim* leader is a user definable key that is used as a prefix for custom
@@ -120,13 +120,13 @@ the type of pane that will be created.
 In *~/.vimrc:*
 
 ```viml
-nnoremap <silent> <leader>s :split<CR>
-nnoremap <silent> <leader>v :vsplit<CR>
-nnoremap <silent> <leader>q :close<CR>
+nnoremap <silent> <Leader>s :split<CR>
+nnoremap <silent> <Leader>v :vsplit<CR>
+nnoremap <silent> <Leader>q :close<CR>
 ```
 
-Simple split windows in *Vim*: use `<leader>s` to create a horizontal split,
-`<leader>v` to create a vertical split and `<leader>q` to close a split.
+Simple split windows in *Vim*: use `<Leader>s` to create a horizontal split,
+`<Leader>v` to create a vertical split and `<Leader>q` to close a split.
 
 Seamlessly navigate *Vim* splits and *tmux* panes
 -------------------------------------------------
@@ -188,10 +188,10 @@ Create a *Vim* tab page
 In *~/.vimrc:*
 
 ```viml
-nnoremap <silent> <leader>t :$tabnew<CR>
+nnoremap <silent> <Leader>t :$tabnew<CR>
 ```
 
-`<leader>t` creates a new *Vim* tab page.
+`<Leader>t` creates a new *Vim* tab page.
 
 Navigate between *tmux* windows
 -------------------------------
@@ -225,14 +225,14 @@ In *~/.vimrc:*
 Plug 'gcmt/taboo.vim'
 let g:taboo_tab_format = " tab:%N%m "
 
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
+nnoremap <Leader>1 1gt
+nnoremap <Leader>2 2gt
+nnoremap <Leader>3 3gt
+nnoremap <Leader>4 4gt
+nnoremap <Leader>5 5gt
 ```
 
-These mapping provide `<leader>1`/`<leader>2`/`...` navigation to switch to a
+These mapping provide `<Leader>1`/`<Leader>2`/`...` navigation to switch to a
 specific numbered tab. I use the [vim-taboo](https://github.com/gcmt/taboo.vim)
 plugin to display numbered tabs rather than use *Vim's* default tab naming
 convention.
@@ -283,18 +283,18 @@ Fold code in Vim
 
 ```viml
 set foldmethod=indent
-nnoremap <leader>z za
+nnoremap <Leader>z za
 ```
 
 There are multiple choices available when choosing a Vim fold method. I like to
-use `indent` since it is simple and performant. `<leader><Space>` toggles a
+use `indent` since it is simple and performant. `<Leader><Space>` toggles a
 fold based on the indent level of the current cursor line.
 
 Equalize *Vim* splits
 ---------------------
 
 ```viml
-nnoremap <leader>= <C-w>=
+nnoremap <Leader>= <C-w>=
 ```
 
 The above mapping equalizes the splits of the current *Vim* workspace.
@@ -303,7 +303,7 @@ Zoom a *Vim* split
 ------------------
 
 ```viml
-nnoremap <silent> <leader>Z :tab split<CR>
+nnoremap <silent> <Leader>Z :tab split<CR>
 ```
 
 This handy mapping zooms a split into its own full tab page. This is
@@ -315,18 +315,18 @@ Yank, paste and delete helpers
 ------------------------------
 
 ```viml
-noremap <leader>y "yy
-noremap <leader>p "yp
-noremap <leader>P "yP
-noremap <leader>x "_x
-noremap <leader>d "_d
+noremap <Leader>y "yy
+noremap <Leader>p "yp
+noremap <Leader>P "yP
+noremap <Leader>x "_x
+noremap <Leader>d "_d
 ```
 
 Yank and paste into and out-of the user `y`-register. Normal yanks and pastes
 are prone to being accidentally overwritten by subsequent operations. Use these
 commands if you wish to persist a yank operation.
 
-The `<leader>x` and `<leader>d` commands will delete into the black-hole
+The `<Leader>x` and `<Leader>d` commands will delete into the black-hole
 register, hence will not overwrite the unnamed register.
 
 Insert mode completion mappings

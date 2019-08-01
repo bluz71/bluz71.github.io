@@ -295,8 +295,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```sh
     HISTCONTROL='erasedups:ignoreboth'
     HISTIGNORE=?:??
-    HISTFILESIZE=9999
-    HISTSIZE=9999
+    HISTFILESIZE=50000
+    HISTSIZE=50000
     PROMPT_COMMAND='history -a'
     shopt -s histappend histverify
     ```

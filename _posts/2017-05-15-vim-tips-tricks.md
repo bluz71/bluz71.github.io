@@ -469,10 +469,18 @@ use **TAB** again to quickly scroll through the options (left and right arrows
 also work). Note, when opening a file via `:e` use up and down arrows to
 enter or leave directories.
 
+Fast alternate buffer switching
+---------------------------------
+
+Hit `Control-6` to switch to the previously edited file, hit `Control-6` again
+to switch forward to the original file.
+
+Use this handy key sequence to toggle between the last two buffers.
+
 Fast buffer switching via the *wildmenu*
 ----------------------------------------
 
-Expanding on the previous tip, use `wildmenu` to quickly switch buffers.
+Expanding on the previous tips, use `wildmenu` to quickly switch buffers.
 
 ```viml
 set wildcharm=<Tab>

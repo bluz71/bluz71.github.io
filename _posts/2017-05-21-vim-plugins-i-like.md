@@ -312,7 +312,7 @@ VimCompletesMe
 
 ```viml
 Plug 'ajh17/VimCompletesMe'
-autocmd FileType css,ruby,scss let b:vcm_tab_complete = "omni"
+autocmd FileType css,scss let b:vcm_tab_complete = "omni"
 ```
 
 The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the

@@ -150,8 +150,8 @@ Helpers to add to `~/.vimrc`
 
 ```viml
 nnoremap <Leader>S
-  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
-  \:Grepper -cword -noprompt<CR> \|
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \:Grepper -cword -noprompt<CR>
   \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap <Leader>S

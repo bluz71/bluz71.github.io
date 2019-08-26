@@ -151,14 +151,14 @@ Helpers to add to `~/.vimrc`
 ```viml
 nnoremap <Leader>S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \:Grepper -cword -noprompt<CR>
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s// \| update
+  \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap <Leader>S
   \ "sy \|
-  \gvgr
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+  \ :GrepperRg <C-r>s<CR>
+  \ :cfdo %s/<C-r>s// \| update
+  \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 ```
 
 Note, please make sure [ripgrep](https://github.com/BurntSushi/ripgrep) is
@@ -169,7 +169,6 @@ configured with these settings.
 ```viml
 let g:grepper = {}
 let g:grepper.tools = ["rg"]
-xmap gr <plug>(GrepperOperator)
 ```
 
 Again for reference, I have documented both the ripgrep tool and the Grepper

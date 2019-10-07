@@ -1,16 +1,17 @@
 ---
-title: LSP Code Completion in Vim using the LSC Plugin
+title: LSP in Vim with the LSC Plugin
 layout: default
 comments: true
 published: false
 ---
 
-LSP Code Completion in Vim using the LSC Plugin
-===============================================
+LSP in Vim with the LSC Plugin
+===============================
 
-The concurrent emergence of [Language Servers](https://langserver.org) and
-asynchronous job support support has promptly given rise to a myriad of code
-completion plugins and frameworks for the [Vim](https://www.vim.org) and
+The recent emergence of [Language
+Servers](https://microsoft.github.io/language-server-protocol/implementors/servers)
+and asynchronous job support has given rise to a myriad of code completion
+plugins and frameworks for the [Vim](https://www.vim.org) and
 [Neovim](https://neovim.io) editors.
 
 Having so many choices is both a benefit and curse; the benefit being that the
@@ -19,25 +20,39 @@ especially for a novice, is the classic [paradox of
 choice](https://whatis.techtarget.com/definition/paradox-of-choice), where to
 start and what to choose?
 
-This post will discuss code completion setup for
-[Ruby](https://www.ruby-lang.org/en/) and
+This post will discuss my code completion setup, and more broadly my LSP setup,
+for [Ruby](https://www.ruby-lang.org/en/) and
 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) filetypes
-using the [Vim LSC plugin](https://github.com/natebosch/vim-lsc).
+using the [Vim LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to enter the modern world of modern code completion
-in Vim.
+point for users wishing to enter the world of LSP with the Vim editor.
 
 Language Server Protocol (LSP)
 ------------------------------
 
-Language and context aware code completion used to be purview of heavyweight
-[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as
-[Visual Studio](https://www.visualstudio.com) or
-[IntelliJ](https://www.jetbrains.com/idea).
+Created by [Microsoft](https://www.microsoft.com), the [Language Server
+Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) was
+originally developed for the [Visual Studio Code](https://code.visualstudio.com)
+editor to decouple code editing and presentation from language-specific
+actions.
 
-Discuss LSP and its benefit. Autocomplete, semantic navigation (better than
-tags).
+Certain language-aware actions, such as: auto-completion, code refactoring, go
+to definition and find all references, that used to be the purview of
+heavyweight
+[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as
+[Visual Studio](https://www.visualstudio.com) are now available to LSP-client
+editors when connected to an appropriate language server. LSP simply transfers
+the responsibility of such actions out of the editor to an independent language
+server.
+
+As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
+rapidly lead to the development of numerous [language
+servers](https://langserver.org/#implementations-server) and
+[clients](https://langserver.org/#implementations-client).
+
+Vim omnicompletion
+------------------
 
 Discuss Vim omni completion, benefits and issues. One issue being blocking.
 Another being tern vs clang-complete vs alchemist vs vim-ruby etc etc. So many
@@ -47,15 +62,6 @@ good as an IDE and blocking.
 Now use the same completion engine as used by VSCode.
 
 Discuss async and why it is good.
-
-Prerequisites
--------------
-
-Handy suggestion
-----------------
-
-VimCompletes me plugin
-Insert mode completion mappings (ctrl-d/k etc)
 
 LSP vs Code Completion Plugins
 ------------------------------
@@ -71,10 +77,21 @@ vim-lsp + asyncomplete.vim
 Ncm2 + LCM
 ale
 
+Prerequisites
+-------------
+
+Handy suggestion
+----------------
+
+VimCompletes me plugin
+Insert mode completion mappings (ctrl-d/k etc)
+
 Why LSC?
 --------
 
 - simple configuration (vimrc only)
+
+- works with both Vim 8 and Neovim
 
 - Language servers installed and maintained outside (similar to Ale linters)
 

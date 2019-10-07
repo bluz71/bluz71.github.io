@@ -26,7 +26,8 @@ for [Ruby](https://www.ruby-lang.org/en/) and
 using the [Vim LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to enter the world of LSP with the Vim editor.
+point for users wishing to enter the world of LSP-based code completion for the
+Vim editor.
 
 Language Server Protocol (LSP)
 ------------------------------

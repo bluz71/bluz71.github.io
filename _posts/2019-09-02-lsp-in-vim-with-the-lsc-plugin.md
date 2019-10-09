@@ -11,12 +11,12 @@ LSP in Vim with the LSC Plugin
 The recent emergence of [Language
 Servers](https://microsoft.github.io/language-server-protocol/implementors/servers)
 and asynchronous job support has given rise to a myriad of code completion
-plugins and frameworks for the [Vim](https://www.vim.org) and
-[Neovim](https://neovim.io) editors.
+frameworks for the [Vim](https://www.vim.org) and [Neovim](https://neovim.io)
+editors.
 
-Having so many choices is both a benefit and curse; the benefit being that the
-savy Vim user can craft a configuration specific to their need, the curse,
-especially for a novice, is the classic [paradox of
+So many choices is both a benefit and curse; the benefit being that the savy Vim
+user can craft a configuration specific to their need, the curse, especially for
+a novice, is the classic [paradox of
 choice](https://whatis.techtarget.com/definition/paradox-of-choice), where to
 start and what to choose?
 
@@ -26,47 +26,77 @@ for [Ruby](https://www.ruby-lang.org/en/) and
 using the [Vim LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to enter the world of LSP-based code completion for the
-Vim editor.
+point for users wishing to use modern LSP-based editing features in Vim.
 
 Language Server Protocol (LSP)
 ------------------------------
 
-Created by [Microsoft](https://www.microsoft.com), the [Language Server
-Protocol](https://microsoft.github.io/language-server-protocol/) (LSP) was
-originally developed for the [Visual Studio Code](https://code.visualstudio.com)
-editor to decouple code editing and presentation from language-specific
-actions.
+Created by [Microsoft](https://www.microsoft.com),
+[LSP](https://microsoft.github.io/language-server-protocol/) was originally
+developed for the [Visual Studio Code](https://code.visualstudio.com) editor to
+decouple code editing and presentation from language-specific actions.
 
-Certain language-aware actions, such as: auto-completion, code refactoring, go
-to definition and find all references, that used to be the purview of
-heavyweight
-[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as
-[Visual Studio](https://www.visualstudio.com) are now available to LSP-client
-editors when connected to an appropriate language server. LSP simply transfers
-the responsibility of such actions out of the editor to an independent language
-server.
+Language-specific actions, such as: auto-completion, code refactoring, go to
+definition and find all references, that used to be the purview of heavyweight
+[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) are now
+available to any LSP-capable editor when associated with an appropriate language
+server. LSP transfers the responsibility of such language-specific actions out
+of the editor to an independent language server.
 
 As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
 rapidly lead to the development of numerous [language
 servers](https://langserver.org/#implementations-server) and
 [clients](https://langserver.org/#implementations-client).
 
-Vim omnicompletion
-------------------
+Vim Omni Completion
+-------------------
 
-Discuss Vim omni completion, benefits and issues. One issue being blocking.
-Another being tern vs clang-complete vs alchemist vs vim-ruby etc etc. So many
-different choices, some great, some not so great. But sometimes still not as
-good as an IDE and blocking.
+The 2006 release of Vim 7 saw the introduction a new form of completion,
+omni-completion. Omni-completion, orthogonal to existing forms of completion
+such as `keyword` or `dictionary` completion, is performed by the defined
+`omnifunc` that will usually offer filetype-specific completions.
 
-Now use the same completion engine as used by VSCode.
+Invoked by `<Control-x><Control-o>`, the intelligence of omni-completion depends
+on the sophistication of the `omnifunc` in use. Vim ships with set of
+rudimentary omni completion implementations. Users can install more advanced
+omni completion plugins, such as: [Tern](https://github.com/ternjs/tern_for_vim)
+for JavaScript or [clang_complete](https://github.com/xavierd/clang_complete)
+for C or C++, to improve the quality of such completions.
 
-Discuss async and why it is good.
+Nonetheless, there are a few issues with omni-completion:
+
+* completion is a synchronous, invoking an omni-completion will block the editor
+  until the operation is concluded
+
+* omni-completion plugins needs to be coded and maintained specifically for Vim
+
+However, with LSP-based completion, Vim can leverage and use the exact same
+language servers used by [Visual Studio Code](https://code.visualstudio.com).
+One can be confident that the major language servers are actively developed,
+improved and maintained. On the other hand, some omni-completion plugins, such
+as [Tern for Vim](https://github.com/ternjs/tern_for_vim), are no longer being
+mantained.
+
+Also, LSP-based completion plugins can leverage Vim & Neovim's asychronous job
+control to **not** block the editor whilst editing. Auto-completion, where
+completion results are displayed as one types, really needs to be an asychronous
+operation otherwise editing will become painful due to the pauses triggered by
+the `omnifunc` gathering completion candidates.
+
+:bulb: LSP offers more than just code completion, a full-featured language
+server can provide context-aware navigation and [code
+refactoring](https://en.wikipedia.org/wiki/Code_refactoring).
+
+:gift: My LSP configuration, documented below, readily allows for both
+non-blocking auto-completion or manually invoked omni-completion via Vim's
+existing `omnifunc` setting using the same language servers in both cases. You
+choose which type of completion suits.
 
 LSP vs Code Completion Plugins
 ------------------------------
 
+Vim does not offer native LSP.
+Neovim will do.
 What is the difference
 
 Plugin Choices
@@ -80,6 +110,8 @@ ale
 
 Prerequisites
 -------------
+
+Modern Vim for popup / float
 
 Handy suggestion
 ----------------

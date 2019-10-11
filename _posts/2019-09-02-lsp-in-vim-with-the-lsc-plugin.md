@@ -8,9 +8,9 @@ published: false
 LSP in Vim with the LSC Plugin
 ===============================
 
-The recent emergence of [Language
-Server Protocol](https://microsoft.github.io/language-server-protocol) (LSP)
-and asynchronous job support has given rise to a myriad of code completion
+The recent emergence of the [Language Server
+Protocol](https://microsoft.github.io/language-server-protocol) (LSP) and
+asynchronous job support has given rise to a myriad of code completion
 frameworks for the [Vim](https://www.vim.org) and [Neovim](https://neovim.io)
 editors.
 
@@ -28,6 +28,32 @@ using the [Vim LSC](https://github.com/natebosch/vim-lsc) plugin.
 Note, my choices may not necessarily suit you, but they do offer a starting
 point for users wishing to use modern LSP-based editing features in Vim.
 
+Prerequisites
+-------------
+
+A version of Vim, version 8 or above or Neovim, that supports asynchronous job
+control is required.
+
+Preferably, a recent version of Vim, version 8.1.2050 or Neovim 0.4.0, is
+strongly recommended since the LSP hover operation of the LSC plugin can use
+either Vim's [Popup Window](https://github.com/vim/vim/issues/4063) or Neovim's
+[Floating Window](https://github.com/neovim/neovim/pull/6619) functionality.
+
+I recommend installing and updating Vim, or Neovim, using
+[Homebrew](https://brew.sh/) on macOS and Linux.
+
+For example, to install Neovim using Brew:
+
+```sh
+brew install neovim
+```
+
+And to update Neovim:
+
+```sh
+brew upgrade neovim
+```
+
 Language Server Protocol (LSP)
 ------------------------------
 
@@ -36,8 +62,8 @@ Created by [Microsoft](https://www.microsoft.com),
 developed for the [Visual Studio Code](https://code.visualstudio.com) editor to
 decouple code editing and presentation from language-specific actions.
 
-Language-specific actions, such as: auto-completion, code refactoring, go to
-definition and find all references, that used to be the purview of heavyweight
+Language-specific actions, such as: auto-completion, refactoring and navigation,
+that used to be the purview of heavyweight
 [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) are now
 available to any LSP-capable editor when associated with an appropriate language
 server. LSP transfers the responsibility of such language-specific actions out
@@ -45,8 +71,8 @@ of the editor to an independent language server.
 
 As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
 rapidly lead to the development of numerous [language
-servers](https://langserver.org/#implementations-server) and
-[clients](https://langserver.org/#implementations-client).
+clients](https://langserver.org/#implementations-client) and
+[servers](https://langserver.org/#implementations-server).
 
 Vim Omni Completion
 -------------------
@@ -54,7 +80,7 @@ Vim Omni Completion
 The 2006 release of Vim 7 saw the introduction a new form of completion,
 omni-completion. Omni-completion, orthogonal to existing forms of completion
 such as `keyword` or `dictionary` completion, is performed by the defined
-`omnifunc` that will usually offer filetype-specific completions.
+`omnifunc` which offers filetype-specific completions.
 
 Invoked by `<Control-x><Control-o>`, the intelligence of omni-completion depends
 on the sophistication of the `omnifunc` in use. Vim ships with set of
@@ -65,8 +91,8 @@ for C or C++, to improve the quality of such completions.
 
 Nonetheless, there are a few issues with omni-completion:
 
-* completion is a synchronous, invoking omni-completion will block the editor
-  until the operation is concluded
+* completion is a synchronous operation, invoking omni-completion will block the
+  editor until the operation is concluded
 
 * omni-completion plugins needs to be coded and maintained specifically for Vim
 
@@ -79,110 +105,101 @@ Vim](https://github.com/ternjs/tern_for_vim), are no longer being mantained.
 Also, LSP-based solutions can leverage Vim & Neovim's asychronous job control to
 **not** block the editor whilst editing. Auto-completion, where completion
 results are displayed as one types, should be asychronous otherwise
-editing will become painful due to synchronous completion gathering.
+editing will become painful due to the stalls resulting from synchronous
+operation.
 
 :bulb: LSP offers more than just code completion, a full-featured language
 server can provide context-aware navigation and [code
 refactoring](https://en.wikipedia.org/wiki/Code_refactoring).
 
 :gift: My LSP configuration, documented below, readily allows for both
-non-blocking auto-completion or manually invoked omni-completion via Vim's
-existing `omnifunc` setting using the same language servers in both cases. You
-choose which type of completion suits.
+non-blocking auto-completion or manually invoked omni-completion using the same
+language servers in both cases. You choose which type of completion suits.
 
 Completion Frameworks and LSP-clients
 -------------------------------------
 
-A completion framework is responsible for collating completion results and
-displaying those choices to the user. Completion framworks often operate in
-auto-completion mode, rather than manually invoked, and the more advanced
-frameworks usually operate asychronously.
+A Vim completion framework is responsible for collating completion results and
+displaying those choices to the user. Completion framworks often operate, by
+default, in asynchronous auto-completion mode.
 
 An LSP client on the otherhand is editor tooling that supports communication
-with a language server using the Language Server Protocol. As of the time of
+with a language server employing the Language Server Protocol. As of the time of
 this post (October 2019) neither Vim nor Neovim provide out-of-the-box support
 for LSP. However, a future version of Neovim will provide LSP support as noted
 [in this pull request](https://github.com/neovim/neovim/pull/10222). In the
-meantime there are multiple Vim plugins that provide LSP support.
+meantime there are multiple Vim plugins that do provide LSP support.
 
-Note, Some code completions frameworks include LSP support whilst others depend
-on 3rd party LSP-client plugins.
+Certain code completions frameworks include direct LSP support whilst others
+delegate such duties to a separate LSP-client plugin.
 
-Notable completion and LSP-related plugins for Vim and Neovim:
+Notable code completion and LSP-client plugins:
 
-- [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a comprehensive
-  and mature code completion engine. Very heavy plugin. No longer the cool kid.
-  The grand daddy. Complex, big, sometimes slow.
+- [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
+  completion engine that predates LSP and asynchronous job support in Vim, both
+  of which have now been incorporated. For many years this was the go to code
+  completion plugin for Vim.
 
-- [deoplete](https://github.com/Shougo/deoplete.nvim), an asynchronous
-  completion framework. A 3rd party LSP plugin, such as
+- [deoplete](https://github.com/Shougo/deoplete.nvim) by
+  [Shogo](https://github.com/Shougo), the first asynchronous code completion
+  framework for Neovim, but which now also supports Vim. Auto-completion results
+  are gathered from deoplete-compatible sources, however LSP-based results
+  require integration with the
   [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim)
-  will be required. Can combine completions from multiple sources, for example
-  LSP-based completions mixed with keyword completions. Python3 plugin. Primary
-  use case is auto-completion. Lots of related plugins, completion sources.
+  plugin.
 
-- [ncm2](https://github.com/ncm2/ncm2), a Neovim-specific asynchronous code
-  completion framework. A 3rd party LSP plugin, such as
-  [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim)
-  will be required. Can combine completions from multiple sources, for example
-  LSP-based completions mixed with keyword completions. Python3 plugin. Primary
-  use case is auto-completion.
+- [ncm2](https://github.com/ncm2/ncm2) by [roxma](https://github.com/roxma), is
+  also an asynchronous code completion framework for Vim and Neovim.
+  Conceptually similar to deoplete, ncm2 likewise requires
+  [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) to
+  integate LSP-based results.
 
-- [Coc](https://github.com/neoclide/coc.nvim), an all inclusive code completion
-  framework with LSP support. Like Deoplete and ncm2, does combine completions
-  from multiple sources. Typescript based. Is it's own ecosystem with it's own
-  plugin system and separate configuration. Written in TypeScript. Designed to
-  more directly leverage plugins coded for Visual Studio Code than other Vim
-  plugins.
+- [Coc](https://github.com/neoclide/coc.nvim), a contemporary code completion
+  framework for Neovim and Vim with inbuilt LSP support. Being
+  [Typescript](http://www.typescriptlang.org/)-based allows Coc to leverage
+  existing plugins used by [Visual Studio Code](https://code.visualstudio.com).
+  Somewhat against the norm, Coc operates its own configuration and extension
+  system.
 
 - [Completor](https://github.com/maralla/completor.vim), an asynchronous
-  completion framework for Vim 8 with LSP support. Requires Vim Python support.
-  Now support Vim 8 and Neovim.
+  completion framework for Vim, and now Neovim-compatible, with LSP support.
+  Leaner and more accessible than the plugins mentioned above.
 
 - [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim), an
-  LSP client that is often used with other asynchronous completion frameworks
-  such as: deoplete or ncm2. May have Rust implementation. Works for both Vim 8
-  and Neovim even though the name implies Neovim only support. Delagates
-  completion to completion frameworks.
+  LSP client commonly used in combination with an asynchronous completion
+  framework such as deoplete or ncm2.
 
 - [vim-lsp](https://github.com/prabirshrestha/vim-lsp), an LSP client written in
-  pure Vimscript. Usually combined with asyncomplete.vim. Kind-of like
-  LanguageClient-neovim, but pure Vimscript. Delegates completion to completion
-  frameworks.
-
-- [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim), an
-  ayschronous autocompletion framework written that supports both Vim 8 and
-  Neovim. Pure Vimscript. No LSP support. Should combine with vim-lsp by the
+  Vimscript; not Python-based like some of the above-mentioned plugins. This
+  plugin is regularly used with
+  [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim) by the
   same author.
 
-- [ale](https://github.com/dense-analysis/ale), primarily an asynchronous
-  linting infrastructure. Extended to support LSP, initially to support
-  LSP-based linting, now with LSP-based completion (among other). Pure
-  Vimscript.
+- [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim), an
+  ayschronous autocompletion framework written Vimscript that supports both Vim
+  and Neovim's asynchronous job control. Like deoplete and ncm2, LSP-based results
+  require integration an LSP-client plugin, this time with the
+  [vim-lsp](https://github.com/prabirshrestha/vim-lsp) plugin.
 
-- [vim-lsc](https://github.com/natebosch/vim-lsc), a full-featured LSP client
-  with LSP-based auto or manual completion. Written in pure Vimscript
+- [ALE](https://github.com/dense-analysis/ale), primarily an asynchronous
+  linting and fixing plugin, but now exended to support LSP. Language servers
+  can provide linting, hence the reason why ALE integrated LSP. ALE now includes
+  LSP-based code completion in addition to other LSP functionality.
+
+- [vim-lsc](https://github.com/natebosch/vim-lsc), a performant LSP client,
+  written in Vimscript, that also supports asynchronous auto-completion in both
+  Vim and Neovim.
 
 - [MUcomplete](https://github.com/lifepillar/vim-mucomplete), a minimalist
   auto-completion plugin that leverages Vim's existing completion
   infrastructure. Does not support asynchronous operation.
 
 - [Supertab](https://github.com/ervandew/supertab), a tab completion plugin for
-  Vim.
+  Vim. This plugin simply maps the **TAB** key to Vim's existing completion
+  kinds.
 
-- [VimCompletesMe](https://github.com/ajh17/VimCompletesMe), a tab completion
-  plugin for Vim, similar to Supertab but simpler.
-
-Prerequisites
--------------
-
-Modern Vim for popup / float
-
-Handy suggestion
-----------------
-
-VimCompletes me plugin
-Insert mode completion mappings (ctrl-d/k etc)
+- [VimCompletesMe](https://github.com/ajh17/VimCompletesMe), another tab
+  completion plugin for Vim, similar to Supertab but simpler.
 
 Why LSC?
 --------
@@ -216,6 +233,12 @@ Why LSC?
 - Works well with Ale once completion is disabled in Ale and Linting is disabled
   in LSC. I prefer Ale to do linting since I use Standard and StandardRB which
   are not LSP based
+
+Handy suggestion
+----------------
+
+VimCompletes me plugin
+Insert mode completion mappings (ctrl-d/k etc)
 
 Ruby Completion
 ---------------

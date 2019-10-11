@@ -37,10 +37,11 @@ Prerequisites
 A version of Vim, version 8 or above or Neovim, that supports asynchronous job
 control is required.
 
-Preferably, a recent version of Vim, version 8.1.2050 or Neovim 0.4.0, is
-strongly recommended since the LSP hover operation of the LSC plugin can use
-either Vim's [Popup Window](https://github.com/vim/vim/issues/4063) or Neovim's
-[Floating Window](https://github.com/neovim/neovim/pull/6619) functionality.
+Preferably, a recent version of Vim, version 8.1.2050 or Neovim 0.4.0 at the
+time of this writing, is strongly recommended since the LSP hover operation of
+the LSC plugin can use either Vim's [Popup
+Window](https://github.com/vim/vim/issues/4063) or Neovim's [Floating
+Window](https://github.com/neovim/neovim/pull/6619) functionality.
 
 I recommend installing and updating Vim, or Neovim, using
 [Homebrew](https://brew.sh/) on macOS and Linux.

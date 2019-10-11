@@ -66,10 +66,10 @@ Created by [Microsoft](https://www.microsoft.com),
 developed for the [Visual Studio Code](https://code.visualstudio.com) editor to
 decouple code editing and presentation from language-specific actions.
 
-Language-specific actions, such as: auto-completion, refactoring and navigation,
-that used to be the purview of heavyweight
+Language-specific actions, such as: auto-completion, refactoring, hovering and
+navigation, that used to be the purview of heavyweight
 [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) are now
-available to any LSP-capable editor when associated with an appropriate language
+available to LSP-capable editors when associated with an appropriate language
 server. LSP transfers the responsibility of such language-specific actions out
 of the editor to an independent language server.
 

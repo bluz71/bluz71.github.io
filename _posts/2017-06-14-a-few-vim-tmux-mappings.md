@@ -335,6 +335,7 @@ Insert mode completion mappings
 ```viml
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
+inoremap <C-k>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
@@ -350,12 +351,15 @@ Instead, I prefer to use these simpler mappings:
 
 - `Control-Space`, context and programming language aware omni-completion
 
-- `Control-d`, dictionary completion, please also set `set
-    dictionary=/usr/share/dict/words`
+- `Control-k`, **k**eyword completion, use `Control-n` to extend a completion to
+  multiple words
 
-- `Control-f`, file path completion
+- `Control-d`, **d**ictionary completion, please also set `set
+  dictionary=/usr/share/dict/words`
 
-- `Control-l`, whole-of-line completion
+- `Control-f`, **f**ile path completion
+
+- `Control-l`, whole-of-**l**ine completion
 
 Readline-style mappings for insert and command modes
 ----------------------------------------------------

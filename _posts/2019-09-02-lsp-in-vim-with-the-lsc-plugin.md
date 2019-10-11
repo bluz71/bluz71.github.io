@@ -28,6 +28,9 @@ using the [Vim LSC](https://github.com/natebosch/vim-lsc) plugin.
 Note, my choices may not necessarily suit you, but they do offer a starting
 point for users wishing to use modern LSP-based editing features in Vim.
 
+Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
+my configuration.
+
 Prerequisites
 -------------
 
@@ -234,17 +237,26 @@ Why LSC?
   in LSC. I prefer Ale to do linting since I use Standard and StandardRB which
   are not LSP based
 
-Handy suggestion
-----------------
+LSC Installation & Configuration
+--------------------------------
 
-VimCompletes me plugin
-Insert mode completion mappings (ctrl-d/k etc)
+```viml
+set completeopt=menu,menuone,noinsert,noselect
+```
+
+VimCompletes me plugin as well
+
+List LSP commands to be used
 
 Ruby Completion
 ---------------
 
+Solargraph needs to be in the $PATH
+
 JavaScript Completion
 ---------------------
+
+typescript-language-server needs to be in the $PATH
 
 Language Servers for other Languages
 ------------------------------------

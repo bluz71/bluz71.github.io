@@ -305,18 +305,6 @@ inoremap <C-d> <C-x><C-k>
 One only need type *Control-d* (d for dictionary) whilst in insert mode to
 complete the current word by using dictionary-based completion.
 
-Use U for redo
---------------
-
-Repurpose the little-used `U` command to redo an undone edit.
-
-```viml
-nnoremap U <C-r>
-```
-
-`u` undoes an edit. By default `Control-r` redoes that edit, however `U` feels
-like a more natural companion to `u`.
-
 Repeat last visual selection with *gv*
 --------------------------------------
 

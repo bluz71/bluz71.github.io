@@ -278,6 +278,18 @@ change till the end of line. For some reason it does not provide yank till the
 end of line. Enable this mapping to set `Y` to do that particular form of
 yanking.
 
+Use U for redo
+--------------
+
+Repurpose the little-used `U` command to redo an undone edit.
+
+```viml
+nnoremap U <C-r>
+```
+
+`u` undoes an edit. By default `Control-r` redoes that edit, however `U` feels
+like a more natural companion to `u`.
+
 Fold code in Vim
 ----------------
 

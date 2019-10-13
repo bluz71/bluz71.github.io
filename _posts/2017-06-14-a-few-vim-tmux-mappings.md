@@ -347,7 +347,7 @@ Insert mode completion mappings
 ```viml
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-t>     <C-x><C-p>
+inoremap <C-b>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
@@ -363,8 +363,8 @@ Instead, I prefer to use these simpler mappings:
 
 - `Control-Space`, language and context aware omni-completion
 
-- `Control-t`, **t**erm completion from the current file, use `Control-n` to
-  extend a completion to multiple words
+- `Control-b`, keyword completion from the current **b**uffer, use `Control-n`
+  to extend a completion to multiple consecutive keywords
 
 - `Control-d`, **d**ictionary completion, please also set `set
   dictionary=/usr/share/dict/words`

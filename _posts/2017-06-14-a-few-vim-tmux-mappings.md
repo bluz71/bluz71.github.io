@@ -361,7 +361,7 @@ Instead, I prefer to use these simpler mappings:
 
 - `Control-]`, complete using the project tags file
 
-- `Control-Space`, context and programming language aware omni-completion
+- `Control-Space`, language and context aware omni-completion
 
 - `Control-t`, **t**erm completion from the current file, use `Control-n` to
   extend a completion to multiple words

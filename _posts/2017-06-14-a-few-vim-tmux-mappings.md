@@ -335,14 +335,14 @@ Insert mode completion mappings
 ```viml
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-k>     <C-x><C-p>
+inoremap <C-t>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
 ```
 
-When in insert mode, Vim provides a suite of useful context-aware completions via
-the `<Control-x>` prefix. However, I find it difficult and annoying to enter
+When in insert mode, Vim provides a suite of useful context-aware completions
+via the `<Control-x>` prefix. However, I find it difficult and annoying to enter
 these completions, the `Control Control` cadence feels too much like Emacs.
 
 Instead, I prefer to use these simpler mappings:
@@ -351,8 +351,8 @@ Instead, I prefer to use these simpler mappings:
 
 - `Control-Space`, context and programming language aware omni-completion
 
-- `Control-k`, **k**eyword completion, use `Control-n` to extend a completion to
-  multiple words
+- `Control-t`, **t**erm completion from the current file, use `Control-n` to
+  extend a completion to multiple words
 
 - `Control-d`, **d**ictionary completion, please also set `set
   dictionary=/usr/share/dict/words`

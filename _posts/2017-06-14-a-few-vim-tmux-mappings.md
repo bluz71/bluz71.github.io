@@ -341,8 +341,8 @@ commands if you wish to persist a yank operation.
 The `<Leader>x` and `<Leader>d` commands will delete into the black-hole
 register, hence will not overwrite the unnamed register.
 
-<a id="completion-mappings"></a>Insert mode completion mappings
---------------------------------------------------------------
+Insert mode completion mappings
+-------------------------------
 
 ```viml
 inoremap <C-]>     <C-x><C-]>

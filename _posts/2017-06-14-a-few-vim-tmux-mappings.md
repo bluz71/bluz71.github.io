@@ -341,8 +341,8 @@ commands if you wish to persist a yank operation.
 The `<Leader>x` and `<Leader>d` commands will delete into the black-hole
 register, hence will not overwrite the unnamed register.
 
-Insert mode completion mappings
--------------------------------
+<a id="completion-mappings"></a>Insert mode completion mappings
+--------------------------------------------------------------
 
 ```viml
 inoremap <C-]>     <C-x><C-]>
@@ -372,6 +372,9 @@ Instead, I prefer to use these simpler mappings:
 - `Control-f`, **f**ile path completion
 
 - `Control-l`, whole-of-**l**ine completion
+
+Note, these mappings also allow easy switching from one completion kind to
+another even when the popup is visible.
 
 Readline-style mappings for insert and command modes
 ----------------------------------------------------

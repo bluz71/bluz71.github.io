@@ -363,8 +363,9 @@ Instead, I prefer to use these simpler mappings:
 
 - `Control-Space`, language and context aware omni-completion
 
-- `Control-b`, keyword completion from the current **b**uffer, use `Control-n`
-  to extend a completion to multiple consecutive keywords
+- `Control-b`, keyword completion from the current **b**uffer; use
+  `<Control-n><Control-b>` to extend a completion to multiple consecutive
+  keywords
 
 - `Control-d`, **d**ictionary completion, please also set `set
   dictionary=/usr/share/dict/words`

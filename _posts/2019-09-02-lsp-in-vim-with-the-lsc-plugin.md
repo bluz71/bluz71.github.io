@@ -26,7 +26,8 @@ for [Ruby](https://www.ruby-lang.org/en/) and
 using the [LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to use modern LSP-based editing features in Vim.
+point for users wishing to use LSP-based code completion and other
+advanced language-aware actions in Vim.
 
 Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
 my configuration.
@@ -37,13 +38,14 @@ Prerequisites
 A modern version of Vim or Neovim that supports asynchronous job control is
 required. That means Vim 8 or any modern version of Neovim.
 
-Preferably, a recent version of Vim, version 8.1.2050 or Neovim 0.4.0 at the
-time of this writing, is strongly recommended since the LSP hover operation of
-the LSC plugin can use either Vim's [Popup
+Preferably, a very recent version of Vim, version 8.1.2050 or Neovim 0.4.0 at
+the time of this writing, is strongly recommended since the LSP hover operation
+of the LSC plugin can use either Vim's [Popup
 Window](https://github.com/vim/vim/issues/4063) or Neovim's [Floating
-Window](https://github.com/neovim/neovim/pull/6619) functionality if available.
+Window](https://github.com/neovim/neovim/pull/6619) functionality if
+available.
 
-I recommend installing and updating Vim, or Neovim, using
+I also recommend installing and updating Vim, or Neovim, using
 [Homebrew](https://brew.sh/) on macOS and Linux.
 
 For example, to install Neovim using Brew:
@@ -108,14 +110,14 @@ Vim](https://github.com/ternjs/tern_for_vim), are no longer being mantained.
 
 Also, LSP-based solutions can leverage Vim & Neovim's asychronous job control to
 **not** block the editor whilst editing. Auto-completion, where completion
-candidates are displayed as one types, should be asychronous otherwise
-editing will become painful due to the stalls resulting from synchronous
-operation.
+candidates are displayed as one types, **should be** asychronous otherwise
+editing will become painful due to the stalls resulting from the synchronous
+invocation of the `omnifunc`.
 
 :bulb: LSP offers more than just code completion, a full-featured language
 server can provide context-aware navigation, [code
 refactoring](https://en.wikipedia.org/wiki/Code_refactoring) and hovering
-tooltips.
+tooltips among other capabilities.
 
 :gift: My LSP configuration, documented below, readily allows for both
 non-blocking auto-completion or manually invoked omni-completion using the same
@@ -130,15 +132,15 @@ operate, by default, in asynchronous auto-completion mode.
 
 An LSP client on the otherhand is editor tooling that supports communication
 with a language server employing the Language Server Protocol. As of the time of
-this post (October 2019) neither Vim nor Neovim provide out-of-the-box support
+this post, October 2019, neither Vim nor Neovim provide out-of-the-box support
 for LSP. However, a future version of Neovim will provide LSP support as noted
 [in this pull request](https://github.com/neovim/neovim/pull/10222). In the
 meantime there are multiple Vim plugins that do provide LSP support.
 
-Certain code completions frameworks include direct LSP support whilst others
-delegate such duties to a separate LSP-client plugin.
+Certain code completions frameworks also include direct LSP support whilst
+others delegate such duties to a separate LSP-client plugin.
 
-Notable code completion and LSP-client plugins:
+Notable code completion and LSP-client plugins for Vim and Neovim:
 
 - [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
   completion engine that predates LSP and asynchronous job control in Vim, both
@@ -171,12 +173,13 @@ Notable code completion and LSP-client plugins:
   system.
 
 - [Completor](https://github.com/maralla/completor.vim), an asynchronous
-  completion framework for Vim, and now Neovim-compatible, with LSP support.
-  Leaner and more accessible than the plugins mentioned above.
+  completion framework for Vim, and now also Neovim-compatible, with inbuilt LSP
+  support. Leaner and more accessible than the plugins mentioned above.
 
 - [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim), an
   LSP client commonly used in combination with an asynchronous completion
-  framework such as deoplete or ncm2.
+  framework such as deoplete or ncm2. The name implies Neovim-only support, but
+  nowawdays it also support Vim.
 
 - [vim-lsp](https://github.com/prabirshrestha/vim-lsp), an LSP client written in
   Vimscript; not Python-based like some of the above-mentioned plugins. This
@@ -185,10 +188,10 @@ Notable code completion and LSP-client plugins:
   by the same author.
 
 - [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim), an
-  ayschronous auto-completion framework written Vimscript that supports both Vim
-  and Neovim's asynchronous job control. Like deoplete and ncm2, LSP-based
-  candidates  require integration an LSP-client plugin, this time with the
-  [vim-lsp](https://github.com/prabirshrestha/vim-lsp) plugin.
+  ayschronous auto-completion framework written in Vimscript that supports both
+  Vim and Neovim's asynchronous job control APIs. Like deoplete and ncm2,
+  LSP-based candidates  require integration with an LSP-client plugin, this time
+  with the [vim-lsp](https://github.com/prabirshrestha/vim-lsp) plugin.
 
 - [ALE](https://github.com/dense-analysis/ale), primarily an asynchronous
   linting and fixing plugin, but now exended to support LSP. Language servers
@@ -197,8 +200,8 @@ Notable code completion and LSP-client plugins:
 
 - [LSC](https://github.com/natebosch/vim-lsc) by [Nate
   Bosch](https://github.com/natebosch), a performant LSP client, written in
-  Vimscript, that supports simple LSP-based auto-completion in both Vim and
-  Neovim.
+  Vimscript, that supports LSP-based asynchronous auto-completion in both Vim
+  and Neovim.
 
 - [MUcomplete](https://github.com/lifepillar/vim-mucomplete), a minimalist
   auto-completion plugin that leverages Vim's existing completion
@@ -228,7 +231,8 @@ to the following characteristics of the plugin:
 - Compatibility with both Vim and Neovim's differing asynchronous job control
   APIs
 
-- Light in weight, less than three thousand lines of Vimscript
+- Light in weight, less than three thousand lines of Vimscript; LSC augments
+  Vim, it does not take over unlike certain other plugins
 
 - Excellent performance due to: asynchronous operation and use of performance
   optimizations such as [incremental
@@ -236,8 +240,8 @@ to the following characteristics of the plugin:
   and
   [debouncing](https://www.reddit.com/r/vim/comments/9zo98c/what_languageserver_client_does_everyone_use/eaf2pqi/)
 
-- Agile completions, candidates will only be sourced from the language server,
-  there will be no mixing of candidates from other completion sources
+- Pristine completions, candidates will only be sourced from the language
+  server, there will be no mixing of candidates from other completion sources
 
 - Straightforward and concise `~/.vimrc`-based configuration
 
@@ -245,19 +249,19 @@ to the following characteristics of the plugin:
   to how the [ALE](https://github.com/dense-analysis/ale) plugin uses external
   linters and fixers
 
-- Simple configuration option to select either auto-completion or manual
-  completion modes; the latter requires setting the `omnifunc` option
-  appropriately
+- Simple configuration option to select either asynchronous auto-completion or
+  synchronous manual completion modes; the latter requires setting the
+  `omnifunc` option appropriately
 
 - Auto-completion, if enabled, will only apply to filetypes that are associated
   with a language server
 
 - The `find all references` operation will populate the
-  [quickfix](https://vimhelp.org/quickfix.txt.html) list; no custom UIs unlike
-  certain other plugins
+  [quickfix](https://vimhelp.org/quickfix.txt.html) list; no custom UIs in
+  contrast to certain other plugins
 
-- The `symbol hover` operation will use either Vim's
-  [popup](https://vimhelp.org/popup.txt.html) or Neovim
+- The `symbol hover` operation can use either Vim's
+  [popup](https://vimhelp.org/popup.txt.html) window or Neovim's
   [floating](https://neovim.io/doc/user/api.html#api-floatwin) windows if
   available; this feature markedly enhances hover usability
 
@@ -275,13 +279,83 @@ benefits of that plugin.
 LSC Installation & Configuration
 --------------------------------
 
+If using the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager,
+please add the following to your `~/.vimrc` file:
+
+```viml
+Plug 'natebosch/vim-lsc'
+Plug 'ajh17/VimCompletesMe'
+```
+
+Then run `:PlugInstall` to install the plugins. Please change the notation
+appropriately if using an alternate plugin manager for Vim.
+
+My Ruby and JavaScript LSC configuration:
+
+```viml
+let g:lsc_server_commands = {
+ \  'ruby': {
+ \    'command': 'solargraph stdio',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true
+ \  },
+ \  'javascript': {
+ \    'command': 'typescript-language-server --stdio',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true
+ \  }
+ \}
+let g:lsc_auto_map = {
+ \  'GoToDefinition': 'gd',
+ \  'FindReferences': 'gr',
+ \  'Rename': 'gR',
+ \  'ShowHover': 'K'
+ \}
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+```
+
+I will discuss the defined language servers in greater detail in the Ruby and
+JavaScript sections below.
+
+In addition to LSP-based auto-completion, I define and use the following four
+LSP actions:
+
+LSP Action | LSC Command | Vim Mapping
+--- | --- | ---
+*Go to definition* for the symbol under the cursor | `GoToDefinition` | `gd`
+*Find all references* for the symbol under the cursor | `FindReferences` | `gr`
+*Rename* the symbol under the cursor and for all references | `Rename` | `gR`
+*Show hover* tooltip for the symbol under the cursor | `ShowHover` | `K`
+
+I **strongly** recommend the following `completeopt` setting when using
+auto-completion:
+
 ```viml
 set completeopt=menu,menuone,noinsert,noselect
 ```
 
-VimCompletes me plugin as well
+If you do not care for auto-completion but do wish to use manually-invoked
+LSP-based omni-completion then add the following to your `~/.vimrc`:
 
-List LSP commands to be used
+```viml
+let g:lsc_enable_autocomplete = v:false
+autocmd FileType ruby,javascript setlocal omnifunc=lsc#complete#complete
+```
+
+I use the [ALE](https://github.com/dense-analysis/ale) plugin for linting and
+fixing, specifically [StandardRB](https://github.com/testdouble/standard) for
+Ruby and [StandardJS](https://standardjs.com/), hence, I disable all LSP-based
+diagnostics.
+
+Lastly, I configure LSC to suppress all client/server messages; by default the
+LSC plugin is a little too chatty with regards to displaying all messages, even
+when they are not that useful.
+
+:exclamation: Whilst debugging a recalcitrant language server please do enable
+LSC diagnostics.
 
 Ruby Completion
 ---------------
@@ -303,3 +377,8 @@ Language Servers for other Languages
 - Rust
 
 - C++
+
+Conclusion
+----------
+
+<iframe width="672" height="378" src="https://www.youtube.com/embed/8PZZkIr5Dcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

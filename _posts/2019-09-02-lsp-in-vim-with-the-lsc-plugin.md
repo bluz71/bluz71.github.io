@@ -367,7 +367,7 @@ Ruby Language Server
 --------------------
 
 [Solargraph](https://github.com/castwide/solargraph) is the prime LSP-compliant
-language for [Ruby](https://www.ruby-lang.org).
+language server for [Ruby](https://www.ruby-lang.org).
 
 Install Solargraph with the following command:
 

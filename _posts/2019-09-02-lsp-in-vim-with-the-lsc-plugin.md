@@ -415,6 +415,8 @@ npm install -g typescript-language-server
 
 https://github.com/eclipse/wildwebdeveloper/issues/22
 https://www.reddit.com/r/emacs/comments/ca9fto/javascripttypescriptlangserver_or_tide/
+https://github.com/theia-ide/typescript-language-server
+https://github.com/emacs-lsp/lsp-mode/pull/509
 
 Language Servers for other Languages
 ------------------------------------

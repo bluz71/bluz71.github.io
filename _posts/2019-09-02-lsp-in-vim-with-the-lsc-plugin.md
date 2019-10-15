@@ -68,12 +68,13 @@ Created by [Microsoft](https://www.microsoft.com),
 developed for the [Visual Studio Code](https://code.visualstudio.com) editor to
 decouple code editing and presentation from language-specific actions.
 
-Language-specific actions, such as: auto-completion, refactoring, hovering and
-navigation, that used to be the purview of heavyweight
+Language-specific actions, such as: auto-completion, hovering and navigation,
+that used to be the purview of heavyweight
 [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) are now
-available to LSP-capable editors when associated with an appropriate language
-server. LSP transfers the responsibility of such language-specific actions out
-of the editor to an independent language server.
+available to LSP-capable editors when associated with an appropriate
+LSP-compliant language server. LSP transfers the responsibility of such
+language-specific actions out of the editor to a vendor-agnostic language
+server that runs as a separate background process on the host.
 
 As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
 rapidly lead to the development of numerous [language
@@ -106,12 +107,12 @@ However, with LSP-based completion, Vim can leverage and use the same language
 servers used by [Visual Studio Code](https://code.visualstudio.com). One can be
 confident that the major language servers are actively developed and maintained.
 On the other hand, some omni-completion plugins, such as [Tern for
-Vim](https://github.com/ternjs/tern_for_vim), are no longer being mantained.
+Vim](https://github.com/ternjs/tern_for_vim), are no longer maintained.
 
 Also, LSP-based solutions can leverage Vim & Neovim's asychronous job control to
 **not** block the editor whilst editing. Auto-completion, where completion
 candidates are displayed as one types, **should be** asychronous otherwise
-editing will become painful due to the stalls resulting from the synchronous
+editing will become painful due to the stalls arising from the synchronous
 invocation of the `omnifunc`.
 
 :bulb: LSP offers more than just code completion, a full-featured language
@@ -145,7 +146,8 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 - [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
   completion engine that predates LSP and asynchronous job control in Vim, both
   of which have now been incorporated. For many years this was the go to code
-  completion plugin for Vim.
+  completion plugin for Vim, nowadays there are many lighter weight
+  alternatives.
 
 - [deoplete](https://github.com/Shougo/deoplete.nvim) by
   [Shogo](https://github.com/Shougo), the first asynchronous code completion
@@ -217,7 +219,7 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 The LSC Plugin
 --------------
 
-After much trialing I settled on [LSC](https://github.com/natebosch/vim-lsc) due
+After much trialing I chose [LSC](https://github.com/natebosch/vim-lsc) due
 to the following characteristics of the plugin:
 
 - LSC is a combination LSP-client and completion plugin that stands alone, there
@@ -250,15 +252,15 @@ to the following characteristics of the plugin:
   linters and fixers
 
 - Simple configuration option to select either asynchronous auto-completion or
-  synchronous manual completion modes; the latter requires setting the
-  `omnifunc` option appropriately
+  synchronous manual completion; the latter requires setting the `omnifunc`
+  option appropriately
 
 - Auto-completion, if enabled, will only apply to filetypes that are associated
   with a language server
 
 - The `find all references` operation will populate the
   [quickfix](https://vimhelp.org/quickfix.txt.html) list; no custom UIs in
-  contrast to certain other plugins
+  contrast to a few other plugins
 
 - The `symbol hover` operation can use either Vim's
   [popup](https://vimhelp.org/popup.txt.html) window or Neovim's
@@ -317,8 +319,10 @@ let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
 ```
 
-I will discuss the defined language servers in greater detail in the Ruby and
-JavaScript sections below.
+For a given filetype the LSC plugin will take care of launching, communicating
+and shutting down the named language server `command`. The specified language
+servers, listed above, will be discussed in greater detail in the following Ruby
+and JavaScript sections.
 
 In addition to LSP-based auto-completion, I define and use the following four
 LSP actions:
@@ -327,7 +331,7 @@ LSP Action | LSC Command | Vim Mapping
 --- | --- | ---
 *Go to definition* for the symbol under the cursor | `GoToDefinition` | `gd`
 *Find all references* for the symbol under the cursor | `FindReferences` | `gr`
-*Rename* the symbol under the cursor and for all references | `Rename` | `gR`
+*Rename* the symbol under the cursor and all references | `Rename` | `gR`
 *Show hover* tooltip for the symbol under the cursor | `ShowHover` | `K`
 
 I **strongly** recommend the following `completeopt` setting when using
@@ -337,8 +341,9 @@ auto-completion:
 set completeopt=menu,menuone,noinsert,noselect
 ```
 
-If you do not care for auto-completion but do wish to use manually-invoked
-LSP-based omni-completion then add the following to your `~/.vimrc`:
+If you do not care for auto-completion but do wish to use LSP-based
+omni-completion, via `<Control-x><Control-o>`, then add the following to your
+`~/.vimrc`:
 
 ```viml
 let g:lsc_enable_autocomplete = v:false
@@ -347,8 +352,9 @@ autocmd FileType ruby,javascript setlocal omnifunc=lsc#complete#complete
 
 I use the [ALE](https://github.com/dense-analysis/ale) plugin for linting and
 fixing, specifically [StandardRB](https://github.com/testdouble/standard) for
-Ruby and [StandardJS](https://standardjs.com/), hence, I disable all LSP-based
-diagnostics.
+Ruby and [StandardJS](https://standardjs.com/) for JavaScript, hence, I disable
+LSC diagnostics. However, if you wish to use LSP-based real-time linting then
+specify `let g:lsc_enable_diagnostics = v:true`.
 
 Lastly, I configure LSC to suppress all client/server messages; by default the
 LSC plugin is a little too chatty with regards to displaying all messages, even
@@ -357,15 +363,55 @@ when they are not that useful.
 :exclamation: Whilst debugging a recalcitrant language server please do enable
 LSC diagnostics.
 
-Ruby Completion
----------------
+Ruby Language Server
+--------------------
 
-Solargraph needs to be in the $PATH
+[Solargraph](https://github.com/castwide/solargraph) is the prime LSP-compliant
+language for [Ruby](https://www.ruby-lang.org).
 
-JavaScript Completion
----------------------
+Install Solargraph with the following command:
+
+```sh
+gem install solargraph
+```
+
+For LSC to function correctly please make sure `solargraph` is available in your
+`$PATH`.
+
+:bulb: The intelligence of Solargraph, when operating in a `Gemfile`-managed
+project, can be improved by running following command in the project's base
+directory:
+
+```sh
+solargraph bundle
+```
+
+Solargraph will now use the documentation from the project's Gems for improved
+completions.
+
+:bulb: Similarly, the quality of [Solargraph completions will be further enhaced
+for Rails](https://github.com/castwide/solargraph/issues/87) projects by also
+copying [this
+Gist](https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e) into
+your project, I copied that file into the `initializers` directory.
+
+Lastly, Solargraph is a still maturing technology, so please install updates
+when they become available.
+
+JavaScript Language Server
+--------------------------
 
 typescript-language-server needs to be in the $PATH
+
+But this one is buggy and slow
+```
+$ npm install -g javascript-typescript-langserver
+```
+
+This one is better
+```
+npm install -g typescript-language-server
+```
 
 Language Servers for other Languages
 ------------------------------------
@@ -373,6 +419,12 @@ Language Servers for other Languages
 - Dart
 
 - Python
+
+  ```
+  pip install python-language-server
+  ```
+
+  `pyls`
 
 - Rust
 

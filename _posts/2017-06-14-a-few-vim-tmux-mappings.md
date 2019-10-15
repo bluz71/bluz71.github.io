@@ -375,7 +375,7 @@ Instead, I prefer to use these simpler mappings:
 - `Control-l`, whole-of-**l**ine completion
 
 Note, these mappings also allow easy switching from one completion kind to
-another even when the popup is visible.
+another even when the completion popup is visible.
 
 Readline-style mappings for insert and command modes
 ----------------------------------------------------

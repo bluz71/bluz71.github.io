@@ -8,7 +8,7 @@ published: false
 LSP in Vim with the LSC Plugin
 ===============================
 
-The recent emergence of the [Language Server
+The emergence of the [Language Server
 Protocol](https://microsoft.github.io/language-server-protocol) (LSP) and
 asynchronous job support has given rise to a myriad of code completion
 frameworks for the [Vim](https://www.vim.org) and [Neovim](https://neovim.io)
@@ -26,8 +26,8 @@ for [Ruby](https://www.ruby-lang.org/en/) and
 using the [LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to use LSP-based code completion and other
-advanced language-aware actions in Vim.
+point for users wishing to use LSP-based code completion and other advanced
+language-aware actions in Vim.
 
 Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
 my configuration.
@@ -42,8 +42,7 @@ Preferably, a very recent version of Vim, version 8.1.2050 or Neovim 0.4.0 at
 the time of this writing, is strongly recommended since the LSP hover operation
 of the LSC plugin can use either Vim's [Popup
 Window](https://github.com/vim/vim/issues/4063) or Neovim's [Floating
-Window](https://github.com/neovim/neovim/pull/6619) functionality if
-available.
+Window](https://github.com/neovim/neovim/pull/6619) functionality if available.
 
 I also recommend installing and updating Vim, or Neovim, using
 [Homebrew](https://brew.sh/) on macOS and Linux.
@@ -73,8 +72,8 @@ that used to be the purview of heavyweight
 [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) are now
 available to LSP-capable editors when associated with an appropriate
 LSP-compliant language server. LSP transfers the responsibility of such
-language-specific actions out of the editor to a vendor-agnostic language
-server that runs as a separate background process on the host.
+language-specific actions out of the editor to a vendor-agnostic language server
+that runs as a separate background process on the host.
 
 As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
 led to the development of numerous [language
@@ -219,8 +218,8 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 The LSC Plugin
 --------------
 
-After much trialing I chose [LSC](https://github.com/natebosch/vim-lsc) due
-to the following characteristics of the plugin:
+After much trialing I chose [LSC](https://github.com/natebosch/vim-lsc) due to
+the following characteristics of the plugin:
 
 - LSC is a combination LSP-client and completion plugin that stands alone, there
   is no multi-plugin dance required

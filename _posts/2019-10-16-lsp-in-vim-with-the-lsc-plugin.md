@@ -26,11 +26,11 @@ for [Ruby](https://www.ruby-lang.org/en/) and
 using the [LSC](https://github.com/natebosch/vim-lsc) plugin.
 
 Note, my choices may not necessarily suit you, but they do offer a starting
-point for users wishing to use LSP-based code completion and other advanced
-language-aware actions in Vim.
+point for users wishing to use LSP-based code completion, and other advanced
+language-aware actions, in Vim.
 
 Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
-my LSP configuration.
+my particular LSP configuration.
 
 Prerequisites
 -------------
@@ -86,7 +86,7 @@ Vim Omni Completion
 The 2006 release of Vim 7 saw the introduction a new form of completion,
 omni-completion. Omni-completion, orthogonal to existing forms of completion
 such as `keyword` or `dictionary` completion, is performed by the defined
-`omnifunc` and will offer filetype-specific completions.
+`omnifunc` and will usually offer filetype-specific completions.
 
 Invoked by `<Control-x><Control-o>`, the intelligence of omni-completion depends
 on the sophistication of the `omnifunc` in use. Vim ships with set of
@@ -123,11 +123,11 @@ tooltips, among other capabilities.
 non-blocking auto-completion or manually invoked omni-completion using the same
 language servers in both cases. You choose which type of completion suits.
 
-Completion Frameworks and LSP-clients
--------------------------------------
+Vim Completion Frameworks and LSP-clients
+-----------------------------------------
 
 A Vim completion framework is responsible for collating completion candidates
-and displaying those choices to the user. Advanced Completion frameworks often
+and displaying those choices to the user. Advanced completion frameworks often
 operate, by default, in asynchronous auto-completion mode.
 
 An LSP client on the other-hand is editor tooling that supports communication
@@ -453,8 +453,9 @@ Conclusion
 ----------
 
 Which plugin(s) one ultimately uses is not that interesting, what is genuinely
-game-changing are the advanced editing capabilities that LSP provides. This
-Language Server Protocol Vim screencast, by Greg Hurrell, is pertinent with
+game-changing are the advanced editing capabilities that LSP provides.
+
+This Language Server Protocol Vim screencast, by Greg Hurrell, is pertinent with
 respect to that point:
 
 <iframe width="672" height="378" src="https://www.youtube.com/embed/8PZZkIr5Dcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

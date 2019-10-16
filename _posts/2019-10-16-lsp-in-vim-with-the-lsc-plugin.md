@@ -2,7 +2,7 @@
 title: LSP in Vim with the LSC Plugin
 layout: default
 comments: true
-published: false
+published: true
 ---
 
 LSP in Vim with the LSC Plugin
@@ -30,7 +30,7 @@ point for users wishing to use LSP-based code completion and other advanced
 language-aware actions in Vim.
 
 Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
-my configuration.
+my LSP configuration.
 
 Prerequisites
 -------------
@@ -86,7 +86,7 @@ Vim Omni Completion
 The 2006 release of Vim 7 saw the introduction a new form of completion,
 omni-completion. Omni-completion, orthogonal to existing forms of completion
 such as `keyword` or `dictionary` completion, is performed by the defined
-`omnifunc` which offers filetype-specific completions.
+`omnifunc` and will offer filetype-specific completions.
 
 Invoked by `<Control-x><Control-o>`, the intelligence of omni-completion depends
 on the sophistication of the `omnifunc` in use. Vim ships with set of
@@ -111,13 +111,13 @@ Vim](https://github.com/ternjs/tern_for_vim), are no longer maintained.
 Also, LSP-based solutions can leverage Vim & Neovim's asynchronous job control
 to **not** block the editor whilst editing. Auto-completion, where completion
 candidates are displayed as one types, **should be** asynchronous otherwise
-editing will become painful due to the stalls arising from the synchronous
-invocation of the `omnifunc`.
+editing may be painful due to stalls arising from the synchronous invocation of
+the `omnifunc`.
 
-:bulb: LSP offers more than just code completion, a full-featured language
+:bulb: LSP offers more than just code completion; a full-featured language
 server can provide context-aware navigation, [code
 refactoring](https://en.wikipedia.org/wiki/Code_refactoring) and hovering
-tooltips among other capabilities.
+tooltips, among other capabilities.
 
 :gift: My LSP configuration, documented below, readily allows for both
 non-blocking auto-completion or manually invoked omni-completion using the same
@@ -145,8 +145,7 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 - [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
   completion engine that predates LSP and asynchronous job control in Vim, both
   of which have now been incorporated. For many years this was the go to code
-  completion plugin for Vim, nowadays there are many lighter weight
-  alternatives.
+  completion plugin for Vim, nowadays there are lighter weight alternatives.
 
 - [deoplete](https://github.com/Shougo/deoplete.nvim) by
   [Shogo](https://github.com/Shougo), the first asynchronous code completion
@@ -229,8 +228,7 @@ the following characteristics of the plugin:
   pain](https://www.reddit.com/r/vim/comments/aexw9t/deoplete_replacement) that
   may be experienced by Python-based alternatives
 
-- Compatibility with both Vim and Neovim's differing asynchronous job control
-  APIs
+- Compatible with both Vim and Neovim's differing asynchronous job control APIs
 
 - Light in weight, less than three thousand lines of Vimscript; LSC augments
   Vim, it does not take over unlike certain other plugins
@@ -352,8 +350,9 @@ autocmd FileType ruby,javascript setlocal omnifunc=lsc#complete#complete
 I use the [ALE](https://github.com/dense-analysis/ale) plugin for linting and
 fixing, specifically [StandardRB](https://github.com/testdouble/standard) for
 Ruby and [StandardJS](https://standardjs.com/) for JavaScript, hence, I disable
-LSC diagnostics. However, if you wish to use LSP-based real-time linting then
-specify `let g:lsc_enable_diagnostics = v:true`.
+LSC diagnostics. However, if you wish to use LSP-based real-time linting, and
+your language server supports it, then specify `let g:lsc_enable_diagnostics =
+v:true`.
 
 Lastly, I configure LSC to suppress all client/server messages; by default the
 LSC plugin is a little too chatty with regard to displaying all messages, even
@@ -456,9 +455,8 @@ Conclusion
 Which plugin(s) one ultimately uses is not that interesting, what is genuinely
 game-changing are the advanced editing capabilities that LSP provides. This
 Language Server Protocol Vim screencast, by Greg Hurrell, is pertinent with
-respect to the point:
+respect to that point:
 
 <iframe width="672" height="378" src="https://www.youtube.com/embed/8PZZkIr5Dcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Hopefully this post provides enough detail to start your LSP journey within Vim,
-or Neovim, using the [LSC](https://github.com/natebosch/vim-lsc) plugin.
+Hopefully this post provides enough detail to start your LSP journey in Vim.

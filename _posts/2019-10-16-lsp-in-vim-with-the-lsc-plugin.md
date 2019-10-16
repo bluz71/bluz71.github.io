@@ -217,7 +217,7 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 The LSC Plugin
 --------------
 
-After much trialing I chose [LSC](https://github.com/natebosch/vim-lsc) due to
+After much trialling I chose [LSC](https://github.com/natebosch/vim-lsc) due to
 the following characteristics of the plugin:
 
 - LSC is a combination LSP-client and completion plugin that stands alone, there

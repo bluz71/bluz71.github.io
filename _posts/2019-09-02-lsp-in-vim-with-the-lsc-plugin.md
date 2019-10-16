@@ -14,9 +14,9 @@ asynchronous job support has given rise to a myriad of code completion
 frameworks for the [Vim](https://www.vim.org) and [Neovim](https://neovim.io)
 editors.
 
-So many choices is both a benefit and curse; the benefit being that the savy Vim
-user can craft a configuration specific to their need, the curse, especially for
-a novice, is the classic [paradox of
+So many choices is both a benefit and curse; the benefit being that the savvy
+Vim user can craft a configuration specific to their need, the curse, especially
+for a novice, is the classic [paradox of
 choice](https://whatis.techtarget.com/definition/paradox-of-choice), where to
 start and what to choose?
 
@@ -77,7 +77,7 @@ language-specific actions out of the editor to a vendor-agnostic language
 server that runs as a separate background process on the host.
 
 As an open JSON-RPC-based standard, LSP now has multi-vendor support which has
-rapidly lead to the development of numerous [language
+led to the development of numerous [language
 clients](https://langserver.org/#implementations-client) and
 [servers](https://langserver.org/#implementations-server).
 
@@ -109,9 +109,9 @@ confident that the major language servers are actively developed and maintained.
 On the other hand, some omni-completion plugins, such as [Tern for
 Vim](https://github.com/ternjs/tern_for_vim), are no longer maintained.
 
-Also, LSP-based solutions can leverage Vim & Neovim's asychronous job control to
-**not** block the editor whilst editing. Auto-completion, where completion
-candidates are displayed as one types, **should be** asychronous otherwise
+Also, LSP-based solutions can leverage Vim & Neovim's asynchronous job control
+to **not** block the editor whilst editing. Auto-completion, where completion
+candidates are displayed as one types, **should be** asynchronous otherwise
 editing will become painful due to the stalls arising from the synchronous
 invocation of the `omnifunc`.
 
@@ -128,10 +128,10 @@ Completion Frameworks and LSP-clients
 -------------------------------------
 
 A Vim completion framework is responsible for collating completion candidates
-and displaying those choices to the user. Advanced Completion framworks often
+and displaying those choices to the user. Advanced Completion frameworks often
 operate, by default, in asynchronous auto-completion mode.
 
-An LSP client on the otherhand is editor tooling that supports communication
+An LSP client on the other-hand is editor tooling that supports communication
 with a language server employing the Language Server Protocol. As of the time of
 this post, October 2019, neither Vim nor Neovim provide out-of-the-box support
 for LSP. However, a future version of Neovim will provide LSP support as noted
@@ -181,11 +181,11 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
 - [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim), an
   LSP client commonly used in combination with an asynchronous completion
   framework such as deoplete or ncm2. The name implies Neovim-only support, but
-  nowawdays it also support Vim.
+  nowadays it also supports Vim.
 
 - [vim-lsp](https://github.com/prabirshrestha/vim-lsp), an LSP client written in
-  Vimscript; not Python-based like some of the above-mentioned plugins. This
-  plugin is frequently used with the
+  Vimscript; unlike some Python-based clients listed above. This plugin is
+  frequently used with the
   [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim) plugin
   by the same author.
 
@@ -196,7 +196,7 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
   with the [vim-lsp](https://github.com/prabirshrestha/vim-lsp) plugin.
 
 - [ALE](https://github.com/dense-analysis/ale), primarily an asynchronous
-  linting and fixing plugin, but now exended to support LSP. Language servers
+  linting and fixing plugin, but now extended to support LSP. Language servers
   can provide linting, hence the reason why ALE integrated LSP. ALE now includes
   LSP-based code completion in addition to other LSP functionality.
 
@@ -273,7 +273,7 @@ keyword-in-file candidates. In my case I already have `ctrl`-based [mappings
 that allow easy switching from one completion kind to
 another](https://bluz71.github.io/2017/06/14/a-few-vim-tmux-mappings.html#insert-mode-completion-mappings).
 
-:star: I augment LSC with the
+:nut_and_bolt: I augment LSC with the
 [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin since I like
 using the **TAB** key to scroll through completion candidates, among other
 benefits of that plugin.
@@ -282,7 +282,7 @@ LSC Installation & Configuration
 --------------------------------
 
 If using the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager,
-please add the following to your `~/.vimrc` file:
+add the following to your `~/.vimrc` file:
 
 ```viml
 Plug 'natebosch/vim-lsc'
@@ -357,7 +357,7 @@ LSC diagnostics. However, if you wish to use LSP-based real-time linting then
 specify `let g:lsc_enable_diagnostics = v:true`.
 
 Lastly, I configure LSC to suppress all client/server messages; by default the
-LSC plugin is a little too chatty with regards to displaying all messages, even
+LSC plugin is a little too chatty with regard to displaying all messages, even
 when they are not that useful.
 
 :exclamation: Whilst debugging a recalcitrant language server please do enable
@@ -366,7 +366,7 @@ LSC diagnostics.
 Screenshot
 ----------
 
-The LSC plugin auto-completing JavaScript:
+The LSC plugin auto-completing JavaScript.
 
 <img width="800" alt="vim_lsc_completion" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/vim_lsc_completion.png">
 
@@ -396,7 +396,7 @@ Solargraph will now use the documentation from the project's Gems for improved
 completions.
 
 :steam_locomotive: Similarly, the quality of [Solargraph completions will be
-further enhaced for Rails](https://github.com/castwide/solargraph/issues/87)
+further enhanced for Rails](https://github.com/castwide/solargraph/issues/87)
 projects by also copying [this
 Gist](https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e) into
 your project, I copied that file into the `initializers` directory.
@@ -454,12 +454,12 @@ Swift | [SourceKit-LSP](https://github.com/apple/sourcekit-lsp) | `sourcekit-lsp
 Conclusion
 ----------
 
-Which plugin(s) one ultimately uses is not that interesting, what is genuinelly
+Which plugin(s) one ultimately uses is not that interesting, what is genuinely
 game-changing are the advanced editing capabilities that LSP provides. This
 Language Server Protocol Vim screencast, by Greg Hurrell, is pertinent with
 respect to the point:
 
 <iframe width="672" height="378" src="https://www.youtube.com/embed/8PZZkIr5Dcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Hopefully this post provides enough details to start your LSP journey within
-Vim, or Neovim, using the [LSC](https://github.com/natebosch/vim-lsc) plugin.
+Hopefully this post provides enough detail to start your LSP journey within Vim,
+or Neovim, using the [LSC](https://github.com/natebosch/vim-lsc) plugin.

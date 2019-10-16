@@ -363,6 +363,13 @@ when they are not that useful.
 :exclamation: Whilst debugging a recalcitrant language server please do enable
 LSC diagnostics.
 
+Screenshot
+----------
+
+The LSC plugin auto-completing JavaScript:
+
+<img width="800" alt="vim_lsc_completion" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/vim_lsc_completion.png">
+
 Ruby Language Server
 --------------------
 
@@ -375,11 +382,10 @@ Install Solargraph with the following command:
 gem install solargraph
 ```
 
-For LSC to function correctly please make sure `solargraph` is available in your
-`$PATH`.
+For LSC to function please ensure `solargraph` is available in your `$PATH`.
 
-:bulb: The intelligence of Solargraph, when operating in a `Gemfile`-managed
-project, can be improved by running following command in the project's base
+:gem: The intelligence of Solargraph, when operating in a `Gemfile`-managed
+projects, can be improved by running following command in the project's base
 directory:
 
 ```sh
@@ -389,55 +395,71 @@ solargraph bundle
 Solargraph will now use the documentation from the project's Gems for improved
 completions.
 
-:bulb: Similarly, the quality of [Solargraph completions will be further enhaced
-for Rails](https://github.com/castwide/solargraph/issues/87) projects by also
-copying [this
+:steam_locomotive: Similarly, the quality of [Solargraph completions will be
+further enhaced for Rails](https://github.com/castwide/solargraph/issues/87)
+projects by also copying [this
 Gist](https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e) into
 your project, I copied that file into the `initializers` directory.
 
-Lastly, Solargraph is a still maturing technology, so please install updates
-when they become available.
+:construction: Lastly, Solargraph is a still maturing technology, so please
+install updates when they become available.
 
 JavaScript Language Server
 --------------------------
 
-typescript-language-server needs to be in the $PATH
+[Sourcegraph's language
+server](https://github.com/sourcegraph/javascript-typescript-langserver),
+`javascript-typescript-langserver`, is often noted as the language server to use
+for JavaScript and TypeScript. However, I have found it to be a little slow and
+somewhat buggy; for example the *find all references* action regularly failed
+with my [React](https://reactjs.org) projects.
 
-But this one is buggy and slow
-```
-$ npm install -g javascript-typescript-langserver
-```
+Interestingly, Visual Studio Code actually uses editor-provided TypeScript
+technologies, instead of Sourcegraph's language server, for JavaScript and
+TypeScript language actions. Unfortunately, Microsoft's stand-alone TypeScript
+server, `tsserver`, is not LSP-compliant, but it does provide the core
+capabilities needed by an LSP client.
 
-This one is better
-```
+:clap: Thankfully [TypeFox](https://www.typefox.io) does provide a
+[shim](https://en.wikipedia.org/wiki/Shim_(computing)) between `tsserver` and
+the Language Server Protocol with the [TypeScript Language
+Server](https://github.com/theia-ide/typescript-language-server) package. This
+is the language server I recommend for JavaScript and TypeScript filetypes.
+
+Install the TypeScript Language Server with the following command:
+
+```sh
 npm install -g typescript-language-server
 ```
 
-https://github.com/eclipse/wildwebdeveloper/issues/22
-https://www.reddit.com/r/emacs/comments/ca9fto/javascripttypescriptlangserver_or_tide/
-https://github.com/theia-ide/typescript-language-server
-https://github.com/emacs-lsp/lsp-mode/pull/509
+For LSC to function please ensure `typescript-language-server` is available in
+your `$PATH`.
 
-ADD SCREENSHOT!!!
+Language Servers
+----------------
 
-Language Servers for other Languages
-------------------------------------
+Available language servers for certain prevalent programming languages:
 
-- Dart
+Language | Language Server | Command
+--- | --- | ---
+C/C++ | [ccls](https://github.com/MaskRay/ccls) | `ccls`
+C/C++ | [clangd](https://clang.llvm.org/extra/clangd) | `clangd`
+Go | [gopls](https://github.com/golang/tools/tree/master/gopls) | `gopls serve`
+Python | [Python Language Server](https://github.com/palantir/python-language-server) | `pyls`
+Rust | [Rust Language Server](https://github.com/rust-lang/rls) | `rls`
+Swift | [SourceKit-LSP](https://github.com/apple/sourcekit-lsp) | `sourcekit-lsp`
 
-- Python
-
-  ```
-  pip install python-language-server
-  ```
-
-  `pyls`
-
-- Rust
-
-- C++
+:warning: Note, I have not tested these language servers personally.
 
 Conclusion
 ----------
 
+Which plugin(s) one ultimately uses is not that interesting, what is genuinelly
+game-changing are the advanced editing capabilities that LSP provides. This
+Language Server Protocol Vim screencast, by Greg Hurrell, is pertinent with
+respect to the point:
+
 <iframe width="672" height="378" src="https://www.youtube.com/embed/8PZZkIr5Dcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Hopefully this post provides enough details to start your LSP journey within
+Vim, or Neovim, using the [LSC](https://github.com/natebosch/vim-lsc) plugin.

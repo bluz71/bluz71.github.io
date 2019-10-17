@@ -249,8 +249,7 @@ the following characteristics of the plugin:
   linters and fixers
 
 - Simple configuration option to select either asynchronous auto-completion or
-  synchronous manual completion; the latter requires setting the `omnifunc`
-  option appropriately
+  synchronous manual completion, once the `omnifunc` option is appropriately set
 
 - Auto-completion, if enabled, will only apply to filetypes that are associated
   with a language server
@@ -296,19 +295,20 @@ let g:lsc_server_commands = {
  \  'ruby': {
  \    'command': 'solargraph stdio',
  \    'log_level': -1,
- \    'suppress_stderr': v:true
+ \    'suppress_stderr': v:true,
  \  },
  \  'javascript': {
  \    'command': 'typescript-language-server --stdio',
  \    'log_level': -1,
- \    'suppress_stderr': v:true
+ \    'suppress_stderr': v:true,
  \  }
  \}
 let g:lsc_auto_map = {
  \  'GoToDefinition': 'gd',
  \  'FindReferences': 'gr',
  \  'Rename': 'gR',
- \  'ShowHover': 'K'
+ \  'ShowHover': 'K',
+ \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_autocomplete  = v:true
 let g:lsc_enable_diagnostics   = v:false
@@ -344,7 +344,6 @@ omni-completion, via `<Control-x><Control-o>`, then add the following to your
 
 ```viml
 let g:lsc_enable_autocomplete = v:false
-autocmd FileType ruby,javascript setlocal omnifunc=lsc#complete#complete
 ```
 
 I use the [ALE](https://github.com/dense-analysis/ale) plugin for linting and

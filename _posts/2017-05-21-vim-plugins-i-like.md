@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED JULY 2019**
+**UPDATED OCTOBER 2019**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
@@ -204,9 +204,9 @@ clever-f
 
 ```viml
 Plug 'rhysd/clever-f.vim'
-let g:clever_f_across_no_line = 1
+let g:clever_f_across_no_line    = 1
 let g:clever_f_fix_key_direction = 1
-let g:clever_f_timeout_ms = 3000
+let g:clever_f_timeout_ms        = 3000
 ```
 
 The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
@@ -267,14 +267,20 @@ noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
 noremap <silent> <Leader>f :NERDTreeFind<CR> <C-w>=
 ```
 
-Most Vim users are aware of
-[NERDTree](https://github.com/scrooloose/nerdtree). Not much explanation is
-needed, *NERDTree* is a simple file explorer that open up on the left-hand side
-of a Vim workspace.
+Most Vim users are aware of [NERDTree](https://github.com/scrooloose/nerdtree).
+Not much explanation is needed, *NERDTree* is a file explorer that opens up on
+the left-hand side of a Vim workspace.
 
 I use `<Leader>n` to toggle *NERDTree* whilst also equalizing all existing
 splits. I also have a `<Leader>f` mapping to open NERDTree and reveal the
 current buffer in the file tree.
+
+I like these arrow symbols in preference to the NERDTree defaults:
+
+```viml
+let g:NERDTreeDirArrowExpandable  = "▷"
+let g:NERDTreeDirArrowCollapsible = "◢"
+```
 
 One inconvenience is that *NERDTree*, by default, will not refresh itself when
 one enters the file-tree window. For instance, it won't display new files not
@@ -290,6 +296,12 @@ endfunction
 
 autocmd BufEnter * call NERDTreeRefresh()
 ```
+
+:exclamation: Certain Vim elitists consider NERDTree an anti-pattern. I
+primarily use it with `<Leader>f` to visualize where the current buffer is in
+the project tree. I do **not** recommend you use NERDTree as your prime method
+to open files, alternatives suchs as fzf and projectionist are better and
+faster.
 
 NERDTree Git Plugin
 -------------------
@@ -307,8 +319,8 @@ I find the visual information provided by this plugin to be genuinely useful. I
 recommend all NERDTree users, who manage code via Git repositories, to give
 this plugin a try.
 
-VimCompletesMe
---------------
+VimCompletesMe and LSC Code Completion
+--------------------------------------
 
 ```viml
 Plug 'ajh17/VimCompletesMe'
@@ -326,38 +338,39 @@ Note, the above listed `autocmd` will result in *omni* completion being used as
 the primary completion choice for the listed language types. Feel free to vary
 for your needs.
 
-If *VimCompletesMe* doesn't float your boat then rest assured there are many
-completion choices available ranging from the simple to the advanced, some even
-support [Language Server Protocol](https://langserver.org). Such Vim
-plugin completion choices include:
-
-- [Supertab](https://github.com/ervandew/supertab)
-- [MUcomplete](https://github.com/lifepillar/vim-mucomplete)
-- [vim-simple-complete](https://github.com/maxboisvert/vim-simple-complete)
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-- [neocomplete](https://github.com/Shougo/neocomplete.vim)/[deoplete](https://github.com/Shougo/deoplete.nvim)
-- [nvim-completion-manager](https://github.com/roxma/nvim-completion-manager)
-- [completor.vim](https://github.com/maralla/completor.vim)
-- [Coc](https://github.com/neoclide/coc.nvim)
-
-I would classify *VimCompletesMe*, *supertab*, *MUcomplete*  and
-*vim-simple-complete* as being towards the simple/light end of completion
-spectrum whilst the others I would classify as being towards the advanced,
-sometimes heavy end of the spectrum. Personally, I recommend starting simple
-then moving up only when necessary.
+Where I require more language-aware intelligence I use the
+[LSC](https://github.com/natebosch/vim-lsc) plugin with appropriate
+LSP-compliant language servers. Please refer to the [LSP in Vim with the LSC
+Plugin](https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
+post for details about the Language Server Protocol (LSP) and the LSC
+plugin.
 
 UltiSnips
 ---------
 
 ```viml
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'on': [] }
 let g:UltiSnipsExpandTrigger       = "<C-j>"
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+
+inoremap <silent> <C-j> <C-r>=LoadUltiSnipsAndExpand()<CR>
+
+function! LoadUltiSnipsAndExpand()
+    let l:curpos = getcurpos()
+    execute plug#load('ultisnips')
+    call cursor(l:curpos[1], l:curpos[2])
+    call UltiSnips#ExpandSnippet()
+    return ""
+endfunction
 ```
 
 The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
 easily insert predefined text segments in the current buffer.
+
+:warning: I use lazy-loading to shift UltiSnip's startup cost to the time of
+first invocation prompted by [this
+post](https://medium.com/@saaguero/improving-performance-in-vim-9b33598c8eaf).
 
 The following Vimcasts are an excellent introduction to *UltiSnips*, please
 view:
@@ -379,7 +392,7 @@ indentLine
 
 ```viml
 Plug 'Yggdroot/indentLine'
-let g:indentLine_faster = 1
+let g:indentLine_faster     = 1
 let g:indentLine_setConceal = 0
 ```
 
@@ -401,9 +414,9 @@ let g:grepper = {}
 let g:grepper.tools = ["rg"]
 runtime autoload/grepper.vim
 let g:grepper.jump = 1
-nnoremap <Leader>g :GrepperRg<Space>
-nnoremap gr :Grepper -cword -noprompt<CR>
-xmap gr <plug>(GrepperOperator)
+nnoremap <Leader>/ :GrepperRg<Space>
+nnoremap gs :Grepper -cword -noprompt<CR>
+xmap gs <Plug>(GrepperOperator)
 ```
 
 The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
@@ -419,9 +432,9 @@ Upon execution *Grepper* search matches will populate Vim's *quickfix* list
 allowing easy navigation through the matches. Note, when run on a modern version
 of Vim or Neovim the search will be executed asynchronously.
 
-I have a simple mapping `<Leader>gr` to invoke an interactive *Grepper* search.
-The normal mode mapping `gr` will invoke a search on the word under the cursor
-whilst the visual mode mapping `gr` will invoke a search on the current visual
+I have a simple mapping `<Leader>/` to invoke an interactive *Grepper* search.
+The normal mode mapping `gs` will invoke a search on the word under the cursor
+whilst the visual mode mapping `gs` will invoke a search on the current visual
 selection.
 
 vim-polyglot
@@ -542,6 +555,35 @@ Candidate mappings:
 This plugin shines when dealing with modified Git chunks; that being easy
 navigation and staging of those hunks.
 
+git-messenger
+-------------
+
+```viml
+Plug 'rhysd/git-messenger.vim'
+let g:git_messenger_no_default_mappings = v:true
+nmap <Leader>M <Plug>(git-messenger)
+```
+
+The [git-messenger](https://github.com/rhysd/git-messenger.vim) plugin, when run
+in a modern version of Vim or Neovim, will display the Git log of the current
+line in a popup or floating window. It acts like a current line `git blame`.
+Handy, but not essential.
+
+Undotree
+--------
+
+```viml
+Plug 'mbbill/undotree'
+let g:undotree_HighlightChangedWithSign = 0
+let g:undotree_WindowLayout             = 4
+nnoremap <Leader>u :UndotreeToggle<CR>
+```
+
+The [Undotree](https://github.com/mbbill/undotree) plugin visualizes your undo
+history and provides easy navigation back and forth through that history. This
+plugin proves handy for certain kinds of non-linear edits that may prove
+unreachable via the normal `u` undo command.
+
 vim-test
 --------
 
@@ -574,18 +616,22 @@ Note, the following configuration is required to use *vim-test* with
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
 ```
 
-vim-closer
-----------
+Pear Tree
+---------
 
 ```viml
-Plug 'rstacruz/vim-closer'
+Plug 'tmsvg/pear-tree'
+let g:pear_tree_repeatable_expand = 0
+let g:pear_tree_smart_backspace   = 1
+let g:pear_tree_smart_closers     = 1
+let g:pear_tree_smart_openers     = 1
 ```
 
-The [vim-closer](https://github.com/rstacruz/vim-closer) plugin will
-automatically close `(`, `{` and `[` after `enter` is pressed when in insert
-mode for supported languages such as: C, C++, JavaScript and Go (to name a
-few). This plugin is a natural companion to the *vim-endwise* plugin noted
-below.
+The [Pear Tree](https://github.com/tmsvg/pear-tree) plugin will automatically
+close `(`, `{`, `[` and quote pairs whilst in insert mode.
+
+:bulb: If I was doing less JavaScript and JSON I would likely skip this and all
+auto-closing pairs plugins.
 
 vim-auto-save
 -------------
@@ -694,13 +740,12 @@ Endwise
 -------
 
 ```viml
-Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise', { 'for': ['crystal', 'elixir', 'ruby', 'vim'] }
 ```
 
 The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
 automatically insert **end**, in insert mode, to code blocks for languages such
-as: Ruby, Elixir and Crystal. This plugin is a natural companion to the
-*vim-closer* plugin noted above.
+as: Ruby, Elixir, Crystal and Vim.
 
 Projectionist
 -------------
@@ -737,7 +782,7 @@ if filereadable('src/App.js')
     nnoremap <Leader>es :Estylesheet<Space>
     nnoremap <leader>et :Etest<Space>
 endif
-nnoremap <Leader>a  :A<CR>
+nnoremap <Leader>a :A<CR>
 ```
 
 The above configuration will result in the following commands being created:
@@ -789,8 +834,6 @@ These are the *ragtag* helpers I find most handy whilst in *insert* mode:
 - `<CTRL-x>/` close the previous open tag
 - `<CTRL-x><Space>` convert the current word into open and close tags
 - `<CTRL-x><Enter>` same as above except split the tag over multiple lines
-- `<CTRL-x>_` add `<% %>` template tag
-- `<CTRL-x>+` add `<%= %>` templage tag
 
 Surround
 --------
@@ -825,17 +868,6 @@ cs*<div>
 
 To add a *surround pair* one can visually select the candidate text and enter
 **S** followed by the *surround* character(s) of choice.
-
-It is even possible to add in *surrounding pairs* whilst in insert mode. Use a
-single `Ctrl-S` followed by the surround character(s) to create a surround on
-the current line. Use a double `Ctrl-S-S` to spread the surround over multiple
-lines. Note, in both cases the cursor will be inserted *between* the
-*surrounding pair*. The double `Ctrl-S-S` is especially useful for inserting
-curly braces in *C/C++/Java/JavaScript* type languages.
-
-Note, terminal Vim users need to make sure flow-control is disabled otherwise
-the above `Ctrl-S` will lock your terminal. I recommend starting Vim this way
-to avoid that issue, `stty -ixon && vim`.
 
 This plugin is a little harder to explain than it is to use, however once you
 *get it* you can't imagine life without it.

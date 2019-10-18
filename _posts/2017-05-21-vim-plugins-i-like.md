@@ -729,6 +729,7 @@ Fugitive
 ```viml
 Plug 'tpope/vim-fugitive'
 nnoremap <silent> <Leader>B :Gblame<CR>
+nnoremap <silent> <Leader>C :Gclog %<CR>
 nnoremap <silent> <Leader>G :Gstatus<CR>
 ```
 
@@ -781,8 +782,8 @@ if filereadable('src/App.js')
     nnoremap <Leader>ec :Ecomponent<Space>
     nnoremap <Leader>es :Estylesheet<Space>
     nnoremap <leader>et :Etest<Space>
+    nnoremap <Leader>a  :A<CR>
 endif
-nnoremap <Leader>a :A<CR>
 ```
 
 The above configuration will result in the following commands being created:

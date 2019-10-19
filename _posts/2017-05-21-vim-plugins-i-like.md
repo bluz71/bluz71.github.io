@@ -824,7 +824,7 @@ Ragtag
 ------
 
 ```viml
-Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-ragtag'
 ```
 
 The [vim-ragtag](https://github.com/tpope/vim-ragtag) plugins provides a set of

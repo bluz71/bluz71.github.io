@@ -5,7 +5,8 @@ comments: true
 published: true
 ---
 
-# Find & Replace Helpers for Vim
+Find & Replace Helpers for Vim
+==============================
 
 The post, [how do you handle these common find / replace use
 cases](https://www.reddit.com/r/vim/comments/armt3o/how_do_you_handle_these_common_find_replace_use),
@@ -39,7 +40,8 @@ plugin).
 Note, I am **not** proclaiming these helpers as best-in-class, rather they
 should be viewed as a _resource of possibilities_.
 
-## Prerequisites
+Prerequisites
+-------------
 
 A fairly modern version of Vim, at least [Vim
 7.4.858](https://www.vim.org/download.php) or [Neovim
@@ -67,7 +69,8 @@ deleterious effects with the plugins I use, whilst I thoroughly detested the
 need to enter `/g` with every `:substitute` command prior to that. Your mileage
 may vary.
 
-## Nearby Find & Replace
+Nearby Find & Replace
+---------------------
 
 Editors such as [Visual Studio Code](https://code.visualstudio.com),
 [Atom](https://atom.io) and [Sublime](https://www.sublimetext.com) provide a
@@ -108,7 +111,8 @@ Why `<Leader>c` as the mapping? The **c** is for change. So the mnemonic behind
 `<Leader>c` is find-and-change. Please replace it with whatever key-sequence
 works best for you.
 
-## Find & Replace in the Current File
+Find & Replace in the Current File
+----------------------------------
 
 Helpers to add to `~/.vimrc`
 
@@ -144,7 +148,8 @@ endif
 [This Vimcast](http://vimcasts.org/episodes/neovim-eyecandy) by Drew Neil
 highlights the live preview feature.
 
-## Project-wide Find & Replace
+Project-wide Find & Replace
+---------------------------
 
 Helpers to add to `~/.vimrc`
 
@@ -192,7 +197,8 @@ The mnemonic behind `<Leader>S` is find-and-SUBSTITUTE, capital **S** for
 substitute across many files. As per usual, please replace that mapping with a
 key-sequence that works best for you.
 
-# Summary
+Summary
+=======
 
 I am sure there are many other fine Vim-related find & replace solutions beyond
 those I have listed here. Hopefully this article stimulates you to improve your

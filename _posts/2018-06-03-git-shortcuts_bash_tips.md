@@ -5,7 +5,8 @@ comments: true
 published: true
 ---
 
-# Git - Shortcuts & Bash Tips
+Git - Shortcuts & Bash Tips
+===========================
 
 The [Git](https://git-scm.com) version control system is a complex beast,
 especially when used in the command-line with its myriad of tools and switches.
@@ -23,7 +24,8 @@ The full set of Git aliases I use are listed in my
 Lastly, this post assumes a basic knowledge of Git in the command-line. If you
 are a Git-inside-editor person then this is not the post you are looking for.
 
-## g alias for Bash
+g alias for Bash
+----------------
 
 The `git` command is three letters long. I am extremely lazy, I only want to
 type one letter, `g`, to invoke Git because I do it so often.
@@ -40,6 +42,7 @@ also add.
 ```sh
 complete -o default -o nospace -F _git g
 ```
+
 **UPDATE (JAN 2019)**: Stealing an idea from the [thoughbot
 dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing
 `g` to `git`, as noted above, make it a smart alias:
@@ -53,7 +56,8 @@ will just pass on the given arguments to the `git` command. Status is likely to
 be the Git command one will execute the most, hence this simple enhancement does
 prove very useful in practice.
 
-## Bash completion
+Bash completion
+---------------
 
 If you are a Bash user and are not using
 [bash-completion](https://github.com/scop/bash-completion), then I **strongly**
@@ -64,7 +68,8 @@ post for details.
 Once enabled, you will be able to use TAB-completion for most Git commands and
 related paths. This will be a large time-saver.
 
-## Git branch details in Bash prompt
+Git branch details in Bash prompt
+---------------------------------
 
 Once bash-completion has been enabled, I also suggest adding Git branch
 information to your prompt.
@@ -94,7 +99,8 @@ For example, one can install and use a Bash prompt script, such as
 [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which will
 emit Git details with visual flair.
 
-## Nicer diffs with diff-so-fancy
+Nicer diffs with diff-so-fancy
+------------------------------
 
 The [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) utility replaces
 Git's default machine-readable `diff` output with one that is more human
@@ -113,7 +119,8 @@ Now enable diff-so-fancy.
 git config --global core.pager 'diff-so-fancy | less --tabs=4 -RFX'
 ```
 
-## General aliases
+General aliases
+---------------
 
 Note, some of these suggestions are enabled by default with modern versions of
 Git, but I still like to explicitly enable them just in-case I inadvertently use
@@ -151,7 +158,8 @@ such as Vim.
 git config --global advice.waitingForEditor false
 ```
 
-## Diff aliases
+Diff aliases
+------------
 
 ```sh
 git config --global alias.di 'difftool'
@@ -165,7 +173,8 @@ g di  # List unstaged differences
 g dis # List staged differences
 ```
 
-## Status alias
+Status alias
+------------
 
 ```sh
 git config --global alias.st 'status --short --branch'
@@ -177,7 +186,8 @@ Usage:
 g st # Working tree status in compact notation
 ```
 
-## Stage alias
+Stage alias
+-----------
 
 Interactively stage changes on a per-chunk basis, including new files.
 
@@ -191,7 +201,8 @@ Usage:
 g sg # Individually stage changes in the current branch
 ```
 
-## Unadd alias
+Unadd alias
+-----------
 
 ```sh
 git config --global alias.unadd 'reset HEAD'
@@ -203,7 +214,8 @@ Usage:
 g unadd <file> # Unstage a file
 ```
 
-## Commit aliases
+Commit aliases
+--------------
 
 ```sh
 git config --global alias.ci 'commit'
@@ -219,7 +231,8 @@ g unci # Undo the last commit. Note, do NOT do this for pushed commits.
 g oops # Modify the most recent commit. Note, do NOT do this for pushed commits.
 ```
 
-## Branch aliases
+Branch aliases
+--------------
 
 ```sh
 git config --global alias.bb 'branch -vv'
@@ -233,7 +246,8 @@ g bb          # List all branches
 g bd <branch> # Delete specified branch
 ```
 
-## Check-out aliases
+Check-out aliases
+-----------------
 
 ```sh
 git config --global alias.co 'checkout'
@@ -247,7 +261,8 @@ g co <path-or-branch> # Check-out a particular path or branch
 g cob <branch>        # Create a new branch and immediately check-out into it
 ```
 
-## Log aliases
+Log aliases
+-----------
 
 ```sh
 git config --global alias.ll 'log --graph --format="%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
@@ -265,7 +280,8 @@ g llu # List commits in current branch that are ready to be pushed up
 g lld # List commits in the remote tracking branch that a ready to be pulled down
 ```
 
-## Merge aliases
+Merge aliases
+-------------
 
 ```sh
 git config --global alias.mg 'merge'
@@ -281,7 +297,8 @@ g mgs <branch> # Squash merge the commits of the specified branch
 g unmg         # Undo the last merge. Note, do NOT do this for pushed merges.
 ```
 
-## Remote aliases
+Remote aliases
+--------------
 
 ```sh
 git config --global alias.rr 'remote -v'
@@ -297,7 +314,8 @@ g rso # Show state of local and remote tracking branches
 g rsu # Show state of local and remote upstream branches
 ```
 
-## Stash aliases
+Stash aliases
+-------------
 
 ```sh
 git config --global alias.sa '!sh -c "git stash apply stash@{$1}" -'
@@ -318,7 +336,8 @@ g sd 0      # Delete specified stash, use 'g sl' to list stash numbers
 g ssp 0     # Show the changes of the specified stash in diff preview format
 ```
 
-## Fuzzy-finding command-line Git browser
+Fuzzy-finding command-line Git browser
+--------------------------------------
 
 The [fzf](https://github.com/junegunn/fzf) utility is an excellent command-line
 fuzzy finder. With just a small of amount of scripting it is easy to create a
@@ -365,7 +384,8 @@ Refer to [fuzzy finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 for more such Git examples.
 
-# References
+References
+==========
 
 Some suggestions in the post originated from the following:
 

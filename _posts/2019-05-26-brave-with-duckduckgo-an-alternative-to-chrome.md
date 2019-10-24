@@ -121,7 +121,7 @@ Recommended Brave Settings
 
 Privacy and security can be enhanced by tweaking Brave's settings. Note, the
 following settings were valid as of May 2019, however, there is no guarantee
-they will be named the same, or even exist, going forward. 
+they will be named the same, or even exist, going forward.
 
 Brave desktop-specific settings:
 

@@ -31,7 +31,7 @@ which plugin manager to use. There are many to choose from:
 [Dein](https://github.com/Shougo/dein.vim) and [Vim 8 native package
 management](http://vimcasts.org/episodes/packages/) to name a few.
 
-Each will do the job, but for *simplicity*, *performance* and *features* 
+Each will do the job, but for *simplicity*, *performance* and *features*
 the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager is the one I
 use.
 
@@ -238,7 +238,7 @@ This plugin will not suit everyone, but for certain language, such as
 [Ruby](https://www.ruby-lang.org/) which uses both camel and snake-case, it has
 proven invaluable in practice.
 
-Note, the `cw` mapping will restore standard Vim behaviour, that being to 
+Note, the `cw` mapping will restore standard Vim behaviour, that being to
 preserve whitespace between words.
 
 fzf.vim

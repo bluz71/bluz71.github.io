@@ -73,7 +73,7 @@ Security-focussed VPN providers that I trust.
 
 Note, the location of the provider and the end-point of a specific VPN
 connection may also need to be factored in, especially if escaping [Five
-Eyes ](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes) mass-surveillance
+Eyes](https://restoreprivacy.com/5-eyes-9-eyes-14-eyes) mass-surveillance
 systems is important.
 
 An alternative to using a VPN is the
@@ -224,7 +224,7 @@ messaging application primarily used on
 The [openly developed](https://github.com/signalapp) Signal application uses
 unobtrusive best-in-class cryptography contained in a simple interface that
 anyone, be they technical or non-technical, can use. Text, voice and photos can
-securely be exchanged between two or more parties. 
+securely be exchanged between two or more parties.
 
 Content is encrypted prior to sending and can only be decrypted by the intended
 recipient. The servers used to host the Signal service do **not** have access
@@ -313,7 +313,7 @@ Facebook
 networking service in the world. As of early 2018, there are estimated to be
 over [2 billion active
 users](https://www.statista.com/statistics/264810/number-of-monthly-active-facebook-users-worldwide)
-using the service. 
+using the service.
 
 Similar to Google's online services, Facebook's service is free of monetary
 cost, which in reality means you as the user are the service. Facebook
@@ -382,23 +382,22 @@ A number of recommendations.
     pictures of your family, when you are on holiday? If not, then don't share
     it in the first place.
 
-- Strengthen the privacy settings inside your Facebook account. 
+- Strengthen the privacy settings inside your Facebook account.
 
-    - Go to *Settings* / *Privacy* and review the options. I suggest changing most
+  - Go to *Settings* / *Privacy* and review the options. I suggest changing most
         options to `Friends`.
 
-    - Likewise in *Timeline & Tagging*, change most options to `Friends`
+  - Likewise in *Timeline & Tagging*, change most options to `Friends`
 
-    - Disable `Location History` in the *Location* section
+  - Disable `Location History` in the *Location* section
 
-    - Disable `Face Recognition`
+  - Disable `Face Recognition`
 
-    - In *Ad Preferences* / *Ad Settings*, disable all options
+  - In *Ad Preferences* / *Ad Settings*, disable all options
 
-    - Periodically review your Facebook settings. Facebook has changed
-        settings and defaults **without** user consent a number of times over
-        the years. It is not certain the specific choices you make today will
-        hold tomorrow.
+  - Periodically review your Facebook settings. Facebook has changed settings
+    and defaults **without** user consent a number of times over the years. It
+    is not certain the specific choices you make today will hold tomorrow.
 
 The days of being unaware what Facebook is and what Facebook does should
 hopefully be over now. Use with caution, or better yet exit the service.
@@ -421,7 +420,7 @@ Windows
 =======
 
 Microsoft [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) is a
-common desktop and laptop operating system. 
+common desktop and laptop operating system.
 
 Over the years Microsoft has greatly improved the security of Windows. Windows
 10 with an appropriate
@@ -457,13 +456,13 @@ the available controls.
 
 - In *Settings* / *Privacy*
 
-    - Disable `Let apps use my advertising ID`
+  - Disable `Let apps use my advertising ID`
 
-    - Disable `Send Microsoft info about how I write`
+  - Disable `Send Microsoft info about how I write`
 
-    - Disable `Let websites provide locally relevant context`
+  - Disable `Let websites provide locally relevant context`
 
-    - Disable `Location`
+  - Disable `Location`
 
 The above options are the minimum options that should be disabled for increased
 user privacy. Preferably **all** *Privacy* options should be reviewed.
@@ -490,7 +489,6 @@ Smart Homes & Voice Assistants
 
 Home appliances, such as lighting, thermostats, security systems and fridges,
 are becoming [smarter](https://en.wikipedia.org/wiki/Home_automation).
-
 
 At the same time, the past few years has also seen the emergence of a new
 product category, the always-listening voice assistant, most notably: [Amazon

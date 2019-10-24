@@ -322,7 +322,7 @@ often than not are malicious.
 <a id="browser"></a>Browser Recommendation
 ==========================================
 
-With a strong focus on privacy and security I recommend the 
+With a strong focus on privacy and security I recommend the
 [Brave](https://brave.com) browser.
 
 Brave is a modern, cross-platform browser based on the same
@@ -332,16 +332,16 @@ Chrome.
 
 Notable privacy and security features of Brave:
 
-- Automatically blocks unwanted content, such as tracking cookies and 3rd-party
+* Automatically blocks unwanted content, such as tracking cookies and 3rd-party
   ads
 
-- Automatically protects against
+* Automatically protects against
   [fingerprinting](https://github.com/brave/brave-browser/wiki/Fingerprinting-Protection-Mode)
 
-- Where possible, insecure connections will be seamlessly be upgraded to
+* Where possible, insecure connections will be seamlessly be upgraded to
   encrypted connections for secure communication
 
-- True private browsing mode via the [Tor](https://www.torproject.org) anonymity
+* True private browsing mode via the [Tor](https://www.torproject.org) anonymity
   network
 
 Please read [Brave with DuckDuckGo, an alternative to
@@ -479,8 +479,8 @@ Be secure and happy computing.
 Related Articles
 ----------------
 
-- [The Best Internet Security: Layers of Protection, and Good Habits](https://thewirecutter.com/blog/internet-security-layers)
+* [The Best Internet Security: Layers of Protection, and Good Habits](https://thewirecutter.com/blog/internet-security-layers)
 
-- [Basic Computer Security: How to Protect Yourself from Viruses, Hackers, and Thieves](https://www.howtogeek.com/173478/10-important-computer-security-practices-you-should-follow)
+* [Basic Computer Security: How to Protect Yourself from Viruses, Hackers, and Thieves](https://www.howtogeek.com/173478/10-important-computer-security-practices-you-should-follow)
 
-- [Top 10 Secure Computing Tips](https://security.berkeley.edu/resources/best-practices-how-to-articles/top-10-secure-computing-tips)
+* [Top 10 Secure Computing Tips](https://security.berkeley.edu/resources/best-practices-how-to-articles/top-10-secure-computing-tips)

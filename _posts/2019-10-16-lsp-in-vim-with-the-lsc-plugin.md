@@ -142,12 +142,12 @@ others delegate such duties to a separate LSP-client plugin.
 
 Notable code completion and LSP-client plugins for Vim and Neovim:
 
-- [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
+* [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe), a monolithic code
   completion engine that predates LSP and asynchronous job control in Vim, both
   of which have now been incorporated. For many years this was the go to code
   completion plugin for Vim, nowadays there are lighter weight alternatives.
 
-- [deoplete](https://github.com/Shougo/deoplete.nvim) by
+* [deoplete](https://github.com/Shougo/deoplete.nvim) by
   [Shogo](https://github.com/Shougo), the first asynchronous code completion
   framework for Neovim, but which now also supports Vim. Completion candidates
   are gathered from [deoplete-compatible
@@ -156,7 +156,7 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
   [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim)
   plugin.
 
-- [ncm2](https://github.com/ncm2/ncm2) by [roxma](https://github.com/roxma), is
+* [ncm2](https://github.com/ncm2/ncm2) by [roxma](https://github.com/roxma), is
   another asynchronous code completion framework for Vim and Neovim.
   Conceptually similar to deoplete, completion candidates are gathered from
   [ncm2-compatible
@@ -165,53 +165,53 @@ Notable code completion and LSP-client plugins for Vim and Neovim:
   [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) or
   [ncm2-vim-lsp](https://github.com/ncm2/ncm2-vim-lsp) plugins.
 
-- [Coc](https://github.com/neoclide/coc.nvim), a contemporary code completion
+* [Coc](https://github.com/neoclide/coc.nvim), a contemporary code completion
   framework for Neovim and Vim with inbuilt LSP support. Being
   [Typescript](http://www.typescriptlang.org/)-based allows Coc to leverage
   existing plugins used by [Visual Studio Code](https://code.visualstudio.com).
   Somewhat against the norm, Coc operates its own configuration and extension
   system.
 
-- [Completor](https://github.com/maralla/completor.vim), an asynchronous
+* [Completor](https://github.com/maralla/completor.vim), an asynchronous
   completion framework for Vim, and now also Neovim-compatible, with inbuilt LSP
   support. Leaner and more accessible than the plugins mentioned above.
 
-- [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim), an
+* [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim), an
   LSP client commonly used in combination with an asynchronous completion
   framework such as deoplete or ncm2. The name implies Neovim-only support, but
   nowadays it also supports Vim.
 
-- [vim-lsp](https://github.com/prabirshrestha/vim-lsp), an LSP client written in
+* [vim-lsp](https://github.com/prabirshrestha/vim-lsp), an LSP client written in
   Vimscript; unlike some Python-based clients listed above. This plugin is
   frequently used with the
   [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim) plugin
   by the same author.
 
-- [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim), an
+* [asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim), an
   ayschronous auto-completion framework written in Vimscript that supports both
   Vim and Neovim's asynchronous job control APIs. Like deoplete and ncm2,
   LSP-based candidates  require integration with an LSP-client plugin, this time
   with the [vim-lsp](https://github.com/prabirshrestha/vim-lsp) plugin.
 
-- [ALE](https://github.com/dense-analysis/ale), primarily an asynchronous
+* [ALE](https://github.com/dense-analysis/ale), primarily an asynchronous
   linting and fixing plugin, but now extended to support LSP. Language servers
   can provide linting, hence the reason why ALE integrated LSP. ALE now includes
   LSP-based code completion in addition to other LSP functionality.
 
-- [LSC](https://github.com/natebosch/vim-lsc) by [Nate
+* [LSC](https://github.com/natebosch/vim-lsc) by [Nate
   Bosch](https://github.com/natebosch), a performant LSP client, written in
   Vimscript, that supports LSP-based asynchronous auto-completion in both Vim
   and Neovim.
 
-- [MUcomplete](https://github.com/lifepillar/vim-mucomplete), a minimalist
+* [MUcomplete](https://github.com/lifepillar/vim-mucomplete), a minimalist
   auto-completion plugin that leverages Vim's existing completion
   infrastructure. This plugin does not support asynchronous operation.
 
-- [Supertab](https://github.com/ervandew/supertab), a tab completion plugin for
+* [Supertab](https://github.com/ervandew/supertab), a tab completion plugin for
   Vim. This plugin simply maps the **TAB** key to Vim's existing completion
   kinds.
 
-- [VimCompletesMe](https://github.com/ajh17/VimCompletesMe), another tab
+* [VimCompletesMe](https://github.com/ajh17/VimCompletesMe), another tab
   completion plugin for Vim, similar to Supertab but simpler.
 
 The LSC Plugin
@@ -220,45 +220,45 @@ The LSC Plugin
 After much trialling I chose [LSC](https://github.com/natebosch/vim-lsc) due to
 the following characteristics of the plugin:
 
-- LSC is a combination LSP-client and completion plugin that stands alone, there
+* LSC is a combination LSP-client and completion plugin that stands alone, there
   is no multi-plugin dance required
 
-- Implemented in pure Vimscript, this eases installation and avoids certain
+* Implemented in pure Vimscript, this eases installation and avoids certain
   kinds of [upgrade
   pain](https://www.reddit.com/r/vim/comments/aexw9t/deoplete_replacement) that
   may be experienced by Python-based alternatives
 
-- Compatible with both Vim and Neovim's differing asynchronous job control APIs
+* Compatible with both Vim and Neovim's differing asynchronous job control APIs
 
-- Light in weight, less than three thousand lines of Vimscript; LSC augments
+* Light in weight, less than three thousand lines of Vimscript; LSC augments
   Vim, it does not take over unlike certain other plugins
 
-- Excellent performance due to: asynchronous operation and use of performance
+* Excellent performance due to: asynchronous operation and use of performance
   optimizations such as [incremental
   updates](https://www.reddit.com/r/vim/comments/9zo98c/what_languageserver_client_does_everyone_use/eadqshn/)
   and
   [debouncing](https://www.reddit.com/r/vim/comments/9zo98c/what_languageserver_client_does_everyone_use/eaf2pqi/)
 
-- Pristine completions, candidates will only be sourced from the language
+* Pristine completions, candidates will only be sourced from the language
   server, there will be no mixing of candidates from other completion sources
 
-- Straightforward and concise `~/.vimrc`-based configuration
+* Straightforward and concise `~/.vimrc`-based configuration
 
-- Referenced language servers are installed and maintained externally, similar
+* Referenced language servers are installed and maintained externally, similar
   to how the [ALE](https://github.com/dense-analysis/ale) plugin uses external
   linters and fixers
 
-- Simple configuration option to select either asynchronous auto-completion or
+* Simple configuration option to select either asynchronous auto-completion or
   synchronous manual completion, once the `omnifunc` option is appropriately set
 
-- Auto-completion, if enabled, will only apply to filetypes that are associated
+* Auto-completion, if enabled, will only apply to filetypes that are associated
   with a language server
 
-- The `find all references` operation will populate the
+* The `find all references` operation will populate the
   [quickfix](https://vimhelp.org/quickfix.txt.html) list; no custom UIs in
   contrast to a few other plugins
 
-- The `symbol hover` operation can use either Vim's
+* The `symbol hover` operation can use either Vim's
   [popup](https://vimhelp.org/popup.txt.html) window or Neovim's
   [floating](https://neovim.io/doc/user/api.html#api-floatwin) windows if
   available; this feature markedly enhances hover usability

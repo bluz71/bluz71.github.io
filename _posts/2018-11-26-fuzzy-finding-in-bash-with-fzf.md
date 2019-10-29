@@ -236,7 +236,7 @@ or Neovim then you will be automatically scrolled to the selected line.
 ```sh
 fzf_kill() {
     local pids=$(
-      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f3
+      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f2
       )
     if [[ -n $pids ]]; then
         echo "$pids" | xargs kill -9 "$@"

@@ -122,7 +122,7 @@ Examples:
 ```sh
 fzf                             # Fuzzy file lister
 fzf --preview="head -$LINES {}" # Fuzzy file lister with file preview
-vim $(fzf)                      # Lauch Vim editor on fuzzy found file
+vim $(fzf)                      # Launch Vim editor on fuzzy found file
 history | fzf                   # Fuzzy find a command from history
 cat /usr/share/dict/words | fzf # Fuzzy search a dictionary word
 ```

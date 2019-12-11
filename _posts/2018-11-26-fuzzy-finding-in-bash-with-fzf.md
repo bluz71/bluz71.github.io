@@ -192,7 +192,8 @@ Here are some that I use.
 ```sh
 fzf_find_edit() {
     local file=$(
-      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      fzf --query="$1" --no-multi --select-1 --exit-0 \
+          --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
         $EDITOR $file
@@ -202,8 +203,14 @@ fzf_find_edit() {
 alias ffe='fzf_find_edit'
 ```
 
-Fuzzy find a file, with colorful preview, then once selected edit it in your
-preferred editor.
+Fuzzy find a file with optional file name and then edit:
+
+- If one file matches then edit immediately
+
+- If multiple files match, or no file name is provided, then open fzf with
+  colorful preview
+
+- If no files match then exit immediately
 
 ### Find File with Term and Edit
 

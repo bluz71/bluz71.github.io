@@ -196,7 +196,7 @@ fzf_find_edit() {
           --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
-        $EDITOR $file
+        $EDITOR "$file"
     fi
 }
 
@@ -227,7 +227,7 @@ fzf_grep_edit(){
       )
     local file=$(echo "$match" | cut -d':' -f1)
     if [[ -n $file ]]; then
-        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
+        $EDITOR "$file" +$(echo "$match" | cut -d':' -f2)
     fi
 }
 

@@ -264,7 +264,7 @@ involved to kill a recalcitrant process :tada: :tada:
 
 ```sh
 fzf_git_add() {
-    local files=$(git ls-files --modified | fzf --ansi)
+    local files=$(git ls-files --modified --exclude-standard --others | fzf --ansi)
     if [[ -n $files ]]; then
         git add --verbose $files
     fi

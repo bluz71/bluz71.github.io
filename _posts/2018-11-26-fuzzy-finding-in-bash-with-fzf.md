@@ -193,7 +193,7 @@ Here are some that I use.
 fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'bat --color=always --line-range :500 {}'
+          --preview "bat --color=always --line-range :500 {}"
       )
     if [[ -n $file ]]; then
         $EDITOR "$file"
@@ -242,8 +242,10 @@ or Neovim then you will be automatically scrolled to the selected line.
 
 ```sh
 fzf_kill() {
+    local pid_col=2
+    if [[ $(uname) = Darwin ]]; then pid_col=3; fi
     local pids=$(
-      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f2
+      ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f"$pid_col"
       )
     if [[ -n $pids ]]; then
         echo "$pids" | xargs kill -9 "$@"
@@ -264,17 +266,25 @@ involved to kill a recalcitrant process :tada: :tada:
 
 ```sh
 fzf_git_add() {
-    local files=$(git ls-files --modified --exclude-standard --others | fzf --ansi)
+    local files=$(
+      git ls-files --modified --exclude-standard --others | \
+      fzf --ansi \
+          --preview "if (git ls-files --error-unmatch {} &>/dev/null); then
+                         git diff --color=always {}
+                     else
+                         bat --color=always --line-range :500 {}
+                     fi"
+      )
     if [[ -n $files ]]; then
-        git add --verbose $files
+        git add --verbose "$files"
     fi
 }
 
 alias gadd='fzf_git_add'
 ```
 
-Selectively stage fuzzily found files for committing. Note, only modified files
-will be listed for staging.
+Selectively stage fuzzily found files, with previewing, for committing. Note,
+modified and untracked files will be listed for staging.
 
 ### Git Log Browser
 

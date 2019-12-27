@@ -193,7 +193,7 @@ Here are some that I use.
 fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview "bat --color=always --line-range :500 {}"
+          --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
         $EDITOR "$file"
@@ -203,7 +203,7 @@ fzf_find_edit() {
 alias ffe='fzf_find_edit'
 ```
 
-Fuzzy find a file with optional file name and then edit:
+Fuzzy find a file, with optional initial file name, and then edit:
 
 - If one file matches then edit immediately
 
@@ -211,6 +211,33 @@ Fuzzy find a file with optional file name and then edit:
   colorful preview
 
 - If no files match then exit immediately
+
+### Find Directory and Change
+
+```sh
+fzf_change_directory() {
+    local directory=$(
+      fd --type d | \
+      fzf --query="$1" --no-multi --select-1 --exit-0 \
+          --preview 'tree -C {} | head -100'
+      )
+    if [[ -n $directory ]]; then
+        cd "$directory"
+    fi
+}
+
+alias fcd='fzf_change_directory'
+```
+
+Fuzzy find a directory, with optional initial directory name, and then change to
+it:
+
+- If one directory matches then `cd` immediately
+
+- If multiple directories match, or no directory name is provided, then open fzf
+  with tree preview
+
+- If no directories match then exit immediately
 
 ### Find File with Term and Edit
 
@@ -242,8 +269,15 @@ or Neovim then you will be automatically scrolled to the selected line.
 
 ```sh
 fzf_kill() {
-    local pid_col=2
-    if [[ $(uname) = Darwin ]]; then pid_col=3; fi
+    local pid_col
+    if [[ $OS = Linux ]]; then
+        pid_col=2
+    elif [[ $OS = Darwin ]]; then
+        pid_col=3;
+    else
+        echo 'Error: unknown platform'
+        return
+    fi
     local pids=$(
       ps -f -u $USER | sed 1d | fzf --multi | tr -s [:blank:] | cut -d' ' -f"$pid_col"
       )
@@ -269,11 +303,11 @@ fzf_git_add() {
     local files=$(
       git ls-files --modified --exclude-standard --others | \
       fzf --ansi \
-          --preview "if (git ls-files --error-unmatch {} &>/dev/null); then
+          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
                          git diff --color=always {}
                      else
                          bat --color=always --line-range :500 {}
-                     fi"
+                     fi'
       )
     if [[ -n $files ]]; then
         git add --verbose "$files"
@@ -328,7 +362,9 @@ fzf_git_reflog() {
         fzf --no-multi --ansi --no-sort --height 100% \
             --preview "git show --color=always {1}"
       )
-    echo $hash
+    if [[ -n $hash ]]; then
+        git show $(echo $hash | cut -d' ' -f1)
+    fi
 }
 
 alias grl='fzf_git_reflog'

@@ -310,7 +310,7 @@ fzf_git_add() {
                      fi'
       )
     if [[ -n $files ]]; then
-        git add --verbose "$files"
+        git add --verbose $files
     fi
 }
 

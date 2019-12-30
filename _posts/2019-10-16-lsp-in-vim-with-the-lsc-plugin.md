@@ -100,7 +100,7 @@ Nonetheless, there are a few issues with omni-completion:
 * completion is a synchronous operation, invoking omni-completion will block the
   editor until the operation is concluded
 
-* omni-completion plugins needs to be coded and maintained specifically for Vim
+* omni-completion plugins need to be coded and maintained specifically for Vim
 
 However, with LSP-based completion, Vim can leverage and use the same language
 servers used by [Visual Studio Code](https://code.visualstudio.com). One can be

@@ -430,21 +430,6 @@ nicely with completion which will then completely ignore case. Set the
 set infercase
 ```
 
-Improve performance for files with long lines
----------------------------------------------
-
-Very long lines will cause performance problems with Vim. One of *the* main
-culprits for this performance issue is the syntax highlighter. I recommend only
-syntax highlighting the first 200 characters of each line.
-
-```viml
-set synmaxcol=200
-```
-
-The `relativenumber` settings can also cause problems with files with long
-lines. I suggest having a quick toggle to disable `relativenumber` when
-required.
-
 Enable *wildmenu* and *wildmode*
 --------------------------------
 

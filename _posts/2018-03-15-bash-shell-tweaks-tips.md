@@ -70,7 +70,7 @@ Most Linux distributions install and enable bash-completion these days.
 Homebrew based Bash on macOS on the other hand will require bash-completion
 installation and invocation.
 
-First install bash-completion:
+First install bash-completion version 2:
 
 ```sh
 brew install bash-completion@2
@@ -79,8 +79,13 @@ brew install bash-completion@2
 Then source bash-completion in your `~/.bashrc` file:
 
 ```sh
-. $brew_prefix/share/bash-completion/bash_completion
+export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d"
+. $(brew --prefix)/etc/profile.d/bash_completion.sh
 ```
+
+**Note**, certain brew packages still only install version 1 bash-completions.
+The `BASH_COMPLETION_COMPAT_DIR` statement will source those older version 1
+Bash completions.
 
 Confirm that bash-completion is enabled by trying the `shopt cd<TAB>` example
 noted above, the aim is to have the `cdable_vars` and `cdspell` options

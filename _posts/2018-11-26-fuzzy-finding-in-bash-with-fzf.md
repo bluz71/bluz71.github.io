@@ -324,15 +324,15 @@ modified and untracked files will be listed for staging.
 
 ```sh
 fzf_git_log() {
-    local commits=$(
+    local selections=$(
       git ll --color=always "$@" |
         fzf --ansi --no-sort --height 100% \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
-    if [[ -n $commits ]]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
-        git show $hashes
+    if [[ -n $selections ]]; then
+        local commits=$(echo "$selections" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $commits
     fi
 }
 
@@ -357,13 +357,13 @@ Git Log Browser in action:
 
 ```sh
 fzf_git_reflog() {
-    local hash=$(
+    local selection=$(
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --height 100% \
             --preview "git show --color=always {1}"
       )
-    if [[ -n $hash ]]; then
-        git show $(echo $hash | cut -d' ' -f1)
+    if [[ -n $selection ]]; then
+        git show $(echo $selection | cut -d' ' -f1)
     fi
 }
 
@@ -383,14 +383,14 @@ fzf_git_log_pickaxe() {
          echo 'Error: search term was not provided.'
          return
      fi
-     local commits=$(
+     local selections=$(
        git log --oneline --color=always -S "$@" |
          fzf --ansi --no-sort --height 100% \
              --preview "git show --color=always {1}"
        )
-     if [[ -n $commits ]]; then
-         local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-         git show $hashes
+     if [[ -n $selections ]]; then
+         local commits=$(echo "$selections" | cut -d' ' -f1 | tr '\n' ' ')
+         git show $commits
      fi
  }
 

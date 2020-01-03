@@ -38,7 +38,7 @@ Some notable characteristics of fzf:
 
 Note, feel free to refer to my
 [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) file to view my
-fzf configuration.
+latest fzf configuration.
 
 Installation
 ------------

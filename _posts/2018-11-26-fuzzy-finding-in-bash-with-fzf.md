@@ -300,25 +300,25 @@ involved to kill a recalcitrant process :tada: :tada:
 
 ```sh
 fzf_git_add() {
-    local files=$(
-      git ls-files --modified --exclude-standard --others | \
+    local selections=$(
+      git status --porcelain | \
       fzf --ansi \
-          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
-                         git diff --color=always {}
+          --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
+                         git diff --color=always {2}
                      else
-                         bat --color=always --line-range :500 {}
+                         bat --color=always --line-range :500 {2}
                      fi'
       )
-    if [[ -n $files ]]; then
-        git add --verbose $files
+    if [[ -n $selections ]]; then
+        git add --verbose $(echo "$selections" | cut -c 4- | tr '\n' ' ')
     fi
 }
 
 alias gadd='fzf_git_add'
 ```
 
-Selectively stage fuzzily found files, with previewing, for committing. Note,
-modified and untracked files will be listed for staging.
+Selectively stage modified and untracked files, with preview, for committing.
+Note, modified and untracked files will be listed for staging.
 
 ### Git Log Browser
 

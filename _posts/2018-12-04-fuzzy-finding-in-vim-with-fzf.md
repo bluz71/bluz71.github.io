@@ -97,7 +97,16 @@ Usage
 With [fzf.vim](https://github.com/junegunn/fzf.vim) installed we can now
 focus on how to use fzf within Vim.
 
-Hint, use the ESC key to quickly dismiss a fzf window.
+Hint, use the ESC key to quickly dismiss a fzf window in Vim. To do the same in
+Neovim add the following to your `~/.vimrc`:
+
+```viml
+if has("nvim")
+    " Escape inside a FZF terminal window should exit the terminal window
+    " rather than going into the terminal's normal mode.
+    autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
+endif
+```
 
 Files command
 -------------

@@ -806,22 +806,6 @@ indentation within the file or within the directory tree for like files. With
 this plugin in effect there is little need to manually define indentation
 settings.
 
-Ragtag
-------
-
-```viml
-Plug 'tpope/vim-ragtag'
-```
-
-The [vim-ragtag](https://github.com/tpope/vim-ragtag) plugins provides a set of
-helpers for TAG-based languages such as HTML, XML and JSX.
-
-These are the *ragtag* helpers I find most handy whilst in *insert* mode:
-
-- `<CTRL-x>/` close the previous open tag
-- `<CTRL-x><Space>` convert the current word into open and close tags
-- `<CTRL-x><Enter>` same as above except split the tag over multiple lines
-
 Surround
 --------
 

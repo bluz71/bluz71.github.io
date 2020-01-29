@@ -256,12 +256,13 @@ the following characteristics of the plugin:
 
 * The `find all references` operation will populate the
   [quickfix](https://vimhelp.org/quickfix.txt.html) list; no custom UIs in
-  contrast to a few other plugins
+  contrast to certain other LSP plugins
 
-* The `symbol hover` operation can use either Vim's
+* The `symbol hover` operation, often mapped to `K`, can use either Vim's
   [popup](https://vimhelp.org/popup.txt.html) window or Neovim's
-  [floating](https://neovim.io/doc/user/api.html#api-floatwin) windows if
-  available; this feature markedly enhances hover usability
+  [floating](https://neovim.io/doc/user/api.html#api-floatwin) window APIs if
+  available, whilst double `K` will convert a popup/floating window into
+  split-preview window if hover persistence is desired
 
 The simplicity LSC may not suit you, especially if you wish to combine
 completion candidates from multiple sources, say LSP-based candidates with

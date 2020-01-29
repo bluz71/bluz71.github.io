@@ -555,20 +555,6 @@ Candidate mappings:
 This plugin shines when dealing with modified Git chunks; that being easy
 navigation and staging of those hunks.
 
-git-messenger
--------------
-
-```viml
-Plug 'rhysd/git-messenger.vim'
-let g:git_messenger_no_default_mappings = v:true
-nmap <Leader>M <Plug>(git-messenger)
-```
-
-The [git-messenger](https://github.com/rhysd/git-messenger.vim) plugin, when run
-in a modern version of Vim or Neovim, will display the Git log of the current
-line in a popup or floating window. It acts like a current line `git blame`.
-Handy, but not essential.
-
 Undotree
 --------
 

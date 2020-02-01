@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED OCTOBER 2019**
+**UPDATED FEBRUARY 2020**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
@@ -49,13 +49,28 @@ vim-moonfly-colors
 Plug 'bluz71/vim-moonfly-colors'
 ```
 
-Some self-advertising, I have written my own Vim `colorscheme` named
+Some self-advertising, I have created my own Vim `colorscheme` named
 [moonfly](https://github.com/bluz71/vim-moonfly-colors).
 
-The *moonfly* colorscheme is yet another dark theme, but unlike all other dark
-themes this one is **my** dark theme. That means it has been tuned to my
-particular tastes.  Whether those tastes match up with anyone else's taste
-will be in the eye of the beholder.
+The *moonfly* color scheme is a dark theme, but unlike all other dark themes
+this one is **my** dark theme. That means it has been tuned to my particular
+tastes.  Whether those tastes match up with anyone else's taste will be in the
+eye of the beholder.
+
+vim-nightfly-guicolors
+----------------------
+
+```viml
+Plug 'bluz71/vim-nightfly-guicolors'
+```
+
+More recently, I have created another Vim `colorscheme` named
+[nightfly](https://github.com/bluz71/vim-nightfly-guicolors).
+
+The *nightfly* color scheme is also a dark theme, but unlike the
+charcoal-colored *moonfly* color scheme this one is blue-tinged. This color
+scheme is heavily inspired by the Visual Studio Code [Night
+Owl](https://github.com/sdras/night-owl-vscode-theme) theme.
 
 vim-moonfly-statusline
 ----------------------
@@ -64,15 +79,18 @@ vim-moonfly-statusline
 Plug 'bluz71/vim-moonfly-statusline'
 ```
 
-Personally I am not a fan of heavy *statusline* plugins like
+I am not a fan of heavy *statusline* plugins like
 [powerline](https://github.com/powerline/powerline) and
 [airline](https://github.com/vim-airline/vim-airline).
 
-Instead, I have created a simple matching `statusline` for the *moonfly*
+Instead, I have created a simple `statusline` for the *moonfly*
 color scheme named appropriately
 [moonfly-statusline](https://github.com/bluz71/vim-moonfly-statusline). It
 provides all relevant information I find useful whilst also clearly indicating
 which mode you are in: normal, insert, replace or visual modes.
+
+:bulb: With an appropriate option set, `g:moonflyHonorUserDefinedColors`,
+_moonfly-statusline_ will also adapt to the newer _nightfly_ color scheme.
 
 vim-one
 -------

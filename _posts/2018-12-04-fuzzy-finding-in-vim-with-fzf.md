@@ -416,6 +416,10 @@ let g:nightflyFloatingFZF = 1
 These latter options change the fzf background color to a more appropriate shade
 to distinguish the floating window from the standard workspace.
 
+### Screenshot
+
+<img width="800" alt="floating_fzf" src="https://raw.githubusercontent.com/bluz71/misc-binaries/master/blog/floating_fzf.png">
+
 Why not just use CtrlP
 ----------------------
 

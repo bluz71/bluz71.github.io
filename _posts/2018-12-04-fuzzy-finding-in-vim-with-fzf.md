@@ -8,6 +8,8 @@ published: true
 Fuzzy Finding in Vim with fzf
 =============================
 
+**UPDATED FEBRUARY 2020**
+
 Following on from [fuzzy finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html),
 this post will discuss usage of the [fzf](https://github.com/junegunn/fzf) tool
@@ -307,7 +309,7 @@ all matches. Note, use `Alt-a` and `Alt-d` to select and deselect all matches.
 
 ```viml
 nnoremap <Leader>rg :Rg<Space>
-nnoremap <Leader>!  :Rg!<Space>
+nnoremap <Leader>RG :Rg!<Space>
 ```
 
 The preview window can be toggled with the QUESTION MARK key.
@@ -366,6 +368,53 @@ following useful commands.
   selected topic
 
 - `:Colors` - list color schemes, then change `colorscheme` to the selection
+
+fzf in a Floating Window
+------------------------
+
+By default, _fzf_ in Vim displays as a split window across the lower part of the
+Vim workspace. However, with the release of Neovim 0.4 in September 2019, it is
+now possible to display _fzf_ in a floating window over the top of the current
+workspace.
+
+Here is an example user configuration, in `~/.vimrc`, that displays fzf in a
+floating window when run in Neovim:
+
+```viml
+if has('nvim')
+    function! FloatingFZF()
+        let width = float2nr(&columns * 0.85)
+        let height = float2nr(&lines * 0.70)
+        let opts = { 'relative': 'editor',
+                    \ 'row': (&lines - height) / 2,
+                    \ 'col': (&columns - width) / 2,
+                    \ 'width': width,
+                    \ 'height': height,
+                    \ 'style': 'minimal'}
+
+        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    endfunction
+
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
+```
+
+:bulb: When using my [moonfly](https://github.com/bluz71/vim-moonfly-colors)
+color scheme please set:
+
+```viml
+let g:moonflyFloatingFZF = 1
+```
+
+:bulb: Likewise, when using my other color scheme,
+[nightfly](https://github.com/bluz71/vim-nightfly-guicolors), please set:
+
+```viml
+let g:nightflyFloatingFZF = 1
+```
+
+These latter options change the fzf background color to a more appropriate shade
+to distinguish the floating window from the standard workspace.
 
 Why not just use CtrlP
 ----------------------

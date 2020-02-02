@@ -264,6 +264,10 @@ the following characteristics of the plugin:
   available, whilst double `K` will convert a popup/floating window into
   split-preview window if hover persistence is desired
 
+* Easy to use `code actions` operation, just select the listed number to
+  carry out a specific language/framework action, for example wrapping a widget
+  with another widget in Flutter
+
 The simplicity LSC may not suit you, especially if you wish to combine
 completion candidates from multiple sources, say LSP-based candidates with
 keyword-in-file candidates. In my case I already have `ctrl`-based [mappings

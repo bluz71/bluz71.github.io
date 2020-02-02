@@ -309,6 +309,7 @@ let g:lsc_auto_map = {
  \  'FindReferences': 'gr',
  \  'Rename': 'gR',
  \  'ShowHover': 'K',
+ \  'FindCodeActions': 'ga',
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_autocomplete  = v:true
@@ -331,6 +332,7 @@ LSP Action | LSC Command | Vim Mapping
 *Find all references* for the symbol under the cursor | `FindReferences` | `gr`
 *Rename* the symbol under the cursor and all references | `Rename` | `gR`
 *Show hover* tooltip for the symbol under the cursor | `ShowHover` | `K`
+*Find code actions* at the cursor location | `FindCodeActions` | `ga`
 
 I **strongly** recommend the following `completeopt` setting when using
 auto-completion:

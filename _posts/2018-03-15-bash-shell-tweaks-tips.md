@@ -298,7 +298,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 - History settings.
 
     ```sh
-    HISTCONTROL='erasedups:ignoreboth'
+    HISTCONTROL=ignoreboth:erasedups
     HISTIGNORE=?:??
     HISTFILESIZE=50000
     HISTSIZE=50000

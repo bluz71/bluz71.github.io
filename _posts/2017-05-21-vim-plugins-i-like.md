@@ -245,6 +245,7 @@ vim-wordmotion
 ```viml
 Plug 'chaoren/vim-wordmotion'
 nmap cw ce
+nmap cW cE
 ```
 
 The [wordmotion](https://github.com/chaoren/vim-wordmotion) plugin expands Vim's
@@ -256,7 +257,7 @@ This plugin will not suit everyone, but for certain language, such as
 [Ruby](https://www.ruby-lang.org/) which uses both camel and snake-case, it has
 proven invaluable in practice.
 
-Note, the `cw` mapping will restore standard Vim behaviour, that being to
+Note, the `cw` / `cW` mapping will restore standard Vim behaviour, that being to
 preserve whitespace between words.
 
 fzf.vim
@@ -300,42 +301,13 @@ let g:NERDTreeDirArrowExpandable  = "▷"
 let g:NERDTreeDirArrowCollapsible = "◢"
 ```
 
-One inconvenience is that *NERDTree*, by default, will not refresh itself when
-one enters the file-tree window. For instance, it won't display new files not
-created within *NERDTree* unless a manual *refresh* is executed. This can be
-overcome with the following auto-refreshing snippet:
-
-```viml
-function! NERDTreeRefresh()
-    if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
-    endif
-endfunction
-
-autocmd BufEnter * call NERDTreeRefresh()
-```
-
 :exclamation: Certain Vim elitists consider NERDTree an anti-pattern. I
 primarily use it with `<Leader>f` to visualize where the current buffer is in
 the project tree. I do **not** recommend you use NERDTree as your prime method
-to open files, alternatives suchs as fzf and projectionist are better and
-faster.
+to open files, alternatives such as fzf and projectionist are better and faster.
 
-NERDTree Git Plugin
--------------------
-
-```viml
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-let g:NERDTreeUpdateOnCursorHold = 0
-let g:NERDTreeUpdateOnWrite      = 0
-```
-
-The [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin) plugin adds
-**git** status indicators in the *NERDTree* window.
-
-I find the visual information provided by this plugin to be genuinely useful. I
-recommend all NERDTree users, who manage code via Git repositories, to give
-this plugin a try.
+**UPDATE 2020**: Due to performance issues with NERDTree when navigating large
+trees I now use [vim-filer](https://github.com/Shougo/vimfiler.vim) instead.
 
 VimCompletesMe and LSC Code Completion
 --------------------------------------

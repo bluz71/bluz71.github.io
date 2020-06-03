@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED FEBRUARY 2020**
+**UPDATED JUNE 2020**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
@@ -276,38 +276,46 @@ fzf](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html) for
 comprehensive details about [fzf](https://github.com/junegunn/fzf) and the
 [fzf.vim](https://github.com/junegunn/fzf.vim) plugin.
 
-NERDTree
+vimfiler
 --------
 
 ```viml
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-let NERDTreeHijackNetrw = 0
-noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
-noremap <silent> <Leader>f :NERDTreeFind<CR> <C-w>=
+Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim'
+let g:vimfiler_as_default_explorer = 1
+noremap <silent> <Leader>n :VimFilerExplorer -toggle<CR> <C-w>=
+noremap <silent> <Leader>f :VimFilerExplorer -find<CR> <C-w>=
 ```
 
-Most Vim users are aware of [NERDTree](https://github.com/scrooloose/nerdtree).
-Not much explanation is needed, *NERDTree* is a file explorer that opens up on
-the left-hand side of a Vim workspace.
+The [vimfiler](https://github.com/Shougo/vimfiler.vim) plugin is a simple, yet
+powerful, file explorer.
 
-I use `<Leader>n` to toggle *NERDTree* whilst also equalizing all existing
-splits. I also have a `<Leader>f` mapping to open NERDTree and reveal the
-current buffer in the file tree.
+Historically, [NERDTree](https://github.com/preservim/nerdtree) has been the
+go-to file explorer for Vim; however, in my experience *NERDTree* does have
+certain performance issues that can make it frustrating to use. *vimfiler* is a
+more performant file explorer.
 
-I like these arrow symbols in preference to the NERDTree defaults:
+:mega: It should also be noted, whilst ongoing feature development on
+*vimfiler* has ceased, vimfiler is already feature rich **and** according to the
+project maintainer, bugs will be addressed.
+
+I use `<Leader>n`, which I inherited from my *NERDTree* days, to toggle a
+left-hand side project drawer whilst also equalizing existing splits. I also
+have a `<Leader>f` mapping to open *vimfiler* and reveal the current buffer in
+the file tree.
+
+Lastly, I like these arrow symbols in preference to the *vimfiler* defaults:
 
 ```viml
-let g:NERDTreeDirArrowExpandable  = "▷"
-let g:NERDTreeDirArrowCollapsible = "◢"
+let g:vimfiler_tree_closed_icon           = "▷"
+let g:vimfiler_tree_leaf_icon             = " "
+let g:vimfiler_tree_opened_icon           = "◢"
 ```
 
-:exclamation: Certain Vim elitists consider NERDTree an anti-pattern. I
-primarily use it with `<Leader>f` to visualize where the current buffer is in
-the project tree. I do **not** recommend you use NERDTree as your prime method
-to open files, alternatives such as fzf and projectionist are better and faster.
-
-**UPDATE 2020**: Due to performance issues with NERDTree when navigating large
-trees I now use [vim-filer](https://github.com/Shougo/vimfiler.vim) instead.
+:exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
+primarily use *vimfiler* with `<Leader>f` to visualize where the current buffer
+is in the project tree. I do **not** recommend you use *vimfiler* as your prime
+method to open files, alternatives such as *fzf* and *projectionist* are better
+and faster.
 
 VimCompletesMe and LSC Code Completion
 --------------------------------------

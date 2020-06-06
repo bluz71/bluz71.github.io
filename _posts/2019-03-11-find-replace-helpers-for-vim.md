@@ -88,8 +88,8 @@ Helpers to add to `~/.vimrc`
 ```viml
 nnoremap <silent> <Leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> <Leader>c "sy:let @/=@s<CR>cgn
-nnoremap <Enter> gnzz
-xmap <Enter> .<Esc>gnzz
+nnoremap <CR> gnzz
+xmap <CR> .<Esc>gnzz
 xnoremap ! <Esc>ngnzz
 autocmd! BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 autocmd! CmdwinEnter *        nnoremap <buffer> <CR> <CR>

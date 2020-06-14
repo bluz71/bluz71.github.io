@@ -446,11 +446,10 @@ Available language servers for certain prevalent programming languages:
 
 Language | Language Server | Command
 --- | --- | ---
-C/C++ | [ccls](https://github.com/MaskRay/ccls) | `ccls`
 C/C++ | [clangd](https://clang.llvm.org/extra/clangd) | `clangd`
 Go | [gopls](https://github.com/golang/tools/tree/master/gopls) | `gopls serve`
 Python | [Python Language Server](https://github.com/palantir/python-language-server) | `pyls`
-Rust | [Rust Language Server](https://github.com/rust-lang/rls) | `rls`
+Rust | [Rust Analyzer](https://rust-analyzer.github.io) | `rust-analyzer`
 Swift | [SourceKit-LSP](https://github.com/apple/sourcekit-lsp) | `sourcekit-lsp`
 
 :warning: Note, I have not tested these language servers personally.

@@ -208,17 +208,8 @@ utility via the [vim-grepper](https://github.com/mhinz/vim-grepper) plugin:
 From there one simply executes the desired substitution over the list of files
 in the *quickfix* list.
 
-Using standard Vim substitution:
-
 ```
 :cfdo %s/oldterm/newterm/ | update
-```
-
-Or using Tim Pope's superb case-smart
-[Abolish](https://github.com/tpope/tpope-vim-abolish) plugin:
-
-```
-:cfdo %S/oldterm/newterm/ | update
 ```
 
 **UPDATE (MAR 2019)**: This [find & replace helpers for Vim

@@ -639,59 +639,6 @@ A special mention should be given to [Tim Pope](https://github.com/tpope) who
 has crafted some of Vim's most useful plugins. He deserves a place in the Vim
 hall of fame alongside Bram Moolenaar himself.
 
-Abolish
--------
-
-```viml
-Plug 'tpope/vim-abolish'
-```
-
-The [abolish](https://github.com/tpope/vim-abolish) plugin is really a couple
-plugins in one, those being:
-
-- a smart spell corrector
-- a smart substituter
-- a name coercer.
-
-I primarily use the first two.
-
-The *abolish* plugin can be set to automatically correct text as you type it.
-An example use is correcting *seperate* into *separate* and *delimeter* into
-*delimiter*. It can do this no matter the case and even with pluralization. One
-sets up these corrections in their own *~/.vim/after/plugin/abolish.vim* file.
-
-Here are my *abolish* corrections:
-
-```
-Abolish {despa,sepe}rat{e,es,ed,ing,ely,ion,ions,or} {despe,sepa}rat{}
-Abolish {,in}consistant{,ly}                         {}consistent{}
-Abolish lan{gauge,gue,guege,guegae,ague,agueg}       language
-Abolish delimeter{,s}                                delimiter{}
-Abolish {,non}existan{ce,t}                          {}existen{}
-Abolish d{e,i}screp{e,a}nc{y,ies}                    d{i}screp{a}nc{}
-Abolish {,un}nec{ce,ces,e}sar{y,ily}                 {}nec{es}sar{}
-Abolish persistan{ce,t,tly}                          persisten{}
-Abolish {,ir}releven{ce,cy,t,tly}                    {}relevan{}
-Abolish cal{a,e}nder{,s}                             cal{e}ndar{}
-Abolish reproducable                                 reproducible
-Abolish retreive                                     retrieve
-Abolish compeletly                                   completely
-```
-
-The abolish plugin can also carry smart substitutions. What is a *smart
-substitution*? Such a substitution would intelligently change *old* to *new*
-and *Old* to *New* and *OLD* to *NEW* in one command. The *abolish* *substitute*
-command does just that and more.
-
-An example *abolish* substitute:
-
-```
-:%S/facilit{y,ies}/building{,s}/
-```
-
-This plugin does more than I have documented here, please refer to the
-[abolish documentation](https://github.com/tpope/vim-abolish).
-
 Commentry
 ---------
 

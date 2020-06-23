@@ -79,7 +79,7 @@ If using [vim-plug](https://github.com/junegunn/vim-plug), please add the
 following to your `~/.vimrc` file:
 
 ```viml
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 ```
 

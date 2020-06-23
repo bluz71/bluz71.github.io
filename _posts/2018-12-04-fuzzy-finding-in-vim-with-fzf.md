@@ -375,10 +375,10 @@ fzf in a Floating or Popup Window
 By default, _fzf_ in Vim displays as a split window across the lower part of the
 Vim workspace. However, with the release of Neovim 0.4 in September 2019 and Vim
 patch release 8.2.091 in February 2020, it is now possible to display _fzf_ in
-an overlapping window over the top of the current workspace.
+an floating window over the top of the current workspace.
 
 Here is an example user configuration, in `~/.vimrc`, that displays fzf in a
-overlapping window when run in a current version of Vim or Neovim:
+floating window when run in a modern version of Vim or Neovim:
 
 ```viml
 if has('nvim-0.4.0') || has("patch-8.2.0191")

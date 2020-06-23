@@ -347,28 +347,14 @@ UltiSnips
 ---------
 
 ```viml
-Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger       = "<C-j>"
 let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-inoremap <silent> <C-j> <C-r>=LoadUltiSnipsAndExpand()<CR>
-
-function! LoadUltiSnipsAndExpand()
-    let l:curpos = getcurpos()
-    execute plug#load('ultisnips')
-    call cursor(l:curpos[1], l:curpos[2])
-    call UltiSnips#ExpandSnippet()
-    return ""
-endfunction
 ```
 
 The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
 easily insert predefined text segments in the current buffer.
-
-:warning: I use lazy-loading to shift UltiSnip's startup cost to the time of
-first invocation prompted by [this
-post](https://medium.com/@saaguero/improving-performance-in-vim-9b33598c8eaf).
 
 The following Vimcasts are an excellent introduction to *UltiSnips*, please
 view:

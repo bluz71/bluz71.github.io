@@ -100,11 +100,12 @@ Plug 'lifepillar/vim-cheat40'
 ```
 
 The [Cheat40](https://github.com/lifepillar/vim-cheat40) plugin is a convenient,
-and customizable, 40 character wide cheat sheet. Cheat sheets can house Vim
-mappings and commands for instant recall. For example, if you keep forgetting
-your seldom used key mappings, just add them to your cheat sheet.
+and customizable, 40 character wide cheat sheet. Cheat40 can display your Vim
+mappings or exotic Vim commands for instant recall. For example, if you keep
+forgetting your seldom used key mappings, just add them to your cheat sheet and
+then display the cheat sheet when required.
 
-Use the `<leader>?` binding, or map your key to `:Cheat40`, to toggle the
+Use the `<leader>?` binding, or map your own key to `:Cheat40`, to toggle the
 right-hand side full height cheat sheet. Note, sections will usually be folded
 to avoid needless scrolling; just go to the section of interest and unfold it.
 

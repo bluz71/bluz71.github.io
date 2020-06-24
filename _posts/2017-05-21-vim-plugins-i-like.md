@@ -68,8 +68,8 @@ More recently, I have created another Vim `colorscheme` named
 [nightfly](https://github.com/bluz71/vim-nightfly-guicolors).
 
 The *nightfly* color scheme is also a dark theme, but unlike the
-charcoal-colored *moonfly* color scheme this one is blue-tinged. This color
-scheme is heavily inspired by the Visual Studio Code [Night
+charcoal-colored *moonfly* color scheme this one skews slightly toward blue. The
+*nightfly* color scheme is heavily inspired by the Visual Studio Code [Night
 Owl](https://github.com/sdras/night-owl-vscode-theme) theme.
 
 vim-moonfly-statusline
@@ -92,18 +92,41 @@ which mode you are in: normal, insert, replace or visual modes.
 :bulb: With an appropriate option set, `g:moonflyHonorUserDefinedColors`,
 _moonfly-statusline_ will also adapt to the newer _nightfly_ color scheme.
 
-vim-one
+Cheat40
 -------
 
-```viml
-Plug 'rakr/vim-one'
+```vim
+Plug 'lifepillar/vim-cheat40'
 ```
 
-The [vim-one](https://github.com/rakr/vim-one) `colorscheme` advertises itself
-as *a light and dark Vim colorscheme, shamelessly stolen from Atom*. It is
-basically a port of Atom's [One](http://blog.atom.io/2015/02/18/one-themes.html)
-theme. When I get bored with my own *moonfly* color scheme I change over to
-*One*.
+The [Cheat40](https://github.com/lifepillar/vim-cheat40) plugin is a convenient,
+and customizable, 40 character wide cheat sheet. Cheat sheets can house Vim
+mappings and commands for instant recall. For example, if you keep forgetting
+your seldom used key mappings, just add them to your cheat sheet.
+
+Use the `<leader>?` binding, or map your key to `:Cheat40`, to toggle the
+right-hand side full height cheat sheet. Note, sections will usually be folded
+to avoid needless scrolling; just go to the section of interest and unfold it.
+
+The *Cheat40* plugin provides it's own default [cheat
+sheet](https://github.com/lifepillar/vim-cheat40/blob/master/cheat40.txt),
+however, I strongly recommend creating your own custom cheat sheet.
+
+To disable the default cheat sheet provided by the plugin:
+
+```viml
+let g:cheat40_use_default = 0
+```
+
+Your own cheat sheet should reside in `~/.vim/cheat40.txt`.
+
+As an example, [here is my cheat
+sheet](https://github.com/bluz71/dotfiles/blob/master/vim/cheat40.txt). Note,
+formatting is important, please adhere to the 40 character column layout.
+
+If you find yourself often looking up your `~/.vimrc` file for a particular
+mapping, I instead suggest taking the time to craft your own cheat sheet; that
+will involve a little bit of upfront work, but the payoff will be worth it.
 
 visual-star-search
 ------------------
@@ -115,40 +138,6 @@ Plug 'nelstrom/vim-visual-star-search'
 The
 [vim-visual-star-search](https://github.com/nelstrom/vim-visual-star-search)
 plugin allows __*__ and **#** searches to occur on the current visual selection.
-
-vim-lion
---------
-
-```viml
-Plug 'tommcdo/vim-lion'
-let g:lion_squeeze_spaces = 1
-```
-
-The [vim-lion](https://github.com/tommcdo/vim-lion) plugin is used to align
-text around a chosen character.
-
-I find it easiest to select a visual region and then invoke `gl<character>` to
-re-align text around a chosen character (which will often be equals).
-
-For example, `gl=` will convert this:
-
-```ruby
-i = 5;
-username = 'tommcdo';
-stuff = [1, 2, 3];
-```
-
-into this:
-
-```ruby
-i        = 5;
-username = 'tommcdo';
-stuff    = [1, 2, 3];
-```
-
-The alternative [vim-easy-align](https://github.com/junegunn/vim-easy-align)
-and [tabular](https://github.com/godlygeek/tabular) plugins can also align
-text.
 
 targets.vim
 -----------
@@ -197,6 +186,40 @@ trailing it. Most of the time this *is* the preferred result when dealing with
 source code.
 
 I highly recommend this excellent plugin to all Vim users.
+
+vim-lion
+--------
+
+```viml
+Plug 'tommcdo/vim-lion'
+let g:lion_squeeze_spaces = 1
+```
+
+The [vim-lion](https://github.com/tommcdo/vim-lion) plugin is used to align
+text around a chosen character.
+
+I find it easiest to select a visual region and then invoke `gl<character>` to
+re-align text around a chosen character (which will often be equals).
+
+For example, `gl=` will convert this:
+
+```ruby
+i = 5;
+username = 'tommcdo';
+stuff = [1, 2, 3];
+```
+
+into this:
+
+```ruby
+i        = 5;
+username = 'tommcdo';
+stuff    = [1, 2, 3];
+```
+
+The alternative [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+and [tabular](https://github.com/godlygeek/tabular) plugins can also align
+text.
 
 vim-indent-object
 -----------------
@@ -296,7 +319,7 @@ more performant file explorer.
 
 :mega: It should also be noted, whilst ongoing feature development on
 *vimfiler* has ceased, vimfiler is already feature rich **and** according to the
-project maintainer, bugs will be addressed.
+project maintainer, issues will still be addressed.
 
 I use `<Leader>n`, which I inherited from my *NERDTree* days, to toggle a
 left-hand side project drawer whilst also equalizing existing splits. I also
@@ -306,9 +329,9 @@ the file tree.
 Lastly, I like these arrow symbols in preference to the *vimfiler* defaults:
 
 ```viml
-let g:vimfiler_tree_closed_icon           = "▷"
-let g:vimfiler_tree_leaf_icon             = " "
-let g:vimfiler_tree_opened_icon           = "◢"
+let g:vimfiler_tree_closed_icon = "▷"
+let g:vimfiler_tree_leaf_icon   = " "
+let g:vimfiler_tree_opened_icon = "◢"
 ```
 
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
@@ -317,12 +340,12 @@ is in the project tree. I do **not** recommend you use *vimfiler* as your prime
 method to open files, alternatives such as *fzf* and *projectionist* are better
 and faster.
 
-VimCompletesMe and LSC Code Completion
---------------------------------------
+Code Completion with VimCompletesMe and LSP-based LSC 
+-----------------------------------------------------
 
 ```viml
 Plug 'ajh17/VimCompletesMe'
-autocmd FileType css,scss let b:vcm_tab_complete = "omni"
+Plug 'natebosch/vim-lsc'
 ```
 
 The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the
@@ -332,16 +355,71 @@ appropriate type of completion, be it *keyword*, *file* or
 [omni](http://vim.wikia.com/wiki/Omni_completion) completion, based on the
 current context.
 
-Note, the above listed `autocmd` will result in *omni* completion being used as
-the primary completion choice for the listed language types. Feel free to vary
-for your needs.
-
 Where I require more language-aware intelligence I use the
 [LSC](https://github.com/natebosch/vim-lsc) plugin with appropriate
 LSP-compliant language servers. Please refer to the [LSP in Vim with the LSC
 Plugin](https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
 post for details about the Language Server Protocol (LSP) and the LSC
 plugin.
+
+ALE
+---
+
+```viml
+Plug 'w0rp/ale'
+let g:ale_fixers = {
+\  'css':        ['prettier'],
+\  'javascript': ['prettier-standard'],
+\  'json':       ['prettier'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['prettier'],
+\  'yml':        ['prettier']
+\}
+let g:ale_linters = {
+\  'css':        ['csslint'],
+\  'javascript': ['standard'],
+\  'json':       ['jsonlint'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['sasslint'],
+\  'yaml':       ['yamllint']
+\}
+let g:ale_linters_explicit = 1
+let g:ale_open_list        = 1
+```
+
+The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
+language linters and fixers within modern versions of Vim.
+
+Be aware, a fixer can also format code, hence there is no need to install code
+formatting plugins such as
+[vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
+
+ALE ships with configurations for most common languages, such as JavaScript and
+Ruby to name a few, hence little configuration is required. Note, the tools that
+*ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
+host, the ALE plugin will not install the underlying lint or fix tools.
+
+One could define mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
+and run them manually, others however prefer to have ALE lint code is it is
+being written (the default behaviour). Candidate ALE settings:
+
+```viml
+let g:ale_lint_on_enter            = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave     = 0
+let g:ale_lint_on_save             = 0
+let g:ale_lint_on_text_changed     = 'never'
+nmap <Leader>l    <Plug>(ale_lint)
+nmap <Leader>f    <Plug>(ale_fix)
+nmap <Leader><BS> <Plug>(ale_reset_buffer)
+```
+
+Note, use the `:ALEInfo` command to display runtime information per the
+current file type, use it when you need to debug any ALE issues.
+
+ALE is not the only asynchronous linting solution for Vim, an alternative is
+[Neomake](https://github.com/neomake/neomake) which does much the same job. I
+prefer ALE since it also incorporates fixing.
 
 UltiSnips
 ---------
@@ -436,65 +514,6 @@ all the best standalone language plugins, such as
 of all this plugin will configure all language scripts to only load when
 required.
 
-ALE
----
-
-```viml
-Plug 'w0rp/ale'
-let g:ale_fixers = {
-\  'css':        ['prettier'],
-\  'javascript': ['prettier-standard'],
-\  'json':       ['prettier'],
-\  'ruby':       ['standardrb'],
-\  'scss':       ['prettier'],
-\  'yml':        ['prettier']
-\}
-let g:ale_linters = {
-\  'css':        ['csslint'],
-\  'javascript': ['standard'],
-\  'json':       ['jsonlint'],
-\  'ruby':       ['standardrb'],
-\  'scss':       ['sasslint'],
-\  'yaml':       ['yamllint']
-\}
-let g:ale_linters_explicit = 1
-let g:ale_open_list        = 1
-```
-
-The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
-language linters and fixers within modern versions of Vim.
-
-Be aware, a fixer can also format code, hence there is no need to install code
-formatting plugins such as
-[vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
-
-ALE ships with configurations for most common languages, such as JavaScript and
-Ruby to name a few, hence little configuration is required. Note, the tools that
-*ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
-host, the ALE plugin will not install the underlying lint or fix tools.
-
-I like to use mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
-when I desire, others however prefer to have ALE lint code is it is being
-written (the default behaviour). My ALE settings:
-
-```viml
-let g:ale_lint_on_enter            = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_insert_leave     = 0
-let g:ale_lint_on_save             = 0
-let g:ale_lint_on_text_changed     = 'never'
-nmap <Leader>l    <Plug>(ale_lint)
-nmap <Leader>f    <Plug>(ale_fix)
-nmap <Leader><BS> <Plug>(ale_reset_buffer)
-```
-
-Note, use the `:ALEInfo` command to display runtime information per the
-current file type, use it when you need to debug any ALE linting issues.
-
-ALE is not the only asynchronous linting solution for Vim, an alternative
-is [Neomake](https://github.com/neomake/neomake) which does much the same job. I
-prefer ALE since it also incorporates fixing.
-
 vim-gitgutter
 -------------
 
@@ -546,6 +565,7 @@ Undotree
 Plug 'mbbill/undotree'
 let g:undotree_HighlightChangedWithSign = 0
 let g:undotree_WindowLayout             = 4
+let g:undotree_SetFocusWhenToggle       = 1
 nnoremap <Leader>u :UndotreeToggle<CR>
 ```
 

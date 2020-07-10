@@ -326,7 +326,7 @@ Note, modified and untracked files will be listed for staging.
 fzf_git_log() {
     local selections=$(
       git ll --color=always "$@" |
-        fzf --ansi --no-sort --height 100% \
+        fzf --ansi --no-sort --no-height \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
@@ -359,7 +359,7 @@ Git Log Browser in action:
 fzf_git_reflog() {
     local selection=$(
       git reflog --color=always "$@" |
-        fzf --no-multi --ansi --no-sort --height 100% \
+        fzf --no-multi --ansi --no-sort --no-height \
             --preview "git show --color=always {1}"
       )
     if [[ -n $selection ]]; then
@@ -385,7 +385,7 @@ fzf_git_log_pickaxe() {
      fi
      local selections=$(
        git log --oneline --color=always -S "$@" |
-         fzf --ansi --no-sort --height 100% \
+         fzf --ansi --no-sort --no-height \
              --preview "git show --color=always {1}"
        )
      if [[ -n $selections ]]; then

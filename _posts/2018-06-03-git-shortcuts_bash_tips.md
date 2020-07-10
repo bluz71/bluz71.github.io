@@ -364,7 +364,7 @@ alias gll='fzf_git_log'
 fzf_git_log() {
     local commits=$(
       git ll --color=always "$@" |
-        fzf --ansi --no-sort --height 100% \
+        fzf --ansi --no-sort --no-height \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )

@@ -8,10 +8,12 @@ published: true
 Bash Shell Tweaks & Tips
 ========================
 
+**UPDATED JULY 2020**
+
 [Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash
 is highly ubiquitous due to it being the default user shell for various
-flavours of Unix including: Linux, macOS and the Windows Subsystem for Linux
-(WSL).
+flavours of Unix including: Linux, macOS (prior to Catalina) and the Windows
+Subsystem for Linux (WSL).
 
 Due to this ubiquity, and the need to maintain backward compatibility, it is
 rare that newer features of Bash are enabled by default. Some mistake this
@@ -28,14 +30,14 @@ Many *tweaks n' tips* noted in this post are baked into my
 [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) and
 [inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files.
 
-macOS, upgrade to Bash 4.x
+macOS, upgrade to Bash 5.x
 --------------------------
 
 macOS by default ships with a very old version of Bash, version 3.2, due to
 licensing reasons. That version is over a decade old with many missing
 features.
 
-Please upgrade to version 4.x of Bash. That is most easily accomplished by
+Please upgrade to version 5.x of Bash. That is most easily accomplished by
 using the [Homebrew](https://brew.sh) package manager.
 
 Install Homebrew followed by:
@@ -79,13 +81,8 @@ brew install bash-completion@2
 Then source bash-completion in your `~/.bashrc` file:
 
 ```sh
-export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d"
 . $(brew --prefix)/etc/profile.d/bash_completion.sh
 ```
-
-**Note**, certain brew packages still only install version 1 bash-completions.
-The `BASH_COMPLETION_COMPAT_DIR` statement will source those older version 1
-Bash completions.
 
 Confirm that bash-completion is enabled by trying the `shopt cd<TAB>` example
 noted above, the aim is to have the `cdable_vars` and `cdspell` options

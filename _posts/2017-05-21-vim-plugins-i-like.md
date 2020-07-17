@@ -248,7 +248,6 @@ clever-f
 Plug 'rhysd/clever-f.vim'
 let g:clever_f_across_no_line    = 1
 let g:clever_f_fix_key_direction = 1
-let g:clever_f_timeout_ms        = 3000
 ```
 
 The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
@@ -332,7 +331,7 @@ Lastly, I like these arrow symbols in preference to the *vimfiler* defaults:
 ```viml
 let g:vimfiler_tree_closed_icon = "▷"
 let g:vimfiler_tree_leaf_icon   = " "
-let g:vimfiler_tree_opened_icon = "◢"
+let g:vimfiler_tree_opened_icon = '▼'
 ```
 
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
@@ -341,7 +340,7 @@ is in the project tree. I do **not** recommend you use *vimfiler* as your prime
 method to open files, alternatives such as *fzf* and *projectionist* are better
 and faster.
 
-Code Completion with VimCompletesMe and LSP-based LSC 
+Code Completion with VimCompletesMe and LSP-based LSC
 -----------------------------------------------------
 
 ```viml
@@ -455,7 +454,6 @@ indentLine
 
 ```viml
 Plug 'Yggdroot/indentLine'
-let g:indentLine_faster     = 1
 let g:indentLine_setConceal = 0
 ```
 
@@ -463,10 +461,6 @@ The [indentLine](https://github.com/Yggdroot/indentLine) plugin is used to
 display indentation guide markers as often seen in *Sublime* and *Atom*
 editors. This is a simple and useful visual aid, though *indentLine* is not
 quite as slick-looking as the guide markers in *Sublime* and *Atom*.
-
-Note, the two *let* options listed **should** be set for maximum performance.
-The default settings for the *indentLine* plugin **will** have a negative
-impact on Vim scroll performance.
 
 <a id="vim-grepper"></a>vim-grepper
 -----------------------------------
@@ -524,9 +518,9 @@ let g:gitgutter_grep                    = 'rg'
 let g:gitgutter_map_keys                = 0
 let g:gitgutter_sign_added              = '▎'
 let g:gitgutter_sign_modified           = '▎'
-let g:gitgutter_sign_modified_removed   = '▶'
-let g:gitgutter_sign_removed            = '▶'
-let g:gitgutter_sign_removed_first_line = '◥'
+let g:gitgutter_sign_modified_removed   = '▌'
+let g:gitgutter_sign_removed            = '▎'
+let g:gitgutter_sign_removed_first_line = '▎'
 nmap [g <Plug>GitGutterPrevHunkzz
 nmap ]g <Plug>GitGutterNextHunkzz
 nmap <Leader>p <Plug>GitGutterPreviewHunk
@@ -540,10 +534,10 @@ functionality to navigate, preview, stage and undo those modified Git chunks,
 aka hunks.
 
 The speed with which signs appear and change is governed by Vim's `updatetime`
-option. I suggest setting it to 300ms:
+option. I suggest setting it to 100ms:
 
 ```viml
-set updatetime=300
+set updatetime=100
 ```
 
 Candidate mappings:
@@ -679,7 +673,7 @@ Endwise
 -------
 
 ```viml
-Plug 'tpope/vim-endwise', { 'for': ['crystal', 'elixir', 'ruby', 'vim'] }
+Plug 'tpope/vim-endwise'
 ```
 
 The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will

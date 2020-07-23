@@ -127,7 +127,7 @@ Plug 'wellle/targets.vim'
 The [Targets.vim](https://github.com/wellle/targets.vim) plugin provides
 additional text objects. The highest compliment I can provide a plugin is to
 say that it feels like a natural part of Vim itself, this tremendous plugin
-exhibits that nice characteristic.
+exhibits that characteristic.
 
 Vim's text objects allow for easy selection and operation on regions of text.
 

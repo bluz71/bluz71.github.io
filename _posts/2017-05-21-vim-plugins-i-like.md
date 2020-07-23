@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED JUNE 2020**
+**UPDATED JULY 2020**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
@@ -92,42 +92,18 @@ which mode you are in: normal, insert, replace or visual modes.
 :bulb: With an appropriate option set, `g:moonflyHonorUserDefinedColors`,
 _moonfly-statusline_ will also adapt to the newer _nightfly_ color scheme.
 
-Cheat40
--------
-
-```vim
-Plug 'lifepillar/vim-cheat40'
-```
-
-The [Cheat40](https://github.com/lifepillar/vim-cheat40) plugin is a convenient,
-and customizable, 40 character wide cheat sheet. Cheat40 can display a cheat
-sheet of your key mappings or exotic Vim commands for instant recall. For
-example, if you keep forgetting your seldom used key mappings, just add them to
-your cheat sheet and then display the cheat sheet when required.
-
-Use the `<leader>?` mapping, or bind your own key to `:Cheat40`, to toggle the
-right-hand side full height cheat sheet. Note, sections will usually be folded
-to avoid needless scrolling; just go to the section of interest and unfold it.
-
-The *Cheat40* plugin provides a default [cheat
-sheet](https://github.com/lifepillar/vim-cheat40/blob/master/cheat40.txt),
-however, I strongly recommend creating your own cheat sheet.
-
-To disable the default cheat sheet provided by the plugin:
+indentLine
+----------
 
 ```viml
-let g:cheat40_use_default = 0
+Plug 'Yggdroot/indentLine'
+let g:indentLine_setConceal = 0
 ```
 
-Your cheat sheet should reside at `~/.vim/cheat40.txt`.
-
-As an example, [here is my cheat
-sheet](https://github.com/bluz71/dotfiles/blob/master/vim/cheat40.txt). Note,
-formatting is important, please adhere to the 40 character column layout.
-
-If you find yourself often looking up your `~/.vimrc` file for a particular
-mapping, please instead take the time to craft a cheat sheet; that will involve
-a little bit of upfront work, but the payoff will be worth it in the long run.
+The [indentLine](https://github.com/Yggdroot/indentLine) plugin is used to
+display indentation guide markers as often seen in *Sublime* and *Atom*
+editors. This is a simple and useful visual aid, though *indentLine* is not
+quite as slick-looking as the guide markers in *Sublime* and *Atom*.
 
 visual-star-search
 ------------------
@@ -188,6 +164,27 @@ source code.
 
 I highly recommend this excellent plugin to all Vim users.
 
+clever-f
+--------
+
+```viml
+Plug 'rhysd/clever-f.vim'
+let g:clever_f_across_no_line    = 1
+let g:clever_f_fix_key_direction = 1
+```
+
+The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
+`F`, `t` and `T` movements more informative and convenient.
+
+The more informative aspect is achieved by *clever-f* highlighting all the
+matches for the chosen movement.
+
+The more convenient aspect is achieved by simply using the `f` and `F`
+characters to navigate forward and backward through the matches unlike Vim's
+inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
+**leader** key to `,` and I map `;` as a duplicate of `:`, hence those repeat
+characters are not even available.
+
 vim-lion
 --------
 
@@ -241,27 +238,6 @@ of the current cursor line. This new text object is invoked by either `i` or
 These indent based text objects are handy because they are language agnostic,
 they work just as well for Python code as they do for JavaScript code.
 
-clever-f
---------
-
-```viml
-Plug 'rhysd/clever-f.vim'
-let g:clever_f_across_no_line    = 1
-let g:clever_f_fix_key_direction = 1
-```
-
-The [clever-f](https://github.com/rhysd/clever-f.vim) plugin makes `f`,
-`F`, `t` and `T` movements more informative and convenient.
-
-The more informative aspect is achieved by *clever-f* highlighting all the
-matches for the chosen movement.
-
-The more convenient aspect is achieved by simply using the `f` and `F`
-characters to navigate forward and backward through the matches unlike Vim's
-inconvenient and hard to remember defaults of `;` and `,`. In my case I map the
-**leader** key to `,` and I map `;` as a duplicate of `:`, hence those repeat
-characters are not even available.
-
 vim-wordmotion
 ---------------
 
@@ -283,11 +259,28 @@ proven invaluable in practice.
 Note, the `cw` / `cW` mapping will restore standard Vim behaviour, that being to
 preserve whitespace between words.
 
+Pear Tree
+---------
+
+```viml
+Plug 'tmsvg/pear-tree'
+let g:pear_tree_repeatable_expand = 0
+let g:pear_tree_smart_backspace   = 1
+let g:pear_tree_smart_closers     = 1
+let g:pear_tree_smart_openers     = 1
+```
+
+The [Pear Tree](https://github.com/tmsvg/pear-tree) plugin will automatically
+close `(`, `{`, `[` and quote pairs whilst in insert mode.
+
+:bulb: If I was doing less JavaScript and JSON I would likely skip this and all
+auto-closing pairs plugins.
+
 fzf.vim
 -------
 
 ```viml
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 ```
 
@@ -339,160 +332,6 @@ primarily use *vimfiler* with `<Leader>f` to visualize where the current buffer
 is in the project tree. I do **not** recommend you use *vimfiler* as your prime
 method to open files, alternatives such as *fzf* and *projectionist* are better
 and faster.
-
-Code Completion with VimCompletesMe and LSP-based LSC
------------------------------------------------------
-
-```viml
-Plug 'ajh17/VimCompletesMe'
-Plug 'natebosch/vim-lsc'
-```
-
-The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the
-**TAB** character, whilst in *insert* mode, to carry out completions using
-Vim's various built-in completions. The plugin itself usually determines the
-appropriate type of completion, be it *keyword*, *file* or
-[omni](http://vim.wikia.com/wiki/Omni_completion) completion, based on the
-current context.
-
-Where I require more language-aware intelligence I use the
-[LSC](https://github.com/natebosch/vim-lsc) plugin with appropriate
-LSP-compliant language servers. Please refer to the [LSP in Vim with the LSC
-Plugin](https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
-post for details about the Language Server Protocol (LSP) and the LSC
-plugin.
-
-ALE
----
-
-```viml
-Plug 'w0rp/ale'
-let g:ale_fixers = {
-\  'css':        ['prettier'],
-\  'javascript': ['prettier-standard'],
-\  'json':       ['prettier'],
-\  'ruby':       ['standardrb'],
-\  'scss':       ['prettier'],
-\  'yml':        ['prettier']
-\}
-let g:ale_linters = {
-\  'css':        ['csslint'],
-\  'javascript': ['standard'],
-\  'json':       ['jsonlint'],
-\  'ruby':       ['standardrb'],
-\  'scss':       ['sasslint'],
-\  'yaml':       ['yamllint']
-\}
-let g:ale_linters_explicit = 1
-let g:ale_open_list        = 1
-```
-
-The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
-language linters and fixers within modern versions of Vim.
-
-Be aware, a fixer can also format code, hence there is no need to install code
-formatting plugins such as
-[vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
-
-ALE ships with configurations for most common languages, such as JavaScript and
-Ruby to name a few, hence little configuration is required. Note, the tools that
-*ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
-host, the ALE plugin will not install the underlying lint or fix tools.
-
-One could define mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
-and run them manually, others however prefer to have ALE lint code is it is
-being written (the default behaviour). Candidate ALE settings:
-
-```viml
-let g:ale_lint_on_enter            = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_insert_leave     = 0
-let g:ale_lint_on_save             = 0
-let g:ale_lint_on_text_changed     = 'never'
-nmap <Leader>l    <Plug>(ale_lint)
-nmap <Leader>f    <Plug>(ale_fix)
-nmap <Leader><BS> <Plug>(ale_reset_buffer)
-```
-
-Note, use the `:ALEInfo` command to display runtime information per the
-current file type, use it when you need to debug any ALE issues.
-
-ALE is not the only asynchronous linting solution for Vim, an alternative is
-[Neomake](https://github.com/neomake/neomake) which does much the same job. I
-prefer ALE since it also incorporates fixing.
-
-UltiSnips
----------
-
-```viml
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger       = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-```
-
-The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
-easily insert predefined text segments in the current buffer.
-
-The following Vimcasts are an excellent introduction to *UltiSnips*, please
-view:
-
-- [Meet UltiSnips](http://vimcasts.org/episodes/meet-ultisnips/)
-- [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
-- [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
-
-By default, *UltiSnips* will use the **TAB** character to expand a snippet,
-however that will conflict with the *VimCompletesMe* plugin. I recommend the use
-of `Control-j`, as defined above, to expand and then navigate forward through a
-snippet's tabstops and `Control-k` to navigate back up through the tabstops.
-
-The small set of snippets I use are declared
-[here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
-
-indentLine
-----------
-
-```viml
-Plug 'Yggdroot/indentLine'
-let g:indentLine_setConceal = 0
-```
-
-The [indentLine](https://github.com/Yggdroot/indentLine) plugin is used to
-display indentation guide markers as often seen in *Sublime* and *Atom*
-editors. This is a simple and useful visual aid, though *indentLine* is not
-quite as slick-looking as the guide markers in *Sublime* and *Atom*.
-
-<a id="vim-grepper"></a>vim-grepper
------------------------------------
-
-```viml
-Plug 'mhinz/vim-grepper'
-let g:grepper = {}
-let g:grepper.tools = ["rg"]
-runtime autoload/grepper.vim
-let g:grepper.jump = 1
-nnoremap <Leader>/ :GrepperRg<Space>
-nnoremap gs :Grepper -cword -noprompt<CR>
-xmap gs <Plug>(GrepperOperator)
-```
-
-The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
-interface to various text search utilities including my favourite, the
-[ripgrep](https://github.com/BurntSushi/ripgrep) search utility.
-
-For more details about *ripgrep* please read [this
-post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
-Short summary, *ripgrep* is fast and is repository aware (aka it will skip
-ignores).
-
-Upon execution *Grepper* search matches will populate Vim's *quickfix* list
-allowing easy navigation through the matches. Note, when run on a modern version
-of Vim or Neovim the search will be executed asynchronously.
-
-I have a simple mapping `<Leader>/` to invoke an interactive *Grepper* search.
-The normal mode mapping `gs` will invoke a search on the word under the cursor
-whilst the visual mode mapping `gs` will invoke a search on the current visual
-selection.
 
 vim-polyglot
 ------------
@@ -553,21 +392,113 @@ Candidate mappings:
 This plugin shines when dealing with modified Git chunks; that being easy
 navigation and staging of those hunks.
 
-Undotree
---------
+Code Completion with VimCompletesMe and LSP-based LSC
+-----------------------------------------------------
 
 ```viml
-Plug 'mbbill/undotree'
-let g:undotree_HighlightChangedWithSign = 0
-let g:undotree_WindowLayout             = 4
-let g:undotree_SetFocusWhenToggle       = 1
-nnoremap <Leader>u :UndotreeToggle<CR>
+Plug 'ajh17/VimCompletesMe'
+Plug 'natebosch/vim-lsc'
 ```
 
-The [Undotree](https://github.com/mbbill/undotree) plugin visualizes your undo
-history and provides easy navigation back and forth through that history. This
-plugin proves handy for certain kinds of non-linear edits that may prove
-unreachable via the normal `u` undo command.
+The [VimCompletesMe](https://github.com/ajh17/VimCompletesMe) plugin uses the
+**TAB** character, whilst in *insert* mode, to carry out completions using
+Vim's various built-in completions. The plugin itself usually determines the
+appropriate type of completion, be it *keyword*, *file* or
+[omni](http://vim.wikia.com/wiki/Omni_completion) completion, based on the
+current context.
+
+Where I require more language-aware intelligence I use the
+[LSC](https://github.com/natebosch/vim-lsc) plugin with appropriate
+LSP-compliant language servers. Please refer to the [LSP in Vim with the LSC
+Plugin](https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
+post for details about the Language Server Protocol (LSP) and the LSC
+plugin.
+
+ALE
+---
+
+```viml
+Plug 'w0rp/ale'
+let g:ale_fixers = {
+\  'css':        ['prettier'],
+\  'javascript': ['prettier-standard'],
+\  'json':       ['prettier'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['prettier'],
+\  'yml':        ['prettier']
+\}
+let g:ale_linters = {
+\  'css':        ['csslint'],
+\  'javascript': ['standard'],
+\  'json':       ['jsonlint'],
+\  'ruby':       ['standardrb'],
+\  'scss':       ['sasslint'],
+\  'yaml':       ['yamllint']
+\}
+let g:ale_linters_explicit = 1
+let g:ale_open_list        = 0
+```
+
+The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
+language linters and fixers within modern versions of Vim.
+
+Be aware, a fixer can also format code, hence there is no need to install code
+formatting plugins such as
+[vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
+
+ALE ships with configurations for most common languages, such as JavaScript and
+Ruby to name a few, hence little configuration is required. Note, the tools that
+*ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
+host, the ALE plugin will not install the underlying lint or fix tools.
+
+One could define mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
+and run them manually, others however prefer to have ALE lint code is it is
+being written (the default behaviour). Candidate ALE settings:
+
+```viml
+let g:ale_lint_on_enter            = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_insert_leave     = 0
+let g:ale_lint_on_save             = 1
+let g:ale_lint_on_text_changed     = 'never'
+nmap <Leader>l    <Plug>(ale_lint)
+nmap <Leader>f    <Plug>(ale_fix)
+```
+
+Note, use the `:ALEInfo` command to display runtime information per the
+current file type, use it when you need to debug any ALE issues.
+
+ALE is not the only asynchronous linting solution for Vim, an alternative is
+[Neomake](https://github.com/neomake/neomake) which does much the same job. I
+prefer ALE since it also incorporates fixing.
+
+UltiSnips
+---------
+
+```viml
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger       = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+```
+
+The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
+easily insert predefined text segments in the current buffer.
+
+The following Vimcasts are an excellent introduction to *UltiSnips*, please
+view:
+
+- [Meet UltiSnips](http://vimcasts.org/episodes/meet-ultisnips/)
+- [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
+- [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
+
+By default, *UltiSnips* will use the **TAB** character to expand a snippet,
+however that will conflict with the *VimCompletesMe* plugin. I recommend the use
+of `Control-j`, as defined above, to expand and then navigate forward through a
+snippet's tabstops and `Control-k` to navigate back up through the tabstops.
+
+The small set of snippets I use are declared
+[here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
 
 vim-test
 --------
@@ -601,22 +532,53 @@ Note, the following configuration is required to use *vim-test* with
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
 ```
 
-Pear Tree
----------
+<a id="vim-grepper"></a>vim-grepper
+-----------------------------------
 
 ```viml
-Plug 'tmsvg/pear-tree'
-let g:pear_tree_repeatable_expand = 0
-let g:pear_tree_smart_backspace   = 1
-let g:pear_tree_smart_closers     = 1
-let g:pear_tree_smart_openers     = 1
+Plug 'mhinz/vim-grepper'
+let g:grepper = {}
+let g:grepper.tools = ["rg"]
+runtime autoload/grepper.vim
+let g:grepper.jump = 1
+nnoremap <Leader>/ :GrepperRg<Space>
+nnoremap gs :Grepper -cword -noprompt<CR>
+xmap gs <Plug>(GrepperOperator)
 ```
 
-The [Pear Tree](https://github.com/tmsvg/pear-tree) plugin will automatically
-close `(`, `{`, `[` and quote pairs whilst in insert mode.
+The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
+interface to various text search utilities including my favourite, the
+[ripgrep](https://github.com/BurntSushi/ripgrep) search utility.
 
-:bulb: If I was doing less JavaScript and JSON I would likely skip this and all
-auto-closing pairs plugins.
+For more details about *ripgrep* please read [this
+post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
+Short summary, *ripgrep* is fast and is repository aware (aka it will skip
+ignores).
+
+Upon execution *Grepper* search matches will populate Vim's *quickfix* list
+allowing easy navigation through the matches. Note, when run on a modern version
+of Vim or Neovim the search will be executed asynchronously.
+
+I have a simple mapping `<Leader>/` to invoke an interactive *Grepper* search.
+The normal mode mapping `gs` will invoke a search on the word under the cursor
+whilst the visual mode mapping `gs` will invoke a search on the current visual
+selection.
+
+Undotree
+--------
+
+```viml
+Plug 'mbbill/undotree'
+let g:undotree_HighlightChangedWithSign = 0
+let g:undotree_WindowLayout             = 4
+let g:undotree_SetFocusWhenToggle       = 1
+nnoremap <Leader>u :UndotreeToggle<CR>
+```
+
+The [Undotree](https://github.com/mbbill/undotree) plugin visualizes your undo
+history and provides easy navigation back and forth through that history. This
+plugin proves handy for certain kinds of non-linear edits that may prove
+unreachable via the normal `u` undo command.
 
 vim-auto-save
 -------------
@@ -632,6 +594,43 @@ The [vim-auto-save](https://github.com/907th/vim-auto-save) plugin
 automatically saves changes to disk without required manual `:w` invocations. I
 prefer to automatically save after: normal mode changes (`TextChanged`), exiting
 insert mode (`InsertLeave`) and when focussing away from Vim (`FocusLost`).
+
+Cheat40
+-------
+
+```vim
+Plug 'lifepillar/vim-cheat40'
+```
+
+The [Cheat40](https://github.com/lifepillar/vim-cheat40) plugin is a convenient,
+and customizable, 40 character wide cheat sheet. Cheat40 can display a cheat
+sheet of your key mappings or exotic Vim commands for instant recall. For
+example, if you keep forgetting your seldom used key mappings, just add them to
+your cheat sheet and then display the cheat sheet when required.
+
+Use the `<leader>?` mapping, or bind your own key to `:Cheat40`, to toggle the
+right-hand side full height cheat sheet. Note, sections will usually be folded
+to avoid needless scrolling; just go to the section of interest and unfold it.
+
+The *Cheat40* plugin provides a default [cheat
+sheet](https://github.com/lifepillar/vim-cheat40/blob/master/cheat40.txt),
+however, I strongly recommend creating your own cheat sheet.
+
+To disable the default cheat sheet provided by the plugin:
+
+```viml
+let g:cheat40_use_default = 0
+```
+
+Your cheat sheet should reside at `~/.vim/cheat40.txt`.
+
+As an example, [here is my cheat
+sheet](https://github.com/bluz71/dotfiles/blob/master/vim/cheat40.txt). Note,
+formatting is important, please adhere to the 40 character column layout.
+
+If you find yourself often looking up your `~/.vimrc` file for a particular
+mapping, please instead take the time to craft a cheat sheet; that will involve
+a little bit of upfront work, but the payoff will be worth it in the long run.
 
 Tim Pope Plugins
 ================
@@ -668,89 +667,6 @@ nnoremap <silent> <Leader>G :Gstatus<CR>
 The [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin is a Git
 wrapper. I do most of my **git** work at the command line, however I find
 *fugitive's* `Gblame` command to be supremely useful within Vim.
-
-Endwise
--------
-
-```viml
-Plug 'tpope/vim-endwise'
-```
-
-The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
-automatically insert **end**, in insert mode, to code blocks for languages such
-as: Ruby, Elixir, Crystal and Vim.
-
-Projectionist
--------------
-
-The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin,
-primarily, provides infrastructure to navigate around projects. This plugin is
-effectively the core of the [vim-rails](https://github.com/tpope/vim-rails)
-plugin extracted into a standalone plugin.
-
-Here is a simple configuration for
-[create-react-app](https://github.com/facebook/create-react-app) projects:
-
-```viml
-Plug 'tpope/vim-projectionist'
-if filereadable('src/App.js')
-    " This looks like a React app.
-    let g:projectionist_heuristics = {
-    \  'src/App.js': {
-    \    'src/components/*.js': {
-    \      'type': 'component',
-    \      'alternate': 'src/__tests__/components/{}.test.js'
-    \    },
-    \    'src/__tests__/components/*.test.js': {
-    \      'type': 'test',
-    \      'alternate': 'src/components/{}.js'
-    \    },
-    \    'src/styles/*.css': {
-    \      'type': 'stylesheet',
-    \      'alternate': 'src/components/{}.js'
-    \    }
-    \  }
-    \}
-    nnoremap <Leader>ec :Ecomponent<Space>
-    nnoremap <Leader>es :Estylesheet<Space>
-    nnoremap <leader>et :Etest<Space>
-    nnoremap <Leader>a  :A<CR>
-endif
-```
-
-The above configuration will result in the following commands being created:
-`Ecomponent`, `Estylesheet` and `Etest`. Those commands are then mapped for
-quick access. Hence, `<Leader>ec <TAB>` will list all available components, in
-the status line if `wildmenu` and `wildmode` are set appropriately, allowing a
-developer to quickly go to the component they wish. The `<Leader>a` mapping
-provides quick switching to an *alternate* file, which will usually be the
-associated test suite for the current component file.
-
-Configuring *vim-projectionist* for other frameworks like
-[Phoenix](https://phoenixframework.org) or [Ember](https://www.emberjs.com/)
-should not be difficult.
-
-Setting up this plugin does require a bit of upfront work, but once done, and
-then used, you will really appreciate the navigation capabilities this plugin
-provides.
-
-Note, Rails developers should still use *vim-rails* in preference to
-*vim-projectionist*, think of *vim-rails* as a pre-configured
-*vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
-and *vim-projectionist* do happily live side by side.
-
-sleuth
-------
-
-```viml
-Plug 'tpope/vim-sleuth'
-```
-
-The [vim-sleuth](https://github.com/tpope/vim-sleuth) plugin automatically
-adjusts `shiftwidth` and `expandtab` intelligently based on the existing
-indentation within the file or within the directory tree for like files. With
-this plugin in effect there is little need to manually define indentation
-settings.
 
 Surround
 --------
@@ -835,3 +751,86 @@ The full set of mappings is documented
 
 The *vim-unimpaired* plugin negates the need to provide your own custom set of
 mappings for these types of operation.
+
+Endwise
+-------
+
+```viml
+Plug 'tpope/vim-endwise'
+```
+
+The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
+automatically insert **end**, in insert mode, to code blocks for languages such
+as: Ruby, Elixir, Crystal and Vim.
+
+Projectionist
+-------------
+
+The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin,
+primarily, provides infrastructure to navigate around projects. This plugin is
+effectively the core of the [vim-rails](https://github.com/tpope/vim-rails)
+plugin extracted into a standalone plugin.
+
+Here is a simple configuration for
+[create-react-app](https://github.com/facebook/create-react-app) projects:
+
+```viml
+Plug 'tpope/vim-projectionist'
+if filereadable('src/App.js')
+    " This looks like a React app.
+    let g:projectionist_heuristics = {
+    \  'src/App.js': {
+    \    'src/components/*.js': {
+    \      'type': 'component',
+    \      'alternate': 'src/__tests__/components/{}.test.js'
+    \    },
+    \    'src/__tests__/components/*.test.js': {
+    \      'type': 'test',
+    \      'alternate': 'src/components/{}.js'
+    \    },
+    \    'src/styles/*.css': {
+    \      'type': 'stylesheet',
+    \      'alternate': 'src/components/{}.js'
+    \    }
+    \  }
+    \}
+    nnoremap <Leader>ec :Ecomponent<Space>
+    nnoremap <Leader>es :Estylesheet<Space>
+    nnoremap <leader>et :Etest<Space>
+    nnoremap <Leader>a  :A<CR>
+endif
+```
+
+The above configuration will result in the following commands being created:
+`Ecomponent`, `Estylesheet` and `Etest`. Those commands are then mapped for
+quick access. Hence, `<Leader>ec <TAB>` will list all available components, in
+the status line if `wildmenu` and `wildmode` are set appropriately, allowing a
+developer to quickly go to the component they wish. The `<Leader>a` mapping
+provides quick switching to an *alternate* file, which will usually be the
+associated test suite for the current component file.
+
+Configuring *vim-projectionist* for other frameworks like
+[Phoenix](https://phoenixframework.org) or [Ember](https://www.emberjs.com/)
+should not be difficult.
+
+Setting up this plugin does require a bit of upfront work, but once done, and
+then used, you will really appreciate the navigation capabilities this plugin
+provides.
+
+Note, Rails developers should still use *vim-rails* in preference to
+*vim-projectionist*, think of *vim-rails* as a pre-configured
+*vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
+and *vim-projectionist* do happily live side by side.
+
+sleuth
+------
+
+```viml
+Plug 'tpope/vim-sleuth'
+```
+
+The [vim-sleuth](https://github.com/tpope/vim-sleuth) plugin automatically
+adjusts `shiftwidth` and `expandtab` intelligently based on the existing
+indentation within the file or within the directory tree for like files. With
+this plugin in effect there is little need to manually define indentation
+settings.

@@ -293,46 +293,107 @@ fzf](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html) for
 comprehensive details about [fzf](https://github.com/junegunn/fzf) and the
 [fzf.vim](https://github.com/junegunn/fzf.vim) plugin.
 
-vimfiler
+fern.vim
 --------
 
 ```viml
-Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim'
-let g:vimfiler_as_default_explorer = 1
-noremap <silent> <Leader>n :VimFilerExplorer -toggle<CR> <C-w>=
-noremap <silent> <Leader>f :VimFilerExplorer -find<CR> <C-w>=
+Plug 'lambdalisue/fern.vim'
+let g:fern#disable_default_mappings = 1
 ```
 
-The [vimfiler](https://github.com/Shougo/vimfiler.vim) plugin is a simple, yet
+The [fern](https://github.com/lambdalisue/fern.vim) plugin is a simple, yet
 powerful, file explorer.
 
 Historically, [NERDTree](https://github.com/preservim/nerdtree) has been the
 go-to file explorer for Vim; however, in my experience *NERDTree* does have
-certain performance issues that can make it frustrating to use. *vimfiler* is a
-more performant file explorer.
+certain performance issues that can make it frustrating to use. In contrast,
+*fern* is a modern asynchronous file explorer that has excellent performance.
 
-:mega: It should also be noted, whilst ongoing feature development on
-*vimfiler* has ceased, vimfiler is already feature rich **and** according to the
-project maintainer, issues will still be addressed.
-
-I use `<Leader>n`, which I inherited from my *NERDTree* days, to toggle a
-left-hand side project drawer whilst also equalizing existing splits. I also
-have a `<Leader>f` mapping to open *vimfiler* and reveal the current buffer in
-the file tree.
-
-Lastly, I like these arrow symbols in preference to the *vimfiler* defaults:
+Candidate *fern* launch mappings:
 
 ```viml
-let g:vimfiler_tree_closed_icon = "▷"
-let g:vimfiler_tree_leaf_icon   = " "
-let g:vimfiler_tree_opened_icon = '▼'
+noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
+noremap <silent> <Leader>f :Fern . -drawer -reveal=% -width=35<CR><C-w>=
+noremap <silent> <Leader>. :Fern %:h -drawer -width=35<CR><C-w>=
+```
+
+- The `<Leader>d` mapping toggles a left-hand side project drawer whilst also
+  equalizing existing splits.
+
+- The `<Leader>f` mapping opens *fern* and reveals the current buffer in the
+  file tree.
+
+- The `<Leader>.` opens just the directory of sibling files of the current
+  buffer.
+
+Candidate *fern* operation mappings:
+
+```viml
+function! FernInit() abort
+  nmap <buffer><expr>
+        \ <Plug>(fern-my-open-expand-collapse)
+        \ fern#smart#leaf(
+        \   "\<Plug>(fern-action-open:select)",
+        \   "\<Plug>(fern-action-expand)",
+        \   "\<Plug>(fern-action-collapse)",
+        \ )
+  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> N <Plug>(fern-action-new-file)
+  nmap <buffer> K <Plug>(fern-action-new-dir)
+  nmap <buffer> D <Plug>(fern-action-remove)
+  nmap <buffer> H <Plug>(fern-action-hidden-toggle)j
+  nmap <buffer> m <Plug>(fern-action-mark-toggle)j
+  nmap <buffer> r <Plug>(fern-action-reload)
+  nmap <buffer> s <Plug>(fern-action-open:split)
+  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> < <Plug>(fern-action-leave)
+  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+endfunction
+
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern call FernInit()
+augroup END
+```
+
+- *Enter* and *double-click* open and collapse directories, or opens files.
+  Note, if multiple splits exist *fern* will prompt the user asking which
+  split to open the chosen file into thus avoiding the [oil and
+  vinegar](http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer)
+  problem.
+
+- `N` and `K` create new files and directories respectively.
+
+- `D` removes content.
+
+- `H` toggles hidden content.
+
+- `m` marks entry for bulk operations such as deletion or opening.
+
+- `r` reloads the directory under the cursor, use this to update *fern* with
+  filesystem changes that occur outside Vim.
+
+- `s` and `v` opens files in horizontal or vertical splits.
+
+- `<` and `>` changes up and down the directory hierarchy.
+
+Candidate style settings for those who like a NERDTree like presentation:
+
+```viml
+let g:fern#renderer#default#collapsed_symbol = '▷ '
+let g:fern#renderer#default#expanded_symbol  = '▼ '
+let g:fern#renderer#default#leading          = ' '
+let g:fern#renderer#default#leaf_symbol      = ' '
+let g:fern#renderer#default#marked_symbol    = '●'
+let g:fern#renderer#default#root_symbol      = '~ '
+let g:fern#renderer#default#unmarked_symbol  = ''
 ```
 
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
-primarily use *vimfiler* with `<Leader>f` to visualize where the current buffer
-is in the project tree. I do **not** recommend you use *vimfiler* as your prime
-method to open files, alternatives such as *fzf* and *projectionist* are better
-and faster.
+primarily use *fern* as a project tree visualizer and occasional file manager. I
+do **not** recommend you use *fern* as your prime method to open files,
+alternatives such as *fzf* and *projectionist* are better and faster.
 
 vim-polyglot
 ------------

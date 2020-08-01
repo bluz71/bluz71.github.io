@@ -8,7 +8,7 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED JULY 2020**
+**UPDATED AUGUST 2020**
 
 Vim gains much functionality through the inclusion of *plugins*.
 

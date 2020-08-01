@@ -372,11 +372,11 @@ augroup END
 - `R` reloads the directory under the cursor, use this to update *fern* with
   filesystem changes that occur outside Vim.
 
-- `m` marks entry for bulk operations such as deletion or opening.
+- `m` marks entries for bulk operation such as deletion or opening.
 
-- `s` and `v` opens files in horizontal or vertical splits.
+- `s` and `v` will open files in either horizontal or vertical splits.
 
-- `<` and `>` changes up and down the directory hierarchy.
+- `<` and `>` will change up and down the directory hierarchy.
 
 Candidate style settings for those who like a NERDTree like presentation:
 

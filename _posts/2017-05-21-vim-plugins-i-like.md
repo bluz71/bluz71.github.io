@@ -369,10 +369,10 @@ augroup END
 
 - `H` toggles hidden content.
 
-- `m` marks entry for bulk operations such as deletion or opening.
-
-- `r` reloads the directory under the cursor, use this to update *fern* with
+- `R` reloads the directory under the cursor, use this to update *fern* with
   filesystem changes that occur outside Vim.
+
+- `m` marks entry for bulk operations such as deletion or opening.
 
 - `s` and `v` opens files in horizontal or vertical splits.
 

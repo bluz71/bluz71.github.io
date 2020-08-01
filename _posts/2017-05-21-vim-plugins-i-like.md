@@ -393,7 +393,7 @@ let g:fern#renderer#default#unmarked_symbol  = ''
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
 primarily use *fern* as a project tree visualizer and occasional file manager. I
 do **not** recommend you use *fern* as your prime method to open files,
-alternatives such as: *fzf*, *projectionist* or the standard `gf` command are
+alternatives such as: *fzf*, *projectionist* and the standard `gf` command are
 better and faster.
 
 vim-polyglot

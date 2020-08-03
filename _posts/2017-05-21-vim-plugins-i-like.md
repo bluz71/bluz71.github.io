@@ -381,13 +381,12 @@ augroup END
 Candidate style settings for those who like a NERDTree-like presentation:
 
 ```viml
+let g:fern#mark_symbol                       = '●'
 let g:fern#renderer#default#collapsed_symbol = '▷ '
 let g:fern#renderer#default#expanded_symbol  = '▼ '
 let g:fern#renderer#default#leading          = ' '
 let g:fern#renderer#default#leaf_symbol      = ' '
-let g:fern#renderer#default#marked_symbol    = '●'
 let g:fern#renderer#default#root_symbol      = '~ '
-let g:fern#renderer#default#unmarked_symbol  = ''
 ```
 
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I

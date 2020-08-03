@@ -343,6 +343,7 @@ function! FernInit() abort
   nmap <buffer> N <Plug>(fern-action-new-file)
   nmap <buffer> K <Plug>(fern-action-new-dir)
   nmap <buffer> D <Plug>(fern-action-remove)
+  nmap <buffer> M <Plug>(fern-action-move)
   nmap <buffer> H <Plug>(fern-action-hidden-toggle)j
   nmap <buffer> R <Plug>(fern-action-reload)
   nmap <buffer> m <Plug>(fern-action-mark-toggle)j
@@ -367,6 +368,8 @@ augroup END
 - `N` and `K` create new files and directories respectively.
 
 - `D` removes content.
+
+- `M` moves content.
 
 - `H` toggles hidden content.
 

@@ -319,13 +319,13 @@ noremap <silent> <Leader>. :Fern %:h -drawer -width=35<CR><C-w>=
 ```
 
 - The `<Leader>d` mapping toggles a left-hand side project drawer whilst also
-  equalizing existing splits.
+  equalizing existing splits
 
 - The `<Leader>f` mapping opens *fern* and reveals the current buffer in the
-  file tree.
+  project tree
 
 - The `<Leader>.` opens just the directory of sibling files of the current
-  buffer.
+  buffer
 
 Candidate *fern* operation mappings:
 
@@ -365,22 +365,22 @@ augroup END
   vinegar](http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer)
   problem.
 
-- `m` marks entries for bulk operation such as deletion or opening.
+- `m` marks entries for bulk operation such as deletion or opening
 
-- `N` and `K` create new files and directories respectively.
+- `N` and `K` create new files and directories respectively
 
-- `D` removes content.
+- `D` removes content
 
-- `R` renames content.
+- `R` renames content
 
-- `H` toggles hidden content.
+- `H` toggles hidden content
 
-- `s` and `v` will open files in either horizontal or vertical splits.
+- `s` and `v` will open files in either horizontal or vertical splits
 
 - `r` reloads the directory under the cursor, use this to update *fern* with
-  filesystem changes that occur outside Vim.
+  filesystem changes that occur outside Vim
 
-- 'd' toggle dot files
+- 'd' toggles dot files
 
 - `<` and `>` will change up and down the directory hierarchy.
 

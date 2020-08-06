@@ -340,17 +340,17 @@ function! FernInit() abort
         \ )
   nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
   nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+  nmap <buffer> m <Plug>(fern-action-mark-toggle)j
   nmap <buffer> N <Plug>(fern-action-new-file)
   nmap <buffer> K <Plug>(fern-action-new-dir)
   nmap <buffer> D <Plug>(fern-action-remove)
-  nmap <buffer> M <Plug>(fern-action-move)
-  nmap <buffer> H <Plug>(fern-action-hidden-toggle)j
-  nmap <buffer> R <Plug>(fern-action-reload)
-  nmap <buffer> m <Plug>(fern-action-mark-toggle)j
+  nmap <buffer> R <Plug>(fern-action-move)
   nmap <buffer> s <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
-  nmap <buffer><nowait> < <Plug>(fern-action-leave)
-  nmap <buffer><nowait> > <Plug>(fern-action-enter)
+  nmap <buffer> r <Plug>(fern-action-reload)
+  nmap <buffer> <nowait> d <Plug>(fern-action-hidden-toggle)j
+  nmap <buffer> <nowait> < <Plug>(fern-action-leave)
+  nmap <buffer> <nowait> > <Plug>(fern-action-enter)
 endfunction
 
 augroup FernGroup
@@ -365,20 +365,22 @@ augroup END
   vinegar](http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer)
   problem.
 
+- `m` marks entries for bulk operation such as deletion or opening.
+
 - `N` and `K` create new files and directories respectively.
 
 - `D` removes content.
 
-- `M` moves content.
+- `R` renames content.
 
 - `H` toggles hidden content.
 
-- `R` reloads the directory under the cursor, use this to update *fern* with
+- `s` and `v` will open files in either horizontal or vertical splits.
+
+- `r` reloads the directory under the cursor, use this to update *fern* with
   filesystem changes that occur outside Vim.
 
-- `m` marks entries for bulk operation such as deletion or opening.
-
-- `s` and `v` will open files in either horizontal or vertical splits.
+- 'd' toggle dot files
 
 - `<` and `>` will change up and down the directory hierarchy.
 

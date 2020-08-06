@@ -373,8 +373,6 @@ augroup END
 
 - `R` renames content
 
-- `H` toggles hidden content
-
 - `s` and `v` will open files in either horizontal or vertical splits
 
 - `r` reloads the directory under the cursor, use this to update *fern* with

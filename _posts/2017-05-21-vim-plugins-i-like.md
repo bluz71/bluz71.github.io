@@ -588,7 +588,7 @@ function! SnippetsComplete() abort
     let matches        = map(filter(candidates, containWord),
                 \  "{
                 \      'word': v:val.word,
-                \      'menu': v:val.kind[:-2],
+                \      'menu': v:val.kind,
                 \      'dup' : 1,
                 \   }")
 

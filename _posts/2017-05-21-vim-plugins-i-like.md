@@ -538,33 +538,68 @@ ALE is not the only asynchronous linting solution for Vim, an alternative is
 [Neomake](https://github.com/neomake/neomake) which does much the same job. I
 prefer ALE since it also incorporates fixing.
 
-UltiSnips
+vim-vsnip
 ---------
 
 ```viml
-Plug 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger       = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+Plug 'hrsh7th/vim-vsnip'
+imap <expr> <C-j> vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"
+imap <expr> <C-k> vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)"      : "<C-k>"
 ```
 
-The [UltiSnips](https://github.com/SirVer/ultisnips) plugin allows one to
-easily insert predefined text segments in the current buffer.
+The [vim-vsnip](https://github.com/hrsh7th/vim-vsnip) plugin allows easy
+insertion of predefined text segments, named snippets, in the current buffer.
 
-The following Vimcasts are an excellent introduction to *UltiSnips*, please
-view:
+The following Vimcasts are an excellent introduction to snippets, in this case
+via the older, but similar, *UltiSnips* plugin, please view:
 
 - [Meet UltiSnips](http://vimcasts.org/episodes/meet-ultisnips/)
-- [Using Python interpolation in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-python-interpolation/)
 - [Using selected text in UltiSnips snippets](http://vimcasts.org/episodes/ultisnips-visual-placeholder/)
 
-By default, *UltiSnips* will use the **TAB** character to expand a snippet,
-however that will conflict with the *VimCompletesMe* plugin. I recommend the use
-of `Control-j`, as defined above, to expand and then navigate forward through a
-snippet's tabstops and `Control-k` to navigate back up through the tabstops.
+The legacy *UltiSnips* plugin uses a different in snippet syntax compared with
+*vim-vsnip*, but the core concept of snippets are common to both plugins.
+
+So why choose *vim-vsnip* in preference to *UltiSnips*? In my case it is mainly
+due to the Python dependency of the *UltiSnips* plugin. Python-based Vim plugins
+are fragile to system level Python updates. *vim-vsnip* on the otherhand is a
+pure VimScript plugin and is not prone to such breakages.
+
+By default, I do not recommend the use of the **TAB** character to expand or
+navigate a snippet since that will conflict with the *VimCompletesMe* plugin.
+Instead, I recommend the use of `Control-j`, as defined above, to expand and
+then navigate forward through a snippet's tabstops and `Control-k` to navigate
+back up through the tabstops.
 
 The small set of snippets I use are declared
-[here](https://github.com/bluz71/dotfiles/tree/master/vim/UltiSnips).
+[here](https://github.com/bluz71/dotfiles/tree/master/vim/vsnip).
+
+:gift: I also define the following `<Control-s>` insert mode mapping to list
+available snippets in the completion menu, this is useful for the times I can't
+recall the name of a seldom used snippet:
+
+```viml
+inoremap <silent> <C-s> <C-r>=SnippetsComplete()<CR>
+
+function! SnippetsComplete() abort
+    let wordToComplete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
+    let fromWhere      = col('.') - len(wordToComplete)
+    let containWord    = "stridx(v:val.word, wordToComplete)>=0"
+    let candidates     = vsnip#get_complete_items(bufnr("%"))
+    let matches        = map(filter(candidates, containWord),
+                \  "{
+                \      'word': v:val.word,
+                \      'menu': v:val.kind[:-2],
+                \      'dup' : 1,
+                \   }")
+
+
+    if !empty(matches)
+        call complete(fromWhere, matches)
+    endif
+
+    return ""
+endfunction
+```
 
 vim-test
 --------

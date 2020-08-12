@@ -270,9 +270,9 @@ or Neovim then you will be automatically scrolled to the selected line.
 ```sh
 fzf_kill() {
     local pid_col
-    if [[ $OS = Linux ]]; then
+    if [[ $(uname) = Linux ]]; then
         pid_col=2
-    elif [[ $OS = Darwin ]]; then
+    elif [[ $(uname) = Darwin ]]; then
         pid_col=3;
     else
         echo 'Error: unknown platform'

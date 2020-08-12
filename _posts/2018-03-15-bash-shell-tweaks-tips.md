@@ -367,10 +367,10 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     ```sh
     alias -- -='cd -'
     alias ..='cd ..'
-    alias ..2='..; ..'
-    alias ..3='..2; ..'
-    alias ..4='..3; ..'
-    alias ..5='..4; ..'
+    alias ..2='cd ../..'
+    alias ..3='cd ../../..'
+    alias ..4='cd ../../../..'
+    alias ..5='cd ../../../../..'
     ```
 
     No more need to type `cd ../../..`, just do `..3` instead. Also, just type
@@ -380,10 +380,18 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 
     ```sh
     alias g=git
+    if [[ $(uname) = Linux ]]; then
+        # Assuming a modern Debian-like installation of Bash Completion.
+        . /usr/share/bash-completion/completions/git
+    elif [[ $(uname) = Darwin ]]; then
+        # Assuming a Homebrew installation of Bash Completion.
+        . /usr/local/etc/bash_completion.d/git-completion.bash
+    fi
     complete -o default -o nospace -F _git g
     ```
 
-    If you use Git, then why not save a couple characters?
+    If you use Git, then why not save a couple characters? Completion should
+    also function as expected.
 
     **UPDATE (JAN 2019)**: Stealing an idea from the [thoughbot
     dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing

@@ -37,9 +37,17 @@ alias g=git
 ```
 
 If using [bash-completion](https://github.com/scop/bash-completion), please
-also add.
+also add the following to allow the `g` alias to complete just like `git`
+command.
 
 ```sh
+if [[ $(uname) = Linux ]]; then
+    # Assuming a modern Debian-like installation of Bash Completion.
+    . /usr/share/bash-completion/completions/git
+elif [[ $(uname) = Darwin ]]; then
+    # Assuming a Homebrew installation of Bash Completion.
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 complete -o default -o nospace -F _git g
 ```
 

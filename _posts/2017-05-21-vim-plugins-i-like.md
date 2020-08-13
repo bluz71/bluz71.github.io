@@ -375,8 +375,8 @@ augroup END
 
 - `s` and `v` will open files in either horizontal or vertical splits
 
-- `r` reloads the directory under the cursor, use this to update *fern* with
-  filesystem changes that occur outside Vim
+- `r` reloads the current tree, use this to update *fern* with filesystem
+  changes that occur outside Vim
 
 - 'd' toggles dot files
 

@@ -8,7 +8,7 @@ published: true
 Bash Shell Tweaks & Tips
 ========================
 
-**UPDATED JULY 2020**
+**UPDATED AUGUST 2020**
 
 [Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash
 is highly ubiquitous due to it being the default user shell for various
@@ -297,8 +297,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     ```sh
     HISTCONTROL=ignoreboth:erasedups
     HISTIGNORE=?:??
-    HISTFILESIZE=50000
-    HISTSIZE=50000
+    HISTFILESIZE=99999
+    HISTSIZE=99999
     PROMPT_COMMAND='history -a'
     shopt -s histappend histverify
     ```
@@ -362,7 +362,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
   We want colorization with human-readable file sizes. The last two aliases
   will order by size (largest to smallest) or by time (newest to oldest).
 
-- Easy navigation back and up a directory hierarchy.
+- Easy directory navigation.
 
     ```sh
     alias -- -='cd -'
@@ -375,6 +375,16 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 
     No more need to type `cd ../../..`, just do `..3` instead. Also, just type
     `-` to return the previous directory.
+
+- Easy persmission modification.
+
+    ```sh
+    alias 000='chmod 000'
+    alias 644='chmod 644'
+    alias 664='chmod 664'
+    alias 775='chmod 775'
+    alias 775='chmod 775'
+    ```
 
 - Git command.
 
@@ -409,8 +419,8 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 - Confirm unsafe file operations.
 
     ```sh
-    alias cp='/bin/cp -i'
-    alias mv='/bin/mv -i'
+    alias cp='/bin/cp -iv'
+    alias mv='/bin/mv -iv'
     alias rm='/bin/rm -i'
     ```
 

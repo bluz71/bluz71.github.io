@@ -419,8 +419,8 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 - Confirm unsafe file operations.
 
     ```sh
-    alias cp='/bin/cp -iv'
-    alias mv='/bin/mv -iv'
+    alias cp='/bin/cp -i'
+    alias mv='/bin/mv -i'
     alias rm='/bin/rm -i'
     ```
 

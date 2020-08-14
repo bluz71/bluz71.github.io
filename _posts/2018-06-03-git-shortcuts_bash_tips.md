@@ -127,6 +127,12 @@ Now enable diff-so-fancy.
 git config --global core.pager 'diff-so-fancy | less --tabs=4 -RFX'
 ```
 
+**UPDATE (AUG 2020)**: I now use
+[git-delta](https://github.com/dandavison/delta) which is a high-performance git
+and diff viewer implemented in [Rust](https://www.rust-lang.org). If interested,
+please refer to my [gitconfig
+file](https://github.com/bluz71/dotfiles/blob/master/gitconfig).
+
 General aliases
 ---------------
 

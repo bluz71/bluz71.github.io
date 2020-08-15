@@ -240,7 +240,14 @@ The Readline library also provides a number of useful default shortcuts.
 
     This does a reverse search through history, from most recent to oldest, for
     commands that contain the chosen text. Hitting `Control-r` again cycles
-    back through the matches whilst `Control-Shift-r` cycles forward.
+    back through the matches whilst `Control-Shift-r` cycles forward. 
+
+    Note, an improved version of reverse history search is possible when using
+    [fzf with Bash key
+    bindings](https://github.com/junegunn/fzf#key-bindings-for-command-line).
+    Please refer to the [fzf
+    section](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html#the-fzf-utility)
+    below for details.
 
 - Append the last argument of the previous command to the end of the current
     command.
@@ -341,8 +348,8 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
 
     Choose a smaller number if you wish to display less path components.
 
-Bash Aliases
--------------
+Useful Bash Aliases
+-------------------
 
 A Bash alias is a user defined shortcut. Aliases save keystrokes. Do not be
 afraid to alias long commands with shorter aliases, they will save you time.
@@ -400,8 +407,7 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
     complete -o default -o nospace -F _git g
     ```
 
-    If you use Git, then why not save a couple characters? Completion should
-    also function as expected.
+    If you use Git, then why not save a couple characters?
 
     **UPDATE (JAN 2019)**: Stealing an idea from the [thoughbot
     dotfiles](https://github.com/thoughtbot/dotfiles). Instead of simply aliasing
@@ -501,6 +507,49 @@ alias c='_f(){ cd "$@" && _z --add "$(pwd)"; }; _f'
 Use the `c` command to record directory changes in the z database (aka
 *training*).
 
+The fzf Utility
+---------------
+
+The [fzf](https://github.com/junegunn/fzf) utility is a general-purpose
+line-oriented fuzzy finding command line tool.
+
+The following posts detail some of the capabilities of *fzf*:
+
+- [Fuzzy Finding in Bash with
+  fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
+
+- [Fuzzy Finding in Vim with
+  fzf](https://bluz71.github.io/2018/12/04/fuzzy-finding-in-vim-with-fzf.html)
+
+With respect to Bash and *fzf*, I do recommend sourcing the [fzf Bash
+keybindings](https://github.com/junegunn/fzf#key-bindings-for-command-line) in
+`~/.bashrc`. For example, for a Homebrew installation of *fzf* that would be:
+
+```sh
+. $(brew --prefix)/opt/fzf/shell/key-binding.bash
+```
+
+Once sourced the following handy *fzf* key-bindings are available in the Bash
+command line:
+
+- Reverse search through Bash history using fzf as the filter.
+
+    ```sh
+    Control-r
+    ```
+
+- Append fuzzy found files to the end of the current shell command.
+
+    ```sh
+    Control-t
+    ```
+
+- Change to a fuzzy found sub-directory.
+
+    ```sh
+    Alt-c
+    ```
+
 The qmv Rename Utility
 ----------------------
 
@@ -543,31 +592,35 @@ will also prove very useful to all Bash users.
 Style
 -----
 
-If you spend a lot of time in the command line, then I recommend styling up the
+If you spend a lot of time in the command line, then I recommend styling the
 terminal to suit your needs.
 
 Some suggestions:
 
-- Use a modern terminal and enable 256 colors.
+- Use a modern high-performance GPU-accelerated terminal such as
+  [Alacritty](https://github.com/alacritty/alacritty) or
+  [kitty](https://sw.kovidgoyal.net/kitty).
 
 - Use a nice monospace font. Fine choices being:
-    [Hack](https://github.com/source-foundry/Hack),
-    [Fira Code](https://github.com/tonsky/FiraCode),
-    [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) and my
-    personal favourite [Iosevka](https://github.com/be5invis/Iosevka).
+  [Hack](https://github.com/source-foundry/Hack), [Fira
+  Code](https://github.com/tonsky/FiraCode),
+  [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) and my personal
+  favourite [Iosevka](https://github.com/be5invis/Iosevka).
 
 - Configure the `LS_COLORS` environment variable to highlight filetypes using
-    256 colors.
+  256 colors.
 
-- Display useful information in your prompt. Examples being: hostname,
-    username, filesystem path and git branch to name a few.
+- Display useful information in your prompt. Examples being: hostname, username,
+  filesystem path and git details to name a few. Personal plug, my own [Bash
+  Seafly Prompt](https://github.com/bluz71/bash-seafly-prompt) may be of
+  interest :beer:
 
-- If you want to dabble into the world of Bash themes and other treats then
-    have a look at [Bash-it](https://github.com/Bash-it/bash-it). Bash-it
-    claims to be to Bash what
-    [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) is to Zsh.
-    Personally I recommend configuring up the shell yourself, that will result
-    in a leaner and faster shell.
+- If you want to dabble into the world of Bash themes and other treats then have
+  a look at [Bash-it](https://github.com/Bash-it/bash-it) or [Oh My
+  Bash](https://github.com/ohmybash/oh-my-bash). Both projects claims to be to
+  Bash what [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) is to Zsh.
+  Personally I recommend configuring the shell yourself, that should result in
+  a leaner and faster shell.
 
 Conclusion
 ----------

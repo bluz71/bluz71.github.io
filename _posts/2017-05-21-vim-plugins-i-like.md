@@ -393,11 +393,40 @@ let g:fern#renderer#default#leaf_symbol      = ' '
 let g:fern#renderer#default#root_symbol      = '~ '
 ```
 
+Lastly, if one prefers to automatically update the current tree upon entering
+the *fern* window then please add the following to the above `FernInit`
+function (not the `FernGroup`):
+
+```viml
+augroup FernTypeGroup
+    autocmd! * <buffer>
+    autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
+augroup END
+```
+
 :exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
 primarily use *fern* as a project tree visualizer and occasional file manager. I
 do **not** recommend you use *fern* as your prime method to open files,
 alternatives such as: *fzf*, *projectionist* and the standard `gf` command are
 better and faster.
+
+fern-git-status
+---------------
+
+```viml
+Plug 'lambdalisue/fern-git-status.vim'
+let g:fern_git_status#disable_ignored    = 1
+let g:fern_git_status#disable_untracked  = 1
+let g:fern_git_status#disable_submodules = 1
+```
+
+The [fern-git-status](https://github.com/lambdalisue/fern-git-status.vim) plugin
+augments the above documented *fern* plugin with Git status badges when in a Git
+working tree.
+
+A screenshot of *fern-git-status* in action:
+
+![fern-git-status](https://user-images.githubusercontent.com/546312/89777703-2483cd80-db47-11ea-84dc-7690d2996d89.png)
 
 vim-polyglot
 ------------

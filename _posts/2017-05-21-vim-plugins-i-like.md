@@ -89,7 +89,7 @@ color scheme named appropriately
 provides all relevant information I find useful whilst also clearly indicating
 which mode you are in: normal, insert, replace or visual modes.
 
-:bulb: With an appropriate option set, `g:moonflyHonorUserDefinedColors`,
+:bulb: With an appropriate option set, `g:moonflyIgnoreDefaultColors`,
 _moonfly-statusline_ will also adapt to the newer _nightfly_ color scheme.
 
 indentLine

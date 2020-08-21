@@ -83,11 +83,11 @@ I am not a fan of heavy *statusline* plugins like
 [powerline](https://github.com/powerline/powerline) and
 [airline](https://github.com/vim-airline/vim-airline).
 
-Instead, I have created a simple `statusline` for the *moonfly*
-color scheme named appropriately
-[moonfly-statusline](https://github.com/bluz71/vim-moonfly-statusline). It
-provides all relevant information I find useful whilst also clearly indicating
-which mode you are in: normal, insert, replace or visual modes.
+Instead, I have created a simple, yet informative, `statusline` which by default
+uses the [moonfly](https://github.com/bluz71/vim-moonfly-colors) color palette.
+If the colors do not suit then they can easily be
+[customized](https://github.com/bluz71/vim-moonfly-statusline#gmoonflyignoredefaultcolors)
+if desired.
 
 :bulb: With `let g:moonflyIgnoreDefaultColors = 1` set, _moonfly-statusline_
 will automatically adapt to the newer _nightfly_ color scheme. Alternatively,

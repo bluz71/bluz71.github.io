@@ -89,8 +89,23 @@ color scheme named appropriately
 provides all relevant information I find useful whilst also clearly indicating
 which mode you are in: normal, insert, replace or visual modes.
 
-:bulb: With an appropriate option set, `g:moonflyIgnoreDefaultColors`,
-_moonfly-statusline_ will also adapt to the newer _nightfly_ color scheme.
+:bulb: With `let g:moonflyIgnoreDefaultColors = 1` set, _moonfly-statusline_
+will automatically adapt to the newer _nightfly_ color scheme. Alternatively,
+define your own `statusline` colors, as follows, which should work well with
+most existing Vim color schemes:
+
+```viml
+let g:moonflyIgnoreDefaultColors = 1
+
+highlight! link User1 DiffText
+highlight! link User2 DiffAdd
+highlight! link User3 Search
+highlight! link User4 IncSearch
+highlight! link User5 StatusLine
+highlight! link User6 StatusLine
+highlight! link User7 StatusLine
+highlight! link User8 StatusLine
+```
 
 indentLine
 ----------

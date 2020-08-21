@@ -83,9 +83,11 @@ I am not a fan of heavy *statusline* plugins like
 [powerline](https://github.com/powerline/powerline) and
 [airline](https://github.com/vim-airline/vim-airline).
 
-Instead, I have created a simple, yet informative, `statusline` which by default
-uses the [moonfly](https://github.com/bluz71/vim-moonfly-colors) color palette.
-If the colors do not suit then they can easily be
+Instead, I have created the simple, yet informative,
+[moonfly-statusline](https://github.com/bluz71/vim-moonfly-statusline) plugin
+which by default uses the
+[moonfly](https://github.com/bluz71/vim-moonfly-colors) color palette. If the
+colors do not suit then they can easily be
 [customized](https://github.com/bluz71/vim-moonfly-statusline#gmoonflyignoredefaultcolors)
 if desired.
 

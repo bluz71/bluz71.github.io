@@ -91,10 +91,12 @@ colors do not suit then they can easily be
 [customized](https://github.com/bluz71/vim-moonfly-statusline#gmoonflyignoredefaultcolors)
 if desired.
 
-:bulb: With `let g:moonflyIgnoreDefaultColors = 1` set, _moonfly-statusline_
-will automatically adapt to the newer _nightfly_ color scheme. Alternatively,
-define your own `statusline` colors, as follows, which should work well with
-most existing Vim color schemes:
+Note, the newer _nightfly_ color scheme will automatically adapt to
+_moonfly-statusline_.
+
+:bulb: With `let g:moonflyIgnoreDefaultColors = 1` set, it is quite simple to
+define a custom status color scheme for _moonfly-statusline_. For example this
+simple theme should work well with most existing Vim color schemes:
 
 ```viml
 let g:moonflyIgnoreDefaultColors = 1
@@ -106,7 +108,6 @@ highlight! link User4 IncSearch
 highlight! link User5 StatusLine
 highlight! link User6 StatusLine
 highlight! link User7 StatusLine
-highlight! link User8 StatusLine
 ```
 
 indentLine

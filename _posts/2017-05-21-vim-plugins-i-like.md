@@ -803,20 +803,6 @@ command the plugin provides.
 No need to remember what the comment characters are for a certain language, is
 it **//** or **#** or **"**, just `gc` it.
 
-Fugitive
---------
-
-```viml
-Plug 'tpope/vim-fugitive'
-nnoremap <silent> <Leader>B :Gblame<CR>
-nnoremap <silent> <Leader>C :Gclog %<CR>
-nnoremap <silent> <Leader>G :Gstatus<CR>
-```
-
-The [vim-fugitive](https://github.com/tpope/vim-fugitive) plugin is a Git
-wrapper. I do most of my **git** work at the command line, however I find
-*fugitive's* `Gblame` command to be supremely useful within Vim.
-
 Surround
 --------
 

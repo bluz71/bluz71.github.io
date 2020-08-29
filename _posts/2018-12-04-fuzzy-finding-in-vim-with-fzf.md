@@ -257,16 +257,6 @@ The `:Commits` and `:BCommits` commands are used to explore a project's
 exploration to the history associated with the current buffer whilst the
 `:Commits` command will explore the complete history of the project.
 
-Note, these commands depend on Tim Pope's
-[fugitive](https://github.com/tpope/vim-fugitive) plugin. If not already
-installed, please add the following to your `~/.vimrc` file, then run
-`:PlugInstall` if using [vim-plug](https://github.com/junegunn/vim-plug),
-otherwise adjust appropriately if using another plugin manager.
-
-```viml
-Plug 'tpope/vim-fugitive'
-```
-
 ### Example configuration and key mappings
 
 ```viml

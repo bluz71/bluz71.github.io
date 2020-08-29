@@ -565,26 +565,23 @@ Ruby to name a few, hence little configuration is required. Note, the tools that
 *ALE* uses, such as *eslint* or *standard*, **will** need to be installed on the
 host, the ALE plugin will not install the underlying lint or fix tools.
 
-One could define mappings, `<Leader>l` for linting and `<Leader>f` for fixing,
-and run them manually, others however prefer to have ALE lint code is it is
-being written (the default behaviour). Candidate ALE settings:
+One could define mappings for linting and for fixing, and run them manually,
+others however prefer to have ALE fix and lint code is it is being written.
+Candidate ALE settings:
 
 ```viml
+let g:ale_fix_on_save              = 1
 let g:ale_lint_on_enter            = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave     = 0
 let g:ale_lint_on_save             = 1
 let g:ale_lint_on_text_changed     = 'never'
-nmap <Leader>l    <Plug>(ale_lint)
-nmap <Leader>f    <Plug>(ale_fix)
 ```
+
+Please refer to ALE help and setup per your preference.
 
 Note, use the `:ALEInfo` command to display runtime information per the
 current file type, use it when you need to debug any ALE issues.
-
-ALE is not the only asynchronous linting solution for Vim, an alternative is
-[Neomake](https://github.com/neomake/neomake) which does much the same job. I
-prefer ALE since it also incorporates fixing.
 
 vim-vsnip
 ---------

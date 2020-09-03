@@ -953,16 +953,3 @@ Note, Rails developers should still use *vim-rails* in preference to
 *vim-projectionist*, think of *vim-rails* as a pre-configured
 *vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
 and *vim-projectionist* do happily live side by side.
-
-sleuth
-------
-
-```viml
-Plug 'tpope/vim-sleuth'
-```
-
-The [vim-sleuth](https://github.com/tpope/vim-sleuth) plugin automatically
-adjusts `shiftwidth` and `expandtab` intelligently based on the existing
-indentation within the file or within the directory tree for like files. With
-this plugin in effect there is little need to manually define indentation
-settings.

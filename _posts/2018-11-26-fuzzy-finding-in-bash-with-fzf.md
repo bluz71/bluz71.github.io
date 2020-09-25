@@ -331,7 +331,7 @@ fzf_git_log() {
                        xargs -I@ sh -c 'git show --color=always @'"
       )
     if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | cut -d' ' -f2 | tr '\n' ' ')
+        local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
         git show $commits
     fi
 }

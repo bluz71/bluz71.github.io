@@ -133,7 +133,7 @@ Plug 'nelstrom/vim-visual-star-search'
 
 The
 [vim-visual-star-search](https://github.com/nelstrom/vim-visual-star-search)
-plugin allows __*__ and **#** searches to occur on the current visual selection.
+plugin allows `*` and `#` searches to occur on the current visual selection.
 
 targets.vim
 -----------

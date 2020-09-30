@@ -327,8 +327,8 @@ Data collection is at the heart of how Facebook does business.
 The tension between data collection and privacy has been at the center of a
 number of Facebook controversies.
 
-- There was the [Facebook
-    Beacon](https://en.wikipedia.org/wiki/Facebook_Beacon) incident of 2008.
+- There was the [Facebook Beacon](https://en.wikipedia.org/wiki/Facebook_Beacon)
+  incident of 2008.
 
     > Beacon formed part of Facebook's advertisement system that sent data from
     > external websites to Facebook, for the purpose of allowing targeted
@@ -340,8 +340,9 @@ number of Facebook controversies.
     Some users were none too pleased to have their third-party purchases
     automatically noted on their Wall for all their Facebook friends to see.
 
-- Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinion about [online
-    identity and privacy](https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/).
+- Then in 2010, Facebook’s CEO Mark Zuckerberg articulated his opinion about
+  [online identity and
+  privacy](https://www.michaelzimmer.org/2010/05/14/facebooks-zuckerberg-having-two-identities-for-yourself-is-an-example-of-a-lack-of-integrity/).
 
     > "You have one identity," he emphasized three times in a single interview with
     > David Kirkpatrick in his book, "The Facebook Effect." "The days of you having a
@@ -351,15 +352,15 @@ number of Facebook controversies.
 
     Again, Facebook desperately wants to know who you really are.
 
-- In 2016 British consulting firm [Cambridge Analytica
-    acquired without content](https://www.nytimes.com/2018/03/19/technology/facebook-cambridge-analytica-explained.html)
-    the personal data of tens of millions of Facebooks users with the aim of
-    influencing the result of the US presidential election of the same year.
+- In 2016 British consulting firm [Cambridge Analytica acquired without
+  content](https://www.nytimes.com/2018/03/19/technology/facebook-cambridge-analytica-explained.html)
+  the personal data of tens of millions of Facebooks users with the aim of
+  influencing the result of the US presidential election of the same year.
 
 - After to the Cambridge Analytica incident, Facebook announced in [April
-    2018](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
-    that most of 2 billion users may have had their personal data scrapped from
-    the site by *malicious actors*.
+  2018](http://www.businessinsider.com/facebook-87-million-cambridge-analytica-data-2018-4)
+  that most of 2 billion users may have had their personal data scrapped from
+  the site by *malicious actors*.
 
 If you **genuinely** care about privacy and anonymity then you really should
 [shutdown your
@@ -373,19 +374,20 @@ amount of data Facebook collects.
 A number of recommendations.
 
 - The [Browser
-    Privacy](https://bluz71.github.io/2018/06/20/digital-privacy-tips.html#browser)
-    recommendations noted above will block much of Facebook's third-party
-    tracking.
+  Privacy](https://bluz71.github.io/2018/06/20/digital-privacy-tips.html#browser)
+  recommendations noted above will block much of Facebook's third-party
+  tracking.
 
-- Please stop [over-sharing](https://grownandflown.com/oversharing-why-we-do-it).
-    Are you comfortable with strangers knowing what you post? Your birthday,
-    pictures of your family, when you are on holiday? If not, then don't share
-    it in the first place.
+- Please stop
+  [over-sharing](https://grownandflown.com/oversharing-why-we-do-it). Are you
+  comfortable with strangers knowing what you post? Your birthday, pictures of
+  your family, when you are on holiday? If not, then don't share it in the first
+  place.
 
 - Strengthen the privacy settings inside your Facebook account.
 
   - Go to *Settings* / *Privacy* and review the options. I suggest changing most
-        options to `Friends`.
+    options to `Friends`.
 
   - Likewise in *Timeline & Tagging*, change most options to `Friends`
 
@@ -447,12 +449,12 @@ Mint](https://linuxmint.com).
 If replacing Windows 10 is not viable, then the next best option is to tweak
 the available controls.
 
-- Please do **NOT** enable the Cortana assistant during installation. If
-    Cortana has already been enabled during a previous installation then please
-    [disable it](https://www.windowscentral.com/how-turn-cortana-and-stop-personal-data-gathering-windows-10)
+- Please do **NOT** enable the Cortana assistant during installation. If Cortana
+  has already been enabled during a previous installation then please [disable
+  it](https://www.windowscentral.com/how-turn-cortana-and-stop-personal-data-gathering-windows-10)
 
 - Please create and use *local* accounts rather than an online Microsoft-linked
-    user accounts
+  user accounts
 
 - In *Settings* / *Privacy*
 

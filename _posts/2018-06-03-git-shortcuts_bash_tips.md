@@ -92,7 +92,7 @@ elif [[ -f /etc/bash_completion.d/git-prompt ]]; then
 else
     local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
 fi
-    GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWSTASHSTATE=1
 . $GIT_PROMPT_PATH

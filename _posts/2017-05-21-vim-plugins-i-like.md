@@ -8,17 +8,17 @@ published: true
 Vim Plugins I Like
 ==================
 
-**UPDATED AUGUST 2020**
+**UPDATED SEPTEMBER 2021**
 
 Vim gains much functionality through the inclusion of *plugins*.
 
-This post contains a curated set of my favourite Vim plugins. Note, many of
-these plugins are *the usual suspects*. I also fully acknowledge that there are
-**numerous** useful plugins beyond those discussed here, hence, I do encourage
-Vim users to explore, test and discuss those plugins they appreciate.
+This post contains a curated set of some my favourite Vim plugins. I fully
+acknowledge that there are **numerous** useful plugins beyond those discussed
+here, hence, I do encourage Vim users to explore, test and discuss those plugins
+they appreciate.
 
 The full set of plugins and mappings I use are available in my
-[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc).
+[dotfiles](https://github.com/bluz71/dotfiles) repository.
 
 vim-plug
 --------
@@ -35,11 +35,6 @@ Each will do the job, but for *simplicity*, *performance* and *features*
 the [vim-plug](https://github.com/junegunn/vim-plug) plugin manager is the one I
 use.
 
-Note, if you are a *Vundle* user, like I was, transferring over to *vim-plug*
-is simple, just follow
-[this](https://github.com/junegunn/vim-plug/wiki/faq#migrating-from-other-plugin-managers)
-advice.
-
 All snippets for the remainder of this post will use *vim-plug* notation.
 
 vim-moonfly-colors
@@ -49,7 +44,7 @@ vim-moonfly-colors
 Plug 'bluz71/vim-moonfly-colors'
 ```
 
-Some self-advertising, I have created my own Vim `colorscheme` named
+Self-advertising, I have created my own Vim `colorscheme` named
 [moonfly](https://github.com/bluz71/vim-moonfly-colors).
 
 The *moonfly* color scheme is a dark theme, but unlike all other dark themes
@@ -278,20 +273,6 @@ proven invaluable in practice.
 Note, the `cw` / `cW` mapping will restore standard Vim behaviour, that being to
 preserve whitespace between words.
 
-Pear Tree
----------
-
-```viml
-Plug 'tmsvg/pear-tree'
-let g:pear_tree_repeatable_expand = 0
-```
-
-The [Pear Tree](https://github.com/tmsvg/pear-tree) plugin will automatically
-close `(`, `{`, `[` and quote pairs whilst in insert mode.
-
-:bulb: If I was doing less JavaScript and JSON I would likely skip this and all
-auto-closing pairs plugins.
-
 fzf.vim
 -------
 
@@ -360,7 +341,7 @@ function! FernInit() abort
   nmap <buffer> N <Plug>(fern-action-new-file)
   nmap <buffer> K <Plug>(fern-action-new-dir)
   nmap <buffer> D <Plug>(fern-action-remove)
-  nmap <buffer> V <Plug>(fern-action-move)
+  nmap <buffer> C <Plug>(fern-action-move)
   nmap <buffer> R <Plug>(fern-action-rename)
   nmap <buffer> s <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
@@ -388,14 +369,16 @@ augroup END
 
 - `D` removes content
 
-- `R` renames content
+- `C` moves the content under the cursor, think of `C` for change
+
+- `R` renames content, including bulk renames for marked content
 
 - `s` and `v` will open files in either horizontal or vertical splits
 
 - `r` reloads the current tree, use this to update *fern* with filesystem
   changes that occur outside Vim
 
-- 'd' toggles dot files
+- `d` toggles dot files
 
 - `<` and `>` will change up and down the directory hierarchy.
 
@@ -411,7 +394,7 @@ let g:fern#renderer#default#root_symbol      = '~ '
 ```
 
 Lastly, if one prefers to automatically update the current tree upon entering
-the *fern* window then please add the following to the above `FernInit`
+the *fern* window then please add the following to the above `FernEvents`
 function (not the `FernGroup`):
 
 ```viml
@@ -421,7 +404,7 @@ augroup FernTypeGroup
 augroup END
 ```
 
-:exclamation: Certain Vim elitists consider file explorers an anti-pattern. I
+:exclamation: Some Vim elitists consider file explorers an anti-pattern. I
 primarily use *fern* as a project tree visualizer and occasional file manager. I
 do **not** recommend you use *fern* as your prime method to open files,
 alternatives such as: *fzf*, *projectionist* and the standard `gf` command are
@@ -444,21 +427,6 @@ working tree.
 A screenshot of *fern-git-status* in action:
 
 ![fern-git-status](https://user-images.githubusercontent.com/546312/89777703-2483cd80-db47-11ea-84dc-7690d2996d89.png)
-
-vim-polyglot
-------------
-
-```viml
-Plug 'sheerun/vim-polyglot'
-```
-
-The [vim-polyglot](https://github.com/sheerun/vim-polyglot) plugin is a
-**comprehensive** language pack collection for Vim. This plugin consolidates
-all the best standalone language plugins, such as
-[vim-ruby](https://github.com/vim-ruby/vim-ruby) and
-[vim-go](https://github.com/fatih/vim-go), into one master-plugin. And best
-of all this plugin will configure all language scripts to only load when
-required.
 
 vim-gitgutter
 -------------
@@ -519,12 +487,12 @@ appropriate type of completion, be it *keyword*, *file* or
 [omni](http://vim.wikia.com/wiki/Omni_completion) completion, based on the
 current context.
 
-Where I require more language-aware intelligence I use the
+Where language-aware intelligence is required the
 [LSC](https://github.com/natebosch/vim-lsc) plugin with appropriate
-LSP-compliant language servers. Please refer to the [LSP in Vim with the LSC
+LSP-compliant language servers is recommended. Please refer to the [LSP in Vim
+with the LSC
 Plugin](https://bluz71.github.io/2019/10/16/lsp-in-vim-with-the-lsc-plugin.html)
-post for details about the Language Server Protocol (LSP) and the LSC
-plugin.
+post for details about the Language Server Protocol (LSP) and the LSC plugin.
 
 ALE
 ---
@@ -554,7 +522,7 @@ let g:ale_open_list        = 0
 The [ALE](https://github.com/w0rp/ale) plugin is used to asynchronously run
 language linters and fixers within modern versions of Vim.
 
-Be aware, a fixer can also format code, hence there is no need to install code
+Note, a fixer can also formats code, hence there is no need to install code
 formatting plugins such as
 [vim-prettier](https://github.com/prettier/vim-prettier) when using ALE.
 
@@ -649,7 +617,6 @@ vim-test
 
 ```viml
 Plug 'janko-m/vim-test'
-let test#javascript#jest#executable = 'CI=true yarn test --colors'
 nnoremap <silent> <Leader>tt :TestNearest<CR>
 nnoremap <silent> <Leader>tf :TestFile<CR>
 nnoremap <silent> <Leader>ts :TestSuite<CR>
@@ -675,38 +642,6 @@ Note, the following configuration is required to use *vim-test* with
 ```viml
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
 ```
-
-<a id="vim-grepper"></a>vim-grepper
------------------------------------
-
-```viml
-Plug 'mhinz/vim-grepper'
-let g:grepper = {}
-let g:grepper.tools = ["rg"]
-runtime autoload/grepper.vim
-let g:grepper.jump = 1
-nnoremap <Leader>/ :GrepperRg<Space>
-nnoremap gs :Grepper -cword -noprompt<CR>
-xmap gs <Plug>(GrepperOperator)
-```
-
-The [vim-grepper](https://github.com/mhinz/vim-grepper) plugin is a simple Vim
-interface to various text search utilities including my favourite, the
-[ripgrep](https://github.com/BurntSushi/ripgrep) search utility.
-
-For more details about *ripgrep* please read [this
-post](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
-Short summary, *ripgrep* is fast and is repository aware (aka it will skip
-ignores).
-
-Upon execution *Grepper* search matches will populate Vim's *quickfix* list
-allowing easy navigation through the matches. Note, when run on a modern version
-of Vim or Neovim the search will be executed asynchronously.
-
-I have a simple mapping `<Leader>/` to invoke an interactive *Grepper* search.
-The normal mode mapping `gs` will invoke a search on the word under the cursor
-whilst the visual mode mapping `gs` will invoke a search on the current visual
-selection.
 
 Undotree
 --------
@@ -749,8 +684,8 @@ Plug 'lifepillar/vim-cheat40'
 The [Cheat40](https://github.com/lifepillar/vim-cheat40) plugin is a convenient,
 and customizable, 40 character wide cheat sheet. Cheat40 can display a cheat
 sheet of your key mappings or exotic Vim commands for instant recall. For
-example, if you keep forgetting your seldom used key mappings, just add them to
-your cheat sheet and then display the cheat sheet when required.
+example, if you keep forgetting seldom used mappings, just add them to your
+cheat sheet and then display the cheat sheet when required.
 
 Use the `<leader>?` mapping, or bind your own key to `:Cheat40`, to toggle the
 right-hand side full height cheat sheet. Note, sections will usually be folded
@@ -882,22 +817,11 @@ The full set of mappings is documented
 The *vim-unimpaired* plugin negates the need to provide your own custom set of
 mappings for these types of operation.
 
-Endwise
--------
-
-```viml
-Plug 'tpope/vim-endwise'
-```
-
-The [vim-endwise](https://github.com/tpope/vim-endwise) plugin will
-automatically insert **end**, in insert mode, to code blocks for languages such
-as: Ruby, Elixir, Crystal and Vim.
-
 Projectionist
 -------------
 
 The [vim-projectionist](https://github.com/tpope/vim-projectionist) plugin,
-primarily, provides infrastructure to navigate around projects. This plugin is
+primarily, provides infrastructure to navigate projects. This plugin is
 effectively the core of the [vim-rails](https://github.com/tpope/vim-rails)
 plugin extracted into a standalone plugin.
 
@@ -939,15 +863,5 @@ developer to quickly go to the component they wish. The `<Leader>a` mapping
 provides quick switching to an *alternate* file, which will usually be the
 associated test suite for the current component file.
 
-Configuring *vim-projectionist* for other frameworks like
-[Phoenix](https://phoenixframework.org) or [Ember](https://www.emberjs.com/)
-should not be difficult.
-
-Setting up this plugin does require a bit of upfront work, but once done, and
-then used, you will really appreciate the navigation capabilities this plugin
-provides.
-
-Note, Rails developers should still use *vim-rails* in preference to
-*vim-projectionist*, think of *vim-rails* as a pre-configured
-*vim-projectionist* with a little bit of added sugar on top; also *vim-rails*
-and *vim-projectionist* do happily live side by side.
+Set up does require upfront work, but once done, you will really appreciate the
+navigation capabilities this plugin provides.

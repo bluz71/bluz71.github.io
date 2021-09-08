@@ -8,6 +8,8 @@ published: true
 A few Vim & tmux mappings
 =========================
 
+**UPDATED SEPTEMBER 2021**
+
 Power *Vim* usage involves mappings, usually many of them. This post will list
 some of *my* most used mappings. Note, this post is **not** intended to be
 about convincing anyone to change *their* mappings, rather the intention is to
@@ -20,9 +22,10 @@ I will let others explain the benefits of *tmux* and *Vim* together:
 [vim + tmux: A Perfect Match](https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match),
 and [Benefits of using tmux](https://blog.bugsnag.com/benefits-of-using-tmux)
 
-The mappings discussed in this post are backed into my
-[vimrc](https://github.com/bluz71/dotfiles/blob/master/vimrc) and
-[tmux.conf](https://github.com/bluz71/dotfiles/blob/master/tmux.conf) files.
+The mappings discussed in this post are backed into my [vim
+](https://github.com/bluz71/dotfiles/blob/master/vim/custom/mappings.vim)
+and [tmux](https://github.com/bluz71/dotfiles/blob/master/tmux.conf)
+configurations.
 
 *tmux* prefix
 -------------
@@ -32,7 +35,7 @@ combination.
 
 The default *tmux* prefix is `Ctrl-b`. That is an awkward combination to type
 with one hand, hence many folk change it to `Ctrl-a`. In my case I find
-`Ctrl-w` even nicer to type with just my left hand.
+`Ctrl-w` even nicer to type.
 
 In *~/.tmux.conf:*
 
@@ -56,20 +59,6 @@ I like comma as my leader key, in *~/.vimrc:*
 
 ```viml
 let mapleader = ","
-```
-
-*Vim* localleader
------------------
-
-The *Vim* local leader is intended to be similar to the leader key except
-specific to local buffers. However, in reality *localleader* can be used just
-like *leader*. I tend to favor *leader* for primary mappings (common), whilst I
-use *localleader* for secondary mappings (less common).
-
-I like space as my *localleader* key, in *~/.vimrc:*
-
-```viml
-let maplocalleader = " "
 ```
 
 Use *vi* bindings in *tmux*
@@ -128,24 +117,24 @@ nnoremap <silent> <Leader>q :close<CR>
 Simple split windows in *Vim*: use `<Leader>s` to create a horizontal split,
 `<Leader>v` to create a vertical split and `<Leader>q` to close a split.
 
-Seamlessly navigate *Vim* splits and *tmux* panes
--------------------------------------------------
+Seamlessly navigate *(Neo)vim* splits and *tmux* panes
+------------------------------------------------------
 
 In *~/.vimrc:*
 
 ```viml
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 Plug 'christoomey/vim-tmux-navigator'
 if &term == 'screen-256color'
     let g:tmux_navigator_no_mappings = 1
-    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+    nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 endif
 ```
 
@@ -154,18 +143,21 @@ In *~/.tmux.conf:*
 ```sh
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
-bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
-bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
-bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind-key -n M-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+bind-key -n M-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind-key -n M-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind-key -n M-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
 ```
 
-*Vim* splits divide up a workspace, similarly *tmux* panes divide up a terminal
-window. From a usability perspective we want to use the same mappings to
-navigate between *splits* and *panes*.
+*(Neo)vim* splits divide up a workspace, similarly *tmux* panes divide up a
+terminal window. From a usability perspective we want to use the same mappings
+to navigate between *splits* and *panes*.
 
-The above configuration provides `Ctrl-h` (left), `Ctrl-j` (down), `Ctrl-k`
-(up), and `Ctrl-l` (right) navigation between *Vim* splits and *tmux* panes.
+The above configuration provides `Alt-h` (left), `Alt-j` (down), `Alt-k` (up),
+and `Alt-l` (right) navigation between *(Neo)vim* splits and *tmux* panes.
+
+Note, **Alt** based mapping may not work with Vim (last time I checked), but
+they do work out-of-the-box with Neovim.
 
 The [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 plugin is a key requirement for these mappings to function. Please install with
@@ -230,65 +222,16 @@ nnoremap <Leader>2 2gt
 nnoremap <Leader>3 3gt
 nnoremap <Leader>4 4gt
 nnoremap <Leader>5 5gt
+nnoremap <Leader>6 6gt
+nnoremap <Leader>7 7gt
+nnoremap <Leader>8 8gt
+nnoremap <Leader>9 9gt
 ```
 
 These mapping provide `<Leader>1`/`<Leader>2`/`...` navigation to switch to a
 specific numbered tab. I use the [vim-taboo](https://github.com/gcmt/taboo.vim)
 plugin to display numbered tabs rather than use *Vim's* default tab naming
 convention.
-
-Enter *Vim* command mode
-------------------------
-
-Command mode in *Vim* is entered by typing `:`, this necessarily involves
-holding the **Shift** key. A simple and handy shortcut is to map `;` to `:` as
-follows to avoid the **Shift** key altogether:
-
-```viml
-noremap ; :
-```
-
-This will mean losing the `;` repeat for the last `f`, `t`, `F` or `T` command.
-In my case that is a non-issue since I use the
-[clever-f](https://github.com/rhysd/clever-f.vim) plugin which provides `f` and
-`F` as repeat operators among other benefits.
-
-Center next *Vim* search matches
---------------------------------
-
-```viml
-noremap n nzz
-noremap N Nzz
-```
-
-Navigating search results is something often done. These mappings simply center
-the `n` (next) or `N` (previous) match. Much less of a need to search for the
-cursor on the screen; the next match, more often than not, will be in the
-center of the screen.
-
-*Y* should behave like *D* and *C*
-----------------------------------
-
-```viml
-noremap Y y$
-```
-
-Vim by default provides `D` to delete till the end of line and `C` to
-change till the end of line. For some reason it does not provide yank till the
-end of line. Enable this mapping to set `Y` to do that particular form of
-yanking.
-
-Use U for redo
---------------
-
-Repurpose the little-used `U` command to redo an undone edit.
-
-```viml
-nnoremap U <C-r>
-```
-
-`u` undoes an edit. By default `Control-r` redoes that edit, however `U` feels
-like a more natural companion to `u`.
 
 Fold code in Vim
 ----------------
@@ -299,8 +242,9 @@ nnoremap <Leader>z za
 ```
 
 There are multiple choices available when choosing a Vim fold method. I like to
-use `indent` since it is simple and performant. `<Leader><Space>` toggles a
-fold based on the indent level of the current cursor line.
+use `indent` since it is simple and performant. `<Leader>z` toggles a
+fold based on the indent level of the current cursor line. Think of `z` as being
+an accordion that grows and shrinks.
 
 Equalize *Vim* splits
 ---------------------
@@ -311,35 +255,37 @@ nnoremap <Leader>= <C-w>=
 
 The above mapping equalizes the splits of the current *Vim* workspace.
 
-Zoom a *Vim* split
-------------------
+Maximimse a *Vim* split
+-----------------------
 
 ```viml
-nnoremap <silent> <Leader>Z :tab split<CR>
+nnoremap <silent> <Leader>m :tab split<CR>
 ```
 
-This handy mapping zooms a split into its own full tab page. This is
+This handy mapping maximizes a split into its own full tab page. This is
 useful when the current workspace has been divided multiple times making edits
 to any single split difficult due to a lack of space. In that case simply
-*zoom* the split.
+*maximize* the split.
 
-Yank, paste and delete helpers
-------------------------------
+Yank and paste helpers
+----------------------
 
 ```viml
-noremap <Leader>y "yy
-noremap <Leader>p "yp
-noremap <Leader>P "yP
-noremap <Leader>x "_x
-noremap <Leader>d "_d
+" Paste from the yank register
+noremap <Leader>p "0p
+noremap <Leader>P "0P
 ```
 
-Yank and paste into and out-of the user `y`-register. Normal yanks and pastes
-are prone to being accidentally overwritten by subsequent operations. Use these
-commands if you wish to persist a yank operation.
+The default, unnamed, register is prone to accidentally being overwrittern by
+subsequent operations, so when it comes time to do a paste after a yank you may
+sometimes find you are not pasting what you want.
 
-The `<Leader>x` and `<Leader>d` commands will delete into the black-hole
-register, hence will not overwrite the unnamed register.
+However, the `"0` yank register will remain intact (until the next yank
+operation).
+
+`<Leader>p` and `<Leader>P` provide quick access to the yank register. If `p`
+does not paste what you want, `<Leader>p` and `<Leader>P` are available if you
+want to paste from the last yank.
 
 Insert mode completion mappings
 -------------------------------
@@ -381,7 +327,9 @@ Readline-style mappings for insert and command modes
 ----------------------------------------------------
 
 ```viml
-inoremap <C-a>  <C-o>^
+nnoremap <C-a> 0
+nnoremap <C-e> $
+inoremap <C-a>  <C-o>0
 inoremap <C-e>  <C-o>$
 inoremap <A-b>  <C-Left>
 inoremap <A-f>  <C-Right>
@@ -398,8 +346,8 @@ cnoremap <A-d>  <C-Right><C-w>
 The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library
 is used by the Bash shell, and certain other utilities, for line-editing and
 history management. If one uses the default Readline key bindings, for example
-with Bash, then it makes sense to use those same bindings when in Vim's insert
-or command mode.
+with Bash, then it makes sense to use those same bindings when in certain Vim
+modes.
 
 - `Control-a`, go to the beginning of the line.
 
@@ -414,4 +362,4 @@ or command mode.
 - `Alt-d`, delete forward one word
 
 **Note**, the above `Alt`-mappings function correctly with Neovim and GUI-based
-versions of Vim (such gVim), but do not work with terminal Vim.
+versions of Vim (such gVim), but may not work with terminal Vim.

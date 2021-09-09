@@ -32,6 +32,10 @@ instead of CtrlP as documented
 The fzf issue noted above no longer apply since Neovim & Vim both integrated a
 terminal.
 
+**UPDATE (SEP 2021)**: I now use
+[Telescope](https://github.com/nvim-telescope/telescope.nvim) instead of
+*fzf.vim*.
+
 Faster file listing using fd
 ============================
 

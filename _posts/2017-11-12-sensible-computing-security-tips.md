@@ -68,8 +68,8 @@ would be an old PDF reader.
   Google Pixel phones, these will receive security updates directly from Google
   itself and will do so for multiple years.
 
-<a id="passwords"></a>Passwords and PINs
-========================================
+Passwords and PINs
+==================
 
 Computers are getting faster and so is the ability for cybercriminals and
 hackers to crack user passwords. Most folks have poor password hygiene;
@@ -319,8 +319,8 @@ store.
 Please **NEVER** install dubious software such as key generators, these more
 often than not are malicious.
 
-<a id="browser"></a>Browser Recommendation
-==========================================
+Browser Recommendation
+======================
 
 With a strong focus on privacy and security I recommend the
 [Brave](https://brave.com) browser.
@@ -439,7 +439,7 @@ targets](http://www.businessinsider.com/the-biggest-targets-for-hackers-2015-3).
 However, most citizens are not high-value targets, so the question is whether
 the inconvenience is worth the benefit? That is a judgement you need to make.
 Currently, I recommend
-[strong](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#passwords)
+[strong](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#passwords-and-pins)
 single-factor authentication for most persons.
 
 Summary

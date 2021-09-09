@@ -38,21 +38,7 @@ First, please make sure you have a modern version of Chrome, at least Chrome
 Next you will need the
 [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) package.
 
-On macOS systems that have [Homebrew](https://brew.sh) installed:
-
-```
-brew install chromedriver
-```
-
-For Linux systems that have [Homebrew](https://docs.brew.sh/Homebrew-on-Linux)
-installed:
-
-```
-brew install chromedriver
-```
-
-Otherwise, for Linux systems, sans Homebrew, install ChromeDriver the
-old-fashioned way:
+Install ChromeDriver (on Linux):
 
 ```
 wget http://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip
@@ -62,7 +48,8 @@ sudo mv -f chromedriver /usr/local/bin/
 sudo chmod +x /usr/local/bin/chromedriver
 ```
 
-**NOTE**: Replace `2.32` with a recent version of ChromeDriver.
+**NOTE**: Replace `Linux` with your platform and also replace `2.32` with a
+recent version of ChromeDriver.
 
 Configuration
 =============

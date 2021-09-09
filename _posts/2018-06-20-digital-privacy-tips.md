@@ -119,11 +119,11 @@ Lastly, Google offers fine DNS servers at `8.8.8.8` and `8.8.4.4`, but I
 recommend against their use if privacy is important. Google *may* use these DNS
 servers to follow you for ad-targeting purposes.
 
-<a id="browser"></a>Browser Privacy
-===================================
+Browser Privacy
+===============
 
 In the [Sensible Computing Security
-Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#browser)
+Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html#browser-recommendation)
 post I recommended the use of the Brave browser.
 
 Notable privacy and security features of Brave:
@@ -374,7 +374,7 @@ amount of data Facebook collects.
 A number of recommendations.
 
 - The [Browser
-  Privacy](https://bluz71.github.io/2018/06/20/digital-privacy-tips.html#browser)
+  Privacy](https://bluz71.github.io/2018/06/20/digital-privacy-tips.html#browser-privacy)
   recommendations noted above will block much of Facebook's third-party
   tracking.
 

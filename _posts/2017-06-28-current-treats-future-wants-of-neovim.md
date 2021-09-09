@@ -165,7 +165,6 @@ Neovim has no such flashing since it invokes such system commands in the
 background and uses pipes to connect results back to the edit session.
 
 Note however, modern async-linting plugins such as
-[Neomake](https://github.com/neomake/neomake) and
 [ALE](https://github.com/w0rp/ale) render this `makeprg`/ `errorformat`-based
 tool launching somewhat moot these days.
 
@@ -224,15 +223,16 @@ if has("nvim")
   tnoremap <Esc> <C-\><C-n>
 
   " Make navigation into and out of Neovim terminal splits nicer.
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
+  tnoremap <A-h> <C-\><C-N><C-w>h
+  tnoremap <A-j> <C-\><C-N><C-w>j
+  tnoremap <A-k> <C-\><C-N><C-w>k
+  tnoremap <A-l> <C-\><C-N><C-w>l
 
-  " I like relative numbering when in normal mode.
-  autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+  " Disable certain styling in terminal windows.
+  autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0
 
   " Prefer Neovim terminal insert mode to normal mode.
+  autocmd TermOpen *        startinsert
   autocmd BufEnter term://* startinsert
 endif
 ```
@@ -257,12 +257,6 @@ in Neovim such a test will be invoked in a split-below terminal window (if
 set), hence both test code and test result are visible next to each other. This
 greatly enhances the code, test, fix cycle.
 
-It is also my understanding that the Neovim terminal is scriptable; thus far I
-haven't toyed with that capability. However, I do look forward to Drew Neil's
-upcoming book [Modern
-Vim](http://vimcasts.org/blog/2017/05/working-title-modern-vim) book which will
-cover that capability (and others).
-
 **UPDATE (July 2017)**: It appears the *Vim* is getting its own
 [terminal](https://groups.google.com/forum/#!topic/vim_dev/Q9gUWGCeTXM).
 
@@ -273,33 +267,27 @@ In the grand scheme the above list of enhancements are, mostly, minor in
 nature. The more substantive Neovim enhancements are primarily occurring under
 the covers and in the community at large, some of those enhancements being:
 
-- Refactored and modernized code base. See
-  [this](https://geoff.greer.fm/2015/01/15/why-neovim-is-better-than-vim/) post
-  for details.
+- Refactored and modernized code base.
 
 - A development community that can survive the comings and goings of key
   developers. The initial Neovim lead, Thiago de Arruda, did depart the Neovim
-  project yet Neovim has continued on just fine. Would Vim development continue
-  if Bram Moolenaar, Vim's creator and ongoing maintainer, was no longer
-  active?
+  project yet Neovim continued on just fine. Would Vim development continue if
+  Bram Moolenaar, Vim's creator and ongoing maintainer, was no longer active?
 
 - Neovim's remote API functionality provides a pathway where Neovim can be a
   true component in another application. This Neovim component could exist in
   an [Atom](https://atom.io) or
-  [Thunderbird](https://www.mozilla.org/en-US/thunderbird) session. This same
-  *client/server* API has also led to the development of some very interesting
-  Neovim [clients](https://github.com/neovim/neovim/wiki/Related-projects#gui)
-  such as [Oni](https://www.onivim.io/).
+  [Thunderbird](https://www.mozilla.org/en-US/thunderbird) session.
 
 - Integration of a [Lua](https://www.lua.org/) interpreter directly into the
   [runtime](https://github.com/neovim/neovim/pull/4411) to run natively
   alongside Vimscript. Lua is a nicer language than Vimscript and with
-  [LuaJIT](http://luajit.org) it is a language that should run orders of
-  magnitude faster as well. This will allow Neovim plugin authors scope to
-  execute compute-heavy tasks **with** good performance without resorting to
-  external processes written in other languages. Going forward,
-  [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type
-  plugins would have less
+  [LuaJIT](http://luajit.org) it is a language that runs orders of magnitude
+  faster as well. This will allow Neovim plugin authors scope to execute
+  compute-heavy tasks **with** good performance without resorting to external
+  processes written in other languages. Going forward,
+  [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) type plugins would
+  have less
   [need](https://github.com/Valloric/YouCompleteMe#why-isnt-ycm-just-written-in-plain-vimscript-ffs)
   to be written in Python (or similar).
 
@@ -327,6 +315,8 @@ Visual block pasting is currently
 the side of the cursor. I hope this issue is fixed soon, when encountered it is
 very annoying.
 
+**UPDATE (Sep 2021)**: This issue was fixed in Neovim 0.5.
+
 Medium future Neovim wants
 ==========================
 
@@ -343,9 +333,7 @@ encryption provider, similar to how Neovim currently delegates to an external
 clipboard provider. Such an encryption provider could be
 [GPG](https://gnupg.org/). Something like the
 [vim-gnupg](https://github.com/jamessan/vim-gnupg) plugin, but built into
-Neovim, is what I would like. I still use Vim's `blowfish2` feature, in
-preference to *vim-gnupg*, since I'm not sure of the long-term viability of
-that plugin.
+Neovim, is what I would like.
 
 Improved *relativenumber* scroll performance
 --------------------------------------------
@@ -387,6 +375,8 @@ integrate the LSP client directly in core Neovim.
 
 **UPDATE (July 2017)**: Neovim LSP support is already a
 [work in progress](https://github.com/neovim/neovim/pull/6856).
+
+**UPDATE (Sep 2021)**: Neovim 0.5 provides an integrated LSP client.
 
 Summary
 =======

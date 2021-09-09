@@ -13,7 +13,7 @@ especially when used in the command-line with its myriad of tools and switches.
 
 Over time and with experience most users will settle on their preferred set of
 commands, shortcuts and helpers. This post contains my curated set of Git tips
-and shortcuts (aka `git aliases`).
+and shortcuts.
 
 Note, many, maybe even most, of these suggestions have been gleamed from the
 interwebs over the years. I do not claim authorship on anything noted here.
@@ -41,13 +41,6 @@ also add the following to allow the `g` alias to complete just like `git`
 command.
 
 ```sh
-if [[ $(uname) = Linux ]]; then
-    # Assuming a modern Debian-like installation of Bash Completion.
-    . /usr/share/bash-completion/completions/git
-elif [[ $(uname) = Darwin ]]; then
-    # Assuming a Homebrew installation of Bash Completion.
-    . /usr/local/etc/bash_completion.d/git-completion.bash
-fi
 complete -o default -o nospace -F _git g
 ```
 
@@ -102,15 +95,15 @@ PS1="\h\$(__git_ps1) \w > "
 Note, this is a rudimentary prompt configuration, usually you will want to
 spruce it up.
 
-For example, one can install and use a Bash prompt script, such as
-[seafly](https://github.com/bluz71/bash-seafly-prompt) or
+For example, one can install and use a Bash prompt script, such as my own
+[seafly](https://github.com/bluz71/bash-seafly-prompt) prompt or
 [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which will
-emit Git details with visual flair.
+both emit Git details with visual flair.
 
-Nicer diffs with diff-so-fancy
-------------------------------
+Nicer diffs with git-delta
+--------------------------
 
-The [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) utility replaces
+The [git-delta](https://github.com/so-fancy/diff-so-fancy) utility replaces
 Git's default machine-readable `diff` output with one that is more human
 readable.
 
@@ -118,20 +111,14 @@ Installation is most easily accomplished via [Homebrew](https://brew.sh) on
 macOS and Linux.
 
 ```sh
-brew install diff-so-fancy
+brew install git-delta
 ```
 
 Now enable diff-so-fancy.
 
 ```sh
-git config --global core.pager 'diff-so-fancy | less --tabs=4 -RFX'
+git config --global core.pager 'delta'
 ```
-
-**UPDATE (AUG 2020)**: I now use
-[git-delta](https://github.com/dandavison/delta) which is a high-performance git
-and diff viewer implemented in [Rust](https://www.rust-lang.org). If interested,
-please refer to my [gitconfig
-file](https://github.com/bluz71/dotfiles/blob/master/gitconfig).
 
 General aliases
 ---------------
@@ -187,19 +174,6 @@ g di  # List unstaged differences
 g dis # List staged differences
 ```
 
-Status alias
-------------
-
-```sh
-git config --global alias.st 'status --short --branch'
-```
-
-Usage:
-
-```sh
-g st # Working tree status in compact notation
-```
-
 Stage alias
 -----------
 
@@ -234,15 +208,15 @@ Commit aliases
 ```sh
 git config --global alias.ci 'commit'
 git config --global alias.unci 'reset --soft HEAD~1'
-git config --global alias.oops 'commit --amend'
+git config --global alias.amend 'commit --amend'
 ```
 
 Usage:
 
 ```sh
-g ci   # Commit staged changes
-g unci # Undo the last commit. Note, do NOT do this for pushed commits.
-g oops # Modify the most recent commit. Note, do NOT do this for pushed commits.
+g ci    # Commit staged changes
+g unci  # Undo the last commit. Note, do NOT do this for pushed commits.
+g amend # Modify the most recent commit. Note, do NOT do this for pushed commits.
 ```
 
 Branch aliases
@@ -316,16 +290,16 @@ Remote aliases
 
 ```sh
 git config --global alias.rr 'remote -v'
-git config --global alias.rso 'remote show origin'
-git config --global alias.rsu 'remote show upstream'
+git config --global alias.rro 'remote show origin'
+git config --global alias.rru 'remote show upstream'
 ```
 
 Usage:
 
 ```sh
 g rr  # Show remotes
-g rso # Show state of local and remote tracking branches
-g rsu # Show state of local and remote upstream branches
+g rro # Show state of local and remote tracking branches
+g rru # Show state of local and remote upstream branches
 ```
 
 Stash aliases
@@ -355,7 +329,7 @@ Fuzzy-finding command-line Git browser
 
 The [fzf](https://github.com/junegunn/fzf) utility is an excellent command-line
 fuzzy finder. With just a small of amount of scripting it is easy to create a
-command-line fuzzy-finding Git log browser with commit previews.
+command-line fuzzy-finding Git log browser with commit previewing.
 
 First install fzf. If using Homebrew.
 
@@ -394,7 +368,7 @@ be narrowed down by entering in fuzzy text at the prompt. Also, one can
 navigate up and down the commit list to preview the differences of each commit.
 Github-style browsing in the command-line, almost.
 
-Refer to [fuzzy finding in Bash with
+Refer to [Fuzzy Finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 for more such Git examples.
 

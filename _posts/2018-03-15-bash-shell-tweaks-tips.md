@@ -10,10 +10,10 @@ Bash Shell Tweaks & Tips
 
 **UPDATED AUGUST 2020**
 
-[Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash
-is highly ubiquitous due to it being the default user shell for various
-flavours of Unix including: Linux, macOS (prior to Catalina) and the Windows
-Subsystem for Linux (WSL).
+[Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash is
+ubiquitous due to it being the default user shell for various flavours of Unix
+including: Linux, macOS (prior to Catalina) and the Windows Subsystem for Linux
+(WSL).
 
 Due to this ubiquity, and the need to maintain backward compatibility, it is
 rare that newer features of Bash are enabled by default. Some mistake this
@@ -34,7 +34,7 @@ macOS, upgrade to Bash 5.x
 --------------------------
 
 macOS by default ships with a very old version of Bash, version 3.2, due to
-licensing reasons. That version is over a decade old with many missing
+licensing reasons. That version is well over a decade old with many missing
 features.
 
 Please upgrade to version 5.x of Bash. That is most easily accomplished by
@@ -153,8 +153,8 @@ list of recommended `~/.inputrc` settings follows.
     The prefix color used will be the `so` option defined in the `LS_COLORS`
     environment variable.
 
-    Note, this is a new option only available with the latest versions of
-    Readline (version 7.0 and above) and Bash (version 4.4 and above).
+    Note, this is a new option available with the later versions of Readline
+    (version 7.0 and above) and Bash (version 4.4 and above).
 
 - Ignore case when completing.
 
@@ -184,7 +184,7 @@ list of recommended `~/.inputrc` settings follows.
     "\e[B": history-search-forward
     ```
 
-- Disable beeps and do not display control characters.
+- Disable beeps & bells, and do not display control characters.
 
     ```sh
     set bell-style none
@@ -240,7 +240,7 @@ The Readline library also provides a number of useful default shortcuts.
 
     This does a reverse search through history, from most recent to oldest, for
     commands that contain the chosen text. Hitting `Control-r` again cycles
-    back through the matches whilst `Control-Shift-r` cycles forward. 
+    back through the matches whilst `Control-Shift-r` cycles forward.
 
     Note, an improved version of reverse history search is possible when using
     [fzf with Bash key
@@ -333,10 +333,11 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     PS1="\h\$(__git_ps1) \w > "
     ```
 
-    Note, this is only a rudimentary prompt configuration, usually you will
-    want to spruce it up. For example, one can install and use a Bash prompt
-    script, such as [seafly](https://github.com/bluz71/bash-seafly-prompt) or
-    [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which
+    Note, this is only a rudimentary prompt configuration, usually you will want
+    to spruce it up. For example, one can install and use a Bash prompt script,
+    such as my own [seafly prompt](https://github.com/bluz71/bash-seafly-prompt)
+    or alternatively
+    [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt), which both
     will emit Git details with visual flair..
 
 - Automatically shorten deep paths in the prompt. The `\w` option in `PS1`
@@ -523,7 +524,7 @@ The following posts detail some of the capabilities of *fzf*:
 
 With respect to Bash and *fzf*, I do recommend sourcing the [fzf Bash
 keybindings](https://github.com/junegunn/fzf#key-bindings-for-command-line) in
-`~/.bashrc`. For example, for a Homebrew installation of *fzf* that would be:
+`~/.bashrc`. For example, with a Homebrew installation of *fzf* that would be:
 
 ```sh
 . $(brew --prefix)/opt/fzf/shell/key-binding.bash
@@ -555,9 +556,9 @@ The qmv Rename Utility
 
 The [qmv](https://www.nongnu.org/renameutils) utility is used to rename files
 by way of an auto-generated document of filenames that will be opened in your
-editor ready for modification; the renames will be applied after the editor has
-exited. This utility is especially useful for bulk renames where the power of
-editor substitution can be used to quickly specify the desired renames.
+preferred editor; the renames will be applied after the editor has exited. This
+utility is especially useful for bulk renames where the power of editor
+substitution can be used to quickly specify the desired renames.
 
 `qmv` installation for macOS via Homebrew:
 

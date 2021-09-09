@@ -32,6 +32,10 @@ language-aware actions, in Vim.
 Feel free to refer to my [dotfiles](https://github.com/bluz71/dotfiles) to view
 my particular LSP configuration.
 
+**UPDATE (Sep 2021)**: I now use Neovim's inbuilt LSP client instead of the LSC
+plugin. However, the core concepts discussed in this apply apply to whichever
+LSP client one chooses to use.
+
 Prerequisites
 -------------
 
@@ -134,8 +138,11 @@ An LSP client on the other-hand is editor tooling that supports communication
 with a language server employing the Language Server Protocol. As of the time of
 this post, October 2019, neither Vim nor Neovim provide out-of-the-box support
 for LSP. However, a future version of Neovim will provide LSP support as noted
-[in this pull request](https://github.com/neovim/neovim/pull/10222). In the
-meantime there are multiple Vim plugins that do provide LSP support.
+[in this pull request](https://github.com/neovim/neovim/pull/10222).
+
+**UPDATE (Sep 2021)**: Neovim 0.5 ships with an LSP client.
+
+In the meantime there are multiple Vim plugins that do provide LSP support.
 
 Certain code completions frameworks also include direct LSP support whilst
 others delegate such duties to a separate LSP-client plugin.
@@ -377,7 +384,7 @@ The LSC plugin auto-completing JavaScript.
 Ruby Language Server
 --------------------
 
-[Solargraph](https://github.com/castwide/solargraph) is the prime LSP-compliant
+[Solargraph](https://github.com/castwide/solargraph) is an LSP-compliant
 language server for [Ruby](https://www.ruby-lang.org).
 
 Install Solargraph with the following command:
@@ -448,7 +455,7 @@ Language | Language Server | Command
 --- | --- | ---
 C/C++ | [clangd](https://clang.llvm.org/extra/clangd) | `clangd`
 Go | [gopls](https://github.com/golang/tools/tree/master/gopls) | `gopls serve`
-Python | [Python Language Server](https://github.com/palantir/python-language-server) | `pyls`
+Python | [pyright](https://github.com/microsoft/pyright) | `pyright --stdio`
 Rust | [Rust Analyzer](https://rust-analyzer.github.io) | `rust-analyzer`
 Swift | [SourceKit-LSP](https://github.com/apple/sourcekit-lsp) | `sourcekit-lsp`
 

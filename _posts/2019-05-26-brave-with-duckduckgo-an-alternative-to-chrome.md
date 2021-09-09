@@ -252,4 +252,4 @@ and Google Search respectively, diversifying will incur little compromise whilst
 reaping genuine dividends, especially regarding privacy.
 
 The more people that use products like Brave and DuckDuckGo, the healthier the
-Web will be. Please give these alternatives a try :beers:
+web will be. Please give these alternatives a try :beers:

@@ -20,7 +20,7 @@ throughout a project's entire codebase.
 
 Vim does not prescribe a way to do such refactors, for example: one may execute
 a find followed by `cw` (change-word) and then repeat with `n.n.n.`, or one may
-use the `:%substitute` command, to name two choices among many.
+use the `:%substitute` command, to name a couple choices among many.
 
 This post will highlight my new helpers for _finding & replacing_ in Vim for
 the following three scenarios:
@@ -43,18 +43,22 @@ should be viewed as a _resource of possibilities_.
 Prerequisites
 -------------
 
-A fairly modern version of Vim, at least [Vim
+A modern version of Vim, at least [Vim
 7.4.858](https://www.vim.org/download.php) or [Neovim
 0.2.0](https://github.com/neovim/neovim/wiki/Installing-Neovim), is required
 since some helpers make use of the modern `gn` and `:cfdo` commands.
 
 The project-wide helper will also make use of the
-[ripgrep](https://github.com/BurntSushi/ripgrep) command-line search tool and
-the [Grepper](https://github.com/mhinz/vim-grepper) Vim plugin. The ripgrep tool
-is documented in [this
-article](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html)
-whilst the Grepper plugin is documented
-[here](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper).
+[ripgrep](https://github.com/BurntSushi/ripgrep) command-line search tool. The
+ripgrep tool is documented in [this
+article](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
+
+Please set ripgrep as the preferred grep tool in your `~/.vimrc`:
+
+```viml
+set grepprg=rg\ --vimgrep\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+```
 
 The `:substitute`-based helpers assume global replacement has been set in your
 `~/.vimrc`
@@ -64,8 +68,8 @@ set gdefault
 ```
 
 :bomb: I am aware this is a controversial setting since it **may** break
-**some** plugins. Note, after many years I have yet to experience any
-deleterious effects with the plugins I use, whilst I thoroughly detested the
+**some** plugins. But, after many years I have yet to experience any
+deleterious effects with the plugins I use, whilst I thoroughly detest the
 need to enter `/g` with every `:substitute` command prior to that. Your mileage
 may vary.
 
@@ -97,7 +101,7 @@ autocmd! CmdwinEnter *        nnoremap <buffer> <CR> <CR>
 
 Initiate nearby replacements by executing `<Leader>c` on the word to be
 replaced, or for the current visual selection, type the new text and then hit
-`Escape` to complete the change. The dot operator will immediately repeat that
+`Esc` to complete the change. The dot operator will immediately repeat that
 change forward for the next match, hit dot again to continue repeating the
 change. However, if one wishes to individually accept or reject each change then
 the *enter* and *exclamation mark* mappings listed above will prove useful;
@@ -117,8 +121,8 @@ Find & Replace in the Current File
 Helpers to add to `~/.vimrc`
 
 ```viml
-nnoremap <Leader>s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
-xnoremap <Leader>s "sy:%s/<C-r>s//<Left>
+nnoremap \s :%s/<C-r><C-w>//<Left>
+xnoremap \s "sy:%s/<C-r>s//<Left>
 ```
 
 As most Vim users will be aware, the `:substitute` command when prefixed with
@@ -154,40 +158,28 @@ Project-wide Find & Replace
 Helpers to add to `~/.vimrc`
 
 ```viml
-nnoremap <Leader>S
+nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
+  \ :silent grep <C-r><C-w><CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xmap <Leader>S
-  \ "sy \|
-  \ :GrepperRg <C-r>s<CR>
+xnoremap \S
+  \ "sy\|
+  \ :silent grep <C-r>s<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 ```
 
 Note, please make sure [ripgrep](https://github.com/BurntSushi/ripgrep) is
-available on the host and that the
-[Grepper](https://github.com/mhinz/vim-grepper) Vim plugin is installed and
-configured with these settings.
+available on the host. Again for reference, I have documented both the ripgrep
+tool
+[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
 
-```viml
-let g:grepper = {}
-let g:grepper.tools = ["rg"]
-```
-
-Again for reference, I have documented both the ripgrep tool and the Grepper
-plugin
-[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html)
-and
-[here](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper)
-respectively.
-
-The above-listed `<Leader>S` helpers use ripgrep, via the Grepper plugin, to do a
-project-wide search on either the word under the cursor or the current visual
+The above-listed `<Leader>S` helpers use ripgrep, via the `grep` command, to do
+a project-wide search on either the word under the cursor or the current visual
 selection, followed by a pre-populated substitution by way of the `:cfdo`
 [command](https://bluz71.github.io/2017/05/15/vim-tips-tricks.html#cfdo) on the
-Grepper matched files in the _quickfix_ list. Yes, the mapping and the
+grep matched files in the _quickfix_ list. Yes, the mapping and the
 explanation are convoluted, but in use it really is quite simple.
 
 Note, if confirmation for each replacement is required than append `/c` to the

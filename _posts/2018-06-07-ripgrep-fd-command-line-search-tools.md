@@ -96,9 +96,13 @@ echo tmp >> ~/.rgignore
 Vim integration
 ---------------
 
-If you are a [Vim](https://www.vim.org) user, then I recommend reading
-[these vim-grepper](https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html#vim-grepper)
-details. This will nicely integrate ripgrep into Vim.
+If you are a [Vim](https://www.vim.org) user, then I recommend the following
+settings to integrate ripgrep as the preferred external `grepprg`:
+
+```viml
+set grepprg=rg\ --vimgrep\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+```
 
 <a id="fd"></a>**fd** (file find)
 =================================

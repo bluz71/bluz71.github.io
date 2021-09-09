@@ -239,32 +239,6 @@ it:
 
 - If no directories match then exit immediately
 
-### Find File with Term and Edit
-
-```sh
-fzf_grep_edit(){
-    if [[ $# == 0 ]]; then
-        echo 'Error: search term was not provided.'
-        return
-    fi
-    local match=$(
-      rg --color=never --line-number "$1" |
-        fzf --no-multi --delimiter : \
-            --preview "bat --color=always --line-range {2}: {1}"
-      )
-    local file=$(echo "$match" | cut -d':' -f1)
-    if [[ -n $file ]]; then
-        $EDITOR "$file" +$(echo "$match" | cut -d':' -f2)
-    fi
-}
-
-alias fge='fzf_grep_edit'
-```
-
-Fuzzy find a file, with colorful preview, that contains the supplied term, then
-once selected edit it in your preferred editor. Note, if your `EDITOR` is Vim
-or Neovim then you will be automatically scrolled to the selected line.
-
 ### Find and Kill Process
 
 ```sh

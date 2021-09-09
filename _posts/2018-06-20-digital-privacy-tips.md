@@ -8,19 +8,19 @@ published: true
 Digital Privacy Tips
 ====================
 
-We live in an age where almost everyone in the digital domain is being
-surveilled, profiled and targeted. That may be at a nation-state level, such as
-by the American [NSA](https://en.wikipedia.org/wiki/National_Security_Agency)
-and British
+We live in an age where almost everyone in cyberspace is being surveilled,
+profiled or targeted. That may be at a nation-state level, such as by the
+American [NSA](https://en.wikipedia.org/wiki/National_Security_Agency) and
+British
 [GCHQ](https://en.wikipedia.org/wiki/Government_Communications_Headquarters)
 with their mass-surveillance systems, or it may be at a private enterprise
 level, such as by the internet giants Google and Facebooks with their targeted
 advertising systems.
 
 Digital privacy is the right to protect your personal information from:
-unpermitted collection, unpermitted use, and unpermitted distribution to third
-parties. This guide contains practical tips and suggestions that readers can
-use to increase their privacy in this hostile digital domain.
+unpermitted collection, unpermitted use, and unpermitted distribution. This
+guide contains practical tips and suggestions that readers can use to increase
+their privacy in this hostile environment.
 
 Security
 ========
@@ -30,9 +30,7 @@ strong security regime in place. Please read this [Sensible Computing Security
 Tips](https://bluz71.github.io/2017/11/12/sensible-computing-security-tips.html)
 post as a starting point to secure your digital devices.
 
-You can not be private unless you are first secure. Please keep up-to-date,
-enable disk encryption, use strong unique passwords and don't be a victim of
-phishing and social engineering.
+You can not be private unless you are first secure.
 
 ISP Snooping
 ============
@@ -68,8 +66,6 @@ Security-focussed VPN providers that I trust.
 - [ProtonVPN](https://protonvpn.com)
 
 - [VPN.AC](https://vpn.ac)
-
-- [AirVPN](https://airvpn.org)
 
 Note, the location of the provider and the end-point of a specific VPN
 connection may also need to be factored in, especially if escaping [Five
@@ -145,26 +141,15 @@ Chrome](https://bluz71.github.io/2019/05/26/brave-with-duckduckgo-an-alternative
 
 Privacy can be enhanced by tweaking the following Brave settings.
 
-- `Brave Shields default`, `Fingerprintig protection` change to `Block
-  all fingerprinting`
-
 - `Social Buttons and Logins`, disable all choices
 
-- `Privacy and security`, disable `Use a web service to help resolve navigation
-  errors`, `Use a prediction service to load pages more quickly` and `Allow
-  sites to check if you have payment methods saved`
+- `Privacy and security`, disable `Auto-complete searches and URLs`
 
 - `Privacy and security`, change `WebRTC IP Handling Policy` to `Disable
   Non-Proxied UDP`
 
-- In `Site Settings` / `Cookies` enable `Keep local data only until you quit
-  your browser`
-
-Note, the last cookie setting will clear your session cookies upon browser exit.
-Session cookies can be used to track and de-anonymize users, by clearing them
-you increase privacy at the expense of frequent re-login into web services. This
-latter inconvenience is not that onerous with browser auto-filled usernames and
-passwords.
+- `Privacy and security` / `Cookies and other site data` enable `Block
+  third-party cookies`
 
 Email
 =====
@@ -301,10 +286,10 @@ Privacy-respecting alternatives to Google search.
 
 - [DuckDuckGo](https://duckduckgo.com)
 
-- [StartPage](https://www.startpage.com) (uses anonymized Google search results
-    under the covers)
+- [Brave Search](https://search.brave.com)
 
-- [Quant](https://lite.qwant.com)
+- [StartPage](https://www.startpage.com) (uses anonymized Google search results
+  under the covers)
 
 Facebook
 ========
@@ -558,8 +543,8 @@ Conclusion
 ==========
 
 The right to privacy is a fundamental human right, not just a privilege, and
-that same right should transfer across to the digital domain. But the reality
-is privacy in the digital domain either does not exist or is being eroded.
+that same right should transfer across to cyberspace. But the reality
+is privacy in cyberspace either does not exist or is being eroded.
 
 Some would say, *I have nothing to hide, so why should I care*. The following
 quotes are my answer to anyone with such a dismissive attitude.

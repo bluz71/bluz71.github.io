@@ -139,7 +139,7 @@ following.
 
 ```viml
 let mapleader = " "
-nnoremap <silent> <Leader><Space> :Files<CR>
+nnoremap <silent> <Space><Space> :Files<CR>
 ```
 
 Hitting SPACE SPACE quickly brings up the fuzzy file finder. An alternative
@@ -154,13 +154,13 @@ Sibling files
 -------------
 
 Sometimes one may need to edit a sibling file of the currently edited file,
-that being a file in the same directory with that current file.
+that being a file in the same directory of the current file.
 
 This SPACE DOT mapping will open the fuzzy finder just for the directory
 containing the currently edited file.
 
 ```viml
-nnoremap <silent> <Leader>. :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Space>. :Files <C-r>=expand("%:h")<CR>/<CR>
 ```
 
 Project navigation
@@ -179,22 +179,22 @@ whilst models are located in `app/models` and lastly views are located in
 access to controller, model and view files.
 
 ```viml
-nnoremap <silent> <Leader>ec :Files app/controllers<CR>
-nnoremap <silent> <Leader>em :Files app/models<CR>
-nnoremap <silent> <Leader>ev :Files app/views<CR>
+nnoremap <silent> <Space>ec :Files app/controllers<CR>
+nnoremap <silent> <Space>em :Files app/models<CR>
+nnoremap <silent> <Space>ev :Files app/views<CR>
 ```
 
 A React application, on the other hand, may be navigated with the following
 mappings.
 
 ```viml
-nnoremap <silent> <Leader>ec :Files src/components<CR>
-nnoremap <silent> <Leader>et :Files src/__tests__/components<CR>
+nnoremap <silent> <Space>ec :Files src/components<CR>
+nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 ```
 
 When dealing with multiple frameworks I recommend scoping such key mappings by
 searching for a distinguishing file, that way key mappings can be reused such
-as the `<Leader>ec` mapping noted above.
+as the `<Space>ec` mapping noted above.
 
 For example:
 
@@ -219,7 +219,7 @@ The `:Buffers` command is used to quickly switch to an open buffer.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Space>b :Buffers<CR>
 ```
 
 GFiles? command
@@ -231,7 +231,7 @@ repository whilst also allowing easy navigation to modified files.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <Leader>g :GFiles?
+nnoremap <silent> <Space>g :GFiles?
 ```
 
 Tags command
@@ -245,8 +245,8 @@ whilst `:Tags` will use the complete project tags.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <Leader>]  :Tags<CR>
-nnoremap <silent> <Leader>b] :BTags<CR>
+nnoremap <silent> <Space>] :Tags<CR>
+nnoremap <silent> <Space>B :BTags<CR>
 ```
 
 Commits command
@@ -264,8 +264,8 @@ let g:fzf_commits_log_options = '--graph --color=always
   \ --format="%C(yellow)%h%C(red)%d%C(reset)
   \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
 
-nnoremap <silent> <Leader>c  :Commits<CR>
-nnoremap <silent> <Leader>bc :BCommits<CR>
+nnoremap <silent> <Space>C :Commits<CR>
+nnoremap <silent> <Space>c :BCommits<CR>
 ```
 
 The `g:fzf_commits_log_options` option customizes the appearance of Git log
@@ -285,8 +285,8 @@ about](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.
 The [fzf.vim](https://github.com/junegunn/fzf.vim) plugin provides access
 to ripgrep with the `:Rg` and `:Rg!` commands. Both commands should be
 launched with a search term, for example `:Rg my_search_term`. The bang
-version, `:Rg!`, launches a fullscreen window whilst `:Rg` launches the usual
-bottom-of-screen split window.
+version, `:Rg!`, launches a fullscreen window whilst `:Rg` launches a separate
+window.
 
 Once a search has been completed, fzf can be used to filter the results to just
 those of interest. If only one selection is chosen then that match will be
@@ -298,8 +298,7 @@ all matches. Note, use `Alt-a` and `Alt-d` to select and deselect all matches.
 ### Example key mapping
 
 ```viml
-nnoremap <Leader>rg :Rg<Space>
-nnoremap <Leader>RG :Rg!<Space>
+nnoremap <Space>/ :Rg<Space>
 ```
 
 The preview window can be toggled with the QUESTION MARK key.
@@ -329,7 +328,7 @@ please adjust the above statement appropriately.
 ### Example key mapping
 
 ```viml
-nnoremap <silent> <Leader>m :FZFMru<CR>
+nnoremap <silent> <Space>m :FZFMru<CR>
 ```
 
 The SPACE m key combination will launch the fzf window with a list of recently

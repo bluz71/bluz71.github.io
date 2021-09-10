@@ -38,12 +38,12 @@ prefixes and to group like operations under the same prefix.
 
 In my case I now use four prefix keys for my personal mappings (aka leaders):
 
-- `,` prefix for all windowing operation mappings (splits, tabs, switching, file drawer
-  etc)
+- `,` prefix for all window operation mappings (e.g. splits, tabs, switching, file
+  drawer etc)
 
-- `<Space>` prefix for fuzzy finding operation mappings (files, buffers, helptags etc)
+- `<Space>` prefix for fuzzy finding mappings (e.g. files, buffers, helptags etc)
 
-- `'` prefix for plugin operation mappings (running tests, easy motions etc)
+- `'` prefix for plugin operation mappings (e.g. running tests, easy motions etc)
 
 - `\` prefix for my [find and replace
   helpers](https://bluz71.github.io/2019/03/11/find-replace-helpers-for-vim.html)
@@ -97,14 +97,12 @@ decrement numbers.
 
 In normal mode, entering `ctrl-a` will increment the first number to the right
 of the cursor on the current line. Preceded by a count `ctrl-a` will increment
-by the count amount. The `ctrl-x` command will do the reverse operation of
-decrementing.
+by the count amount. The `ctrl-x` command will do the reverse decrement
+operation.
 
 Personally, I don't like increment and decrement to take octal and hex
 numbers into account, I prefer an increment on `07` to result in `08` and not
-`010`.
-
-Blanking the `nrformats` option will force decimal-based arithmetic.
+`010`. Blanking the `nrformats` option will force decimal-based arithmetic.
 
 ```viml
 set nrformats=
@@ -124,7 +122,7 @@ A very useful Vim increment capability is the `g ctrl-a` command which can
 increment a sequence of numbers in a vertical visual selection.
 
 Say for example you have the following three lines in a visual selection (aka
-using `ctrl-v` block selection).
+using `ctrl-v` block selection):
 
 ```
 0
@@ -230,7 +228,7 @@ nnoremap [s [szz
 Go to the other end of a visual selection
 ----------------------------------------
 
-Hit `o` to go to the other of the current visual selection, for example if you
+Hit `o` to go to the other of the current visual selection; for example if you
 wish to extend the visual selection (at the other end). This works for all types
 of visual selection, including line and block selections.
 
@@ -274,7 +272,7 @@ the following `Q` mapping:
 xnoremap Q :'<,'>:normal @q<CR>
 ```
 
-Typing `Q` with a visual line selection in effect will execute the `q` macro
+Typing `Q`, with a visual line selection in effect, will execute the `q` macro
 over just the selected lines.
 
 Redirect change operations to the blackhole
@@ -329,7 +327,7 @@ Signs in the number column
 Many years ago I never used the `signcolumn`. Then linting and language server
 protocol became a part of my workflow, hence the `signcolumn` became a
 necessity. However, I was never happy with the styling choices available; either
-have the `signcolumn` permanently open, thereby losing two or more characters of
+have the `signcolumn` permanently on, thereby losing two or more characters of
 horizontal real estate, or have the `signcolumn` automatically open if in use,
 which would result in a jarring sideways shift as the `signcolumn` came into and
 out of existence (when linting that would happen often).

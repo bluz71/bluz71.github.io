@@ -160,7 +160,9 @@ Helpers to add to `~/.vimrc`
 ```viml
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :let &grepprg=&grepprg . ' -w'<CR>
   \ :silent grep <C-r><C-w><CR>
+  \ :let &grepprg='rg --vimgrep --smart-case'<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xnoremap \S

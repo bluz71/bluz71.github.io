@@ -8,6 +8,8 @@ published: true
 Find & Replace Helpers for Vim
 ==============================
 
+**UPDATED SEPTEMBER 2021**
+
 The post, [how do you handle these common find / replace use
 cases](https://www.reddit.com/r/vim/comments/armt3o/how_do_you_handle_these_common_find_replace_use),
 from the [Vim subreddit](https://www.reddit.com/r/vim) was the spark that led

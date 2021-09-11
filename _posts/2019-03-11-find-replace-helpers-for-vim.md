@@ -123,8 +123,8 @@ Find & Replace in the Current File
 Helpers to add to `~/.vimrc`
 
 ```viml
-nnoremap \s :%s/<C-r><C-w>//<Left>
-xnoremap \s "sy:%s/<C-r>s//<Left>
+nnoremap <Leader>s :%s/<C-r><C-w>//<Left>
+xnoremap <Leader>s "sy:%s/<C-r>s//<Left>
 ```
 
 As most Vim users will be aware, the `:substitute` command when prefixed with
@@ -160,14 +160,14 @@ Project-wide Find & Replace
 Helpers to add to `~/.vimrc`
 
 ```viml
-nnoremap \S
+nnoremap <Leader>S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
   \ :let &grepprg=&grepprg . ' -w'<CR>
   \ :silent grep <C-r><C-w><CR>
   \ :let &grepprg='rg --vimgrep --smart-case'<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xnoremap \S
+xnoremap <Leader>S
   \ "sy\|
   \ :silent grep <C-r>s<CR>
   \ :cfdo %s/<C-r>s// \| update

@@ -306,8 +306,13 @@ Insert mode clipboard pasting
 why not use it also to paste from the system clipboard when in insert mode.
 
 ```viml
-inoremap <C-v> <C-r>*
+inoremap <C-v> <C-r>+
 ```
+
+:point_right: `Control-v`, by default, is used to insert literal text. For
+example, to insert a literal `Alt-t` one would do `Control-v` followed by
+`Alt-t` in insert mode. Thankfully `Control-q` does the exact same literal
+insertion; please use `Control-q` instead for literal text insertion.
 
 Automatically equalize splits when Vim is resized
 -------------------------------------------------

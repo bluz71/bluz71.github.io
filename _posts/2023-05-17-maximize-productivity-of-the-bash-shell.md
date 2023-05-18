@@ -8,92 +8,78 @@ published: false
 Maximize Productivity Of The Bash Shell
 =======================================
 
-Introduction
+This is a 2023 followup to my 2018 [Bash Shell Tweaks &
+Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) article.
 
-Talk about Zsh and Fish.
+Since that last article there has been a renaissance in shell-agnostic command
+line tooling, often implemented in high-performance
+[Rust](https://www.rust-lang.org).
 
-Benefits Of The Bash Compared To The Alternatives
--------------------------------------------------------
+In this article, just to name a few: we will enable a host of useful available
+Bash shell options, we will script automatic `pushd` with `Alt-Left` /
+`Alt-Right` directory stack navigation, we will integrate an interactive
+completion interface and we will use modern tooling to sensibly improve the
+interactive Bash experience.
 
-Even with macOS switching their default shell to Zsh, Bash is still a highly
-ubiquitous shell used by default for most Linux systems along with the Windows
-Subsystem for Linux (WSL).
+Bash Compared To The Alternatives
+---------------------------------
 
-However, these days, one of the prime benefits of Bash is simplicity and
-stability.
+Let's first compare Bash aginst the [Zsh](https://www.zsh.org) &
+[Fish](https://fishshell.com) alternative shells. Note, take my opinions with a
+large pinch of salt.
 
-For example, the Zsh completion system is more capable than the Bash completion
-system, but at the same time it's configuration [is far more
-complex](https://thevaluable.dev/zsh-completion-guide-example).
+From my perspective these are some the of the weak points of the Bash compared
+to Zsh and Fish:
 
-Unlike Zsh, Bash does not have a thriving plugin eco-system. That is
-viewed as a negative, less functionality, but it is also a positive in that Bash
-users tend to have simpler, smaller and more stable shell setups as [noted by
-this comment](https://news.ycombinator.com/item?id=30976207). Zsh on the other
-hand has a thriving community of plugins, plugin manager and frameworks. For
-example here is a partial list of available Zsh frameworks and plugin managers:
+- No longer the default shell for macOS since Catalina (2019)
+- Primitive *completion* & *auto-correction* subsystems; for example command
+  completions will lack descriptions
+- Threadbare community plugin ecosystem, unlike Zsh's
+  [Oh-My-Zsh](https://ohmyz.sh) or Fish's
+  [Fisher](https://github.com/jorgebucaran/fisher)
+- GNU Readline line-editor, which Bash uses, lacks certain capabilities such as
+  [autosuggestion](https://github.com/zsh-users/zsh-autosuggestions) & [syntax
+  highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- Does not support right-side prompt
+- Vi-editing mode vs Vim-editing mode available in Zsh
 
-- [Oh-My-Zsh](https://github.com/ohmyzsh)
-- [Prezto](https://github.com/sorin-ionescu/prezto)
-- [Zim](https://github.com/zimfw/zimfw)
-- [Zinit](https://github.com/zdharma-continuum/zinit)
-- [zplug](https://github.com/zplug/zplug)
-- [Antidote](https://getantidote.github.io/)
-- [Znap](https://github.com/marlonrichert/zsh-snap)
-- [zcomet](https://github.com/agkozak/zcomet)
-- [zgenom](https://github.com/jandamm/zgenom)
-- [Zap](https://github.com/zap-zsh/zap)
+And now some of the strong points of Bash compared to the alternatives:
 
-Which to choose? Oh-My-Zsh is the most popular, but at the same time there is
-[critism of the quality of the Oh-My-Zsh
-codebase](https://archive.zhimingwang.org/blog/2015-05-03-why-oh-my-zsh-is-completely-broken.html).
+- Still the default shell for most Linux distributions and the Windows Subsystem
+  for Linux
+- Well documented, both online and printed
+- Simplicity, especially compared to Zsh which is both [more flexible, yet more
+  complex](https://thevaluable.dev/zsh-completion-guide-example)
+- Speed & latency compared to fully tricked out Zsh configuration which can
+  slow down due to Oh-My-Zsh bloat and other line-editing smarts such as
+  *autocorrection*, *autosuggestion* & *syntax highlighting*
+- Fully POSIX compliant unlike Fish; the importance of this will vary per user
+- Lack of community plugin ecosystem avoids [the paradox of
+  choice](https://en.wikipedia.org/wiki/The_Paradox_of_Choice); for example
+  which Zsh plugin manager / framework to use:
+  [Oh-My-Zsh](https://github.com/ohmyzsh),
+  [Prezto](https://github.com/sorin-ionescu/prezto),
+  [Zim](https://github.com/zimfw/zimfw),
+  [Zinit](https://github.com/zdharma-continuum/zinit), or no plugin manager at
+  all?
 
-Zsh, which syntax highlighting engine to use, []
-[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-or [Fast Syntax Highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)?
+Be aware, this is a not a exhaustive list.
 
-Zsh, sometimes plugins are incompatible with certain versions? LOOK FOR AN
-EXAMPLE.
+Dispelling Bash Misconceptions
+------------------------------
 
-Fish is not POSIX.
+From time to time I still encounter misinformation about Bash limitations,
+before moving on let's dispel some misconceptions:
 
-With Bash one tends to set and forget; some functionality is traded in for less
-terminal tweaking.
-
-Misconceptions Of The Bash
---------------------------
-
-There still exists some misconception about Bash limitations that are no longer
-valid, for example:
-
-- [Changing directories](https://kbknapp.dev/shell-setup) without typing `cd`,
-'autocd' exists
-- [Case-insensitive path](https://kbknapp.dev/shell-setup) auto-correction,
-  `cdspell` and `dirspell` exists
-- globstar `**`
-- [Shared command history]
-- [Tab completion cycling](https://www.fosslinux.com/58416/bash-vs-zsh-differences.htm)
-- Command and context-aware completion, for example `git` option completion,
-    bash-completion exists
-- `autopushd` and Fish-like `Alt-Left` / `Alt-Right` directory stack navigation
-- Interactive completion, refer to `fzf-tab-completion`
-
-https://www.quora.com/What-is-the-difference-between-bash-and-zsh
-
-Limitations Of Bash
--------------------
-
-- Capabilities Zsh & Fish has over and above Bash
-  - Command line syntax highlighting: https://github.com/zdharma-continuum/fast-syntax-highlighting
-  - Auto-suggestions: https://github.com/zsh-users/zsh-autosuggestions
-  - Interative & descriptive completions
-  - Right-side prompt
-  - Proper Vim mode as against Vi mode (I prefer Alt-e)
-  - Global aliases
-  - auto-expanding aliases
-  - Recursive path expansion, cd /u/sh expands to /usr/share
-
-Zsh much more capable and flexible.
+- Bash supports changing directories without the `cd` command via the `autocd`
+  shell option
+- Bash supports simple filepath *autocorrection* via the the `cdspell` and
+  `dirspell` shell options
+- `**` globbing is supported via the `globstar` shell option
+- Command `history` can be shared between Bash instances
+- Bash support *tab-completion* cycling
+- Command and context-aware completion is supported via the `bash-completion`
+  package
 
 Recommendations
 ---------------
@@ -130,6 +116,7 @@ Modern Tooling
   - vf and cf recipes
   - gll & glS recipes
 - Tools
+  - starship / seafly
   - exa
   - zoxide
   - bat

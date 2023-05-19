@@ -21,6 +21,22 @@ Bash shell options, we will script automatic `pushd` with `Alt-Left` /
 completion interface and we will use modern tooling to sensibly improve the
 interactive Bash experience.
 
+Dispelling Bash Misconceptions
+------------------------------
+
+From time to time I still encounter misinformation about Bash limitations,
+before moving on let's dispel some misconceptions:
+
+- Bash supports changing directories without the `cd` command via the `autocd`
+  shell option
+- Bash supports simple filepath *autocorrection* via the the `cdspell` and
+  `dirspell` shell options
+- `**` globbing is supported via the `globstar` shell option
+- Command `history` can be shared between Bash instances
+- Bash support *tab-completion* cycling
+- Command and context-aware completion is supported via the `bash-completion`
+  package
+
 Bash Compared To The Alternatives
 ---------------------------------
 
@@ -64,22 +80,6 @@ And now some of the strong points of Bash compared to the alternatives:
   all?
 
 Be aware, this is a not a exhaustive list.
-
-Dispelling Bash Misconceptions
-------------------------------
-
-From time to time I still encounter misinformation about Bash limitations,
-before moving on let's dispel some misconceptions:
-
-- Bash supports changing directories without the `cd` command via the `autocd`
-  shell option
-- Bash supports simple filepath *autocorrection* via the the `cdspell` and
-  `dirspell` shell options
-- `**` globbing is supported via the `globstar` shell option
-- Command `history` can be shared between Bash instances
-- Bash support *tab-completion* cycling
-- Command and context-aware completion is supported via the `bash-completion`
-  package
 
 Recommendations
 ---------------

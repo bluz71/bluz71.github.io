@@ -24,18 +24,18 @@ modern command line tooling to sensibly improve the interactive experience,
 among other tips and suggestions.
 
 Note, my [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) and
-[inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files are
-available at GitHub for reference.
+[inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files
+integrate all the upcoming suggestions listed in this article.
 
 Dispelling Bash Misconceptions
 ------------------------------
 
 Before proceeding, it is worth correcting some Bash misconceptions that still
-occasionally persist:
+intermittently persist:
 
 - Bash supports changing directories without entering the `cd` command
 - Bash supports simple file and directory path *autocorrection*
-- `**` globbing is supported
+- `**` recursive globbing is supported
 - Command `history` can be shared between Bash instances
 - Bash does support *tab-completion* cycling
 - Command and context-aware completion is supported through the Bash Completion
@@ -83,8 +83,8 @@ In recent years there has been a resurgence in terminal emulator development,
 mirroring the previously mentioned renaissance in shell-agnostic command line
 tooling.
 
-Currently, I recommend the use of a terminal emulator that: is cross platform,
-is GPU-accelerated and supports a text configuration that can be stored in a Git
+I recommend the use of a terminal emulator that: is cross platform, is
+GPU-accelerated and supports a text configuration that can be stored in a Git
 repository.
 
 Any of these fine terminal emulators will will meet those expectations:
@@ -103,11 +103,10 @@ is used by Bash, and certain other utilities, for line-editing and certain
 history management.
 
 Many beneficial Readline capabilities are disabled by default; thankfully it is
-very easy to enable these features for the betterment of the interactive
-experience.
+easy to enable these features for the betterment of the interactive experience.
 
 The Readline library is configured through the `~/.inputrc` file. I use and
-recommend these settings:
+recommend these settings, with comments provided detailing each setting:
 
 ```sh
 # TAB cycles forward through and Shift-TAB cycles backward through completion
@@ -160,6 +159,8 @@ It is instructive to highlight a few capabilities enabled above:
 
 - The `<TAB>` and `<Shift-Tab>` keys will now cycle completions choices
 
+- Completions will commence after pressing the `<TAB>` just once
+
 - Partially typing a command and pressing `<Up>` will engage `history` substring
   matching, not just start of line matching
 
@@ -173,8 +174,8 @@ Shell Options
 Somewhat similar to the previous Readline section, Bash provides a number of
 useful shell options that are disabled by default.
 
-Shell options should be set in `~/.bashrc`. These are the options I use and
-recommend:
+Shell options should be set in `~/.bashrc`. I use and recommend these options,
+with comments detailing each option:
 
 ```sh
 #  - autocd - change directory without entering the 'cd' command
@@ -190,26 +191,141 @@ shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 ```
 
-Bash Configuration
-------------------
+These options elevate the interactive experience, it is somewhat baffling why
+they are disabled by default.
 
-- History
-  - Refer to: https://metaredux.com/posts/2020/07/07/supercharge-your-bash-history.html
-- Completion
-- LS_COLORS
-- Prompt
+History
+-------
+
+In its out of the box configuration, the [Bash
+history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html)
+experience is quite primitive:
+
+- Each running shell will have it's own history, and when a shell ends the
+  running history of the current shell will entirely replace the contents of
+  `~/.bash_history` file
+- Hence, history from the next exiting shell will then overwrite the history of
+  the previously exited shell
+- History will not be shared between concurrent shell sessions
+- Duplicates will exist in the current session history
+- Only the last 500 commands are preserved
+
+Fortunately it is easy to greatly improve Bash history.
+
+Firstly, in the previous *Shell Options* section we enabled the important `shopt
+-s histappend` option which appends the current shell history to the history
+file rather than overwriting it.
+
+And to compliment that shell option change these are history controls I
+recommend in `~/.bashrc`:
+
+```sh
+HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+HISTIGNORE=?:??                  # Ignore one and two letter commands
+HISTFILESIZE=99999               # Max size of history file
+HISTSIZE=99999                   # Amount of history to preserve
+```
+
+Lastly to share history between concurrent shell sessions:
+
+```
+PROMPT_COMMAND="history -a; history -n"
+```
+
+This will immediately append the current shell history to the history file and
+load history from other active sessions in the the current shell history each
+time the prompt is updated.
+
+Prompt
+------
+
+Speaking of prompts, an informative, colorful and configurable prompt is greatly
+beneficial nowadays. The cross-shell [Starship](https://starship.rs) prompt has
+quickly become a favourite due to its compatibility and customization
+simplicity. For many, Starship is all the prompt they will ever need.
+
+If using Homebrew, install as follows:
+
+```sh
+brew install starship
+```
+
+Then add the following to `~/.bashrc`:
+
+```sh
+eval "$(starship init bash)"
+```
+
+And configure according to [the documentation](https://starship.rs/config) on
+the Starship website.
+
+Be aware, Starship has now taken control of the `PROMPT_COMMAND` and the history
+sharing noted in the previous section will no longer apply. I am lead to believe
+the following `~/.bashrc` configuration will restore history sharing:
+
+```sh
+function history_sharing(){
+    history -a && history -n
+}
+starship_precmd_user_func="history_sharing"
+```
+
+With all that said, I still use my own
+[bash-seafly-prompt](https://github.com/bluz71/bash-seafly-prompt) extension
+instead, which predates Starship, and which also has [superior Git status
+performance](https://github.com/romkatv/gitstatus/issues/385#issuecomment-1532411950)
+especially when combined with either the
+[git-status-fly](https://github.com/bluz71/git-status-fly) or
+[gitstatus](https://github.com/romkatv/gitstatus) utilities.
+
+Other popular choices include:
+
+- [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt)
+- [Liquid Prompt](https://github.com/nojhan/liquidprompt)
+
+Fuzzy Finding
+-------------
+
+These days it is hard to imagine using an interactive shell without fuzzy
+finding integration. The [fzf](https://github.com/junegunn/fzf) is the most
+popular such fuzzy finding tool.
+
+I wrote [Fuzzy Finding in Bash with
+fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
+article a few years ago. That article is still relevant and applicable these
+days; if time permits I do recommend reading it.
+
+In terms of the Bash shell, if using Homebrew install `fzf` as follows:
+
+```sh
+brew install fzf
+```
+
+Then add the following key-binding configuration to `~/.bashrc`:
+
+```sh
+. $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+```
+
+That will add the following three key-bindings:
+
+- `Control-r` - fuzzy reverse history search
+- `Control-t` - append fuzzy selections to the current shell command
+- `Alt-c` - change to the fuzzy found directory
+
+An assortment of custom [search
+scripts](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#search-scripts)
+are also documented in the [Fuzzy Find in Bash with
+fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
+article, they are well worth inspecting. These include: editing a fuzzy found
+file, killing a fuzzy found file, Git staging fuzzy found files and fuzzy Git
+log browsing to name a few.
 
 Modern Tooling
 --------------
 
-- fzf
-  - Control-t
-  - Control-r
-  - vf and cf recipes
-  - gll & glS recipes
 - Tools
-  - starship / seafly
-  - exa
+  - exa talk about LS_COLORS
   - zoxide
   - bat
   - delta
@@ -218,7 +334,6 @@ Modern Tooling
 
 Timesaving Tips
 ---------------
-- Aliases
 - recipes & bindings
   - Fish-like autopushd & dirhistory
   - www / web_search

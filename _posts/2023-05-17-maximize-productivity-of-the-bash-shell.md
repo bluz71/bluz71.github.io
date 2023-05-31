@@ -49,9 +49,10 @@ Installation And Setup For macOS
 
 Since OS Catalina (2019), [Zsh](https://www.zsh.org) is now the default shell
 for macOS. Apple still ships with Bash, but only version 3.2 which dates back to
-2006; such a legacy version of Bash should be avoided for interactive use.
+2006; such a legacy version of Bash should be avoided for interactive use these
+days.
 
-Updating to a modern version of Bash is most easily accomplished with the
+Updating to a modern version of Bash is easily accomplished with the
 [Homebrew](https://brew.sh) package manager:
 
 ```sh
@@ -75,25 +76,6 @@ And then add the following to your `~/.bash_profile`:
 ```sh
 [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 ```
-
-Terminal Emulators
-------------------
-
-In recent years there has been a resurgence in terminal emulator development,
-mirroring the previously mentioned renaissance in shell-agnostic command line
-tooling.
-
-I recommend the use of a terminal emulator that: is cross platform, is
-GPU-accelerated and supports a text configuration that can be stored in a Git
-repository.
-
-Any of these fine terminal emulators will will meet those expectations:
-
-- [Alacritty](https://alacritty.org)
-
-- [kitty](https://sw.kovidgoyal.net/kitty)
-
-- [Wezterm](https://wezfurlong.org/wezterm)
 
 Readline Configuration
 ----------------------
@@ -191,7 +173,7 @@ shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 ```
 
-These options elevate the interactive experience, it is somewhat baffling why
+These options enhance the interactive experience, it is somewhat baffling that
 they are disabled by default.
 
 History
@@ -239,18 +221,14 @@ time the prompt is updated.
 Prompt
 ------
 
-Speaking of prompts, an informative, colorful and configurable prompt is greatly
-beneficial nowadays. The cross-shell [Starship](https://starship.rs) prompt has
-quickly become a favourite due to its compatibility and customization
-simplicity. For many, Starship is all the prompt they will ever need.
+Speaking of prompts, an informative, colorful and configurable prompt is easily
+attained nowadays. The cross-shell [Starship](https://starship.rs) prompt has
+become a fan-favourite due to its compatibility and customization simplicity.
+For many, Starship is all the prompt they will ever need.
 
-If using Homebrew, install as follows:
-
-```sh
-brew install starship
-```
-
-Then add the following to `~/.bashrc`:
+Install as per [Starship install
+instructions](https://starship.rs/#quick-install), then add the following to
+`~/.bashrc`:
 
 ```sh
 eval "$(starship init bash)"
@@ -274,11 +252,11 @@ With all that said, I still use my own
 [bash-seafly-prompt](https://github.com/bluz71/bash-seafly-prompt) extension
 instead, which predates Starship, and which also has [superior Git status
 performance](https://github.com/romkatv/gitstatus/issues/385#issuecomment-1532411950)
-especially when combined with either the
+when combined with either the
 [git-status-fly](https://github.com/bluz71/git-status-fly) or
 [gitstatus](https://github.com/romkatv/gitstatus) utilities.
 
-Other popular choices include:
+Other popular prompt choices include:
 
 - [bash-git-prompt](https://github.com/magicmonty/bash-git-prompt)
 - [Liquid Prompt](https://github.com/nojhan/liquidprompt)
@@ -287,7 +265,7 @@ Fuzzy Finding
 -------------
 
 These days it is hard to imagine using an interactive shell without fuzzy
-finding integration. The [fzf](https://github.com/junegunn/fzf) is the most
+finding integration. [fzf](https://github.com/junegunn/fzf) is the most
 popular such fuzzy finding tool.
 
 I wrote [Fuzzy Finding in Bash with
@@ -295,16 +273,12 @@ fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article a few years ago. That article is still relevant and applicable these
 days; if time permits I do recommend reading it.
 
-In terms of the Bash shell, if using Homebrew install `fzf` as follows:
+Install as per [fzf install
+instructions](https://github.com/junegunn/fzf#installation), then add the
+following key-binding configuration to `~/.bashrc`:
 
 ```sh
-brew install fzf
-```
-
-Then add the following key-binding configuration to `~/.bashrc`:
-
-```sh
-. $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+. /LOCATION/OF/FZF/INSTALLATION/shell/key-bindings.bash
 ```
 
 That will add the following three key-bindings:
@@ -315,22 +289,93 @@ That will add the following three key-bindings:
 
 An assortment of custom [search
 scripts](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#search-scripts)
-are also documented in the [Fuzzy Find in Bash with
+are documented in the previously mentioned [Fuzzy Find in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article, they are well worth inspecting. These include: editing a fuzzy found
 file, killing a fuzzy found file, Git staging fuzzy found files and fuzzy Git
 log browsing to name a few.
 
-Modern Tooling
---------------
+Interactive Completion Powered By fzf
+-------------------------------------
 
-- Tools
-  - exa talk about LS_COLORS
-  - zoxide
-  - bat
-  - delta
-  - qmv
-- fzf-tab-completion
+Unlike [Zsh](https://www.zsh.org) and [Fish](https://fishshell.com), Bash does
+not provide a native interactive completion mechanism; that is completion that
+can be navigated with arrow keys to quickly accept to the desired completion.
+
+As noted above in the Readline section, Bash does support completion cycling,
+but when there are many completions there is no ability to interactively
+navigate the displayed completions.
+
+The excellent
+[fzf-tab-completion](https://github.com/lincheney/fzf-tab-completion) package
+however does provide interactive completions powered by the aforementioned *fzf*
+utility.
+
+Install by cloning the repository:
+
+```sh
+git clone --depth 1 https://github.com/lincheney/fzf-tab-completion ~/.fzf-tab-completion
+```
+
+Then add the following to `~/.bashrc`:
+
+```sh
+source $HOME/.fzf-tab-completion/bash/fzf-bash-completion.sh
+bind -x '"\C-f": fzf_bash_completion'
+```
+
+This binds `<Control-f>` (`f` for fuzzy) to *fzf-tab-completion* whilst keeping
+`<TAB>` bound to native Bash completion. I find native Bash `<TAB>` completion
+preferable for most simple completions whilst reserving *fzf-tab-completion* for
+the few occasions when there are many completion matches. Note, a `<TAB>`
+initiated completion can be converted to *fzf-tab-completion* just by pressing
+`<Control-f>`.
+
+Lastly, `<Control-f>` is my preferred binding, another binding, such as `<TAB>`
+itself, can be defined instead.
+
+Modern Shell Tools
+------------------
+
+As mentioned in the introduction, there has been resurgence in command line tool
+development in recent years. Some of these new tools are  direct replacements
+for long-established core utilities.
+
+A few that I actively use are:
+
+- [bat](https://github.com/sharkdp/bat), an enhanced `cat` clone
+
+- [delta](https://github.com/dandavison/delta), a syntax-highlighting pager for
+  `diff` and `git` output
+
+- [dust](https://github.com/bootandy/dust), an intuitive version of `du`
+
+- [exa](https://github.com/ogham/exa), a modern replacement for `ls`
+
+- [fd](https://github.com/sharkdp/fd), a simple, fast and user-friendly
+  alternative to `find`
+
+- [hyperfine](https://github.com/sharkdp/hyperfine), an modern benchmarking
+  alternative to `time`
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep), a recursive pattern search
+  alternative to `grep`
+
+- [sd](https://github.com/chmln/sd), an intuitive `sed` alternative
+
+- [zoxide](https://github.com/ajeetdsouza/zoxide), a smarter `cd` command,
+  inspired by [z](https://github.com/rupa/z) and
+  [autojump](https://github.com/wting/autojump), that remembers visited
+  directories for instant navigation
+
+Whilst not a new tool, I would also like to shout out (again), the brilliant
+[qmv](https://www.nongnu.org/renameutils) utility which makes bulk renames a
+breeze by way of your current `$EDITOR`. I discuss it in greater [detail
+here](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html#the-qmv-rename-utility).
+
+Similarly for those interested, I thoroughly detail the *ripgrep* and *fd*
+utilities
+[here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
 
 Timesaving Tips
 ---------------
@@ -341,12 +386,3 @@ Timesaving Tips
   (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copybuffer)
   - Zsh-like copydir, current_working_directory / cwd
   (https://github.com/mwilc0x/ohmyzsh/tree/master/plugins/copydir)
-
-
-
-
-Refer to:
-  - 7 Command-Line Tools That Make Your Life Easier:
-    https://levelup.gitconnected.com/7-command-line-tools-that-make-your-life-easier-d69c38850d6c
-  - https://dev.to/zaiste/15-command-line-tools-to-make-you-better-at-shell-cli-35n6
-  - https://news.ycombinator.com/item?id=30976207

@@ -577,7 +577,7 @@ too much valuable real-estate for little benefit, hence, I recommend the
 following Bash alias (force `destination-only`):
 
 ```sh
-alias qmv='qmv -f do'
+alias qmv='qmv -d -f do'
 ```
 
 ### Usage

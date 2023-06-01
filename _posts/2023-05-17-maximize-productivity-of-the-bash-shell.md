@@ -215,8 +215,8 @@ PROMPT_COMMAND="history -a; history -n"
 ```
 
 This will immediately append the current shell history to the history file and
-load history from other active sessions in the the current shell history each
-time the prompt is updated.
+load history from other active sessions in the current shell history each time
+the prompt is updated.
 
 Prompt
 ------
@@ -294,6 +294,9 @@ fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article, they are well worth inspecting. These include: editing a fuzzy found
 file, killing a fuzzy found file, Git staging fuzzy found files and fuzzy Git
 log browsing to name a few.
+
+Also, the [forgit](https://github.com/wfxr/forgit) project, which combines *fzf*
+with interactive Git, may be of interest.
 
 Interactive Completion Powered By fzf
 -------------------------------------
@@ -377,12 +380,109 @@ Similarly for those interested, I thoroughly detail the *ripgrep* and *fd*
 utilities
 [here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
 
-Timesaving Tips
----------------
-- recipes & bindings
-  - Fish-like autopushd & dirhistory
-  - www / web_search
-  - Zsh-like copybuffer, Control-o
-  (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/copybuffer)
-  - Zsh-like copydir, current_working_directory / cwd
-  (https://github.com/mwilc0x/ohmyzsh/tree/master/plugins/copydir)
+Miscellaneous Helpers
+=====================
+
+Lastly, I will end with a handful of simple Bash fragments and helpers that have
+enhanced my interactive experience.
+
+Automatic pushd And Associated Navigation Bindings
+--------------------------------------------------
+
+The Fish shell automatically provides [directory
+history](https://fishshell.com/docs/current/interactive.html#navigating-directories)
+when changing directory along with associated `prevd` and `nextd` commands which
+themselves are bound to `<Alt-Left>` and `<Alt-Right>`. This provides the ability
+to navigate back and forth through the visited directory stack.
+
+This functionality can be mimicked in Bash as follows:
+
+```sh
+cd() {
+    local target="$@"
+    if [[ $# -eq 0 ]]; then
+        # Handle 'cd' without arguments; change to the $HOME directory.
+        target="$HOME"
+    elif [[ $1 == "--" ]]; then
+        # Handle 'autocd' shopt, that is just a directory name entered without
+        # a preceding 'cd' command. In that case the first argument will be '--'
+        # with the target directory defined by the remaining arguments.
+        shift
+        target="$@"
+    fi
+
+    # Note, if the target directory is the same as the current directory do
+    # nothing since we don't want to populate the directory stack with
+    # consecutive repeat entries.
+    if [[ "$target" != "$PWD" ]]; then
+        builtin pushd "$target" 1>/dev/null
+    fi
+}
+
+# Alt-Left: rotate back through the directory stack.
+bind -x '"\C-x\C-p": "pushd +1 &>/dev/null"'
+bind '"\e[1;3D":"\C-x\C-p\n"'
+# Alt-Right rotate forward through the directory stack.
+bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
+bind '"\e[1;3C":"\C-x\C-n\n"'
+```
+
+Web Searching
+-------------
+
+The [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) framework provides a handy
+[web-search](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search)
+plugin.
+
+We can mimic that as follows:
+
+```sh
+alias web='web_search'
+
+web_search() {
+    GOLD=$(tput setaf 222)
+    GREEN=$(tput setaf 79)
+    NC=$(tput sgr0)
+
+    read -ep "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
+    open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+}
+```
+
+This will execute a [DuckDuckGo](https://duckduckgo.com) search using the
+default browser. I like DuckDuckGo because it provides
+[bang](https://duckduckgo.com/bangs) shortcuts. For example, the following will
+do a GitHub search, via the `!gh` bang, for Neovim:
+
+```
+Search➜ !gh Neovim
+```
+
+Copy Directory
+--------------
+
+Also inspired by *Oh My Zsh*, a clone of the
+[copydir](https://github.com/mwilc0x/ohmyzsh/tree/master/plugins/copydir) plugin
+which simply copies the current working directory to the system clipboard:
+
+```sh
+alias cwd='copy_working_directory'
+
+copy_working_directory() {
+    if [[ $OS == Linux ]]; then
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
+    elif [[ $OS = Darwin ]]; then
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | pbcopy
+    fi
+    # Also copy current directory to a tmux paste buffer if tmux is active.
+    if [[ -n $TMUX ]]; then
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | tmux load-buffer -
+    fi
+}
+```
+
+Conclusion
+==========
+
+Hopefully this article provides a few suggestions to improve your interactive
+Bash experience.

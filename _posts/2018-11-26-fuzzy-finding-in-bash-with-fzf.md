@@ -200,7 +200,7 @@ fzf_find_edit() {
     fi
 }
 
-alias ffe='fzf_find_edit'
+alias fe='fzf_find_edit'
 ```
 
 Fuzzy find a file, with optional initial file name, and then edit:
@@ -305,7 +305,7 @@ fzf_git_log() {
                        xargs -I@ sh -c 'git show --color=always @'"
       )
     if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
+        local commits=$(echo "$selections" | sed 's/^[* |]*//' | awk '{print $1}' | tr '\n' ' ')
         git show $commits
     fi
 }
@@ -337,7 +337,7 @@ fzf_git_reflog() {
             --preview "git show --color=always {1}"
       )
     if [[ -n $selection ]]; then
-        git show $(echo $selection | cut -d' ' -f1)
+        git show $(echo $selection | awk '{print $1}')
     fi
 }
 
@@ -363,7 +363,7 @@ fzf_git_log_pickaxe() {
              --preview "git show --color=always {1}"
        )
      if [[ -n $selections ]]; then
-         local commits=$(echo "$selections" | cut -d' ' -f1 | tr '\n' ' ')
+         local commits=$(echo "$selections" | awk '{print $1}' | tr '\n' ' ')
          git show $commits
      fi
  }

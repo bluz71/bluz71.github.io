@@ -1,8 +1,8 @@
 ---
 title: Maximize Productivity Of The Bash Shell
 layout: default
-comments: false
-published: false
+comments: true
+published: true
 ---
 
 Maximize Productivity Of The Bash Shell
@@ -154,7 +154,7 @@ Shell Options
 -------------
 
 Somewhat similar to the previous Readline section, Bash provides a number of
-useful shell options that are disabled by default.
+useful shell options that are also disabled by default.
 
 Shell options should be set in `~/.bashrc`. I use and recommend these options,
 with comments detailing each option:
@@ -173,8 +173,7 @@ shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 ```
 
-These options enhance the interactive experience, it is somewhat baffling that
-they are disabled by default.
+It is somewhat baffling that these options are disabled by default.
 
 History
 -------
@@ -390,9 +389,9 @@ The Fish shell automatically provides [directory
 history](https://fishshell.com/docs/current/interactive.html#navigating-directories)
 when changing directories along with associated `prevd` and `nextd` commands,
 which themselves are bound to `<Alt-Left>` and `<Alt-Right>`, for directory
-stack traversal.
+history traversal.
 
-This functionality can be mimicked in Bash as follows:
+That functionality can be mimicked in Bash as follows:
 
 ```sh
 cd() {
@@ -424,8 +423,9 @@ bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
 bind '"\e[1;3C":"\C-x\C-n\n"'
 ```
 
-`<Alt-Left>` and `<Alt-Right>` now act like a browser's back and forward
-buttons, but this time for visited directories.
+All `cd` executions will be recorded to the directory stack and `<Alt-Left>` and
+`<Alt-Right>` will now act like a browser's back and forward buttons, but this
+time for stacked directories.
 
 Web Searching
 -------------

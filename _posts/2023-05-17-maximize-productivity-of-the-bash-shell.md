@@ -8,24 +8,25 @@ published: false
 Maximize Productivity Of The Bash Shell
 =======================================
 
-This is a 2023 followup to the [Bash Shell Tweaks &
-Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) article
-from 2018.
+This is a 2023 followup to my 2018 [Bash Shell Tweaks &
+Tips](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html) article.
 
 Since that last article there has been a renaissance in shell-agnostic command
 line tooling, often implemented in high-performance
-[Rust](https://www.rust-lang.org), that have elevated the interactive shell
-experience.
+[Rust](https://www.rust-lang.org), that has elevated the interactive shell
+experience. Hence, now is the right time to revisit Bash with such tooling in
+mind.
 
-In this article: we will enable a host of useful available Bash shell options,
+In this article: we will enable an assortment of useful available shell options,
 we will script automatic `pushd` along with matching directory stack navigation
-bindings, we will integrate an interactive completion interface and we will use
-modern command line tooling to sensibly improve the interactive experience,
-among other tips and suggestions.
+bindings, will share history between concurrent sessions, we will integrate an
+interactive completion interface and we will use modern shell-agnostic tooling
+to sensibly improve the interactive experience, among other tips and
+suggestions.
 
 Note, my [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) and
 [inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files
-integrate all the upcoming suggestions listed in this article.
+integrate all the suggestions documented in this article.
 
 Dispelling Bash Misconceptions
 ------------------------------
@@ -36,7 +37,7 @@ intermittently persist:
 - Bash supports changing directories without entering the `cd` command
 - Bash supports simple file and directory path *autocorrection*
 - `**` recursive globbing is supported
-- Command `history` can be shared between Bash instances
+- Command `history` can be shared between concurrent Bash instances
 - Bash does support *tab-completion* cycling
 - Command and context-aware completion is supported through the Bash Completion
   package
@@ -64,14 +65,13 @@ chsh -s /opt/homebrew/bin/bash
 Note, if using an older Intel-based Mac, please replace `/opt/homebrew` with
 `/usr/local`.
 
-The Bash Completion package greatly enhances the interactive shell experience,
-please install it as follows:
+Please also install the Bash Completion package as follows:
 
 ```sh
 brew install bash-completion@2
 ```
 
-And then add the following to your `~/.bash_profile`:
+And lastly add the following to your `~/.bash_profile`:
 
 ```sh
 [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
@@ -84,7 +84,7 @@ The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library
 is used by Bash, and certain other utilities, for line-editing and certain
 history management.
 
-Many beneficial Readline capabilities are disabled by default; thankfully it is
+Many beneficial Readline capabilities are disabled by default; thankfully, it is
 easy to enable these features for the betterment of the interactive experience.
 
 The Readline library is configured through the `~/.inputrc` file. I use and
@@ -183,22 +183,22 @@ In its out of the box configuration, the [Bash
 history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html)
 experience is quite primitive:
 
-- Each running shell will have it's own history, and when a shell ends the
+- Each running shell will have its own history, and when a shell ends the
   running history of the current shell will entirely replace the contents of
   `~/.bash_history` file
-- Hence, history from the next exiting shell will then overwrite the history of
-  the previously exited shell
+- Hence, history from the next exiting shell will overwrite the history of the
+  previously exited shell
 - History will not be shared between concurrent shell sessions
 - Duplicates will exist in the current session history
 - Only the last 500 commands are preserved
 
-Fortunately it is easy to greatly improve Bash history.
+Fortunately, it is easy to greatly improve Bash history.
 
-Firstly, in the previous *Shell Options* section we enabled the important `shopt
--s histappend` option which appends the current shell history to the history
-file rather than overwriting it.
+Firstly, in the previous *Shell Options* section, we enabled the important
+`shopt -s histappend` option which appends the current shell history to the
+history file rather than overwriting it.
 
-And to compliment that shell option change these are history controls I
+And to compliment that shell option change, these are history controls I
 recommend in `~/.bashrc`:
 
 ```sh
@@ -208,7 +208,7 @@ HISTFILESIZE=99999               # Max size of history file
 HISTSIZE=99999                   # Amount of history to preserve
 ```
 
-Lastly to share history between concurrent shell sessions:
+Lastly, to share history between concurrent Bash sessions:
 
 ```
 PROMPT_COMMAND="history -a; history -n"
@@ -226,9 +226,8 @@ attained nowadays. The cross-shell [Starship](https://starship.rs) prompt has
 become a fan-favourite due to its compatibility and customization simplicity.
 For many, Starship is all the prompt they will ever need.
 
-Install as per [Starship install
-instructions](https://starship.rs/#quick-install), then add the following to
-`~/.bashrc`:
+Install as per [Starship instructions](https://starship.rs/#quick-install), then
+add the following to `~/.bashrc`:
 
 ```sh
 eval "$(starship init bash)"
@@ -238,7 +237,7 @@ And configure according to [the documentation](https://starship.rs/config) on
 the Starship website.
 
 Be aware, Starship has now taken control of the `PROMPT_COMMAND` and the history
-sharing noted in the previous section will no longer apply. I am lead to believe
+sharing noted in the previous section will no longer apply. I am led to believe
 the following `~/.bashrc` configuration will restore history sharing:
 
 ```sh
@@ -249,7 +248,7 @@ starship_precmd_user_func="history_sharing"
 ```
 
 With all that said, I still use my own
-[bash-seafly-prompt](https://github.com/bluz71/bash-seafly-prompt) extension
+[bash-seafly-prompt](https://github.com/bluz71/bash-seafly-prompt) package
 instead, which predates Starship, and which also has [superior Git status
 performance](https://github.com/romkatv/gitstatus/issues/385#issuecomment-1532411950)
 when combined with either the
@@ -264,18 +263,17 @@ Other popular prompt choices include:
 Fuzzy Finding
 -------------
 
-These days it is hard to imagine using an interactive shell without fuzzy
+These days, it is hard to imagine using an interactive shell without fuzzy
 finding integration. [fzf](https://github.com/junegunn/fzf) is the most
 popular such fuzzy finding tool.
 
 I wrote [Fuzzy Finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article a few years ago. That article is still relevant and applicable these
-days; if time permits I do recommend reading it.
+days; if time, permits I do recommend reading it.
 
-Install as per [fzf install
-instructions](https://github.com/junegunn/fzf#installation), then add the
-following key-binding configuration to `~/.bashrc`:
+Install as per [fzf instructions](https://github.com/junegunn/fzf#installation),
+then add the following key-binding configuration to `~/.bashrc`:
 
 ```sh
 . /LOCATION/OF/FZF/INSTALLATION/shell/key-bindings.bash
@@ -292,17 +290,17 @@ scripts](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
 are documented in the previously mentioned [Fuzzy Find in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article, they are well worth inspecting. These include: editing a fuzzy found
-file, killing a fuzzy found file, Git staging fuzzy found files and fuzzy Git
+file, killing a fuzzy found process, Git staging fuzzy found files and fuzzy Git
 log browsing to name a few.
 
-Also, the [forgit](https://github.com/wfxr/forgit) project, which combines *fzf*
-with interactive Git, may be of interest.
+The [forgit](https://github.com/wfxr/forgit) project, which combines *fzf*
+with interactive Git, may also be of interest.
 
 Interactive Completion Powered By fzf
 -------------------------------------
 
 Unlike [Zsh](https://www.zsh.org) and [Fish](https://fishshell.com), Bash does
-not provide a native interactive completion mechanism; that is completion that
+not provide a native interactive completion mechanism; that is, completion that
 can be navigated with arrow keys to quickly accept to the desired completion.
 
 As noted above in the Readline section, Bash does support completion cycling,
@@ -329,13 +327,13 @@ bind -x '"\C-f": fzf_bash_completion'
 
 This binds `<Control-f>` (`f` for fuzzy) to *fzf-tab-completion* whilst keeping
 `<TAB>` bound to native Bash completion. I find native Bash `<TAB>` completion
-preferable for most simple completions whilst reserving *fzf-tab-completion* for
-the few occasions when there are many completion matches. Note, a `<TAB>`
+preferable for most simple completions, whilst reserving *fzf-tab-completion*
+for the few occasions when there are many completion matches. Note, a `<TAB>`
 initiated completion can be converted to *fzf-tab-completion* just by pressing
 `<Control-f>`.
 
-Lastly, `<Control-f>` is my preferred binding, another binding, such as `<TAB>`
-itself, can be defined instead.
+Lastly, `<Control-f>` is just my preferred binding, another binding, such as
+`<TAB>` itself, can be defined instead.
 
 Modern Shell Tools
 ------------------
@@ -358,7 +356,7 @@ A few that I actively use are:
 - [fd](https://github.com/sharkdp/fd), a simple, fast and user-friendly
   alternative to `find`
 
-- [hyperfine](https://github.com/sharkdp/hyperfine), an modern benchmarking
+- [hyperfine](https://github.com/sharkdp/hyperfine), a modern benchmarking
   alternative to `time`
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep), a recursive pattern search
@@ -376,24 +374,23 @@ Whilst not a new tool, I would also like to shout out (again), the brilliant
 breeze by way of your current `$EDITOR`. I discuss it in greater [detail
 here](https://bluz71.github.io/2018/03/15/bash-shell-tweaks-tips.html#the-qmv-rename-utility).
 
-Similarly for those interested, I thoroughly detail the *ripgrep* and *fd*
-utilities
+Similarly, for those interested, I detail the *ripgrep* and *fd* utilities
 [here](https://bluz71.github.io/2018/06/07/ripgrep-fd-command-line-search-tools.html).
 
 Miscellaneous Helpers
 =====================
 
-Lastly, I will end with a handful of simple Bash fragments and helpers that have
-enhanced my interactive experience.
+Lastly, I will end with a couple of simple Bash helpers, inspired by other
+shells, that have enhanced my shell interaction.
 
 Automatic pushd And Associated Navigation Bindings
 --------------------------------------------------
 
 The Fish shell automatically provides [directory
 history](https://fishshell.com/docs/current/interactive.html#navigating-directories)
-when changing directory along with associated `prevd` and `nextd` commands which
-themselves are bound to `<Alt-Left>` and `<Alt-Right>`. This provides the ability
-to navigate back and forth through the visited directory stack.
+when changing directories along with associated `prevd` and `nextd` commands,
+which themselves are bound to `<Alt-Left>` and `<Alt-Right>`, for directory
+stack traversal.
 
 This functionality can be mimicked in Bash as follows:
 
@@ -427,6 +424,9 @@ bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
 bind '"\e[1;3C":"\C-x\C-n\n"'
 ```
 
+`<Alt-Left>` and `<Alt-Right>` now act like a browser's back and forward
+buttons, but this time for visited directories.
+
 Web Searching
 -------------
 
@@ -450,7 +450,7 @@ web_search() {
 ```
 
 This will execute a [DuckDuckGo](https://duckduckgo.com) search using the
-default browser. I like DuckDuckGo because it provides
+default browser when `web` is executed. I like DuckDuckGo because it provides
 [bang](https://duckduckgo.com/bangs) shortcuts. For example, the following will
 do a GitHub search, via the `!gh` bang, for Neovim:
 
@@ -484,5 +484,5 @@ copy_working_directory() {
 Conclusion
 ==========
 
-Hopefully this article provides a few suggestions to improve your interactive
-Bash experience.
+Hopefully this assortment of settings, utilities and helpers provides
+inspiration to improve your interactive Bash experience.

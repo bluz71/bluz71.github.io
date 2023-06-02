@@ -8,7 +8,7 @@ published: true
 Bash Shell Tweaks & Tips
 ========================
 
-**UPDATED AUGUST 2020**
+**UPDATED JUNE 2023**
 
 [Bash](https://www.gnu.org/software/bash) is the most common Unix shell. Bash is
 ubiquitous due to it being the default user shell for various flavours of Unix
@@ -81,7 +81,7 @@ brew install bash-completion@2
 Then source bash-completion in your `~/.bashrc` file:
 
 ```sh
-. $(brew --prefix)/etc/profile.d/bash_completion.sh
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 ```
 
 Confirm that bash-completion is enabled by trying the `shopt cd<TAB>` example
@@ -175,13 +175,20 @@ list of recommended `~/.inputrc` settings follows.
     set mark-symlinked-directories on
     ```
 
-- Enable incremental history navigation with the UP and DOWN arrow keys. This
-    will use the already typed text as a required prefix when navigating
+- Enable substring history navigation with the UP and DOWN arrow keys. This
+    will use the already typed text as a required substring when navigating
     through history.
 
     ```sh
-    "\e[A": history-search-backward
-    "\e[B": history-search-forward
+    "\e[A": history-substring-search-backward
+    "\e[B": history-substring-search-forward
+    ```
+
+- Disable the completions pager and set 200 as the prompt-to-display limit.
+
+    ```sh
+    set page-completions off
+    set completion-query-items 200
     ```
 
 - Disable beeps & bells, and do not display control characters.
@@ -306,7 +313,7 @@ directory. A list of recommended `~/.bashrc` tweaks follows.
     HISTIGNORE=?:??
     HISTFILESIZE=99999
     HISTSIZE=99999
-    PROMPT_COMMAND='history -a'
+    PROMPT_COMMAND='; history -n'
     shopt -s histappend histverify
     ```
 
@@ -370,18 +377,20 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
   We want colorization with human-readable file sizes. The last two aliases
   will order by size (largest to smallest) or by time (newest to oldest).
 
+  **UPDATE (JUN 2023):** I now use [exa](https://github.com/ogham/exa) is my
+  `ls` command.
+
 - Easy directory navigation.
 
     ```sh
     alias -- -='cd -'
     alias ..='cd ..'
-    alias ..2='cd ../..'
-    alias ..3='cd ../../..'
-    alias ..4='cd ../../../..'
-    alias ..5='cd ../../../../..'
+    alias ...='cd ../..'
+    alias ....='cd ../../..'
+    alias .....='cd ../../../..'
     ```
 
-    No more need to type `cd ../../..`, just do `..3` instead. Also, just type
+    No more need to type `cd ../../..`, just do `....` instead. Also, just type
     `-` to return the previous directory.
 
 - Easy persmission modification.
@@ -454,6 +463,10 @@ an already visited directory. The z utility, which works in both Bash and Zsh,
 tracks the directories you visit with the `cd` command. Once trained, you can
 just use the `z` command with a portion of a path to jump to a visited
 directory.
+
+**UPDATE (JUN 2023):** I now use [zoxide](https://github.com/ajeetdsouza/zoxide)
+instead of [z](https://github.com/rupa/z). In practice they operate nearly the
+same.
 
 The *z* utility is most easily installed with Homebrew:
 

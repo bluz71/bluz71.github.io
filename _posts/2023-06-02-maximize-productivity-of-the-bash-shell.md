@@ -80,10 +80,10 @@ Readline Configuration
 ----------------------
 
 The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library
-is used by Bash, and certain other utilities, for line-editing and certain
-history management.
+is used by Bash, and certain other utilities, for line-editing and history
+management.
 
-Many beneficial Readline capabilities are disabled by default; thankfully, it is
+Many beneficial Readline features are disabled by default; thankfully, it is
 easy to enable these features for the betterment of the interactive experience.
 
 The Readline library is configured through the `~/.inputrc` file. I use and

@@ -17,12 +17,11 @@ line tooling, often implemented in high-performance
 experience. Hence, now is the right time to revisit Bash with such tooling in
 mind.
 
-In this article: we will enable an assortment of useful available shell options,
-we will script automatic `pushd` along with matching directory stack navigation
-bindings, will share history between concurrent sessions, we will integrate an
-interactive completion interface and we will use modern shell-agnostic tooling
-to sensibly improve the interactive experience, among other tips and
-suggestions.
+In this article we will: enable a host of useful Bash shell options, script
+automatic `pushd` along with matching directory stack navigation bindings,
+integrate an interactive completion interface and we will use modern command
+line tooling to sensibly improve the interactive experience, among other tips
+and suggestions.
 
 Note, my [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) and
 [inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files

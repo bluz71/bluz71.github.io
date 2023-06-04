@@ -17,15 +17,14 @@ line tooling, often implemented in high-performance
 experience. Hence, now is the right time to revisit Bash with such tooling in
 mind.
 
-In this article we will: enable a host of useful Bash shell options, script
-automatic `pushd` along with matching directory stack navigation bindings,
-integrate an interactive completion interface and we will use modern command
-line tooling to sensibly improve the interactive experience, among other tips
-and suggestions.
+In this article we will: enable a host of useful shell options, script automatic
+`pushd` along with matching directory stack navigation bindings, integrate an
+interactive completion interface and we will document some modern command line
+tools, among other tips and suggestions.
 
 Note, my [bashrc](https://github.com/bluz71/dotfiles/blob/master/bashrc) and
 [inputrc](https://github.com/bluz71/dotfiles/blob/master/inputrc) files
-integrate all the suggestions documented in this article.
+incorporate all the ideas documented in this article.
 
 Dispelling Bash Misconceptions
 ------------------------------
@@ -80,18 +79,17 @@ Readline Configuration
 ----------------------
 
 The [GNU Readline](https://tiswww.case.edu/php/chet/readline/rltop.html) library
-is used by Bash, and certain other utilities, for line-editing and history
-management.
+is used by Bash, and certain other utilities, for line-editing and `history`
+interaction.
 
 Many beneficial Readline features are disabled by default; thankfully, it is
 easy to enable these features for the betterment of the interactive experience.
 
 The Readline library is configured through the `~/.inputrc` file. I use and
-recommend these settings, with comments provided detailing each setting:
+recommend these settings (with comments provided detailing each setting):
 
 ```sh
-# TAB cycles forward through and Shift-TAB cycles backward through completion
-# choices.
+# TAB cycles forward and Shift-TAB cycles backward through completion choices.
 TAB: menu-complete
 "\e[Z": menu-complete-backward
 
@@ -136,18 +134,18 @@ set show-all-if-ambiguous on
 set skip-completed-text on
 ```
 
-It is instructive to highlight a few capabilities enabled above:
+Highlighting a few capabilities enabled above:
 
 - The `<TAB>` and `<Shift-Tab>` keys will now cycle completions choices
 
-- Completions will commence after pressing the `<TAB>` just once
+- Completions will commence immediately after pressing the first `<TAB>`
 
 - Partially typing a command and pressing `<Up>` will engage `history` substring
-  matching, not just start of line matching
+  matching, not simply just start of line matching
 
 - The `<Alt-e>` edit-and-execute binding is a reasonable Vim-mode substitute if
   Vim or Neovim is the configured `$EDITOR`; noting that Readline only supports
-  a basic Vi-mode if configured
+  a very basic Vi-mode if configured
 
 Shell Options
 -------------
@@ -155,8 +153,8 @@ Shell Options
 Somewhat similar to the previous Readline section, Bash provides a number of
 useful shell options that are also disabled by default.
 
-Shell options should be set in `~/.bashrc`. I use and recommend these options,
-with comments detailing each option:
+Shell options should be set in `~/.bashrc`. I use and recommend these options
+(with comments detailing each option):
 
 ```sh
 #  - autocd - change directory without entering the 'cd' command
@@ -172,14 +170,14 @@ shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 ```
 
-It is somewhat baffling that these options are disabled by default.
+I find it somewhat baffling that these useful options are disabled by default.
 
 History
 -------
 
-In its out of the box configuration, the [Bash
+In its out of the box configuration, [Bash
 history](https://www.gnu.org/software/bash/manual/html_node/Bash-History-Facilities.html)
-experience is quite primitive:
+is quite primitive:
 
 - Each running shell will have its own history, and when a shell ends the
   running history of the current shell will entirely replace the contents of
@@ -187,7 +185,7 @@ experience is quite primitive:
 - Hence, history from the next exiting shell will overwrite the history of the
   previously exited shell
 - History will not be shared between concurrent shell sessions
-- Duplicates will exist in the current session history
+- Duplicates will exist in the current session's history
 - Only the last 500 commands are preserved
 
 Fortunately, it is easy to greatly improve Bash history.
@@ -196,11 +194,11 @@ Firstly, in the previous *Shell Options* section, we enabled the important
 `shopt -s histappend` option which appends the current shell history to the
 history file rather than overwriting it.
 
-And to compliment that shell option change, these are history controls I
+And to compliment that shell option change, these are the history controls I
 recommend in `~/.bashrc`:
 
 ```sh
-HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+HISTCONTROL=ignoreboth:erasedups # Ignore and erase duplicates
 HISTIGNORE=?:??                  # Ignore one and two letter commands
 HISTFILESIZE=99999               # Max size of history file
 HISTSIZE=99999                   # Amount of history to preserve
@@ -239,7 +237,7 @@ sharing noted in the previous section will no longer apply. I am led to believe
 the following `~/.bashrc` configuration will restore history sharing:
 
 ```sh
-function history_sharing(){
+function history_sharing() {
     history -a && history -n
 }
 starship_precmd_user_func="history_sharing"
@@ -265,7 +263,7 @@ These days, it is hard to imagine using an interactive shell without fuzzy
 finding integration. [fzf](https://github.com/junegunn/fzf) is the most
 popular such fuzzy finding tool.
 
-I wrote [Fuzzy Finding in Bash with
+I wrote a [Fuzzy Finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article a few years ago. That article is still relevant and applicable these
 days; if time, permits I do recommend reading it.
@@ -285,21 +283,22 @@ That will add the following three key-bindings:
 
 An assortment of custom [search
 scripts](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html#search-scripts)
-are documented in the previously mentioned [Fuzzy Find in Bash with
+are documented in the previously mentioned [Fuzzy Finding in Bash with
 fzf](https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html)
 article, they are well worth inspecting. These include: editing a fuzzy found
 file, killing a fuzzy found process, Git staging fuzzy found files and fuzzy Git
 log browsing to name a few.
 
-The [forgit](https://github.com/wfxr/forgit) project, which combines *fzf*
-with interactive Git, may also be of interest.
+The [forgit](https://github.com/wfxr/forgit) project, which also combines *fzf*
+with interactive Git, may be of interest.
 
 Interactive Completion Powered By fzf
 -------------------------------------
 
 Unlike [Zsh](https://www.zsh.org) and [Fish](https://fishshell.com), Bash does
 not provide a native interactive completion mechanism; that is, completion that
-can be navigated with arrow keys to quickly accept to the desired completion.
+can be interactively navigated with arrow keys to quickly select the desired
+completion.
 
 As noted above in the Readline section, Bash does support completion cycling,
 but when there are many completions there is no ability to interactively
@@ -326,7 +325,7 @@ bind -x '"\C-f": fzf_bash_completion'
 This binds `<Control-f>` (`f` for fuzzy) to *fzf-tab-completion* whilst keeping
 `<TAB>` bound to native Bash completion. I find native Bash `<TAB>` completion
 preferable for most simple completions, whilst reserving *fzf-tab-completion*
-for the few occasions when there are many completion matches. Note, a `<TAB>`
+for the few occasions where there are many completion matches. Note, a `<TAB>`
 initiated completion can be converted to *fzf-tab-completion* just by pressing
 `<Control-f>`.
 
@@ -336,16 +335,16 @@ Lastly, `<Control-f>` is just my preferred binding, another binding, such as
 Modern Shell Tools
 ------------------
 
-As mentioned in the introduction, there has been resurgence in command line tool
-development in recent years. Some of these new tools are  direct replacements
-for long-established core utilities.
+As mentioned in the introduction, there has been a resurgence in command line
+tool development in recent years. Some of these new tools are  direct
+replacements for long-established core utilities.
 
-A few that I actively use are:
+A few that are noteworthy:
 
 - [bat](https://github.com/sharkdp/bat), an enhanced `cat` clone
 
 - [delta](https://github.com/dandavison/delta), a syntax-highlighting pager for
-  `diff` and `git` output
+  `diff` and `git`
 
 - [dust](https://github.com/bootandy/dust), an intuitive version of `du`
 
@@ -379,16 +378,16 @@ Miscellaneous Helpers
 =====================
 
 Lastly, I will end with a couple of simple Bash helpers, inspired by other
-shells, that have enhanced my shell interaction.
+shells, that have enhanced my shell usage.
 
 Automatic pushd And Associated Navigation Bindings
 --------------------------------------------------
 
 The Fish shell automatically provides [directory
 history](https://fishshell.com/docs/current/interactive.html#navigating-directories)
-when changing directories along with associated `prevd` and `nextd` commands,
+when changing directories along with companion `prevd` and `nextd` commands,
 which themselves are bound to `<Alt-Left>` and `<Alt-Right>`, for directory
-history traversal.
+history navigation.
 
 That functionality can be mimicked in Bash as follows:
 
@@ -436,6 +435,9 @@ plugin.
 We can mimic that as follows:
 
 ```sh
+if [[ $(uname) == Linux ]]; then
+    alias open='xdg-open 2>/dev/null'
+fi
 alias web='web_search'
 
 web_search() {
@@ -468,9 +470,9 @@ which simply copies the current working directory to the system clipboard:
 alias cwd='copy_working_directory'
 
 copy_working_directory() {
-    if [[ $OS == Linux ]]; then
+    if [[ $(uname) == Linux ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
-    elif [[ $OS = Darwin ]]; then
+    elif [[ $(uname) == Darwin ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | pbcopy
     fi
     # Also copy current directory to a tmux paste buffer if tmux is active.
@@ -484,4 +486,4 @@ Conclusion
 ==========
 
 Hopefully this assortment of settings, utilities and helpers provides
-inspiration to improve your interactive Bash experience.
+inspiration to improve your interactive Bash usage.

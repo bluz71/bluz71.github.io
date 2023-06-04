@@ -244,9 +244,9 @@ it:
 ```sh
 fzf_kill() {
     local pid_col
-    if [[ $(uname) = Linux ]]; then
+    if [[ $(uname) == Linux ]]; then
         pid_col=2
-    elif [[ $(uname) = Darwin ]]; then
+    elif [[ $(uname) == Darwin ]]; then
         pid_col=3;
     else
         echo 'Error: unknown platform'

@@ -407,10 +407,10 @@ As a starting point, here are some of the aliases from my `~/.bashrc` file.
 
     ```sh
     alias g=git
-    if [[ $(uname) = Linux ]]; then
+    if [[ $(uname) == Linux ]]; then
         # Assuming a modern Debian-like installation of Bash Completion.
         . /usr/share/bash-completion/completions/git
-    elif [[ $(uname) = Darwin ]]; then
+    elif [[ $(uname) == Darwin ]]; then
         # Assuming a Homebrew installation of Bash Completion.
         . /usr/local/etc/bash_completion.d/git-completion.bash
     fi

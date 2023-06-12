@@ -280,7 +280,7 @@ fzf_git_add() {
                        fi'
     )
     if [[ -n $selections ]]; then
-        git add --verbose $(echo "$selections" | cut -c 4- | tr -d '\n')
+        git add --verbose $(echo "$selections" | cut -c 4- | tr '\n' ' '))
     fi
 }
 

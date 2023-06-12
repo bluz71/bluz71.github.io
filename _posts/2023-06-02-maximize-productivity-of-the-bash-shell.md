@@ -438,15 +438,16 @@ We can mimic that as follows:
 if [[ $(uname) == Linux ]]; then
     alias open='xdg-open 2>/dev/null'
 fi
-alias web='web_search'
 
-web_search() {
+web() {
     GOLD=$(tput setaf 222)
     GREEN=$(tput setaf 79)
     NC=$(tput sgr0)
 
     read -ep "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
-    open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+    if [[ -n "$search_term" ]]; then
+        open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+    fi
 }
 ```
 

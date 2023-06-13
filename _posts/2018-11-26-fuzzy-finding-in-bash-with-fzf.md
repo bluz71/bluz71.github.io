@@ -280,7 +280,8 @@ fzf_git_add() {
                        fi'
     )
     if [[ -n $selections ]]; then
-        git add --verbose $(echo "$selections" | cut -c 4- | tr '\n' ' '))
+        local additions=$(echo $selections | sed 's/M //g')
+        git add --verbose $additions
     fi
 }
 
@@ -309,7 +310,7 @@ fzf_git_log() {
 alias gll='fzf_git_log'
 ```
 
-The `ll` Git alias used above should be created with the following command.
+The `ll` Git alias used above can be created with the following command:
 
 ```sh
 git config --global alias.ll 'log --graph --format="%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
@@ -353,14 +354,14 @@ fzf_git_log_pickaxe() {
          echo 'Error: search term was not provided.'
          return
      fi
-     local selections=$(
+     local selection=$(
        git log --oneline --color=always -S "$@" |
-         fzf --ansi --no-sort --no-height \
+         fzf --no-multi --ansi --no-sort --no-height \
              --preview "git show --color=always {1}"
      )
-     if [[ -n $selections ]]; then
-         local commits=$(echo "$selections" | awk '{print $1}' | tr -d '\n')
-         git show $commits
+     if [[ -n $selection ]]; then
+         local commit=$(echo "$selection" | awk '{print $1}' | tr -d '\n')
+         git show $commit
      fi
  }
 

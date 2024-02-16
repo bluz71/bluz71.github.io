@@ -271,17 +271,16 @@ involved to kill a recalcitrant process :tada: :tada:
 ```sh
 fzf_git_add() {
     local selections=$(
-      git status --porcelain | \
+      git ls-files -m -o --exclude-standard | \
         fzf --ansi \
-            --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
-                           git diff --color=always {2}
+            --preview 'if (git ls-files --error-unmatch {1} &>/dev/null); then
+                           git diff --color=always {1}
                        else
-                           bat --color=always --line-range :500 {2}
+                           bat --color=always --line-range :500 {1}
                        fi'
     )
     if [[ -n $selections ]]; then
-        local additions=$(echo $selections | sed 's/M //g' | sed 's/?? //g')
-        git add --verbose $additions
+        git add --verbose $selections
     fi
 }
 
